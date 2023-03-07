@@ -6,15 +6,12 @@ use CodeIgniter\Model;
 
 class UsersModel extends Model
 {
-    protected $DBGroup          = 'default';
     protected $table            = 'users';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
+    protected $primaryKey       = 'nik';
+    protected $useAutoIncrement = false;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'email', 'password', 'role', 'foto', 'status', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
