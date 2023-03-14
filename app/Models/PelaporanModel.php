@@ -46,6 +46,16 @@ class PelaporanModel extends Model
             ->findAll();
     }
 
+    // Get Pelaporan data join with user by status
+    public function getPelaporanByStatus($status)
+    {
+        return $this->select('pelaporan.*, users.nama')
+            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
+            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->where(['status_pelaporan' => $status])
+            ->findAll();
+    }
+
     // Get Pelaporan data join with user by kategori
     public function getPelaporanByKategori($kategori)
     {
