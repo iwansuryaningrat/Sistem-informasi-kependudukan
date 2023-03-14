@@ -18,4 +18,32 @@ class KeluargaModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get Keluarga data
+    public function getKeluarga($no_kk = null)
+    {
+        if ($no_kk == null) {
+            return $this->findAll();
+        }
+
+        return $this->where(['no_kk' => $no_kk])->first();
+    }
+
+    // Edit Keluarga data
+    public function editKeluarga($data, $no_kk)
+    {
+        return $this->db->table($this->table)->update($data, ['no_kk' => $no_kk]);
+    }
+
+    // Delete Keluarga data
+    public function deleteKeluarga($no_kk)
+    {
+        return $this->db->table($this->table)->delete(['no_kk' => $no_kk]);
+    }
+
+    // Save Keluarga data
+    public function saveKeluarga($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
 }
