@@ -43,5 +43,10 @@ class Admin extends BaseController
 
     public function families()
     {
+        $data = [
+            'title' => 'Data Keluarga',
+            'active' => 'families'
+        ];
+        return view('admin/families', $data);
     }
 }
