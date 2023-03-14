@@ -36,8 +36,11 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Admin Dashboard',
-            'active' => 'dashboard'
+            'active' => 'dashboard',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
         ];
+
         return view('admin/index', $data);
     }
 
@@ -45,8 +48,246 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Data Keluarga',
-            'active' => 'families'
+            'active' => 'penduduk',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
         ];
-        return view('admin/families', $data);
+
+        return view('admin/daftarkeluarga', $data);
+    }
+
+    public function people()
+    {
+        $data = [
+            'title' => 'Data Penduduk',
+            'active' => 'penduduk',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/daftarpenduduk', $data);
+    }
+
+    public function addFamily()
+    {
+        $data = [
+            'title' => 'Tambah Keluarga',
+            'active' => 'penduduk',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/add/addkeluarga', $data);
+    }
+
+    public function addPeople()
+    {
+        $data = [
+            'title' => 'Tambah Penduduk',
+            'active' => 'penduduk',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/add/addpenduduk', $data);
+    }
+
+    public function editKeluarga($id)
+    {
+        $data = [
+            'title' => 'Edit Keluarga',
+            'active' => 'penduduk',
+            // 'keluarga' => $this->keluargaController->detailFamily($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editkeluarga', $data);
+    }
+
+    public function editPenduduk($id)
+    {
+        $data = [
+            'title' => 'Edit Penduduk',
+            'active' => 'penduduk',
+            // 'penduduk' => $this->administrasiController->detailPenduduk($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editpenduduk', $data);
+    }
+
+    public function administrasi()
+    {
+        $data = [
+            'title' => 'Administrasi',
+            'active' => 'administrasi',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/administrasi', $data);
+    }
+
+    public function addAdministrasi()
+    {
+        $data = [
+            'title' => 'Tambah Administrasi',
+            'active' => 'administrasi',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/add/addadministrasi', $data);
+    }
+
+    public function editAdministrasi($id)
+    {
+        $data = [
+            'title' => 'Edit Administrasi',
+            'active' => 'administrasi',
+            // 'administrasi' => $this->administrasiController->detailAdministrasi($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editadministrasi', $data);
+    }
+
+    public function pelaporan()
+    {
+        $data = [
+            'title' => 'Pelaporan',
+            'active' => 'pelaporan',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/pelaporan', $data);
+    }
+
+    public function editPelaporan($id)
+    {
+        $data = [
+            'title' => 'Edit Pelaporan',
+            'active' => 'pelaporan',
+            // 'pelaporan' => $this->pelaporanController->detailPelaporan($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editpelaporan', $data);
+    }
+
+    public function galeri()
+    {
+        $data = [
+            'title' => 'Galeri',
+            'active' => 'galeri',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/galeri', $data);
+    }
+
+    public function addGaleri()
+    {
+        $data = [
+            'title' => 'Tambah Galeri',
+            'active' => 'galeri',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/add/addgaleri', $data);
+    }
+
+    public function editGaleri($id)
+    {
+        $data = [
+            'title' => 'Edit Galeri',
+            'active' => 'galeri',
+            // 'galeri' => $this->galeriController->detailGaleri($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editgaleri', $data);
+    }
+
+    public function foto()
+    {
+        $data = [
+            'title' => 'Foto',
+            'active' => 'galeri',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/foto', $data);
+    }
+
+    public function addFoto()
+    {
+        $data = [
+            'title' => 'Tambah Foto',
+            'active' => 'galeri',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/add/addfoto', $data);
+    }
+
+    public function editFoto($id)
+    {
+        $data = [
+            'title' => 'Edit Foto',
+            'active' => 'galeri',
+            // 'foto' => $this->fotoController->detailFoto($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editfoto', $data);
+    }
+
+    public function pengumuman()
+    {
+        $data = [
+            'title' => 'Pengumuman',
+            'active' => 'pengumuman',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/pengumuman', $data);
+    }
+
+    public function addPengumuman()
+    {
+        $data = [
+            'title' => 'Buat Pengumuman',
+            'active' => 'pengumuman',
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/add/addpengumuman', $data);
+    }
+
+    public function editPengumuman($id)
+    {
+        $data = [
+            'title' => 'Buat Pengumuman',
+            'active' => 'pengumuman',
+            // 'pengumuman' => $this->pengumumanController->detailPengumuman($id),
+            'reqAdministrasi' => 0,
+            'reqLaporan' => 0,
+        ];
+
+        return view('admin/edit/editpengumuman', $data);
     }
 }

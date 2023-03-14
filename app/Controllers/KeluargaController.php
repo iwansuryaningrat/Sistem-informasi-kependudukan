@@ -28,12 +28,7 @@ class KeluargaController extends BaseController
      */
     public function allFamilies()
     {
-        $data = [
-            'title' => 'Keluarga',
-            'families' => $this->keluargaModel->findAll()
-        ];
-
-        return view('keluarga/index', $data);
+        return $this->keluargaModel->findAll();
     }
 
     /**
