@@ -11,7 +11,7 @@ class UsersModel extends Model
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'pendidikan', 'email', 'password', 'role', 'foto',  'created_at', 'updated_at'];
+    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'usia', 'status_perkawinan', 'pendidikan', 'email', 'password', 'role', 'foto',  'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
