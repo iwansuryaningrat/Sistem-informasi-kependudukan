@@ -19,12 +19,13 @@ class GaleriModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Galeri data join with user
+    // Get Galeri data join with user and sort by created_at desc
     public function getGaleri($galeri_id = null)
     {
         if ($galeri_id == null) {
             return $this->select('galeri.*, users.nama')
                 ->join('users', 'users.user_id = galeri.uploaded_by')
+                ->orderBy('galeri.created_at', 'DESC')
                 ->findAll();
         }
 
