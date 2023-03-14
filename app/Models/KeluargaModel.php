@@ -19,11 +19,13 @@ class KeluargaModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Keluarga data
+    // Get Keluarga data join with penduduk and sort by created_at desc
     public function getKeluarga($no_kk = null)
     {
         if ($no_kk == null) {
-            return $this->findAll();
+            return $this->select('*')
+                ->orderBy('created_at', 'DESC')
+                ->findAll();
         }
 
         return $this->where(['no_kk' => $no_kk])->first();
