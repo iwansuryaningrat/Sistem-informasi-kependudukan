@@ -19,12 +19,14 @@ class AdministrasiModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Administrasi data join with user
+    // Get Administrasi data join with user and sort by created_at desc and status 'Dalam Proses' first
     public function getAdministrasi($administrasi_id = null)
     {
         if ($administrasi_id == null) {
             return $this->select('administrasi.*, users.nama')
                 ->join('users', 'users.user_id = administrasi.pemohon')
+                ->orderBy('administrasi.created_at', 'DESC')
+                ->orderBy('administrasi.status', 'ASC')
                 ->findAll();
         }
 
@@ -40,6 +42,7 @@ class AdministrasiModel extends Model
         return $this->select('administrasi.*, users.nama')
             ->join('users', 'users.user_id = administrasi.pemohon')
             ->where(['nik' => $nik])
+            ->orderBy('administrasi.created_at', 'DESC')
             ->findAll();
     }
 
@@ -49,6 +52,7 @@ class AdministrasiModel extends Model
         return $this->select('administrasi.*, users.nama')
             ->join('users', 'users.user_id = administrasi.pemohon')
             ->where(['status' => $status])
+            ->orderBy('administrasi.created_at', 'DESC')
             ->findAll();
     }
 
