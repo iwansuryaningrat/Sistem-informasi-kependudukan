@@ -11,7 +11,7 @@ class PelaporanModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_pelaporan', 'nik', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['nik_pelapor', 'nama_terlapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
