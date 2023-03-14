@@ -18,4 +18,37 @@ class GaleriModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get Galeri data join with user
+    public function getGaleri($galeri_id = null)
+    {
+        if ($galeri_id == null) {
+            return $this->select('galeri.*, users.nama')
+                ->join('users', 'users.user_id = galeri.uploaded_by')
+                ->findAll();
+        }
+
+        return $this->select('galeri.*, users.nama')
+            ->join('users', 'users.user_id = galeri.uploaded_by')
+            ->where(['galeri_id' => $galeri_id])
+            ->first();
+    }
+
+    // Edit Galeri data
+    public function editGaleri($data, $galeri_id)
+    {
+        return $this->db->table($this->table)->update($data, ['galeri_id' => $galeri_id]);
+    }
+
+    // Delete Galeri data
+    public function deleteGaleri($galeri_id)
+    {
+        return $this->db->table($this->table)->delete(['galeri_id' => $galeri_id]);
+    }
+
+    // Save Galeri data
+    public function saveGaleri($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
 }
