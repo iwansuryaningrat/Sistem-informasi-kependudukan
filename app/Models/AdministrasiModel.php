@@ -43,6 +43,24 @@ class AdministrasiModel extends Model
             ->findAll();
     }
 
+    // Get Administrasi data by status
+    public function getAdministrasiByStatus($status)
+    {
+        return $this->select('administrasi.*, users.nama')
+            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->where(['status' => $status])
+            ->findAll();
+    }
+
+    // Count Administrasi data by status
+    public function countAdministrasiByStatus($status)
+    {
+        return $this->select('administrasi.*, users.nama')
+            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->where(['status' => $status])
+            ->countAllResults();
+    }
+
     // Edit Administrasi data
     public function editAdministrasi($data, $administrasi_id)
     {
