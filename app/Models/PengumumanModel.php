@@ -18,4 +18,46 @@ class PengumumanModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get Pengumuman data join with user
+    public function getPengumuman($pengumuman_id = null)
+    {
+        if ($pengumuman_id == null) {
+            return $this->select('pengumuman.*, users.nama')
+                ->join('users', 'users.user_id = pengumuman.created_by')
+                ->findAll();
+        }
+
+        return $this->select('pengumuman.*, users.nama')
+            ->join('users', 'users.user_id = pengumuman.created_by')
+            ->where(['pengumuman_id' => $pengumuman_id])
+            ->first();
+    }
+
+    // Get Pengumuman data join with user by kategori
+    public function getPengumumanByKategori($kategori)
+    {
+        return $this->select('pengumuman.*, users.nama')
+            ->join('users', 'users.user_id = pengumuman.created_by')
+            ->where(['kategori' => $kategori])
+            ->findAll();
+    }
+
+    // Edit Pengumuman data
+    public function editPengumuman($data, $pengumuman_id)
+    {
+        return $this->db->table($this->table)->update($data, ['pengumuman_id' => $pengumuman_id]);
+    }
+
+    // Delete Pengumuman data
+    public function deletePengumuman($pengumuman_id)
+    {
+        return $this->db->table($this->table)->delete(['pengumuman_id' => $pengumuman_id]);
+    }
+
+    // Save Pengumuman data
+    public function savePengumuman($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
 }
