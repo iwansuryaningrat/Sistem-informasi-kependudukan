@@ -18,4 +18,46 @@ class AdministrasiModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get Administrasi data join with user
+    public function getAdministrasi($administrasi_id = null)
+    {
+        if ($administrasi_id == null) {
+            return $this->select('administrasi.*, users.nama')
+                ->join('users', 'users.user_id = administrasi.pemohon')
+                ->findAll();
+        }
+
+        return $this->select('administrasi.*, users.nama')
+            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->where(['administrasi_id' => $administrasi_id])
+            ->first();
+    }
+
+    // Get Administrasi data by nik pemohon
+    public function getAdministrasiByNik($nik)
+    {
+        return $this->select('administrasi.*, users.nama')
+            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->where(['nik' => $nik])
+            ->findAll();
+    }
+
+    // Edit Administrasi data
+    public function editAdministrasi($data, $administrasi_id)
+    {
+        return $this->db->table($this->table)->update($data, ['administrasi_id' => $administrasi_id]);
+    }
+
+    // Delete Administrasi data
+    public function deleteAdministrasi($administrasi_id)
+    {
+        return $this->db->table($this->table)->delete(['administrasi_id' => $administrasi_id]);
+    }
+
+    // Save Administrasi data
+    public function saveAdministrasi($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
 }
