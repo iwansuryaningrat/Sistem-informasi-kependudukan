@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Nov 2022 pada 21.14
+-- Waktu pembuatan: 14 Mar 2023 pada 16.06
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -31,8 +31,12 @@ CREATE TABLE `administrasi` (
   `administrasi_id` int(11) NOT NULL,
   `pemohon` bigint(17) NOT NULL,
   `kategori` varchar(30) NOT NULL,
+  `keperluan` varchar(100) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `no_surat` varchar(50) NOT NULL,
   `status` varchar(10) NOT NULL,
   `berkas` varchar(255) NOT NULL,
+  `tgl_penerimaan` date NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46,6 +50,7 @@ CREATE TABLE `administrasi` (
 CREATE TABLE `foto` (
   `foto_id` int(11) NOT NULL,
   `galeri_id` int(11) NOT NULL,
+  `nama_foto` varchar(255) NOT NULL,
   `foto_path` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -93,10 +98,13 @@ CREATE TABLE `keluarga` (
 
 CREATE TABLE `pelaporan` (
   `pelaporan_id` int(11) NOT NULL,
-  `nama_pelaporan` varchar(50) NOT NULL,
-  `nik` bigint(17) NOT NULL,
-  `no_kk` bigint(17) NOT NULL,
-  `status` varchar(20) NOT NULL,
+  `nik_pelapor` bigint(17) NOT NULL,
+  `nama_terlapor` varchar(50) NOT NULL,
+  `nik_terlapor` bigint(17) NOT NULL,
+  `kategori` varchar(50) NOT NULL,
+  `laporan` varchar(255) NOT NULL,
+  `deskripsi_pelaporan` varchar(255) NOT NULL,
+  `status_pelaporan` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -131,10 +139,16 @@ CREATE TABLE `users` (
   `nik` bigint(17) NOT NULL,
   `no_kk` bigint(17) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `jenis_kelamin` varchar(20) NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `status_perkawinan` varchar(20) NOT NULL,
+  `pendidikan` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(10) NOT NULL,
-  `status` varchar(15) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -175,7 +189,8 @@ ALTER TABLE `keluarga`
 --
 ALTER TABLE `pelaporan`
   ADD PRIMARY KEY (`pelaporan_id`),
-  ADD KEY `nik_fk` (`nik`);
+  ADD KEY `nik_fk` (`nik_pelapor`),
+  ADD KEY `terlapor_fk` (`nik_terlapor`);
 
 --
 -- Indeks untuk tabel `pengumuman`
@@ -251,7 +266,8 @@ ALTER TABLE `galeri`
 -- Ketidakleluasaan untuk tabel `pelaporan`
 --
 ALTER TABLE `pelaporan`
-  ADD CONSTRAINT `nik_fk` FOREIGN KEY (`nik`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `nik_fk` FOREIGN KEY (`nik_pelapor`) REFERENCES `users` (`nik`),
+  ADD CONSTRAINT `terlapor_fk` FOREIGN KEY (`nik_terlapor`) REFERENCES `users` (`nik`);
 
 --
 -- Ketidakleluasaan untuk tabel `pengumuman`
