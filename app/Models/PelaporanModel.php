@@ -19,13 +19,15 @@ class PelaporanModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Pelaporan data join with user
+    // Get Pelaporan data join with user and sort by created_at desc and status 'Dalam Proses' first
     public function getPelaporan($pelaporan_id = null)
     {
         if ($pelaporan_id == null) {
             return $this->select('pelaporan.*, users.nama')
                 ->join('users', 'users.user_id = pelaporan.nik_pelapor')
                 ->join('users', "users.user_id = pelaporan.nik_terlapor")
+                ->orderBy('pelaporan.created_at', 'DESC')
+                ->orderBy('pelaporan.status_pelaporan', 'ASC')
                 ->findAll();
         }
 
@@ -43,6 +45,7 @@ class PelaporanModel extends Model
             ->join('users', 'users.user_id = pelaporan.nik_pelapor')
             ->join('users', "users.user_id = pelaporan.nik_terlapor")
             ->where(['nik_pelapor' => $nik])
+            ->orderBy('pelaporan.created_at', 'DESC')
             ->findAll();
     }
 
@@ -53,6 +56,7 @@ class PelaporanModel extends Model
             ->join('users', 'users.user_id = pelaporan.nik_pelapor')
             ->join('users', "users.user_id = pelaporan.nik_terlapor")
             ->where(['status_pelaporan' => $status])
+            ->orderBy('pelaporan.created_at', 'DESC')
             ->findAll();
     }
 
@@ -73,6 +77,7 @@ class PelaporanModel extends Model
             ->join('users', 'users.user_id = pelaporan.nik_pelapor')
             ->join('users', "users.user_id = pelaporan.nik_terlapor")
             ->where(['kategori' => $kategori])
+            ->orderBy('pelaporan.created_at', 'DESC')
             ->findAll();
     }
 
