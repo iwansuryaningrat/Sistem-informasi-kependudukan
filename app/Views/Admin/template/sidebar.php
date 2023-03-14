@@ -104,6 +104,16 @@
                                     <span class="sub-item">Daftar Foto</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="tables/datatables.html">
+                                    <span class="sub-item">Tambah Galeri</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tables/datatables.html">
+                                    <span class="sub-item">Tambah Foto</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
