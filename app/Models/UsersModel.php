@@ -19,12 +19,14 @@ class UsersModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Users join with Keluarga
+    // Get Users join with Keluarga data and sort by created_at desc and status 'Kepala Keluarga' first
     public function getUsers($nik = null)
     {
         if ($nik == null) {
             return $this->select('users.*, keluarga.nama_kepala_keluarga')
                 ->join('keluarga', 'keluarga.no_kk = users.no_kk')
+                ->orderBy('users.created_at', 'DESC')
+                ->orderBy('users.status', 'DESC')
                 ->findAll();
         }
 
