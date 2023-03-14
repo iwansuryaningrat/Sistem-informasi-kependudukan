@@ -54,4 +54,8 @@ class AuthController extends BaseController
     public function registering()
     {
     }
+
+    public function logout()
+    {
+    }
 }

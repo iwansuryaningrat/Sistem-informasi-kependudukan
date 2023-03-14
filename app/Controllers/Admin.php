@@ -38,7 +38,7 @@ class Admin extends BaseController
             'title' => 'Admin Dashboard',
             'active' => 'dashboard'
         ];
-        return view('admin/index');
+        return view('admin/index', $data);
     }
 
     public function families()
