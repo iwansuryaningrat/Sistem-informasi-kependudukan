@@ -11,7 +11,7 @@ class AdministrasiModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['pemohon', 'kategori', 'status', 'berkas', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'status', 'berkas', 'tgl_penerimaan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
