@@ -19,12 +19,13 @@ class FotoModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Foto data join with galeri
+    // Get Foto data join with galeri and sort by created_at desc
     public function getFoto($foto_id = null)
     {
         if ($foto_id == null) {
             return $this->select('foto.*, galeri.nama_galeri')
                 ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
+                ->orderBy('foto.created_at', 'DESC')
                 ->findAll();
         }
 
@@ -40,6 +41,7 @@ class FotoModel extends Model
         return $this->select('foto.*, galeri.nama_galeri')
             ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
             ->where(['galeri_id' => $galeri_id])
+            ->orderBy('foto.created_at', 'DESC')
             ->findAll();
     }
 
