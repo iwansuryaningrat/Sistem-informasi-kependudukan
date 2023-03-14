@@ -18,22 +18,46 @@ class UsersModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    // Get Users join with Keluarga
+    public function getUsers($nik = null)
+    {
+        if ($nik == null) {
+            return $this->select('users.*, keluarga.nama_kepala_keluarga')
+                ->join('keluarga', 'keluarga.no_kk = users.no_kk')
+                ->findAll();
+        }
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+        return $this->select('users.*, keluarga.nama_kepala_keluarga')
+            ->join('keluarga', 'keluarga.no_kk = users.no_kk')
+            ->where(['nik' => $nik])
+            ->first();
+    }
+
+    // Edit Users data
+    public function editUsers($data, $nik)
+    {
+        return $this->db->table($this->table)->update($data, ['nik' => $nik]);
+    }
+
+    // Delete Users data
+    public function deleteUsers($nik)
+    {
+        return $this->db->table($this->table)->delete(['nik' => $nik]);
+    }
+
+    // Get Users by no_kk
+    public function getUsersByKK($no_kk)
+    {
+        return $this->select('users.*, keluarga.nama_kepala_keluarga')
+            ->join('keluarga', 'keluarga.no_kk = users.no_kk')
+            ->where(['users.no_kk' => $no_kk])
+            ->findAll();
+    }
+
+    // Save Users data
+    public function saveUsers($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
 }
