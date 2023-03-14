@@ -56,6 +56,16 @@ class PelaporanModel extends Model
             ->findAll();
     }
 
+    // Count Pelaporan data by status
+    public function countPelaporanByStatus($status)
+    {
+        return $this->select('pelaporan.*, users.nama')
+            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
+            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->where(['status_pelaporan' => $status])
+            ->countAllResults();
+    }
+
     // Get Pelaporan data join with user by kategori
     public function getPelaporanByKategori($kategori)
     {
