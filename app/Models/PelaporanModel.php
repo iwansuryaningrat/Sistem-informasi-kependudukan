@@ -46,6 +46,16 @@ class PelaporanModel extends Model
             ->findAll();
     }
 
+    // Get Pelaporan data join with user by kategori
+    public function getPelaporanByKategori($kategori)
+    {
+        return $this->select('pelaporan.*, users.nama')
+            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
+            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->where(['kategori' => $kategori])
+            ->findAll();
+    }
+
     // Edit Pelaporan data
     public function editPelaporan($data, $pelaporan_id)
     {
