@@ -110,7 +110,8 @@ class Auth extends BaseController
         // Check if user want to remember me
         if ($rememberme == 'on') {
             // set Session expiry for 1 day
-            $this->session->sess_expiration = 86400;
+            $expired = 60 * 60 * 24;
+            $this->session->sess_expiration = $expired;
         }
 
         if ($user['role'] == 'admin' || $user['role'] == 'ketua_rt') {
