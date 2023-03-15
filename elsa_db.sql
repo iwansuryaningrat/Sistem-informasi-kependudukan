@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Mar 2023 pada 16.06
+-- Waktu pembuatan: 15 Mar 2023 pada 01.00
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+07:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -90,6 +90,13 @@ CREATE TABLE `keluarga` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `keluarga`
+--
+
+INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`, `foto_rumah`, `tgl_pindah`, `status`, `created_at`, `updated_at`) VALUES
+(3315121412000002, 'Keluarga Cemara', 'Jl. in aja dulu', 'Jl. Panjang', '', '2023-03-01', 'Aktif', '2023-03-14 16:31:18', '2023-03-14 16:31:18');
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +150,7 @@ CREATE TABLE `users` (
   `jenis_kelamin` varchar(20) NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
+  `usia` int(11) NOT NULL,
   `status_perkawinan` varchar(20) NOT NULL,
   `pendidikan` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -152,6 +160,13 @@ CREATE TABLE `users` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `tempat_lahir`, `tgl_lahir`, `usia`, `status_perkawinan`, `pendidikan`, `email`, `password`, `role`, `foto`, `created_at`, `updated_at`) VALUES
+(3315121412000003, 3315121412000002, 'Iwan Suryaningrat', 'anak', 'laki-laki', 'Grobogan', '2000-12-14', 0, 'Belum kawin', 'S1', 'iwan.suryaningrat28@gmail.com', 'werwerewrewfd', 'user', '', '2023-03-14 16:32:35', '2023-03-14 16:32:35');
 
 --
 -- Indexes for dumped tables
