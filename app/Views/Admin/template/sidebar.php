@@ -36,7 +36,7 @@
             </div>
             <ul class="nav nav-primary">
                 <li class="nav-item <?php if ($active == 'dashboard') echo 'active' ?>">
-                    <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                    <a href="/admin/">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
@@ -73,7 +73,7 @@
                     </div>
                 </li>
                 <li class="nav-item <?php if ($active == 'administrasi') echo 'active' ?>">
-                    <a data-toggle="collapse" href="/admin/administrasi">
+                    <a href="/admin/administrasi">
                         <i class="fas fa-file-signature"></i>
                         <p>Administrasi</p>
                         <span class="badge badge-success">
@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class="nav-item <?php if ($active == 'pelaporan') echo 'active' ?>">
-                    <a data-toggle="collapse" href="/admin/pelaporan">
+                    <a href="/admin/pelaporan">
                         <i class="fas fa-pen-square"></i>
                         <p>Laporan</p>
                         <span class="badge badge-success">
