@@ -38,6 +38,9 @@ class Auth extends BaseController
         }
     }
 
+    /**
+     * This function is used to display the login page for the admin
+     */
     public function adminLogin()
     {
         $data = [
@@ -47,15 +50,23 @@ class Auth extends BaseController
         return view('auth/login', $data);
     }
 
+    /**
+     * It returns the view of the login page.
+     * 
+     * @return The view is being returned.
+     */
     public function usersLogin()
     {
         $data = [
             'title' => 'Login Users'
         ];
 
-        return view('auth/login', $data);
+        return view('users/login', $data);
     }
 
+    /**
+     * The above function is used to log in the admin or ketua RT.
+     */
     public function logingin()
     {
         $nik = $this->request->getVar('nik');
@@ -108,12 +119,27 @@ class Auth extends BaseController
             $this->session->sess_expiration = 86400;
         }
 
-        return redirect()->to('/admin');
+        if ($user['role'] == 'admin' || $user['role'] == 'ketua_rt') {
+            return redirect()->to('/admin');
+        } elseif ($user['role'] == 'user') {
+            return redirect()->to('/users');
+        }
     }
 
+    /**
+     * It destroys the session and redirects to the login page.
+     * 
+     * @return The logout function is returning the redirect to the login page.
+     */
     public function logout()
     {
+        $data = session()->get();
         session()->destroy();
-        return redirect()->to('/auth/adminlogin');
+
+        if ($data['role'] == 'admin') {
+            return redirect()->to('/auth/adminlogin');
+        } elseif ($data['role'] == 'users') {
+            return redirect()->to('/auth/userslogin');
+        }
     }
 }
