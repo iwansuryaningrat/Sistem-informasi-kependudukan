@@ -64,6 +64,41 @@
 	<script src="/assets/js/core/popper.min.js"></script>
 	<script src="/assets/js/core/bootstrap.min.js"></script>
 	<script src="/assets/js/atlantis.min.js"></script>
+
+	<!-- Bootstrap Notify -->
+	<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+	<script>
+		function notify(message) {
+			var placementFrom = 'top';
+			var placementAlign = 'center';
+			var state = 'danger';
+			var style = 'withicon';
+			var content = {};
+
+			content.message = message;
+			content.title = "Warning!";
+			content.icon = "fas fa-info";
+			content.url = "#";
+
+			$.notify(content, {
+				type: state,
+				placement: {
+					from: placementFrom,
+					align: placementAlign,
+				},
+				time: 1000,
+				delay: 0,
+			});
+		}
+
+		<?php
+		if (session()->getFlashdata('message')) {
+			$message = session()->getFlashdata('message');
+			echo "notify('$message');";
+		}
+		?>
+	</script>
 </body>
 
 </html>
