@@ -83,13 +83,7 @@ class Auth extends BaseController
 
         // Check if password is correct
         if (!password_verify($password, $user['password'])) {
-            session()->setFlashdata('message', 'Password salah');
-            return redirect()->to('/auth/adminlogin');
-        }
-
-        // Check if user role is admin or ketua RT
-        if ($user['role'] != 'admin' && $user['role'] != 'ketua_rt') {
-            session()->setFlashdata('message', 'Anda tidak memiliki akses');
+            session()->setFlashdata('message', 'Password yang Anda masukkan salah');
             return redirect()->to('/auth/adminlogin');
         }
 
