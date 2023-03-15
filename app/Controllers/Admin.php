@@ -127,7 +127,7 @@ class Admin extends BaseController
             'reqLaporan' => 0,
         ];
 
-        return view('admin/administrasi', $data);
+        return view('admin/daftaradministrasi', $data);
     }
 
     public function addAdministrasi()
@@ -164,7 +164,7 @@ class Admin extends BaseController
             'reqLaporan' => 0,
         ];
 
-        return view('admin/pelaporan', $data);
+        return view('admin/daftarlaporan', $data);
     }
 
     public function editPelaporan($id)
@@ -177,7 +177,7 @@ class Admin extends BaseController
             'reqLaporan' => 0,
         ];
 
-        return view('admin/edit/editpelaporan', $data);
+        return view('admin/edit/editlaporan', $data);
     }
 
     public function galeri()
@@ -189,7 +189,7 @@ class Admin extends BaseController
             'reqLaporan' => 0,
         ];
 
-        return view('admin/galeri', $data);
+        return view('admin/daftargaleri', $data);
     }
 
     public function addGaleri()
@@ -226,7 +226,7 @@ class Admin extends BaseController
             'reqLaporan' => 0,
         ];
 
-        return view('admin/foto', $data);
+        return view('admin/daftarfoto', $data);
     }
 
     public function addFoto()
@@ -263,7 +263,7 @@ class Admin extends BaseController
             'reqLaporan' => 0,
         ];
 
-        return view('admin/pengumuman', $data);
+        return view('admin/daftarpengumuman', $data);
     }
 
     public function addPengumuman()
