@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Controllers\AdministrasiController;
-use App\Controllers\AuthController;
+use App\Controllers\Auth;
 use App\Controllers\FotoController;
 use App\Controllers\GaleriController;
 use App\Controllers\KeluargaController;
@@ -14,7 +14,7 @@ use App\Controllers\PengumumanController;
 class Admin extends BaseController
 {
     protected $administrasiController;
-    protected $authController;
+    protected $auth;
     protected $fotoController;
     protected $galeriController;
     protected $keluargaController;
@@ -24,7 +24,7 @@ class Admin extends BaseController
     public function __construct()
     {
         $this->administrasiController = new AdministrasiController();
-        $this->authController = new AuthController();
+        $this->auth = new Auth();
         $this->fotoController = new FotoController();
         $this->galeriController = new GaleriController();
         $this->keluargaController = new KeluargaController();
