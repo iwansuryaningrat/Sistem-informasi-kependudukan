@@ -21,6 +21,8 @@ class Admin extends BaseController
     protected $pelaporanController;
     protected $pengumumanController;
 
+    protected $session;
+
     public function __construct()
     {
         $this->administrasiController = new AdministrasiController();
@@ -30,10 +32,16 @@ class Admin extends BaseController
         $this->keluargaController = new KeluargaController();
         $this->pelaporanController = new PelaporanController();
         $this->pengumumanController = new PengumumanController();
+
+        // Get Session Data
+        $this->session = \Config\Services::session();
     }
 
     public function index()
     {
+        //  get session data
+        $sessionData = $this->session->get();
+        dd($sessionData);
         $data = [
             'title' => 'Admin Dashboard',
             'active' => 'dashboard',
