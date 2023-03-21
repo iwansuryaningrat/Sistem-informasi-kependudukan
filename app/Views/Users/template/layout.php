@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/homepage/assets/css/responsiveness.css" />
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
     <!-- title -->
     <title>Warga Site</title>
 </head>
