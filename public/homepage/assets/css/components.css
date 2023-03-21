@@ -1,0 +1,358 @@
+/* COMPONENTS */
+/* button */
+.btn-main {
+  background-color: var(--primary-500);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: var(--transition-all-300);
+  -webkit-transition: var(--transition-all-300);
+  -moz-transition: var(--transition-all-300);
+  -ms-transition: var(--transition-all-300);
+  -o-transition: var(--transition-all-300);
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+}
+.btn-main-xs {
+  background-color: var(--primary-500);
+  color: #fff;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.625rem 1rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  transition: var(--transition-all-300);
+  -webkit-transition: var(--transition-all-300);
+  -moz-transition: var(--transition-all-300);
+  -ms-transition: var(--transition-all-300);
+  -o-transition: var(--transition-all-300);
+  -webkit-border-radius: 0.375rem;
+  -moz-border-radius: 0.375rem;
+  -ms-border-radius: 0.375rem;
+  -o-border-radius: 0.375rem;
+}
+.btn-main:hover,
+.btn-main-xs:hover {
+  background-color: var(--primary-700);
+  color: #fff;
+}
+.btn-main:focus,
+.btn-main-xs:focus {
+  background-color: var(--primary-700) !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.2) !important;
+  color: #fff !important;
+}
+
+.btn-main-outline {
+  background-color: transparent;
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
+  border-radius: 9px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: var(--transition-all-300);
+  -webkit-transition: var(--transition-all-300);
+  -moz-transition: var(--transition-all-300);
+  -ms-transition: var(--transition-all-300);
+  -o-transition: var(--transition-all-300);
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+}
+.btn-main-outline:hover {
+  border: 1px solid var(--primary-500);
+  background-color: rgba(83, 195, 81, 0.1);
+  color: var(--primary-500);
+}
+.btn-main-outline:focus {
+  background-color: var(--primary-500) !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.2) !important;
+  color: #fff !important;
+}
+
+/* form */
+.form-control.input-control {
+  padding: 0.5rem 0.875rem;
+}
+.form-control.input-control-sm {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.75rem;
+}
+select.form-select.select-control {
+  padding: 0.5rem 0.875rem;
+}
+select.form-select.select-control-sm {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.75rem;
+}
+.form-control.input-control-password {
+  padding: 0.5rem 2.75rem 0.5rem 0.875rem;
+}
+.form-control.input-control::placeholder,
+.form-control.input-control-password::placeholder,
+select.form-select.select-control::placeholder,
+.form-control.input-control-sm::placeholder,
+select.form-select.select-control-sm::placeholder {
+  color: #a6a6a6;
+}
+.form-control.input-control:focus,
+.form-control.input-control-password:focus,
+select.form-select.select-control:focus,
+.form-control.input-control-sm:focus,
+select.form-select.select-control-sm:focus {
+  border-color: #3cb357;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.15);
+}
+.form-check-input:checked {
+  background-color: var(--primary-500);
+  border-color: var(--primary-500);
+}
+.form-control.input-control.error,
+.form-control.input-control-password.error,
+select.form-select.select-control.error,
+.form-control.input-control-sm.error,
+select.form-select.select-control-sm.error {
+  border-color: #dc3545;
+}
+.form-control.input-control.error:focus,
+.form-control.input-control-password.error:focus,
+select.form-select.select-control.error:focus,
+.form-control.input-control-sm.error:focus,
+select.form-select.select-control-sm.error:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}
+.form-label.forms-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.375rem;
+}
+.form-check-label.forms-check-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+label.error {
+  color: #dc3545;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+.form-text.input-text {
+  font-size: 0.8125rem;
+  color: rgb(86, 86, 86);
+}
+
+/* card */
+.sign-card {
+  background-color: var(--primary-100);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.01);
+}
+
+/* icons */
+#togglePassword {
+  position: absolute;
+  right: 1rem;
+  top: 39px;
+  cursor: pointer;
+}
+#togglePassword svg {
+  z-index: 99;
+  color: rgb(132, 132, 132) !important;
+  font-size: 1rem;
+}
+
+/* LAYOUTS */
+/* container */
+.header-container {
+  margin: 8rem 0 5rem;
+}
+.container-space {
+  padding: 4rem 0;
+}
+.sign-container-content {
+  padding: 10rem 2rem 7rem;
+}
+.sign-container-content__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign_card__content {
+  width: 100%;
+  max-width: 30rem;
+}
+.sign_card__content .w-90 {
+  margin: 0 auto;
+}
+.card-table-container {
+  width: 100%;
+  padding: 0.625rem 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+}
+.card-form-container {
+  width: 100%;
+  padding: 0;
+  border-radius: 0.75rem;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+}
+
+/* navigation */
+.navbar-container {
+  padding: 1.25rem 2rem;
+}
+.navbar.navbar-blur {
+  background: transparent;
+}
+
+/* header */
+.header-container-mini {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0 1rem;
+  flex-direction: column;
+}
+.header-container-dashboard {
+  margin-top: 4rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 4rem 0 1rem;
+}
+.header-container-news {
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+}
+.related-news-container {
+  display: flex;
+  flex-direction: column;
+}
+.related-news-container a {
+  margin-bottom: 1.5rem;
+}
+.empty-container {
+  width: 100%;
+  height: 55vh;
+  min-height: 400px;
+}
+
+/* table */
+.heading-table tr th {
+  font-size: 0.75rem;
+}
+.body-table tr td {
+  font-size: 0.875rem;
+}
+
+/* footer */
+footer hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+}
+.big-footer {
+  background: rgba(83, 195, 81, 0.1);
+  padding: 4rem 0 1rem;
+}
+.small-footer {
+  background: rgba(83, 195, 81, 0.1);
+  padding: 1rem 0;
+}
+.small-footer p {
+  font-size: 0.875rem;
+}
+.footer-container-top {
+  margin-bottom: 4rem;
+}
+.footer-top__left {
+  max-width: 28rem;
+}
+.footer-floor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-floor > p {
+  font-size: 0.875rem;
+  color: rgb(132, 132, 132);
+  margin-bottom: 0;
+}
+.footer-social-media {
+  display: flex;
+  align-items: center;
+}
+.footer-social-media a {
+  display: block;
+  margin-right: 1rem;
+  color: rgb(132, 132, 132);
+}
+.footer-social-media a:last-child {
+  margin-right: 0;
+}
+.footer-social-media a:hover {
+  color: rgb(83, 195, 81);
+}
+.footer-social-media a svg {
+  font-size: 1.25rem;
+}
+.footer-logo-link {
+  display: block;
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out;
+  -ms-transition: transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+}
+.footer-logo-link:hover {
+  transform: translateX(0.625rem);
+  -webkit-transform: translateX(0.625rem);
+  -moz-transform: translateX(0.625rem);
+  -ms-transform: translateX(0.625rem);
+  -o-transform: translateX(0.625rem);
+}
+.footer-logo-wrapper {
+  height: 2.5rem;
+}
+.footer-logo-link img {
+  height: 100%;
+}
+.footer-menu-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+.footer-menu-wrapper ul li {
+  margin-bottom: 0.375rem;
+}
+.footer-menu-wrapper .footer-menu__header {
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+}
+.footer-menu-wrapper ul li a {
+  color: rgb(106, 106, 106);
+  transition: var(--transition-all-300);
+  -webkit-transition: var(--transition-all-300);
+  -moz-transition: var(--transition-all-300);
+  -ms-transition: var(--transition-all-300);
+  -o-transition: var(--transition-all-300);
+}
+.footer-menu-wrapper ul li a:hover {
+  color: rgb(21, 21, 21);
+}

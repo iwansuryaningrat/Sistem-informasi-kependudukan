@@ -1,0 +1,31 @@
+/* VARIABLE */
+:root {
+  --primary-100: rgba(244, 249, 248, 1);
+  --primary-500: rgba(83, 195, 81, 1);
+  --primary-700: rgb(61, 159, 58);
+
+  --transition-all-300: all 0.3s ease;
+}
+
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}

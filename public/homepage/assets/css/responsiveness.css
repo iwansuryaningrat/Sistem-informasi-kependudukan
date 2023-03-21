@@ -1,0 +1,125 @@
+/* responsive */
+@media only screen and (max-width: 1023px) {
+  /* etc */
+  .news-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2.25rem 1.75rem;
+  }
+}
+@media only screen and (max-width: 959px) {
+  /* components */
+  /* navigation */
+  .navbar.navbar-blur {
+    background: rgba(244, 249, 248, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    -ms-backdrop-filter: blur(10px);
+    -o-backdrop-filter: blur(10px);
+  }
+  /* footer */
+  .footer-floor {
+    flex-direction: column;
+  }
+  .footer-floor p {
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* components */
+  /* container */
+  .header-container-mini {
+    padding-bottom: 0;
+  }
+
+  /* footer */
+  .footer-top__left {
+    margin-bottom: 2rem;
+  }
+  .footer-menu-link {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* etc */
+  .sign_card__content .w-90 {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 639px) {
+  /* etc */
+  .news-image__wrap {
+    height: 12rem;
+  }
+  .news-container {
+    grid-gap: 2rem 1.5rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  /* components */
+  /* container */
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* etc */
+  .news-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2.25rem 1.75rem;
+  }
+}
+@media only screen and (max-width: 479px) {
+  /* general */
+  p {
+    font-size: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+  /* components */
+  /* button */
+  .btn-main,
+  .btn-main-outline {
+    border-radius: 6px;
+    padding: 8px 16px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+  }
+  /* container */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .sign-container-content {
+    padding: 7rem 1rem 6rem;
+  }
+  /* form */
+  .form-control.input-control,
+  select.form-select.select-control,
+  .form-control.input-control-password {
+    font-size: 0.875rem;
+  }
+  .form-text.input-text {
+    font-size: 0.75rem;
+  }
+  /* footer */
+  .big-footer {
+    padding-top: 3rem;
+  }
+  .small-footer p {
+    font-size: 0.75rem;
+  }
+  .footer-container-top {
+    margin-bottom: 2.5rem;
+  }
+  .footer-top__left {
+    margin-bottom: 1.5rem;
+  }
+  .footer-menu-wrapper ul li {
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (max-width: 319px) {
+}

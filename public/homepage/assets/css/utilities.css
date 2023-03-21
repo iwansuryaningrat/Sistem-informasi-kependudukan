@@ -1,0 +1,58 @@
+/* background */
+.bg-main-500 {
+  background-color: var(--primary-500);
+}
+.bg-main-700 {
+  background-color: var(--primary-700);
+}
+.bg-main-500__50 {
+  background-color: rgba(83, 195, 81, 0.5);
+}
+.bg-main-500__05 {
+  background-color: rgba(83, 195, 81, 0.05);
+}
+
+/* hover */
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
+/* typography */
+.text-basic {
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(106, 106, 106);
+}
+.text-sm {
+  font-size: 0.875rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+}
+.text-main-700 {
+  color: var(--primary-700);
+}
+.text-gray {
+  color: rgba(89, 89, 89, 1);
+}
+.text-gray-200 {
+  color: rgb(186, 186, 186);
+}
+
+svg.fill-main-700,
+.fill-main-700 path {
+  color: var(--primary-700) !important;
+  fill: var(--primary-700) !important;
+}
+
+svg.fill-dark,
+.fill-dark path {
+  color: rgba(0, 0, 0, 1);
+  fill: rgba(0, 0, 0, 1);
+}
+
+svg.fill-gray,
+.fill-gray path {
+  color: rgba(89, 89, 89, 1);
+  fill: rgba(89, 89, 89, 1);
+}
