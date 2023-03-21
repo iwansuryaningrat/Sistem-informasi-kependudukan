@@ -7,7 +7,7 @@
                 <div class="footer-top__left">
                     <a href="./index.html" class="footer-logo-link">
                         <figure class="footer-logo-wrapper">
-                            <img src="./assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" />
+                            <img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" />
                         </figure>
                     </a>
                     <p class="text-basic">
