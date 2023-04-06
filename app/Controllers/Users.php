@@ -51,16 +51,6 @@ class Users extends BaseController
         return view('/users/report', $data);
     }
 
-    public function keluarga()
-    {
-        $data = [
-            'title' => 'Menu Keluarga | Warga Site',
-            'navbar' => 'keluarga',
-        ];
-
-        return view('/users/family', $data);
-    }
-
     public function galeri()
     {
         $data = [
@@ -90,4 +80,46 @@ class Users extends BaseController
 
         return view('/users/profile', $data);
     }
+
+    // Keluarga Method
+    public function keluarga()
+    {
+        $data = [
+            'title' => 'Menu Keluarga | Warga Site',
+            'navbar' => 'keluarga',
+        ];
+
+        return view('/users/family', $data);
+    }
+
+    public function detailkeluarga()
+    {
+        $data = [
+            'title' => 'Detail Keluarga | Warga Site',
+            'navbar' => 'keluarga',
+        ];
+
+        return view('/users/family-detail', $data);
+    }
+
+    public function formTambahKeluarga()
+    {
+        $data = [
+            'title' => 'Form Tambah Keluarga | Warga Site',
+            'navbar' => 'keluarga',
+        ];
+
+        return view('/users/family-form-add', $data);
+    }
+
+    public function formEditKeluarga()
+    {
+        $data = [
+            'title' => 'Form Edit Keluarga | Warga Site',
+            'navbar' => 'keluarga',
+        ];
+
+        return view('/users/family-form-edit', $data);
+    }
+    // End of Keluarga Method
 }

@@ -53,10 +53,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -79,10 +79,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -105,10 +105,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -131,10 +131,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -185,7 +185,7 @@
 
     // add button create report
     $('#tableFamily_wrapper .row:first-child').append(
-      '<div class="col-12 col-sm-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="./family-form-add.html" class="btn btn-main-xs w-full-md" role="button"><i class="fa-solid fa-plus me-2"></i>Tambah Keluarga</a></div></div>'
+      '<div class="col-12 col-sm-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="/users/formtambahkeluarga" class="btn btn-main-xs w-full-md" role="button"><i class="fa-solid fa-plus me-2"></i>Tambah Keluarga</a></div></div>'
     );
 
     // change class of datatable familyTable
