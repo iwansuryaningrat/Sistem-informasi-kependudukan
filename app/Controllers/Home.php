@@ -24,8 +24,7 @@ class Home extends BaseController
     {
         $data = [
             'title' => 'Warga Site | Home',
-            //     'navbar' => 'home',
-            //     'subnavbar' => 'home',
+            'navbar' => 'home',
         ];
 
         return view('/users/index', $data);
