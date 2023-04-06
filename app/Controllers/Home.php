@@ -22,6 +22,11 @@ class Home extends BaseController
 
     public function index()
     {
-        return view('welcome_message');
+        $data = [
+            'title' => 'Warga Site | Home',
+            'navbar' => 'home',
+            'subnavbar' => 'home',
+        ];
+        return view('/users/index', $data);
     }
 }

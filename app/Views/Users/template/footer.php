@@ -1,4 +1,3 @@
-<!-- footer -->
 <footer class="big-footer">
     <section class="container">
         <div class="row footer-container-top">
@@ -16,9 +15,7 @@
                         Jl. Raya Kebayoran Lama Bl A-5/194, DKI Jakarta, Kota Jakarta
                         12240
                     </p>
-                    <button class="btn btn-main" type="button">
-                        Kontak Kami
-                    </button>
+                    <button class="btn btn-main" type="button">Kontak Kami</button>
                 </div>
             </div>
             <!-- right -->
@@ -58,4 +55,3 @@
         </div>
     </section>
 </footer>
-<!-- end of footer -->
