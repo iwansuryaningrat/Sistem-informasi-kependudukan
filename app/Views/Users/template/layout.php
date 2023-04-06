@@ -21,6 +21,7 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
+
     <!-- title -->
     <title><?= $title; ?></title>
 </head>
