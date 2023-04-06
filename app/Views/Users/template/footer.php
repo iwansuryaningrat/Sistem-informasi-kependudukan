@@ -15,7 +15,9 @@
                         Jl. Raya Kebayoran Lama Bl A-5/194, DKI Jakarta, Kota Jakarta
                         12240
                     </p>
-                    <button class="btn btn-main" type="button">Kontak Kami</button>
+                    <a href="https://wa.me/62xxxxxxx">
+                        <button class="btn btn-main" type="button">Kontak Kami</button>
+                    </a>
                 </div>
             </div>
             <!-- right -->
