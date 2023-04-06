@@ -29,4 +29,24 @@ class Home extends BaseController
 
         return view('/users/index', $data);
     }
+
+    public function signin()
+    {
+        $data = [
+            'title' => 'Warga Site | Login',
+            'navbar' => 'login',
+        ];
+
+        return view('/users/signin', $data);
+    }
+
+    public function signup()
+    {
+        $data = [
+            'title' => 'Warga Site | Register',
+            'navbar' => 'register',
+        ];
+
+        return view('/users/signup', $data);
+    }
 }
