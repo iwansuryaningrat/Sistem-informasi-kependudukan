@@ -41,7 +41,7 @@ class Admin extends BaseController
     {
         //  get session data
         $sessionData = $this->session->get();
-        dd($sessionData);
+        // dd($sessionData);
         $data = [
             'title' => 'Admin Dashboard',
             'active' => 'dashboard',
