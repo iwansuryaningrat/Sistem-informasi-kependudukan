@@ -80,4 +80,14 @@ class Users extends BaseController
 
         return view('/users/announcement', $data);
     }
+
+    public function profile()
+    {
+        $data = [
+            'title' => 'Profile | Warga Site',
+            'navbar' => 'profile',
+        ];
+
+        return view('/users/profile', $data);
+    }
 }
