@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-container navbar-shadow">
     <div class="container-fluid">
         <!-- brand -->
-        <a class="navbar-brand fw-bold" href="./index.html"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
+        <a class="navbar-brand fw-bold" href="/home"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
         <!-- toggle mobile navbar -->
         <button class="navbar-toggler navbar-toggling shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,7 @@
                 </li>
             </ul>
             <!-- right -->
-            <a class="btn btn-main-outline-sm w-full-xl" role="button" href="./signin.html">Masuk</a>
+            <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/home/signin">Masuk</a>
         </div>
     </div>
 </nav>

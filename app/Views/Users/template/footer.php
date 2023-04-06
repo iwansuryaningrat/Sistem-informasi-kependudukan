@@ -4,7 +4,7 @@
             <!-- left -->
             <div class="col-md-4">
                 <div class="footer-top__left">
-                    <a href="./index.html" class="footer-logo-link">
+                    <a href="/home" class="footer-logo-link">
                         <figure class="footer-logo-wrapper">
                             <img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" />
                         </figure>
@@ -24,18 +24,18 @@
                     <div class="footer-menu-wrapper">
                         <ul class="ps-0 ps-md-5">
                             <li class="footer-menu__header">Warga</li>
-                            <li><a href="./news.html">Pengumuman</a></li>
-                            <li><a href="./galery.html">Galeri</a></li>
+                            <li><a href="/users/pengumuman">Pengumuman</a></li>
+                            <li><a href="/users/galeri">Galeri</a></li>
                         </ul>
                     </div>
                     <div class="footer-menu-wrapper">
                         <ul class="ps-0 ps-md-5">
                             <li class="footer-menu__header">Layanan</li>
                             <li>
-                                <a href="./administration.html">Pengajuan Administrasi</a>
+                                <a href="/users/administrasi">Pengajuan Administrasi</a>
                             </li>
-                            <li><a href="./report.html">Pelaporan</a></li>
-                            <li><a href="./family.html">Menu Keluarga</a></li>
+                            <li><a href="/users/pelaporan">Pelaporan</a></li>
+                            <li><a href="/users/keluarga">Menu Keluarga</a></li>
                         </ul>
                     </div>
                 </div>
