@@ -31,16 +31,6 @@ class Users extends BaseController
         $this->pengumumanController = new PengumumanController();
     }
 
-    public function administrasi()
-    {
-        $data = [
-            'title' => 'Menu Administrasi | Warga Site',
-            'navbar' => 'administrasi',
-        ];
-
-        return view('/users/administration', $data);
-    }
-
     public function pelaporan()
     {
         $data = [
@@ -122,4 +112,48 @@ class Users extends BaseController
         return view('/users/family-form-edit', $data);
     }
     // End of Keluarga Method
+
+    // Administrasi Method
+
+
+    public function administrasi()
+    {
+        $data = [
+            'title' => 'Menu Administrasi | Warga Site',
+            'navbar' => 'administrasi',
+        ];
+
+        return view('/users/administration', $data);
+    }
+
+    public function detailadministrasi()
+    {
+        $data = [
+            'title' => 'Detail Pengajuan Administrasi | Warga Site',
+            'navbar' => 'administrasi',
+        ];
+
+        return view('/users/administration-detail', $data);
+    }
+
+    public function formTambahAdministrasi()
+    {
+        $data = [
+            'title' => 'Form Pengajuan Administrasi | Warga Site',
+            'navbar' => 'administrasi',
+        ];
+
+        return view('/users/administration-form-add', $data);
+    }
+
+    public function formEditAdministrasi()
+    {
+        $data = [
+            'title' => 'Form Edit Pengajuan Administrasi | Warga Site',
+            'navbar' => 'administrasi',
+        ];
+
+        return view('/users/administration-form-edit', $data);
+    }
+    // End of Administrasi Method
 }

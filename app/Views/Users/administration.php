@@ -55,10 +55,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -85,10 +85,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -115,10 +115,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -145,10 +145,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -199,7 +199,7 @@
 
     // add button create report
     $("#tableAdmin_wrapper .row:first-child").append(
-      '<div class="col-12 col-sm-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="./administration-form-add.html" class="btn btn-main-xs w-full-md" role="button"><i class="fa-solid fa-plus me-2"></i>Buat Pengajuan</a></div></div>'
+      '<div class="col-12 col-sm-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="/users/formtambahadministrasi" class="btn btn-main-xs w-full-md" role="button"><i class="fa-solid fa-plus me-2"></i>Buat Pengajuan</a></div></div>'
     );
 
     // change class of datatable adminTable
