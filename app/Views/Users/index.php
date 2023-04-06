@@ -28,6 +28,7 @@
   </figure>
 </header>
 <!-- end of header -->
+
 <!-- main -->
 <main>
   <!-- features -->
@@ -50,6 +51,7 @@
         </p>
       </div>
     </div>
+
     <!-- content -->
     <div class="project-container">
       <div class="project-card">
@@ -58,12 +60,12 @@
             <i class="fa-solid fa-rocket project-badge__icon"></i>
           </div>
         </div>
-        <h5>Administrasi fugiat quam dolores</h5>
+        <h5>Administrasi</h5>
         <p class="text-basic mb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
           dolorem quasi quos repellendus exercitationem.
         </p>
-        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="administration" onclick="location.href='./administration.html'">
+        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="administration" onclick="location.href='/users/administrasi'">
           Lebih Banyak
         </button>
       </div>
@@ -73,12 +75,12 @@
             <i class="fa-solid fa-house-signal project-badge__icon"></i>
           </div>
         </div>
-        <h5>Pelaporan amet officia ducimus temporibus</h5>
+        <h5>Pelaporan</h5>
         <p class="text-basic mb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
           dolorem quasi quos repellendus exercitationem nobis.
         </p>
-        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="report" onclick="location.href='./report.html'">
+        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="report" onclick="location.href='/users/pelaporan'">
           Lebih Banyak
         </button>
       </div>
@@ -88,12 +90,12 @@
             <i class="fa-solid fa-seedling project-badge__icon"></i>
           </div>
         </div>
-        <h5>Keluarga perspiciatis voluptate</h5>
+        <h5>Keluarga</h5>
         <p class="text-basic mb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
           dolorem quasi quos repellendus exercitationem nobis.
         </p>
-        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="family" onclick="location.href='./family.html'">
+        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="family" onclick="location.href='/users/keluarga'">
           Lebih Banyak
         </button>
       </div>
@@ -253,7 +255,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-center pt-1 pt-sm-3">
-      <a href="./galery.html" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+      <a href="/users/galeri" class="btn btn-main shadow" role="button">Lebih Banyak</a>
     </div>
   </section>
 
@@ -293,7 +295,7 @@
               <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">50 menit</span>
             </p>
           </div>
-          <a href="./read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
+          <a href="/homepage/read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
             Kunjungi Berita
           </a>
         </div>
@@ -321,7 +323,7 @@
               <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">15 jam</span>
             </p>
           </div>
-          <a href="./read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
+          <a href="/users/read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
             Kunjungi Berita
           </a>
         </div>
@@ -349,13 +351,13 @@
               <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">10 Feb 2023</span>
             </p>
           </div>
-          <a href="./read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
+          <a href="/users/read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
             Kunjungi Berita
           </a>
         </div>
       </div>
       <div class="d-flex justify-content-center pt-1 pt-sm-3">
-        <a href="./news.html" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+        <a href="/users/pengumuman" class="btn btn-main shadow" role="button">Lebih Banyak</a>
       </div>
     </div>
   </section>
