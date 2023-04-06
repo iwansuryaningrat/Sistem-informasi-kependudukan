@@ -16,26 +16,25 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- custom -->
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <link rel="stylesheet" href="./assets/css/responsiveness.css" />
+  <link rel="stylesheet" href="/homepage/assets/css/styles.css" />
+  <link rel="stylesheet" href="/homepage/assets/css/responsiveness.css" />
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
+
   <!-- title -->
-  <title>Masuk | Warga Site</title>
+  <title><?= $title; ?></title>
 </head>
 
 <body>
   <div>
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="./index.html">
-          Warga
-        </a>
-      </div>
+      <!-- brand -->
+      <a class="navbar-brand fw-bold" href="/home"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
     </nav>
     <!-- end of navigation -->
+
     <!-- main -->
     <main>
       <section class="container-fluid">
@@ -46,7 +45,7 @@
                 <h1 class="text-center mb-3">Masuk</h1>
                 <p class="text-center mb-4 text-basic">
                   Belum memiliki Akun?
-                  <span><a href="javascript:void(0)" id="register" class="fw-medium hover-underline">Daftar</a></span>
+                  <span><a href="/home/signup" id="register" class="fw-medium hover-underline">Daftar</a></span>
                 </p>
                 <div class="sign-card">
                   <form id="loginForm" action="#" enctype="multipart/form-data" method="POST">
@@ -108,7 +107,8 @@
   <!-- fontawesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- custom -->
-  <script src="./assets/js/scripts.js"></script>
+  <script src="/homepage/assets/js/scripts.js"></script>
+
   <!-- script internal -->
   <script>
     // id register onclick
