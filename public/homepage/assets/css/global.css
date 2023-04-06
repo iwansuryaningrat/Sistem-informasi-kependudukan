@@ -3,14 +3,21 @@
   --primary-100: rgba(244, 249, 248, 1);
   --primary-500: rgba(83, 195, 81, 1);
   --primary-700: rgb(61, 159, 58);
+  --secondary-500: rgba(76, 104, 254, 1);
+  --secondary-700: rgb(56, 77, 204);
 
   --transition-all-300: all 0.3s ease;
 }
 
 /* GLOBAL */
+html,
+body {
+  overflow-x: hidden !important;
+}
 * {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 h1,

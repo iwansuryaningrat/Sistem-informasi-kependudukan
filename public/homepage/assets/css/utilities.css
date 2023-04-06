@@ -9,7 +9,10 @@
   background-color: rgba(83, 195, 81, 0.5);
 }
 .bg-main-500__05 {
-  background-color: rgba(83, 195, 81, 0.05);
+  background-color: rgba(83, 195, 81, 0.07);
+}
+.bg-secondary-500__05 {
+  background-color: rgba(76, 104, 254, 0.07);
 }
 
 /* hover */
@@ -38,6 +41,12 @@
 .text-gray-200 {
   color: rgb(186, 186, 186);
 }
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 svg.fill-main-700,
 .fill-main-700 path {
@@ -55,4 +64,15 @@ svg.fill-gray,
 .fill-gray path {
   color: rgba(89, 89, 89, 1);
   fill: rgba(89, 89, 89, 1);
+}
+
+/* spacing */
+.w-full-sm {
+  width: auto;
+}
+.w-full-md {
+  width: auto;
+}
+.w-full-xl {
+  width: auto;
 }
