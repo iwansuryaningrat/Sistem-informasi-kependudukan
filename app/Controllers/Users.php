@@ -24,7 +24,6 @@ class Users extends BaseController
     public function __construct()
     {
         $this->administrasiController = new AdministrasiController();
-        $this->authController = new AuthController();
         $this->fotoController = new FotoController();
         $this->galeriController = new GaleriController();
         $this->keluargaController = new KeluargaController();
@@ -32,8 +31,53 @@ class Users extends BaseController
         $this->pengumumanController = new PengumumanController();
     }
 
-    public function index()
+    public function administrasi()
     {
-        //
+        $data = [
+            'title' => 'Menu Administrasi | Warga Site',
+            'navbar' => 'administrasi',
+        ];
+
+        return view('/users/administration', $data);
+    }
+
+    public function pelaporan()
+    {
+        $data = [
+            'title' => 'Menu Pelaporan | Warga Site',
+            'navbar' => 'pelaporan',
+        ];
+
+        return view('/users/report', $data);
+    }
+
+    public function keluarga()
+    {
+        $data = [
+            'title' => 'Menu Keluarga | Warga Site',
+            'navbar' => 'keluarga',
+        ];
+
+        return view('/users/family', $data);
+    }
+
+    public function galeri()
+    {
+        $data = [
+            'title' => 'Galeri | Warga Site',
+            'navbar' => 'galeri',
+        ];
+
+        return view('/users/gallery', $data);
+    }
+
+    public function pengumuman()
+    {
+        $data = [
+            'title' => 'Portal Pengumuman | Warga Site',
+            'navbar' => 'pengumuman',
+        ];
+
+        return view('/users/announcement', $data);
     }
 }
