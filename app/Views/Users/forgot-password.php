@@ -16,11 +16,11 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- custom -->
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <link rel="stylesheet" href="./assets/css/responsiveness.css" />
+  <link rel="stylesheet" href="/homepage/assets/css/styles.css" />
+  <link rel="stylesheet" href="/homepage/assets/css/responsiveness.css" />
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
   <!-- title -->
   <title>Lupa Password | Warga Site</title>
 </head>
@@ -29,13 +29,11 @@
   <div>
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="./index.html">
-          Warga
-        </a>
-      </div>
+      <!-- brand -->
+      <a class="navbar-brand fw-bold" href="/home"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
     </nav>
     <!-- end of navigation -->
+
     <!-- main -->
     <main>
       <section class="container-fluid">
@@ -63,7 +61,7 @@
             </div>
             <p class="text-basic text-center">
               Kembali ke halaman
-              <span><a href="./signin.html" class="fw-medium hover-underline">Masuk</a></span>
+              <span><a href="/home/signin" class="fw-medium hover-underline">Masuk</a></span>
             </p>
           </div>
           <div class="col-md-3 bg-main-700"></div>
@@ -71,15 +69,9 @@
       </section>
     </main>
     <!-- end of main -->
+
     <!-- footer -->
-    <footer class="small-footer">
-      <section class="container">
-        <p class="text-center m-0 text-basic">
-          @<span id="yearNow"></span> Warga | Warga neque consequatur nemo
-          fugit voluptatem mollitia minima tempore❤️.
-        </p>
-      </section>
-    </footer>
+    <?= $this->include('users/template/footer'); ?>
     <!-- end of footer -->
   </div>
 
@@ -95,12 +87,12 @@
   <!-- fontawesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- custom -->
-  <script src="./assets/js/scripts.js"></script>
+  <script src="/homepage/assets/js/scripts.js"></script>
   <!-- script internal -->
   <script>
     // id register onclick
     $('#register').click(function() {
-      window.location.href = './signup.html';
+      window.location.href = '/home/signup';
     });
 
     // validate
