@@ -109,14 +109,7 @@
     <!-- end of main -->
 
     <!-- footer -->
-    <footer class="small-footer">
-      <section class="container">
-        <p class="text-center m-0 text-basic">
-          @<span id="yearNow"></span> Warga | Warga neque consequatur nemo
-          fugit voluptatem mollitia minima tempore❤️.
-        </p>
-      </section>
-    </footer>
+    <?= $this->include('users/template/footer'); ?>
     <!-- end of footer -->
   </div>
 
