@@ -49,4 +49,14 @@ class Home extends BaseController
 
         return view('/users/signup', $data);
     }
+
+    public function forgotPasswordForm()
+    {
+        $data = [
+            'title' => 'Warga Site | Forgot Password',
+            'navbar' => 'forgot-password',
+        ];
+
+        return view('/users/forgot-password', $data);
+    }
 }
