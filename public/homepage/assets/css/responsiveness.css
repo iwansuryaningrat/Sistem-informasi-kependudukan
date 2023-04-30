@@ -28,6 +28,15 @@
   .navbar-collapse.navbar-collapsing.collapse.show {
     padding-bottom: 1.5rem;
   }
+  .toggle-nav-mobile {
+    display: flex;
+  }
+  .offcanvas-backdrop {
+    display: block;
+  }
+  .offcanvas-custom {
+    display: flex !important;
+  }
 
   /* homepage */
   .general-image-wrapper {
@@ -115,6 +124,10 @@
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
+  }
+
+  .table-custom thead tr th {
+    white-space: nowrap;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -291,6 +304,10 @@
   }
   .sign-container-content {
     padding: 7rem 1rem 6rem;
+  }
+  /* card */
+  .card-form-body {
+    padding: 0.875rem 1.5rem 0.5rem !important;
   }
   /* form */
   .form-control.input-control,

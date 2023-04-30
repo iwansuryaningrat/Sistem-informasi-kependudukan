@@ -41,6 +41,13 @@
 .text-gray-200 {
   color: rgb(186, 186, 186);
 }
+.text-secondaries {
+  color: rgb(76, 104, 254);
+}
+.text-important {
+  color: #dc3545;
+  font-weight: 600;
+}
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -75,4 +82,9 @@ svg.fill-gray,
 }
 .w-full-xl {
   width: auto;
+}
+
+/* margin */
+.mb-8 {
+  margin-bottom: 2rem;
 }
