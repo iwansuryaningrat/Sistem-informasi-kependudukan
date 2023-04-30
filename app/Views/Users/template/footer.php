@@ -1,3 +1,4 @@
+<!-- footer -->
 <footer class="big-footer">
     <section class="container">
         <div class="row footer-container-top">
@@ -16,7 +17,9 @@
                         12240
                     </p>
                     <a href="https://wa.me/62xxxxxxx">
-                        <button class="btn btn-main" type="button">Kontak Kami</button>
+                        <button class="btn btn-main" type="button">
+                            Kontak Kami
+                        </button>
                     </a>
                 </div>
             </div>
@@ -37,7 +40,9 @@
                                 <a href="/users/administrasi">Pengajuan Administrasi</a>
                             </li>
                             <li><a href="/users/pelaporan">Pelaporan</a></li>
-                            <li><a href="/users/keluarga">Menu Keluarga</a></li>
+                            <li>
+                                <a href="/users/keluarga">Menu Keluarga</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -57,3 +62,4 @@
         </div>
     </section>
 </footer>
+<!-- end of footer -->

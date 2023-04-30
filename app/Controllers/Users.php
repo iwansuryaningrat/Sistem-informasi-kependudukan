@@ -38,7 +38,7 @@ class Users extends BaseController
             'navbar' => 'pelaporan',
         ];
 
-        return view('/users/report', $data);
+        return view('/users/report/report', $data);
     }
 
     public function galeri()
@@ -48,7 +48,7 @@ class Users extends BaseController
             'navbar' => 'galeri',
         ];
 
-        return view('/users/gallery', $data);
+        return view('/users/gallery/gallery', $data);
     }
 
     public function pengumuman()
@@ -58,7 +58,7 @@ class Users extends BaseController
             'navbar' => 'pengumuman',
         ];
 
-        return view('/users/announcement', $data);
+        return view('/users/news/announcement', $data);
     }
 
     public function profile()
@@ -68,7 +68,7 @@ class Users extends BaseController
             'navbar' => 'profile',
         ];
 
-        return view('/users/profile', $data);
+        return view('/users/dashboard/profile', $data);
     }
 
     // Keluarga Method
@@ -79,7 +79,7 @@ class Users extends BaseController
             'navbar' => 'keluarga',
         ];
 
-        return view('/users/family', $data);
+        return view('/users/family/family', $data);
     }
 
     public function detailkeluarga()
@@ -89,7 +89,7 @@ class Users extends BaseController
             'navbar' => 'keluarga',
         ];
 
-        return view('/users/family-detail', $data);
+        return view('/users/family/family-detail', $data);
     }
 
     public function formTambahKeluarga()
@@ -99,7 +99,7 @@ class Users extends BaseController
             'navbar' => 'keluarga',
         ];
 
-        return view('/users/family-form-add', $data);
+        return view('/users/family/family-form-add', $data);
     }
 
     public function formEditKeluarga()
@@ -109,7 +109,7 @@ class Users extends BaseController
             'navbar' => 'keluarga',
         ];
 
-        return view('/users/family-form-edit', $data);
+        return view('/users/family/family-form-edit', $data);
     }
     // End of Keluarga Method
 
@@ -123,7 +123,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
         ];
 
-        return view('/users/administration', $data);
+        return view('/users/administration/administration', $data);
     }
 
     public function detailadministrasi()
@@ -133,7 +133,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
         ];
 
-        return view('/users/administration-detail', $data);
+        return view('/users/administration/administration-detail', $data);
     }
 
     public function formTambahAdministrasi()
@@ -143,7 +143,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
         ];
 
-        return view('/users/administration-form-add', $data);
+        return view('/users/administration/administration-form-add', $data);
     }
 
     public function formEditAdministrasi()
@@ -153,7 +153,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
         ];
 
-        return view('/users/administration-form-edit', $data);
+        return view('/users/administration/administration-form-edit', $data);
     }
     // End of Administrasi Method
 }

@@ -37,7 +37,7 @@ class Home extends BaseController
             'navbar' => 'login',
         ];
 
-        return view('/users/signin', $data);
+        return view('/users/auth/signin', $data);
     }
 
     public function signup()
@@ -47,7 +47,7 @@ class Home extends BaseController
             'navbar' => 'register',
         ];
 
-        return view('/users/signup', $data);
+        return view('/users/auth/signup', $data);
     }
 
     public function forgotPasswordForm()
@@ -57,6 +57,6 @@ class Home extends BaseController
             'navbar' => 'forgot-password',
         ];
 
-        return view('/users/forgot-password', $data);
+        return view('/users/auth/forgot-password', $data);
     }
 }

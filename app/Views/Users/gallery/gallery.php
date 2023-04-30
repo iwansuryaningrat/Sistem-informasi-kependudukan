@@ -571,11 +571,11 @@
 <script>
   const options = {
     Thumbs: {
-      type: 'classic',
+      type: "classic",
     },
     caption: function(fancybox, slide) {
-      const figurecaption = slide.triggerEl?.querySelector('figcaption');
-      return figurecaption ? figurecaption.innerHTML : slide.caption || '';
+      const figurecaption = slide.triggerEl?.querySelector("figcaption");
+      return figurecaption ? figurecaption.innerHTML : slide.caption || "";
     },
     Carousel: {
       Navigation: false,
@@ -583,11 +583,11 @@
     Toolbar: {
       display: {
         left: [],
-        middle: ['prev', 'infobar', 'next'],
-        right: ['slideshow', 'thumbs', 'close'],
+        middle: ["prev", "infobar", "next"],
+        right: ["slideshow", "thumbs", "close"],
       },
     },
-    transitionEffect: 'classic',
+    transitionEffect: "classic",
   };
 
   Fancybox.bind('[data-fancybox="gallery-large"]', options);
