@@ -35,17 +35,18 @@
     </nav>
     <!-- end of navigation -->
 
+
     <!-- main -->
     <main>
       <section class="container-fluid">
         <div class="row">
-          <div class="col-md-9 sign-container-content">
+          <div class="col-md-9 sign-container-content-big">
             <div class="sign-container-content__card">
               <div class="sign_card__content">
                 <h1 class="text-center mb-3">Masuk</h1>
                 <p class="text-center mb-4 text-basic">
                   Belum memiliki Akun?
-                  <span><a href="/home/signup" id="register" class="fw-medium hover-underline">Daftar</a></span>
+                  <span><a href="javascript:void(0)" id="register" class="fw-medium hover-underline">Daftar</a></span>
                 </p>
                 <div class="sign-card">
                   <form id="loginForm" action="#" enctype="multipart/form-data" method="POST">
@@ -79,14 +80,21 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 bg-main-700"></div>
+          <div class="col-md-3 bg-main-700 bg-sign-image position-relative"></div>
         </div>
       </section>
     </main>
     <!-- end of main -->
 
     <!-- Footer -->
-    <?= $this->include('users/template/footer'); ?>
+    <footer class="small-footer">
+      <section class="container">
+        <p class="text-center m-0 text-basic">
+          @<span id="yearNow"></span> Warga | Warga neque consequatur nemo
+          fugit voluptatem mollitia minima tempore❤️.
+        </p>
+      </section>
+    </footer>
     <!-- end of footer -->
   </div>
 
