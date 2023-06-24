@@ -11,8 +11,17 @@ use App\Controllers\KeluargaController;
 use App\Controllers\PelaporanController;
 use App\Controllers\PengumumanController;
 
+use App\Models\AdministrasiModel;
+use App\Models\FotoModel;
+use App\Models\GaleriModel;
+use App\Models\KeluargaModel;
+use App\Models\PelaporanModel;
+use App\Models\PengumumanModel;
+use App\Models\UsersModel;
+
 class Admin extends BaseController
 {
+    // Controllers
     protected $administrasiController;
     protected $auth;
     protected $fotoController;
@@ -21,10 +30,20 @@ class Admin extends BaseController
     protected $pelaporanController;
     protected $pengumumanController;
 
+    // Models
+    protected $administrasiModel;
+    protected $fotoModel;
+    protected $galeriModel;
+    protected $keluargaModel;
+    protected $pelaporanModel;
+    protected $pengumumanModel;
+    protected $usersModel;
+
     protected $session;
 
     public function __construct()
     {
+        // Controllers
         $this->administrasiController = new AdministrasiController();
         $this->auth = new Auth();
         $this->fotoController = new FotoController();
@@ -33,8 +52,29 @@ class Admin extends BaseController
         $this->pelaporanController = new PelaporanController();
         $this->pengumumanController = new PengumumanController();
 
+        // Models
+        $this->administrasiModel = new AdministrasiModel();
+        $this->fotoModel = new FotoModel();
+        $this->galeriModel = new GaleriModel();
+        $this->keluargaModel = new KeluargaModel();
+        $this->pelaporanModel = new PelaporanModel();
+        $this->pengumumanModel = new PengumumanModel();
+        $this->usersModel = new UsersModel();
+
         // Get Session Data
         $this->session = \Config\Services::session();
+    }
+
+    private function getReqAdministrasi()
+    {
+        $reqAdministrasi = $this->administrasiModel->getAdministrasiCount() ?? 0;
+        return $reqAdministrasi;
+    }
+
+    private function getReqLaporan()
+    {
+        $reqLaporan = $this->pelaporanModel->getPelaporanCount() ?? 0;
+        return $reqLaporan;
     }
 
     public function index()
@@ -45,20 +85,24 @@ class Admin extends BaseController
         $data = [
             'title' => 'Admin Dashboard',
             'active' => 'dashboard',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
+
+        // dd($data);
 
         return view('admin/index', $data);
     }
 
     public function families()
     {
+        $dataKeluarga = $this->keluargaModel->getKeluarga();
+        dd($dataKeluarga);
         $data = [
             'title' => 'Data Keluarga',
             'active' => 'penduduk',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftarkeluarga', $data);
@@ -69,8 +113,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Data Penduduk',
             'active' => 'penduduk',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftarpenduduk', $data);
@@ -81,8 +125,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Tambah Keluarga',
             'active' => 'penduduk',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/add/addkeluarga', $data);
@@ -93,8 +137,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Tambah Penduduk',
             'active' => 'penduduk',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/add/addpenduduk', $data);
@@ -105,9 +149,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Edit Keluarga',
             'active' => 'penduduk',
-            // 'keluarga' => $this->keluargaController->detailFamily($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editkeluarga', $data);
@@ -118,9 +161,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Edit Penduduk',
             'active' => 'penduduk',
-            // 'penduduk' => $this->administrasiController->detailPenduduk($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editpenduduk', $data);
@@ -131,8 +173,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Administrasi',
             'active' => 'administrasi',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftaradministrasi', $data);
@@ -143,8 +185,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Tambah Administrasi',
             'active' => 'administrasi',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/add/addadministrasi', $data);
@@ -155,9 +197,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Edit Administrasi',
             'active' => 'administrasi',
-            // 'administrasi' => $this->administrasiController->detailAdministrasi($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editadministrasi', $data);
@@ -168,8 +209,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Pelaporan',
             'active' => 'pelaporan',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftarlaporan', $data);
@@ -180,9 +221,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Edit Pelaporan',
             'active' => 'pelaporan',
-            // 'pelaporan' => $this->pelaporanController->detailPelaporan($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editlaporan', $data);
@@ -193,8 +233,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Galeri',
             'active' => 'galeri',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftargaleri', $data);
@@ -205,8 +245,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Tambah Galeri',
             'active' => 'galeri',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/add/addgaleri', $data);
@@ -217,9 +257,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Edit Galeri',
             'active' => 'galeri',
-            // 'galeri' => $this->galeriController->detailGaleri($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editgaleri', $data);
@@ -230,8 +269,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Foto',
             'active' => 'galeri',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftarfoto', $data);
@@ -242,8 +281,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Tambah Foto',
             'active' => 'galeri',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/add/addfoto', $data);
@@ -254,9 +293,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Edit Foto',
             'active' => 'galeri',
-            // 'foto' => $this->fotoController->detailFoto($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editfoto', $data);
@@ -267,8 +305,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Pengumuman',
             'active' => 'pengumuman',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/daftarpengumuman', $data);
@@ -279,8 +317,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Buat Pengumuman',
             'active' => 'pengumuman',
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/add/addpengumuman', $data);
@@ -291,9 +329,8 @@ class Admin extends BaseController
         $data = [
             'title' => 'Buat Pengumuman',
             'active' => 'pengumuman',
-            // 'pengumuman' => $this->pengumumanController->detailPengumuman($id),
-            'reqAdministrasi' => 0,
-            'reqLaporan' => 0,
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
         ];
 
         return view('admin/edit/editpengumuman', $data);
