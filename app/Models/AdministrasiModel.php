@@ -11,7 +11,7 @@ class AdministrasiModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'status', 'berkas', 'tgl_penerimaan', 'catatan', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'administrasi_status', 'berkas', 'tgl_penerimaan', 'catatan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -19,14 +19,14 @@ class AdministrasiModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Get Administrasi data join with user and sort by created_at desc and status 'Dalam Proses' first
+    // Get Administrasi data join with user and sort by created_at desc and administrasi_status 'Dalam Proses' first
     public function getAdministrasi($administrasi_id = null)
     {
         if ($administrasi_id == null) {
             return $this->select('administrasi.*, users.nama')
                 ->join('users', 'users.user_id = administrasi.pemohon')
                 ->orderBy('administrasi.created_at', 'DESC')
-                ->orderBy('administrasi.status', 'ASC')
+                ->orderBy('administrasi.administrasi_status', 'ASC')
                 ->findAll();
         }
 
@@ -46,22 +46,22 @@ class AdministrasiModel extends Model
             ->findAll();
     }
 
-    // Get Administrasi data by status
-    public function getAdministrasiByStatus($status)
+    // Get Administrasi data by administrasi_status
+    public function getAdministrasiByStatus($administrasi_status)
     {
         return $this->select('administrasi.*, users.nama')
             ->join('users', 'users.user_id = administrasi.pemohon')
-            ->where(['status' => $status])
+            ->where(['administrasi_status' => $administrasi_status])
             ->orderBy('administrasi.created_at', 'DESC')
             ->findAll();
     }
 
-    // Count Administrasi data by status
-    public function countAdministrasiByStatus($status)
+    // Count Administrasi data by administrasi_status
+    public function countAdministrasiByStatus($administrasi_status)
     {
         return $this->select('administrasi.*, users.nama')
             ->join('users', 'users.user_id = administrasi.pemohon')
-            ->where(['status' => $status])
+            ->where(['administrasi_status' => $administrasi_status])
             ->countAllResults();
     }
 
@@ -81,5 +81,13 @@ class AdministrasiModel extends Model
     public function saveAdministrasi($data)
     {
         return $this->db->table($this->table)->insert($data);
+    }
+
+    // Get Administrasi count while administrasi_status 'Menunggu Konfirmasi'
+    public function getAdministrasiCount()
+    {
+        return $this->select('*')
+            ->where(['administrasi_status' => 'Menunggu Konfirmasi'])
+            ->countAllResults();
     }
 }

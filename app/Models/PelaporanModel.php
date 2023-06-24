@@ -98,4 +98,12 @@ class PelaporanModel extends Model
     {
         return $this->db->table($this->table)->insert($data);
     }
+
+    // Get Pelaporan count while status_pelaporan 'Menunggu Konfirmasi'
+    public function getPelaporanCount()
+    {
+        return $this->select('*')
+            ->where(['status_pelaporan' => 'Menunggu Konfirmasi'])
+            ->countAllResults();
+    }
 }
