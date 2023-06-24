@@ -32,11 +32,11 @@
                     <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
                         <li>
                             <div class="dropdown-title d-flex justify-content-between align-items-center">
-                                Pelaporan
+                                Permintaan Administrasi
                             </div>
                         </li>
                         <li>
-                            <a class="see-all" href="/admin/laporan">Lihat Semua Laporan<i class="fa fa-angle-right"></i> </a>
+                            <a class="see-all" href="/admin/laporan">Lihat Semua Permintaan Administrasi<i class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
                 </li>
@@ -47,10 +47,12 @@
                     </a>
                     <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
                         <li>
-                            <div class="dropdown-title">Permintaan Administrasi</div>
+                            <div class="dropdown-title">
+                                Pelaporan
+                            </div>
                         </li>
                         <li>
-                            <a class="see-all" href="/admin/administrasi">Lihat Semua Permintaan Administrasi<i class="fa fa-angle-right"></i> </a>
+                            <a class="see-all" href="/admin/administrasi">Lihat Semua Laporan<i class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
                 </li>
@@ -77,7 +79,6 @@
                             <li>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">My Profile</a>
-                                <a class="dropdown-item" href="#">Account Setting</a>
                                 <a class="dropdown-item" href="/auth/logout">Logout</a>
                             </li>
                         </div>
