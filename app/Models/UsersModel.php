@@ -14,7 +14,7 @@ class UsersModel extends Model
     protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'usia', 'status_perkawinan', 'pendidikan', 'email', 'password', 'role', 'foto',  'created_at', 'updated_at'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

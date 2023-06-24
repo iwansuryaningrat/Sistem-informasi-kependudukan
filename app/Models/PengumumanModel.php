@@ -14,7 +14,7 @@ class PengumumanModel extends Model
     protected $allowedFields    = ['kategori', 'judul_pengumuman', 'deskripsi', 'tanggal', 'jam', 'tempat', 'status', 'created_by', 'created_at', 'updated_at'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

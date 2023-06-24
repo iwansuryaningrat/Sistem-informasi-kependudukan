@@ -14,7 +14,7 @@ class FotoModel extends Model
     protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'created_at', 'updated_at'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

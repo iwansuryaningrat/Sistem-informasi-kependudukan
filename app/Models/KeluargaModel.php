@@ -11,13 +11,15 @@ class KeluargaModel extends Model
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['no_kk', 'nama_kepala_keluarga', 'alamat', 'alamat_asal', 'foto_rumah', 'tgl_pindah', 'status', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['no_kk', 'nama_kepala_keluarga', 'alamat', 'alamat_asal', 'foto_rumah', 'tgl_pindah', 'status', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Get Keluarga data join with penduduk and sort by created_at desc
     public function getKeluarga($no_kk = null)
