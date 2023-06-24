@@ -1,0 +1,21 @@
+## Administrasi
+### Kategori Administrasi = []
+### Status Administrasi = [Diterima, Menunggu, Ditolak, Selesai]
+
+## Keluarga
+### Status Keluarga = []
+
+
+## Pelaporan
+### Kategori Pelaporan = [Kesehatan, Pendidikan, Sosial, Ekonomi, Lingkungan, Lainnya]
+### Status Pelaporan = [Diterima, Menunggu, Ditolak, Selesai]
+
+## Pengumuman
+### Kategori Pengumuman = [Kesehatan, Pendidikan, Sosial, Ekonomi, Lingkungan, Lainnya]
+### Status Pengumuman = []
+
+## Users
+### Status Users = [Kepala keluarga, Istri, Anak]
+### Status Perkawinan = [Belum Kawin, Kawin, Cerai Hidup, Cerai Mati]
+### Role = [Admin, User]
+### Status Akun = [Aktif, Tidak Aktif]
