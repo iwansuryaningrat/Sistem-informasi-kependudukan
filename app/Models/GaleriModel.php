@@ -11,7 +11,7 @@ class GaleriModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['judul', 'deskripsi', 'uploaded_by', 'status', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['judul', 'deskripsi', 'uploaded_by', 'kategori', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
