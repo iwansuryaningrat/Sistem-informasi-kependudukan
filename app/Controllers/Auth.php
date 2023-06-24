@@ -19,7 +19,6 @@ class Auth extends BaseController
         $this->keluargaModel = new KeluargaModel();
         $this->usersModel = new UsersModel();
 
-
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();
     }
@@ -38,35 +37,15 @@ class Auth extends BaseController
         }
     }
 
-    /**
-     * This function is used to display the login page for the admin
-     */
-    public function adminLogin()
-    {
-        $data = [
-            'title' => 'Login Admin'
-        ];
-
-        return view('auth/login', $data);
-    }
-
-    /**
-     * It returns the view of the login page.
-     * 
-     * @return The view is being returned.
-     */
-    public function usersLogin()
+    public function login()
     {
         $data = [
             'title' => 'Login Users'
         ];
 
-        return view('users/login', $data);
+        return view('auth/login', $data);
     }
 
-    /**
-     * The above function is used to log in the admin or ketua RT.
-     */
     public function logingin()
     {
         $nik = $this->request->getVar('nik');
@@ -78,7 +57,7 @@ class Auth extends BaseController
         // Check if user exists
         if (!$user) {
             session()->setFlashdata('message', 'NIK tidak terdaftar');
-            return redirect()->to('/auth/adminlogin');
+            return redirect()->to('/auth/login');
         }
 
         // Check if password is correct
@@ -121,20 +100,10 @@ class Auth extends BaseController
         }
     }
 
-    /**
-     * It destroys the session and redirects to the login page.
-     * 
-     * @return The logout function is returning the redirect to the login page.
-     */
     public function logout()
     {
-        $data = session()->get();
         session()->destroy();
 
-        if ($data['role'] == 'admin') {
-            return redirect()->to('/auth/adminlogin');
-        } elseif ($data['role'] == 'users') {
-            return redirect()->to('/auth/userslogin');
-        }
+        return redirect()->to('/auth/login');
     }
 }

@@ -36,6 +36,15 @@ class UsersModel extends Model
             ->first();
     }
 
+    // Get Use by email
+    public function getUsersByEmail($email)
+    {
+        return $this->select('users.*, keluarga.nama_kepala_keluarga')
+            ->join('keluarga', 'keluarga.no_kk = users.no_kk')
+            ->where(['email' => $email])
+            ->first();
+    }
+
     // Edit Users data
     public function editUsers($data, $nik)
     {
@@ -61,5 +70,11 @@ class UsersModel extends Model
     public function saveUsers($data)
     {
         return $this->db->table($this->table)->insert($data);
+    }
+
+    // Delete users by no_kk
+    public function deleteUsersByKK($no_kk)
+    {
+        return $this->db->table($this->table)->delete(['no_kk' => $no_kk]);
     }
 }

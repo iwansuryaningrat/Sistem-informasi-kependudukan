@@ -23,13 +23,13 @@ class PengumumanModel extends Model
     public function getPengumuman($pengumuman_id = null)
     {
         if ($pengumuman_id == null) {
-            return $this->select('pengumuman.*, users.nama')
+            return $this->select('pengumuman.*, users.*')
                 ->join('users', 'users.user_id = pengumuman.created_by')
                 ->orderBy('pengumuman.created_at', 'DESC')
                 ->findAll();
         }
 
-        return $this->select('pengumuman.*, users.nama')
+        return $this->select('pengumuman.*, users.*')
             ->join('users', 'users.user_id = pengumuman.created_by')
             ->where(['pengumuman_id' => $pengumuman_id])
             ->first();
@@ -38,7 +38,7 @@ class PengumumanModel extends Model
     // Get Pengumuman data join with user by kategori
     public function getPengumumanByKategori($kategori)
     {
-        return $this->select('pengumuman.*, users.nama')
+        return $this->select('pengumuman.*, users.*')
             ->join('users', 'users.user_id = pengumuman.created_by')
             ->where(['kategori' => $kategori])
             ->orderBy('pengumuman.created_at', 'DESC')
