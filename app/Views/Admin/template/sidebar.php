@@ -76,26 +76,22 @@
                     <a href="/admin/administrasi">
                         <i class="fas fa-file-signature"></i>
                         <p>Administrasi</p>
-                        <span class="badge badge-success">
-                            <?php if ($reqAdministrasi != 0 || $reqAdministrasi != null) {
-                                echo $reqAdministrasi;
-                            } else {
-                                echo 0;
-                            } ?>
-                        </span>
+                        <?php if ($reqAdministrasi != 0 || $reqAdministrasi != null) { ?>
+                            <span class="badge badge-success">
+                                <?= $reqAdministrasi; ?>
+                            </span>
+                        <?php } ?>
                     </a>
                 </li>
                 <li class="nav-item <?php if ($active == 'pelaporan') echo 'active' ?>">
                     <a href="/admin/pelaporan">
                         <i class="fas fa-pen-square"></i>
                         <p>Laporan</p>
-                        <span class="badge badge-success">
-                            <?php if ($reqLaporan != 0 || $reqLaporan != null) {
-                                echo $reqLaporan;
-                            } else {
-                                echo 0;
-                            } ?>
-                        </span>
+                        <?php if ($reqLaporan != 0 || $reqLaporan != null) { ?>
+                            <span class="badge badge-success">
+                                <?= $reqLaporan; ?>
+                            </span>
+                        <?php } ?>
                     </a>
                 </li>
                 <li class="nav-item <?php if ($active == 'galeri') echo 'active' ?>">
