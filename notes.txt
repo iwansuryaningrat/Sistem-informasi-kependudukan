@@ -1,6 +1,6 @@
 ## Administrasi
 ### Kategori Administrasi = []
-### Status Administrasi = [Diterima, Menunggu, Ditolak, Selesai]
+### Status Administrasi = [Dalam Proses, Menunggu Konfirmasi, Ditolak, Selesai]
 
 ## Keluarga
 ### Status Keluarga = []
@@ -8,7 +8,7 @@
 
 ## Pelaporan
 ### Kategori Pelaporan = [Kesehatan, Pendidikan, Sosial, Ekonomi, Lingkungan, Lainnya]
-### Status Pelaporan = [Diterima, Menunggu, Ditolak, Selesai]
+### Status Pelaporan = [Dalam Proses, Menunggu Konfirmasi, Ditolak, Selesai]
 
 ## Pengumuman
 ### Kategori Pengumuman = [Kesehatan, Pendidikan, Sosial, Ekonomi, Lingkungan, Lainnya]
