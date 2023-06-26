@@ -90,4 +90,10 @@ class AdministrasiModel extends Model
             ->where(['administrasi_status' => 'Menunggu Konfirmasi'])
             ->countAllResults();
     }
+
+    // Update Administrasi status
+    public function updateAdministrasiStatus($administrasi_id, $administrasi_status)
+    {
+        return $this->db->table($this->table)->update(['administrasi_status' => $administrasi_status], ['administrasi_id' => $administrasi_id]);
+    }
 }

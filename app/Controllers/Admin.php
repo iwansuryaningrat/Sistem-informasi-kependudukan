@@ -128,6 +128,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/add/addkeluarga', $data);
     }
@@ -140,6 +141,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/add/addpenduduk', $data);
     }
@@ -152,6 +154,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editkeluarga', $data);
     }
@@ -164,6 +167,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editpenduduk', $data);
     }
@@ -188,6 +192,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/add/addadministrasi', $data);
     }
@@ -200,6 +205,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editadministrasi', $data);
     }
@@ -224,6 +230,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editlaporan', $data);
     }
@@ -248,6 +255,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/add/addgaleri', $data);
     }
@@ -260,6 +268,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editgaleri', $data);
     }
@@ -284,6 +293,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/add/addfoto', $data);
     }
@@ -296,6 +306,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editfoto', $data);
     }
@@ -320,6 +331,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/add/addpengumuman', $data);
     }
@@ -332,6 +344,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
         ];
+        dd($data);
 
         return view('admin/edit/editpengumuman', $data);
     }
