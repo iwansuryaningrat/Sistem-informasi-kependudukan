@@ -1,23 +1,19 @@
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
 
-
 <!-- header -->
 <header class="container px-0">
-  <div class="header-container-dashboard">
-    <div class="mb-3">
+  <div class="header-container-dashboard-form">
+    <div class="mb-4">
       <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
       </button>
     </div>
-    <h2 class="mb-3">Selamat Datang di Dashboard Warga</h2>
-    <p class="text-basic mb-0">
-      Pengajuan permohonan administrasi Voluptate facere modi provident
-      eum quae fugit quo doloremque nulla adipisci.
-    </p>
+    <h3 class="mb-2">Riwayat Pengajuan Administrasi</h3>
   </div>
 </header>
 <!-- end of header -->
+
 <!-- main -->
 <main>
   <section class="container container-space pt-3">

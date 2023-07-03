@@ -4,18 +4,14 @@
 <!-- header -->
 <header class="container px-0">
   <div class="header-container-dashboard">
-    <h2 class="mb-3">Selamat Datang di Dashboard Warga</h2>
-    <p class="text-basic mb-0">
-      Riwayat pengajuan administrasi voluptate facere modi provident eum
-      quae fugit quo doloremque nulla adipisci.
-    </p>
+    <h3 class="mb-2">Riwayat Pengajuan Administrasi</h3>
   </div>
 </header>
 <!-- end of header -->
 
 <!-- main -->
 <main>
-  <section class="container container-space pt-3">
+  <section class="container container-space pt-0">
     <div class="card-table-container shadow">
       <!-- table -->
       <div class="table-container">
@@ -55,10 +51,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -85,10 +81,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -115,10 +111,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -145,10 +141,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditadministrasi"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -192,14 +188,14 @@
       },
       lengthMenu: [5, 10, 25, 50, 100],
       pageLength: 10, // default page length
-      dom: "<'row pb-2'<'col-12 col-md-5 mb-3 mb-md-0'f><'col-12 col-sm-6 col-md-2 pl-md-0 mb-3 mb-sm-0'l>>" +
+      dom: "<'row pb-2'<'col-12 col-md-5 mb-3 mb-md-0'f><'col-6 col-md-2 pl-md-0 mb-3 mb-sm-0'l>>" +
         "<'row'<'col-sm-12'tr>>" +
         "<'row pt-2'<'col-sm-12 col-md-5 info-table mb-3 mb-md-0'i><'col-sm-12 col-md-7'p>>",
     });
 
     // add button create report
     $("#tableAdmin_wrapper .row:first-child").append(
-      '<div class="col-12 col-sm-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="/users/formtambahadministrasi" class="btn btn-main-xs w-full-md" role="button"><i class="fa-solid fa-plus me-2"></i>Buat Pengajuan</a></div></div>'
+      '<div class="col-6 col-md-5 ps-2 ps-sm-3"><div class="d-flex justify-content-end pe-2"><a href="./administration-form-add.html" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;"><i class="fa-solid fa-plus me-2"></i>Buat Pengajuan</a></div></div>'
     );
 
     // change class of datatable adminTable
