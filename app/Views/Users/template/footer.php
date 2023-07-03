@@ -2,6 +2,7 @@
 <footer class="big-footer">
     <section class="container">
         <div class="row footer-container-top">
+
             <!-- left -->
             <div class="col-md-4">
                 <div class="footer-top__left">
@@ -23,6 +24,7 @@
                     </a>
                 </div>
             </div>
+
             <!-- right -->
             <div class="col-md-8">
                 <div class="footer-menu-link">

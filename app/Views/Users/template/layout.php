@@ -50,6 +50,46 @@
         </div>
     </div>
 
+    <!-- offcanvas navbar mobile -->
+    <div class="offcanvas offcanvas-top offcanvas-custom" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+            <a id="offcanvasTopLabel" class="navbar-brand-mobile" href="./index.html"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" class="h-100" /></a>
+            <button type="button" class="btn-close text-sm" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-nav-link">
+                <li class="w-100">
+                    <a class="w-100 d-block mb-1 py-2 nav-collapse d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Warga
+                        <i class="fa-solid fa-angle-down text-sm"></i>
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="">
+                            <ul class="list-nav-collapse">
+                                <li class="list-nav-collapse-item">
+                                    <a href="/users/administrasi">Administrasi</a>
+                                </li>
+                                <li class="list-nav-collapse-item">
+                                    <a href="/users/pelaporan">Pelaporan</a>
+                                </li>
+                                <li class="list-nav-collapse-item">
+                                    <a href="/users/keluarga">Menu Keluarga</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-nav-link-item">
+                <li><a href="/users/galeri">Galeri</a></li>
+                </li>
+                <li class="list-nav-link-item">
+                <li><a href="/users/pengumuman">Pengumuman</a></li>
+                </li>
+            </ul>
+            <a href="/home/signin" class="btn btn-main w-100 shadow">Masuk</a>
+        </div>
+    </div>
+
     <!-- scripts -->
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

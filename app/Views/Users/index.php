@@ -31,6 +31,7 @@
 
 <!-- main -->
 <main>
+
   <!-- features -->
   <section class="container container-space">
     <!-- header -->
@@ -72,10 +73,10 @@
       <div class="project-card">
         <div class="d-flex mb-3">
           <div class="project-badge">
-            <i class="fa-solid fa-house-signal project-badge__icon"></i>
+            <i class="fa-solid fa-bullhorn project-badge__icon"></i>
           </div>
         </div>
-        <h5>Pelaporan</h5>
+        <h5>Pelaporan amet officia ducimus temporibus</h5>
         <p class="text-basic mb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
           dolorem quasi quos repellendus exercitationem nobis.
@@ -87,10 +88,10 @@
       <div class="project-card">
         <div class="d-flex mb-3">
           <div class="project-badge">
-            <i class="fa-solid fa-seedling project-badge__icon"></i>
+            <i class="fa-solid fa-house-chimney-window project-badge__icon"></i>
           </div>
         </div>
-        <h5>Keluarga</h5>
+        <h5>Keluarga perspiciatis voluptate</h5>
         <p class="text-basic mb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
           dolorem quasi quos repellendus exercitationem nobis.
@@ -107,6 +108,7 @@
     <div class="container container-space">
       <div class="row flex-column-reverse flex-md-row">
         <div class="col-12 col-md-5">
+
           <!-- header -->
           <div class="d-flex align-items-sm-start flex-column mt-3 mb-1 mb-sm-3">
             <div class="d-flex">
@@ -127,6 +129,7 @@
               Lebih Banyak
             </button>
           </div>
+
           <!-- content -->
         </div>
         <div class="col-12 col-md-7">
@@ -142,6 +145,7 @@
 
   <!-- galery -->
   <section class="container container-space">
+
     <!-- header -->
     <div class="d-flex align-items-center flex-column mb-4">
       <p class="head-badge">GALERI</p>
@@ -149,12 +153,13 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit
       </h2>
     </div>
+
     <!-- content -->
-    <div class="galery-container mb-5">
-      <div class="galery-warp">
-        <figure class="galery-item__warp">
-          <img src="/homepage/assets/img/image-1.jpg" alt="documentation-1" class="galery-item__photo" />
-          <div class="galery-item__desc">
+    <div class="gallery-container mb-5">
+      <div class="gallery-warp">
+        <figure class="gallery-item__warp">
+          <img src="/homepage/assets/img/image-1.jpg" alt="documentation-1" class="gallery-item__photo" />
+          <div class="gallery-item__desc">
             <div class="scroll">
               <p class="mb-2 text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -167,10 +172,10 @@
           </div>
         </figure>
       </div>
-      <div class="galery-warp">
-        <figure class="galery-item__warp">
-          <img src="/homepage/assets/img/image-2.jpg" alt="documentation-2" class="galery-item__photo" />
-          <div class="galery-item__desc">
+      <div class="gallery-warp">
+        <figure class="gallery-item__warp">
+          <img src="/homepage/assets/img/image-2.jpg" alt="documentation-2" class="gallery-item__photo" />
+          <div class="gallery-item__desc">
             <div class="scroll">
               <p class="mb-2 text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -186,10 +191,10 @@
           </div>
         </figure>
       </div>
-      <div class="galery-warp">
-        <figure class="galery-item__warp">
-          <img src="/homepage/assets/img/image-3.jpg" alt="documentation-3" class="galery-item__photo" />
-          <div class="galery-item__desc">
+      <div class="gallery-warp">
+        <figure class="gallery-item__warp">
+          <img src="/homepage/assets/img/image-3.jpg" alt="documentation-3" class="gallery-item__photo" />
+          <div class="gallery-item__desc">
             <div class="scroll">
               <p class="mb-2 text-sm">
                 Consequatur et odio quas laborum. Laborum quaerat
@@ -203,10 +208,10 @@
           </div>
         </figure>
       </div>
-      <div class="galery-warp">
-        <figure class="galery-item__warp">
-          <img src="/homepage/assets/img/image-4.jpg" alt="documentation-4" class="galery-item__photo" />
-          <div class="galery-item__desc">
+      <div class="gallery-warp">
+        <figure class="gallery-item__warp">
+          <img src="/homepage/assets/img/image-4.jpg" alt="documentation-4" class="gallery-item__photo" />
+          <div class="gallery-item__desc">
             <div class="scroll">
               <p class="mb-2 text-sm">
                 Laboriosam aspernatur quo voluptatibus aut! Inventore
@@ -219,10 +224,10 @@
           </div>
         </figure>
       </div>
-      <div class="galery-warp">
-        <figure class="galery-item__warp">
-          <img src="/homepage/assets/img/image-5.jpg" alt="documentation-5" class="galery-item__photo" />
-          <div class="galery-item__desc">
+      <div class="gallery-warp">
+        <figure class="gallery-item__warp">
+          <img src="/homepage/assets/img/image-5.jpg" alt="documentation-5" class="gallery-item__photo" />
+          <div class="gallery-item__desc">
             <div class="scroll">
               <p class="mb-2 text-sm">
                 Pariatur officiis consequatur et odio quas laborum.
@@ -237,10 +242,10 @@
           </div>
         </figure>
       </div>
-      <div class="galery-warp">
-        <figure class="galery-item__warp">
-          <img src="/homepage/assets/img/image-6.jpg" alt="documentation-6" class="galery-item__photo" />
-          <div class="galery-item__desc">
+      <div class="gallery-warp">
+        <figure class="gallery-item__warp">
+          <img src="/homepage/assets/img/image-6.jpg" alt="documentation-6" class="gallery-item__photo" />
+          <div class="gallery-item__desc">
             <div class="scroll">
               <p class="mb-2 text-sm">
                 Quaerat laboriosam aspernatur quo voluptatibus aut!
@@ -255,13 +260,14 @@
       </div>
     </div>
     <div class="d-flex justify-content-center pt-1 pt-sm-3">
-      <a href="/users/galeri" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+      <a href="./pages/gallery/gallery.html" class="btn btn-main shadow" role="button">Lebih Banyak</a>
     </div>
   </section>
 
   <!-- pengumuman -->
   <section class="w-100 bg-main-500__05">
     <div class="container container-space">
+
       <!-- header -->
       <div class="d-flex align-items-center flex-column mb-4">
         <p class="head-badge">pengumuman</p>
@@ -269,6 +275,7 @@
           Itaque nobis explicabo voluptas cum nulla.
         </h2>
       </div>
+
       <!-- content -->
       <div class="news-container mb-5">
         <div class="news-card">
@@ -295,7 +302,7 @@
               <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">50 menit</span>
             </p>
           </div>
-          <a href="/homepage/read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
+          <a href="./pages/news/read-news.html" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
             Kunjungi Berita
           </a>
         </div>
@@ -323,7 +330,7 @@
               <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">15 jam</span>
             </p>
           </div>
-          <a href="/users/read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
+          <a href="./pages/news/read-news.html" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
             Kunjungi Berita
           </a>
         </div>
@@ -351,7 +358,7 @@
               <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">10 Feb 2023</span>
             </p>
           </div>
-          <a href="/users/read-news.html" class="btn btn-main-outline shadow w-full-sm" role="button">
+          <a href="./pages/news/read-news.html" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
             Kunjungi Berita
           </a>
         </div>

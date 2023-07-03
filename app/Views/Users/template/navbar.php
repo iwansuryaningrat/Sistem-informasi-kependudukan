@@ -1,12 +1,16 @@
 <!-- navigation -->
 <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-container navbar-shadow">
-    <div class="container-fluid">
+    <div class="container-fluid flex-nowrap">
         <!-- brand -->
         <a class="navbar-brand fw-bold" href="/home"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
+
         <!-- toggle mobile navbar -->
-        <button class="navbar-toggler navbar-toggling shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="toggle-nav-mobile">
+            <button class="btn-nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                <i class="fa-solid fa-bars" style="font-size: 1.25rem"></i>
+            </button>
+        </div>
+
         <!-- link -->
         <div class="collapse navbar-collapse navbar-collapsing" id="navbarSupportedContent">
             <!-- left -->
@@ -32,7 +36,7 @@
                     <a class="nav-link navbar-link <?php if ($navbar == 'galeri') echo ' active'; ?>" href="/users/galeri">Galeri</a>
                 </li>
                 <li class="nav-item nav-items">
-                    <a class="nav-link navbar-link <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="/users/pengumuman">Pengumuman</a>
+                    <a class="btn btn-main-outline-sm w-full-xl <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="/users/pengumuman">Pengumuman</a>
                 </li>
             </ul>
             <!-- right -->
