@@ -5,7 +5,7 @@
 <header class="container">
   <div class="header-container-mini">
     <h1 class="mb-3">Galeri</h1>
-    <p class="text-basic text-center mb-0">
+    <p class="text-basic text-center mb-0 max-w-80">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
       iusto architecto sint ipsam, labore quo dolore quis voluptate id
       alias, impedit quia! Illum, consequatur quae quo at dolore
@@ -14,554 +14,154 @@
   </div>
 </header>
 <!-- end of header -->
+
 <!-- main -->
 <main>
   <section class="container container-space">
-    <!-- only large view -->
-    <div class="galery-view-container-lg">
-      <!-- column 1 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-1.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-1.jpg" alt="galery-view-1" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
+    <div class="news-container">
+      <a href="./gallery-detail.html" class="news-card">
+        <figure class="news-image__wrap h-13">
+          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
         </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-11.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-11.jpg" alt="galery-view-11" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
+        <div class="d-flex align-items-center mb-2">
+          <p class="mb-0">
+            <span class="badge badge-done">Kategori 1</span>
+          </p>
+        </div>
+        <p class="news-title-card text-lg mb-2">
+          Galeri Kegiatan Warga 1
+        </p>
+        <div class="d-flex align-items-center">
+          <p class="d-flex align-items-center me-3 mb-0">
+            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+            <span class="text-sm d-block text-gray">Abimanyu</span>
+          </p>
+        </div>
+      </a>
+      <a href="./gallery-detail.html" class="news-card">
+        <figure class="news-image__wrap h-13">
+          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
         </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-2.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-2.jpg" alt="galery-view-2" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
+        <div class="d-flex align-items-center mb-2">
+          <p class="mb-0">
+            <span class="badge badge-done">Kategori 1</span>
+          </p>
+        </div>
+        <p class="news-title-card text-lg mb-2">
+          Galeri Kegiatan Warga 1
+        </p>
+        <div class="d-flex align-items-center">
+          <p class="d-flex align-items-center me-3 mb-0">
+            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+            <span class="text-sm d-block text-gray">Abimanyu</span>
+          </p>
+        </div>
+      </a>
+      <a href="./gallery-detail.html" class="news-card">
+        <figure class="news-image__wrap h-13">
+          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
         </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-3.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-3.jpg" alt="galery-view-3" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
+        <div class="d-flex align-items-center mb-2">
+          <p class="mb-0">
+            <span class="badge badge-accepted">Kategori 1</span>
+          </p>
+        </div>
+        <p class="news-title-card text-lg mb-2">
+          Galeri Kegiatan Warga 1
+        </p>
+        <div class="d-flex align-items-center">
+          <p class="d-flex align-items-center me-3 mb-0">
+            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+            <span class="text-sm d-block text-gray">Abimanyu</span>
+          </p>
+        </div>
+      </a>
+      <a href="./gallery-detail.html" class="news-card">
+        <figure class="news-image__wrap h-13">
+          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
         </figure>
-      </div>
-      <!-- column 2 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-5.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-5.jpg" alt="galery-view-5" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-13.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-13.jpg" alt="galery-view-13" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-14.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-14.jpg" alt="galery-view-14" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <!-- column 3 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-8.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-8.jpg" alt="galery-view-8" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-15.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-15.jpg" alt="galery-view-15" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-9.png" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-9.png" alt="galery-view-9" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-16.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-16.jpg" alt="galery-view-16" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <!-- column 4 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-10.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-10.jpg" alt="galery-view-10" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-12.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-12.jpg" alt="galery-view-12" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-4.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-4.jpg" alt="galery-view-4" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- only medium view -->
-    <div class="galery-view-container-md">
-      <!-- column 1 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-1.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-1.jpg" alt="galery-view-1" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-11.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-11.jpg" alt="galery-view-11" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-2.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-2.jpg" alt="galery-view-2" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-3.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-3.jpg" alt="galery-view-3" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-10.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-10.jpg" alt="galery-view-10" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <!-- column 2 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-5.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-5.jpg" alt="galery-view-5" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-13.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-13.jpg" alt="galery-view-13" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-14.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-14.jpg" alt="galery-view-14" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-12.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-12.jpg" alt="galery-view-12" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-4.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-4.jpg" alt="galery-view-4" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <!-- column 3 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-8.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-8.jpg" alt="galery-view-8" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-15.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-15.jpg" alt="galery-view-15" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-9.png" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-9.png" alt="galery-view-9" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-medium" data-src="/homepage/assets/img/image-16.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-16.jpg" alt="galery-view-16" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- only small view -->
-    <div class="galery-view-container">
-      <!-- column 1 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-1.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-1.jpg" alt="galery-view-1" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-11.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-11.jpg" alt="galery-view-11" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-2.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-2.jpg" alt="galery-view-2" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-3.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-3.jpg" alt="galery-view-3" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-10.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-10.jpg" alt="galery-view-10" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-8.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-8.jpg" alt="galery-view-8" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-15.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-15.jpg" alt="galery-view-15" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-      <!-- column 2 -->
-      <div class="view-container__warp">
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-5.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-5.jpg" alt="galery-view-5" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-13.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-13.jpg" alt="galery-view-13" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-14.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-14.jpg" alt="galery-view-14" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-12.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-12.jpg" alt="galery-view-12" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-4.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-4.jpg" alt="galery-view-4" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-9.png" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-9.png" alt="galery-view-9" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-        <figure data-fancybox="gallery-small" data-src="/homepage/assets/img/image-16.jpg" class="galery-view-item__warp">
-          <img src="/homepage/assets/img/image-16.jpg" alt="galery-view-16" class="galery-view-item" />
-          <figcaption class="d-none">
-            <p class="mb-2 text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quam pariatur officiis consequatur et odio quas laborum.
-            </p>
-            <p class="text-xs mb-2 fst-italic text-gray-200">
-              Iwan Suryaningrat - 13 Januari 2023
-            </p>
-          </figcaption>
-        </figure>
-      </div>
+        <div class="d-flex align-items-center mb-2">
+          <p class="mb-0">
+            <span class="badge badge-onproccess">Kategori 1</span>
+          </p>
+        </div>
+        <p class="news-title-card text-lg mb-2">
+          Galeri Kegiatan Warga 1
+        </p>
+        <div class="d-flex align-items-center">
+          <p class="d-flex align-items-center me-3 mb-0">
+            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+            <span class="text-sm d-block text-gray">Abimanyu</span>
+          </p>
+        </div>
+      </a>
     </div>
   </section>
 </main>
 <!-- end of main -->
+
+<!-- button add gallery -->
+<div id="add-gallery-fixed">
+  <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
+    <i class="fa-solid fa-plus"></i>
+    <span class="text">Tambah Galeri</span>
+  </div>
+</div>
+
+<?= $this->endSection(); ?>
+
+<?= $this->section('custom_modal'); ?>
+
+<!-- modal add gallery -->
+<div class="modal fade" id="modalAddGallery" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddGalleryLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form id="formAddGallery" class="modal-content" action="#">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalAddGalleryLabel">
+          Form Tambah Galeri
+        </h1>
+        <button type="button" class="btn-close text-sm shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- judul galeri -->
+        <div class="mb-3">
+          <label for="judul" class="form-label forms-label">Judul</label>
+          <input type="text" class="form-control input-control" id="judul" name="judul" placeholder="Masukkan Judul Galeri" />
+        </div>
+        <!-- kategori galeri -->
+        <div class="mb-3">
+          <label for="kategori" class="form-label forms-label">Kategori</label>
+          <select class="form-select select-control" id="kategori" name="kategori">
+            <option selected value="">Pilih Kategori Galeri</option>
+            <option value="1">Kategori 1</option>
+            <option value="2">Kategori 2</option>
+            <option value="3">Kategori 3</option>
+          </select>
+        </div>
+        <!-- deskripsi galeri -->
+        <div class="mb-3">
+          <label for="deskripsi" class="form-label forms-label">Deskripsi</label>
+          <textarea class="form-control input-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi Galeri"></textarea>
+        </div>
+        <!-- thumbnail galeri -->
+        <div class="mb-3">
+          <label for="thumbnail" class="form-label forms-label">Thumbnail</label>
+          <div class="input-group">
+            <input type="file" class="form-control input-control" id="thumbnail" name="thumbnail" required accept="image/*" />
+            <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
+              <i class="fa-solid fa-upload me-2"></i>Unggah
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-main-sm" id="formAddGalleryBtn">
+          Tambah
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <?= $this->endSection(); ?>
 
@@ -569,30 +169,42 @@
 
 <!-- script internal -->
 <script>
-  const options = {
-    Thumbs: {
-      type: "classic",
-    },
-    caption: function(fancybox, slide) {
-      const figurecaption = slide.triggerEl?.querySelector("figcaption");
-      return figurecaption ? figurecaption.innerHTML : slide.caption || "";
-    },
-    Carousel: {
-      Navigation: false,
-    },
-    Toolbar: {
-      display: {
-        left: [],
-        middle: ["prev", "infobar", "next"],
-        right: ["slideshow", "thumbs", "close"],
+  // validate
+  $(document).ready(function() {
+    $("#formAddGallery").validate({
+      rules: {
+        judul: {
+          required: true,
+        },
+        kategori: {
+          required: true,
+        },
+        deskripsi: {
+          required: true,
+        },
+        thumbnail: {
+          required: true,
+        },
       },
-    },
-    transitionEffect: "classic",
-  };
-
-  Fancybox.bind('[data-fancybox="gallery-large"]', options);
-  Fancybox.bind('[data-fancybox="gallery-medium"]', options);
-  Fancybox.bind('[data-fancybox="gallery-small"]', options);
+      messages: {
+        judul: {
+          required: "Judul tidak boleh kosong",
+        },
+        kategori: {
+          required: "Kategori tidak boleh kosong",
+        },
+        deskripsi: {
+          required: "Deskripsi tidak boleh kosong",
+        },
+        thumbnail: {
+          required: "Thumbnail tidak boleh kosong",
+        },
+      },
+    });
+    $("#formAddGalleryButton").on("click", () => {
+      console.log($("#formAddGallery").valid());
+    });
+  });
 </script>
 
 <?= $this->endSection(); ?>

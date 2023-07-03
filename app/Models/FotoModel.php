@@ -11,7 +11,7 @@ class FotoModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'isThumbnail', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
