@@ -5,7 +5,7 @@
 <header class="container">
   <div class="header-container-mini">
     <h1 class="mb-3">Berita Terkini</h1>
-    <p class="text-basic text-center mb-0">
+    <p class="text-basic text-center mb-0 max-w-80">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
       iusto architecto sint ipsam, labore quo dolore quis voluptate id
       alias, impedit quia! Illum, consequatur quae quo at dolore
@@ -17,7 +17,7 @@
 
 <!-- main -->
 <main>
-  <section class="container container-space">
+  <section class="container container-space-top">
     <div class="news-container">
       <a href="./read-news.html" class="news-card">
         <figure class="news-image__wrap">
