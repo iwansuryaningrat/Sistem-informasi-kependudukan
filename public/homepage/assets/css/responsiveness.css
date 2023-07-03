@@ -56,19 +56,19 @@
   .header-container {
     margin: 14.25rem 0 5rem;
   }
-  /* galery */
-  .galery-container {
+  /* gallery */
+  .gallery-container {
     grid-template-columns: repeat(3, 1fr);
   }
-  .galery-warp:first-child {
+  .gallery-warp:first-child {
     grid-row: auto;
     grid-column: auto;
   }
-  .galery-warp:nth-child(2) {
+  .gallery-warp:nth-child(2) {
     grid-row: auto;
     grid-column: auto;
   }
-  .galery-warp:nth-child(3) {
+  .gallery-warp:nth-child(3) {
     grid-row: auto;
     grid-column: auto;
   }
@@ -110,20 +110,22 @@
     margin-bottom: 0.75rem;
   }
 
-  /* galery */
-  .galery-view-container-lg,
-  .galery-view-container-md,
-  .galery-view-container,
+  /* gallery */
+  .gallery-view-container-lg,
+  .gallery-view-container-md,
+  .gallery-view-container,
   .view-container__warp {
     grid-gap: 0.75rem;
     gap: 0.75rem;
+    grid-template-columns: repeat(3, 1fr);
   }
-  .galery-view-item__warp {
+  .gallery-view-item__warp {
     border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
+    height: 150px;
   }
 
   .table-custom thead tr th {
@@ -135,6 +137,12 @@
   /* container */
   .header-container-mini {
     padding-bottom: 0;
+  }
+
+  /* utilities */
+  .max-w-80 {
+    max-width: 100%;
+    width: 100%;
   }
 
   /* card */
@@ -177,24 +185,24 @@
     margin: 12rem 0 3rem;
   }
 
-  /* galery */
-  .galery-container {
+  /* gallery */
+  .gallery-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .galery-view-container,
-  .galery-view-container-lg,
-  .galery-view-container-md,
+  .gallery-view-container,
+  .gallery-view-container-lg,
+  .gallery-view-container-md,
   .view-container__warp {
     grid-gap: 0.75rem;
     gap: 0.75rem;
   }
-  .galery-view-container-lg {
+  /* .gallery-view-container-lg {
     display: none;
-  }
-  .galery-view-container-md {
+  } */
+  .gallery-view-container-md {
     display: grid;
   }
-  .galery-view-item__warp {
+  .gallery-view-item__warp {
     border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
@@ -233,6 +241,9 @@
   /* etc */
   .news-image__wrap {
     height: 12rem;
+  }
+  .news-image__wrap.h-13 {
+    height: 11rem;
   }
   .news-container {
     grid-gap: 2rem 1.5rem;
@@ -299,8 +310,8 @@
   }
   /* container */
   .container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
   .sign-container-content {
     padding: 7rem 1rem 6rem;
@@ -337,6 +348,14 @@
   .footer-floor {
     padding: 0;
   }
+  .gallery-view-item__warp {
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    height: 120px;
+  }
 
   /* homepage */
   .general-image-wrapper {
@@ -347,25 +366,26 @@
     bottom: -2rem;
   }
 
-  /* galery */
-  .galery-container {
+  /* gallery */
+  .gallery-container {
     grid-template-columns: repeat(1, 1fr);
   }
-  .galery-warp {
+  .gallery-warp {
     height: 15rem;
   }
-  .galery-view-container-md {
+  .gallery-view-container-md {
     display: none;
   }
-  .galery-view-container {
+  .gallery-view-container {
     display: grid;
   }
-  .galery-view-container,
-  .galery-view-container-lg,
-  .galery-view-container-md,
+  .gallery-view-container,
+  .gallery-view-container-lg,
+  .gallery-view-container-md,
   .view-container__warp {
     grid-gap: 0.5rem;
     gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .news-image-container {
@@ -387,6 +407,14 @@
     bottom: 1.5rem;
     right: 1.5rem;
   }
+  #add-gallery-fixed.down .btn.btn-main {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  #add-gallery-fixed.top .btn.btn-main {
+    bottom: 5.75rem;
+    right: 1.5rem;
+  }
 }
 @media only screen and (max-width: 320px) {
   /* components */
@@ -403,4 +431,12 @@
   .news-image-container {
     height: 12rem;
   }
+  .gallery-view-item__warp {
+    border-radius: 0.375rem;
+    -webkit-border-radius: 0.375rem;
+    -moz-border-radius: 0.375rem;
+    -ms-border-radius: 0.375rem;
+    -o-border-radius: 0.375rem;
+    height: 100px;
+}
 }

@@ -26,3 +26,22 @@ $(document).ready(function () {
     $('html').animate({ scrollTop: 0 }, 150);
   });
 });
+
+// add gallery fixed button
+$(document).ready(function () {
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 0 && $(window).scrollTop() <= 1080) {
+      $('#add-gallery-fixed').removeClass('hide');
+      $('#add-gallery-fixed').removeClass('top');
+      $('#add-gallery-fixed').addClass('down');
+    } else if ($(window).scrollTop() > 1080) {
+      $('#add-gallery-fixed').removeClass('hide');
+      $('#add-gallery-fixed').removeClass('down');
+      $('#add-gallery-fixed').addClass('top');
+    } else {
+      $('#add-gallery-fixed').removeClass('top');
+      $('#add-gallery-fixed').removeClass('down');
+      $('#add-gallery-fixed').addClass('hide');
+    }
+  });
+});

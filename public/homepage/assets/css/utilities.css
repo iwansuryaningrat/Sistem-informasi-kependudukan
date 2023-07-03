@@ -26,6 +26,15 @@
   line-height: 1.5;
   color: rgb(106, 106, 106);
 }
+.text-xl {
+  font-size: 1.25rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+}
+.text-base {
+  font-size: 1rem;
+}
 .text-sm {
   font-size: 0.875rem;
 }
@@ -83,8 +92,15 @@ svg.fill-gray,
 .w-full-xl {
   width: auto;
 }
+.max-w-80 {
+  width: 80%;
+  max-width: 80%;
+}
 
 /* margin */
 .mb-8 {
   margin-bottom: 2rem;
+}
+.pb-100vh-420 {
+  padding-bottom: calc(100vh - 580px) !important;
 }
