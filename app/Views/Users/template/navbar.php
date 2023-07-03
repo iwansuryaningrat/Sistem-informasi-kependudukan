@@ -21,14 +21,19 @@
                     </a>
                     <ul class="dropdown-menu nav-dropdown-menu shadow">
                         <li>
-                            <a class="dropdown-item nav-dropdown-item <?php if ($navbar == 'administrasi') echo ' active'; ?>" href="/users/administrasi"><span><i class="fa-solid fa-rocket"></i></span>Administrasi</a>
+                            <a class="dropdown-item nav-dropdown-item <?php if ($navbar == 'administrasi') echo ' active'; ?>" href="/users/administrasi">
+                                <span><i class="fa-solid fa-rocket"></i></span>Administrasi
+                            </a>
                         </li>
                         <li>
-                            <a class="dropdown-item nav-dropdown-item <?php if ($navbar == 'pelaporan') echo ' active'; ?>" href="/users/pelaporan"><span><i class="fa-solid fa-house-signal"></i></span>Pelaporan</a>
+                            <a class="dropdown-item nav-dropdown-item <?php if ($navbar == 'pelaporan') echo ' active'; ?>" href="/users/pelaporan">
+                                <span><i class="fa-solid fa-house-signal"></i></span>Pelaporan
+                            </a>
                         </li>
                         <li>
-                            <a class="dropdown-item nav-dropdown-item <?php if ($navbar == 'keluarga') echo ' active'; ?>" href="/users/keluarga"><span><i class="fa-solid fa-seedling"></i></span>Menu
-                                keluarga</a>
+                            <a class="dropdown-item nav-dropdown-item <?php if ($navbar == 'keluarga') echo ' active'; ?>" href="/users/keluarga">
+                                <span><i class="fa-solid fa-seedling"></i></span> Menu keluarga
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -36,7 +41,7 @@
                     <a class="nav-link navbar-link <?php if ($navbar == 'galeri') echo ' active'; ?>" href="/users/galeri">Galeri</a>
                 </li>
                 <li class="nav-item nav-items">
-                    <a class="btn btn-main-outline-sm w-full-xl <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="/users/pengumuman">Pengumuman</a>
+                    <a class="nav-link navbar-link <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="/users/pengumuman">Pengumuman</a>
                 </li>
             </ul>
             <!-- right -->
