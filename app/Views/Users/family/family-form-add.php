@@ -1,172 +1,207 @@
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
 
-
 <!-- header -->
 <header class="container px-0">
-  <div class="header-container-dashboard">
-    <div class="mb-3">
+  <div class="header-container-dashboard-form">
+    <div class="mb-4">
       <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
       </button>
     </div>
-    <h2 class="mb-3">Selamat Datang di Dashboard Warga</h2>
-    <p class="text-basic mb-0">
-      Voluptate facere modi provident eum quae fugit quo doloremque nulla
-      adipisci.
-    </p>
+    <h3 class="mb-2">Anggota Keluarga</h3>
   </div>
 </header>
 <!-- end of header -->
 
 <!-- main -->
 <main>
-  <section class="container container-space pt-3">
-    <form class="card-form-container card shadow" id="familyFormAdd" action="#" enctype="multipart/form-data" method="POST">
-      <div class="card-header">
-        <p class="mb-0">Form Tambah Keluarga</p>
-      </div>
-      <div class="card-form-container card-body">
-        <div>
-          <!-- nik -->
-          <div class="row mb-3">
-            <label for="nik" class="col-sm-2 col-form-label forms-label">NIK</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" />
-            </div>
+  <section class="container container-space pt-0">
+    <div class="row">
+      <div class="col-12 col-lg-8 mb-5 mb-lg-0">
+        <form class="card-form-container card" id="familyFormAdd" action="#" enctype="multipart/form-data" method="POST">
+          <div class="card-header card-form-header">
+            <p class="mb-0 fw-semibold">Form Tambah Keluarga</p>
           </div>
-          <!-- nama -->
-          <div class="row mb-3">
-            <label for="nama" class="col-sm-2 col-form-label forms-label">Nama</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama" />
-            </div>
-          </div>
-          <!-- status -->
-          <div class="row mb-3">
-            <label for="status" class="col-sm-2 col-form-label forms-label">Status</label>
-            <div class="col-sm-10">
-              <select id="status" name="status" required class="form-select select-control">
-                <option value="">Pilih Status</option>
-                <option value="1">Status 1</option>
-                <option value="2">Status 2</option>
-                <option value="3">Status 3</option>
-              </select>
-            </div>
-          </div>
-          <!-- jenis kelamin -->
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label forms-label">Jenis Kelamin</label>
-            <div class="col-sm-10" id="radioFormGender">
-              <div class="d-flex align-items-center">
-                <div class="form-check me-4">
-                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" />
-                  <label class="form-check-label" for="pria">
-                    Laki-laki
-                  </label>
+          <div class="card-body card-form-body">
+            <div>
+              <div class="row mb-3">
+                <!-- nama -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="nama" class="form-label forms-label">Nama <span class="text-important">*</span></label>
+                  <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama" />
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" />
-                  <label class="form-check-label" for="wanita">
-                    Perempuan
-                  </label>
+                <!-- nik -->
+                <div class="col-12 col-md-6">
+                  <label for="nik" class="form-label forms-label">NIK <span class="text-important">*</span></label>
+                  <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" />
+                </div>
+              </div>
+              <!-- jenis kelamin -->
+              <div class="mb-3">
+                <label class="form-label forms-label">Jenis Kelamin
+                  <span class="text-important">*</span></label>
+                <div class="col-sm-10" id="radioFormGender">
+                  <div class="d-flex align-items-center">
+                    <div class="form-check me-4">
+                      <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" />
+                      <label class="form-check-label" for="pria">Laki-laki</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" />
+                      <label class="form-check-label" for="wanita">Perempuan</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <!-- tempat lahir -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="tempat_lahir" class="form-label forms-label">Tempat Lahir
+                    <span class="text-important">*</span></label>
+                  <select id="tempat_lahir" name="tempat_lahir" required class="form-select select-control">
+                    <option value="">Pilih Kabupaten/Kota</option>
+                    <option value="1">Kota 1</option>
+                    <option value="2">Kota 2</option>
+                    <option value="3">Kota 3</option>
+                    <option value="4">Kota 4</option>
+                  </select>
+                </div>
+                <!-- tanggal lahir -->
+                <div class="col-12 col-md-6">
+                  <label for="tanggal_lahir" class="form-label forms-label">Tanggal Lahir
+                    <span class="text-important">*</span></label>
+
+                  <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <!-- agama -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="agama" class="form-label forms-label">Agama <span class="text-important">*</span></label>
+
+                  <select id="agama" name="agama" required class="form-select select-control">
+                    <option value="">Pilih Agama</option>
+                    <option value="1">Agama 1</option>
+                    <option value="2">Agama 2</option>
+                    <option value="3">Agama 3</option>
+                  </select>
+                </div>
+                <!-- status perkawinan -->
+                <div class="col-12 col-md-6">
+                  <label for="status_perkawinan" class="form-label forms-label">Status Perkawinan
+                    <span class="text-important">*</span></label>
+
+                  <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
+                    <option value="">Pilih Status Perkawinan</option>
+                    <option value="1">Status Perkawinan 1</option>
+                    <option value="2">Status Perkawinan 2</option>
+                    <option value="3">Status Perkawinan 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <!-- pendidikan -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="pendidikan" class="form-label forms-label">Pendidikan
+                    <span class="text-important">*</span></label>
+
+                  <select id="pendidikan" name="pendidikan" required class="form-select select-control">
+                    <option value="">Pilih Pendidikan</option>
+                    <option value="1">Pendidikan 1</option>
+                    <option value="2">Pendidikan 2</option>
+                    <option value="3">Pendidikan 3</option>
+                  </select>
+                </div>
+                <!-- pekerjaan -->
+                <div class="col-12 col-md-6">
+                  <label for="pekerjaan" class="form-label forms-label">Pekerjaan
+                    <span class="text-important">*</span></label>
+
+                  <select id="pekerjaan" name="pekerjaan" required class="form-select select-control">
+                    <option value="">Pilih Pekerjaan</option>
+                    <option value="1">Pekerjaan 1</option>
+                    <option value="2">Pekerjaan 2</option>
+                    <option value="3">Pekerjaan 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <!-- no. hp -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="no_hp" class="form-label forms-label">No. HP <span class="text-important">*</span></label>
+
+                  <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" />
+                </div>
+                <!-- email -->
+                <div class="col-12 col-md-6">
+                  <label for="email" class="form-label forms-label">Email <span class="text-important">*</span></label>
+
+                  <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" />
+                </div>
+              </div>
+              <!-- foto -->
+              <div class="mb-3">
+                <label for="foto" class="form-label forms-label">Foto <span class="text-important">*</span></label>
+
+                <div class="input-group">
+                  <input type="file" class="form-control input-control" id="foto" name="foto" required accept="image/*" />
+                  <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
+                    <i class="fa-solid fa-upload me-2"></i>Unggah
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <!-- tempat lahir -->
-          <div class="row mb-3">
-            <label for="tempat_lahir" class="col-sm-2 col-form-label forms-label">Tempat Lahir</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" />
+          <div class="card-footer card-form-footer">
+            <div class="w-100 d-flex justify-content-end">
+              <button type="submit" form="familyFormAdd" class="btn btn-main-sm btn-submit px-4" id="familyFormAddButton">
+                Kirim
+              </button>
             </div>
           </div>
-          <!-- tanggal lahir -->
-          <div class="row mb-3">
-            <label for="tanggal_lahir" class="col-sm-2 col-form-label forms-label">Tanggal Lahir</label>
-            <div class="col-sm-10">
-              <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required />
+        </form>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h5 class="mb-2">FAQ</h5>
+        <div class="accordion">
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="panelsStayOpen-heading1">
+              <button class="accordion-button accordion-btn shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Apa itu Lorem Ipsum?</span>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  It is shown by default, until the collapse plugin adds
+                  the appropriate classes that we use to style each
+                  element.</span>
+              </div>
             </div>
           </div>
-          <!-- status perkawinan -->
-          <div class="row mb-3">
-            <label for="status_perkawinan" class="col-sm-2 col-form-label forms-label">Status Perkawinan</label>
-            <div class="col-sm-10">
-              <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
-                <option value="">Pilih Status Perkawinan</option>
-                <option value="1">Status Perkawinan 1</option>
-                <option value="2">Status Perkawinan 2</option>
-                <option value="3">Status Perkawinan 3</option>
-              </select>
-            </div>
-          </div>
-          <!-- agama -->
-          <div class="row mb-3">
-            <label for="agama" class="col-sm-2 col-form-label forms-label">Agama</label>
-            <div class="col-sm-10">
-              <select id="agama" name="agama" required class="form-select select-control">
-                <option value="">Pilih Agama</option>
-                <option value="1">Agama 1</option>
-                <option value="2">Agama 2</option>
-                <option value="3">Agama 3</option>
-              </select>
-            </div>
-          </div>
-          <!-- pendidikan -->
-          <div class="row mb-3">
-            <label for="pendidikan" class="col-sm-2 col-form-label forms-label">Pendidikan</label>
-            <div class="col-sm-10">
-              <select id="pendidikan" name="pendidikan" required class="form-select select-control">
-                <option value="">Pilih Pendidikan</option>
-                <option value="1">Pendidikan 1</option>
-                <option value="2">Pendidikan 2</option>
-                <option value="3">Pendidikan 3</option>
-              </select>
-            </div>
-          </div>
-          <!-- pekerjaan -->
-          <div class="row mb-3">
-            <label for="pekerjaan" class="col-sm-2 col-form-label forms-label">Pekerjaan</label>
-            <div class="col-sm-10">
-              <select id="pekerjaan" name="pekerjaan" required class="form-select select-control">
-                <option value="">Pilih Pekerjaan</option>
-                <option value="1">Pekerjaan 1</option>
-                <option value="2">Pekerjaan 2</option>
-                <option value="3">Pekerjaan 3</option>
-              </select>
-            </div>
-          </div>
-          <!-- no. hp -->
-          <div class="row mb-3">
-            <label for="no_hp" class="col-sm-2 col-form-label forms-label">No. HP</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" />
-            </div>
-          </div>
-          <!-- email -->
-          <div class="row mb-3">
-            <label for="email" class="col-sm-2 col-form-label forms-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" />
-            </div>
-          </div>
-          <!-- foto -->
-          <div class="row mb-3">
-            <label for="foto" class="col-sm-2 col-form-label forms-label">Foto</label>
-            <div class="col-sm-10">
-              <input type="file" class="form-control input-control" id="foto" name="foto" required />
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="panelsStayOpen-heading2">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="false" aria-controls="panelsStayOpen-collapse2">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Mengapa kita menggunakan Lorem Ipsum?</span>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading2">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  It is shown by default, until the collapse plugin adds
+                  the appropriate classes that we use to style each
+                  element.</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="card-footer">
-        <div class="w-100 d-flex justify-content-end">
-          <button type="submit" form="familyFormAdd" class="btn btn-main btn-submit" id="familyFormAddButton">
-            Kirim
-          </button>
-        </div>
-      </div>
-    </form>
+    </div>
   </section>
 </main>
 <!-- end of main -->
@@ -178,12 +213,12 @@
 <!-- internal script -->
 <script>
   // add method validation only letters
-  $.validator.addMethod('alphabetOnly', function(value, element) {
+  $.validator.addMethod("alphabetOnly", function(value, element) {
     return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
   });
   // validate
   $(document).ready(function() {
-    $('#familyFormAdd').validate({
+    $("#familyFormAdd").validate({
       rules: {
         nik: {
           required: true,
@@ -195,15 +230,11 @@
           required: true,
           alphabetOnly: true,
         },
-        status: {
-          required: true,
-        },
         jenis_kelamin: {
           required: true,
         },
         tampat_lahir: {
           required: true,
-          alphabetOnly: true,
         },
         tanggal_lahir: {
           required: true,
@@ -232,68 +263,66 @@
         },
         foto: {
           required: true,
-          extension: 'jpg|jpeg|png',
+          extension: "jpg|jpeg|png",
         },
       },
       messages: {
         nik: {
-          required: 'NIK tidak boleh kosong.',
-          number: 'NIK harus berupa angka.',
-          minlength: 'NIK harus berjumlah 16 digit.',
-          maxlength: 'NIK harus berjumlah 16 digit.',
+          required: "NIK tidak boleh kosong.",
+          number: "NIK harus berupa angka.",
+          minlength: "NIK harus berjumlah 16 digit.",
+          maxlength: "NIK harus berjumlah 16 digit.",
         },
         nama: {
-          required: 'Nama tidak boleh kosong.',
-        },
-        status: {
-          required: 'Status tidak boleh kosong.',
+          required: "Nama tidak boleh kosong.",
+          alphabetOnly: "Nama harus berupa huruf.",
         },
         jenis_kelamin: {
-          required: 'Jenis kelamin tidak boleh kosong.',
+          required: "Jenis kelamin tidak boleh kosong.",
         },
         tempat_lahir: {
-          required: 'Tempat lahir tidak boleh kosong.',
+          required: "Tempat lahir tidak boleh kosong.",
         },
         tanggal_lahir: {
-          required: 'Tanggal lahir tidak boleh kosong.',
+          required: "Tanggal lahir tidak boleh kosong.",
         },
         status_perkawinan: {
-          required: 'Status perkawinan tidak boleh kosong.',
+          required: "Status perkawinan tidak boleh kosong.",
         },
         agama: {
-          required: 'Agama tidak boleh kosong.',
+          required: "Agama tidak boleh kosong.",
         },
         pendidikan: {
-          required: 'Pendidikan tidak boleh kosong.',
+          required: "Pendidikan tidak boleh kosong.",
         },
         pekerjaan: {
-          required: 'Pekerjaan tidak boleh kosong.',
+          required: "Pekerjaan tidak boleh kosong.",
         },
         no_hp: {
-          required: 'No. HP tidak boleh kosong.',
-          number: 'No. HP harus berupa angka.',
-          minlength: 'No. HP harus berjumlah 10-13 digit.',
-          maxlength: 'No. HP harus berjumlah 10-13 digit.',
+          required: "No. HP tidak boleh kosong.",
+          number: "No. HP harus berupa angka.",
+          minlength: "No. HP harus berjumlah 10-13 digit.",
+          maxlength: "No. HP harus berjumlah 10-13 digit.",
         },
         email: {
-          required: 'Email tidak boleh kosong.',
-          email: 'Email tidak valid.',
+          required: "Email tidak boleh kosong.",
+          email: "Email tidak valid.",
         },
         foto: {
-          required: 'Foto tidak boleh kosong.',
-          extension: 'Foto harus berupa file gambar.',
+          required: "Foto tidak boleh kosong.",
+          extension: "Foto harus berupa file gambar.",
         },
       },
       errorPlacement: function(error, element) {
-        if (element.is(':radio')) {
-          error.appendTo('#radioFormGender');
+        if (element.is(":radio")) {
+          error.appendTo("#radioFormGender");
         } else {
           error.insertAfter(element);
         }
       },
     });
-    $('#familyFormAddButton').on('click', () => {
-      console.log($('#familyFormAdd').valid());
+    $("#familyFormAddButton").on("click", () => {
+      console.log($("#familyFormAdd").valid());
     });
   });
 

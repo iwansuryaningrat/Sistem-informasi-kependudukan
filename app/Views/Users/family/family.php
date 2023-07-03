@@ -4,18 +4,14 @@
 <!-- header -->
 <header class="container px-0">
   <div class="header-container-dashboard">
-    <h2 class="mb-3">Selamat Datang di Dashboard Warga</h2>
-    <p class="text-basic mb-0">
-      Daftar anggota keluarga oluptate facere modi provident eum quae
-      fugit quo doloremque nulla adipisci.
-    </p>
+    <h3 class="mb-2">Daftar Anggota Keluarga</h3>
   </div>
 </header>
 <!-- end of header -->
 
 <!-- main -->
 <main>
-  <section class="container container-space pt-3">
+  <section class="container container-space pt-0">
     <div class="card-table-container shadow">
       <!-- table -->
       <div class="table-container">
@@ -53,10 +49,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -79,10 +75,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -105,10 +101,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -131,10 +127,10 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-table shadow">
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/formeditkeluarga"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                       </li>
                       <li>
-                        <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        <a class="dropdown-item dropdown-table-item" href="./family-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                       </li>
                     </ul>
                   </div>
@@ -157,20 +153,20 @@
 <script>
   $(document).ready(function() {
     // display tables
-    $('#tableFamily').dataTable({
+    $("#tableFamily").dataTable({
       order: [],
       columnDefs: [{
-        targets: 'filter-none',
+        targets: "filter-none",
         orderable: false,
       }, ],
       language: {
-        searchPlaceholder: 'Cari anggota keluarga',
-        search: '',
-        sLengthMenu: '_MENU_',
-        sInfo: 'Menampilkan _START_ - _END_ dari _TOTAL_ data',
-        sInfoFiltered: '(dari _MAX_ total data)',
-        sInfoEmpty: 'Menampilkan 0 data',
-        sZeroRecords: 'Tidak ada data yang sesuai',
+        searchPlaceholder: "Cari anggota keluarga",
+        search: "",
+        sLengthMenu: "_MENU_",
+        sInfo: "Menampilkan _START_ - _END_ dari _TOTAL_ data",
+        sInfoFiltered: "(dari _MAX_ total data)",
+        sInfoEmpty: "Menampilkan 0 data",
+        sZeroRecords: "Tidak ada data yang sesuai",
         oPaginate: {
           sPrevious: '<i class="fa-solid fa-chevron-left text-sm"></i>',
           sNext: '<i class="fa-solid fa-chevron-right text-sm"></i>',
@@ -178,40 +174,40 @@
       },
       lengthMenu: [5, 10, 25, 50, 100],
       pageLength: 10, // default page length
-      dom: "<'row pb-2'<'col-12 col-md-5 mb-3 mb-md-0'f><'col-12 col-sm-6 col-md-2 pl-md-0 mb-3 mb-sm-0'l>>" +
+      dom: "<'row pb-2'<'col-12 col-md-5 mb-3 mb-md-0'f><'col-6 col-md-2 pl-md-0 mb-3 mb-sm-0'l>>" +
         "<'row'<'col-sm-12'tr>>" +
         "<'row pt-2'<'col-sm-12 col-md-5 info-table mb-3 mb-md-0'i><'col-sm-12 col-md-7'p>>",
     });
 
     // add button create report
-    $('#tableFamily_wrapper .row:first-child').append(
-      '<div class="col-12 col-sm-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="/users/formtambahkeluarga" class="btn btn-main-xs w-full-md" role="button"><i class="fa-solid fa-plus me-2"></i>Tambah Keluarga</a></div></div>'
+    $("#tableFamily_wrapper .row:first-child").append(
+      '<div class="col-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="./family-form-add.html" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;"><i class="fa-solid fa-plus me-2"></i>Tambah Keluarga</a></div></div>'
     );
 
     // change class of datatable familyTable
-    $('#tableFamily_wrapper').addClass('pt-3 pb-2');
-    $('#tableFamily_filter .form-control').addClass(
-      'input-control-sm w-100'
+    $("#tableFamily_wrapper").addClass("pt-3 pb-2");
+    $("#tableFamily_filter .form-control").addClass(
+      "input-control-sm w-100"
     );
-    $('#tableFamily_filter label').addClass(
-      'w-100 d-block position-relative'
+    $("#tableFamily_filter label").addClass(
+      "w-100 d-block position-relative"
     );
-    $('#tableFamily_filter label').append(
+    $("#tableFamily_filter label").append(
       '<i class="fa-solid fa-magnifying-glass search-input-icon"></i>'
     );
-    $('#tableFamily_length label').addClass(
-      'w-100 d-block position-relative'
+    $("#tableFamily_length label").addClass(
+      "w-100 d-block position-relative"
     );
-    $('#tableFamily_length label').append(
+    $("#tableFamily_length label").append(
       '<i class="fa-solid fa-layer-group filter-input-icon"></i>'
     );
-    $('#tableFamily_length .form-select').addClass(
-      'select-control-sm select-length-table w-full-md'
+    $("#tableFamily_length .form-select").addClass(
+      "select-control-sm select-length-table w-full-md"
     );
-    $('#tableFamily_info').addClass(
-      'text-basic d-flex align-items-center ps-2 pt-0'
+    $("#tableFamily_info").addClass(
+      "text-basic d-flex align-items-center ps-2 pt-0"
     );
-    $('#tableFamily_wrapper .row .info-table').prepend(
+    $("#tableFamily_wrapper .row .info-table").prepend(
       '<i class="fa-solid fa-table-list ps-2 text-basic"></i>'
     );
   });
