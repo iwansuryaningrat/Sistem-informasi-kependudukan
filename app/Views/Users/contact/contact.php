@@ -100,7 +100,6 @@
 
 <?php $this->section('script'); ?>
 
-
 <!-- script internal -->
 <script>
     // validate

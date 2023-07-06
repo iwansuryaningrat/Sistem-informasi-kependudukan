@@ -317,7 +317,6 @@
 
 <?php $this->section('script'); ?>
 
-
 <!-- internal script -->
 <script>
   // add method validation only letters
