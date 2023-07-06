@@ -382,12 +382,14 @@
             Ducimus, nobis pariatur tempore labore deleniti beatae
             architecto enim iusto.
           </p>
-          <button class="btn btn-white shadow">Kritik & Saran</button>
+          <a class="btn btn-white shadow" role="button" href="./contact.html">
+            Kritik & Saran
+          </a>
         </div>
         <div class="col-12 col-md-7">
           <div class="position-relative">
             <figure class="cta-image-wrapper">
-              <img src="/homepage/assets/img/phone-2.png" alt="cta-contat" class="cta-image" />
+              <img src="./assets/img/phone-2.png" alt="cta-contat" class="cta-image" />
             </figure>
           </div>
         </div>
