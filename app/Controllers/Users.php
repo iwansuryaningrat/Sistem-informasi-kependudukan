@@ -114,8 +114,6 @@ class Users extends BaseController
     // End of Keluarga Method
 
     // Administrasi Method
-
-
     public function administrasi()
     {
         $data = [
@@ -156,4 +154,16 @@ class Users extends BaseController
         return view('/users/administration/administration-form-edit', $data);
     }
     // End of Administrasi Method
+
+    // Contact Method
+    public function contact()
+    {
+        $data = [
+            'title' => 'Kontak Kami | Warga Site',
+            'navbar' => 'contact',
+        ];
+
+        return view('/users/contact/contact', $data);
+    }
+    // End of Contact Method
 }
