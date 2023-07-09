@@ -59,7 +59,7 @@
                     <div class="mb-3">
                         <label class="form-label forms-label mb-3">Temukan Kami</label>
                         <div class="w-100">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31678.921973903864!2d110.41484533590068!3d-7.0251215486177605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708c02787187c9%3A0x29bcf60b2c20aec!2sUniversitas%20Diponegoro!5e0!3m2!1sid!2sid!4v1688513570084!5m2!1sid!2sid" width="100" height="270" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 pb-0 mb-0"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.263538415346!2d106.77379174313617!3d-6.228945177716834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f12dc7c404f9%3A0x15fbd758d9852c99!2sJl.%20Raya%20Kby.%20Lama%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1688744261517!5m2!1sid!2sid" width="100" height="270" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 pb-0 mb-0"></iframe>
                         </div>
                     </div>
                     <div class="">
