@@ -26,6 +26,22 @@
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-comment-dots"></i>
+                        <span class="notification"><?= $reqPesan; ?></span>
+                    </a>
+                    <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+                        <li>
+                            <div class="dropdown-title d-flex justify-content-between align-items-center">
+                                Pesan
+                            </div>
+                        </li>
+                        <li>
+                            <a class="see-all" href="/admin/pesan">Lihat Semua Pesan<i class="fa fa-angle-right"></i> </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown hidden-caret">
+                    <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
                         <span class="notification"><?= $reqAdministrasi; ?></span>
                     </a>

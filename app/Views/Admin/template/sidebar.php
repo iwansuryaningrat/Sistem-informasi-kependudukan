@@ -98,9 +98,9 @@
                     <a href="/admin/pesan">
                         <i class="fas fa-comment-dots"></i>
                         <p>Pesan</p>
-                        <?php if ($reqLaporan != 0 || $reqLaporan != null) { ?>
+                        <?php if ($reqPesan != 0 || $reqPesan != null) { ?>
                             <span class="badge badge-success">
-                                <?= $reqLaporan; ?>
+                                <?= $reqPesan; ?>
                             </span>
                         <?php } ?>
                     </a>
