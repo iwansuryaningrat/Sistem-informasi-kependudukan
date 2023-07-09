@@ -16,11 +16,11 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- custom -->
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <link rel="stylesheet" href="./assets/css/responsiveness.css" />
+  <link rel="stylesheet" href="/homepage/assets/css/styles.css" />
+  <link rel="stylesheet" href="/homepage/assets/css/responsiveness.css" />
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
   <!-- title -->
   <title>Ubah Password | Warga Site</title>
 </head>
@@ -30,9 +30,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="./index.html">
-          Warga
-        </a>
+        <a class="navbar-brand fw-bold" href="../../index.html"> Warga </a>
       </div>
     </nav>
     <!-- end of navigation -->
@@ -40,7 +38,7 @@
     <main>
       <section class="container-fluid">
         <div class="row">
-          <div class="col-md-9 sign-container-content">
+          <div class="col-md-9 sign-container-content-big pb-100vh-420">
             <div class="sign-container-content__card mb-4">
               <div class="sign_card__content">
                 <h1 class="text-center mb-3">Ubah Password</h1>
@@ -76,7 +74,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 bg-main-700"></div>
+          <div class="col-md-3 bg-main-700 bg-sign-image position-relative"></div>
         </div>
       </section>
     </main>
@@ -105,17 +103,17 @@
   <!-- fontawesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- custom -->
-  <script src="./assets/js/scripts.js"></script>
+  <script src="/homepage/assets/js/scripts.js"></script>
   <!-- script internal -->
   <script>
     // id register onclick
-    $('#register').click(function() {
-      window.location.href = './signup.html';
+    $("#register").click(function() {
+      window.location.href = "./signup.html";
     });
 
     // validate
     $(document).ready(function() {
-      $('#changePasswordForm').validate({
+      $("#changePasswordForm").validate({
         rules: {
           password: {
             required: true,
@@ -124,23 +122,23 @@
           },
           confirmPassword: {
             required: true,
-            equalTo: '#password',
+            equalTo: "#password",
           },
         },
         messages: {
           password: {
-            required: 'Password tidak boleh kosong.',
-            minlength: 'Password minimal 8 karakter.',
-            pattern: 'Password harus mengandung huruf dan angka.',
+            required: "Password tidak boleh kosong.",
+            minlength: "Password minimal 8 karakter.",
+            pattern: "Password harus mengandung huruf dan angka.",
           },
           confirmPassword: {
-            required: 'Konfirmasi Password tidak boleh kosong.',
-            equalTo: 'Konfirmasi Password harus sama dengan Password.',
+            required: "Konfirmasi Password tidak boleh kosong.",
+            equalTo: "Konfirmasi Password harus sama dengan Password.",
           },
         },
       });
-      $('#changePasswordFormButton').on('click', () => {
-        console.log($('#changePasswordForm').valid());
+      $("#changePasswordFormButton").on("click", () => {
+        console.log($("#changePasswordForm").valid());
       });
     });
   </script>

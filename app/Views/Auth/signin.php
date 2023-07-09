@@ -21,26 +21,26 @@
 
   <!-- favicon -->
   <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
-
   <!-- title -->
-  <title><?= $title; ?></title>
+  <title>Masuk | Warga Site</title>
 </head>
 
 <body>
   <div>
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
-      <!-- brand -->
-      <a class="navbar-brand fw-bold" href="/home"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="../../index.html">
+          Warga
+        </a>
+      </div>
     </nav>
     <!-- end of navigation -->
-
-
     <!-- main -->
     <main>
       <section class="container-fluid">
         <div class="row">
-          <div class="col-md-9 sign-container-content-big">
+          <div class="col-md-9 sign-container-content-big pb-100vh-420">
             <div class="sign-container-content__card">
               <div class="sign_card__content">
                 <h1 class="text-center mb-3">Masuk</h1>
@@ -86,7 +86,6 @@
     </main>
     <!-- end of main -->
 
-    <!-- Footer -->
     <footer class="small-footer">
       <section class="container">
         <p class="text-center m-0 text-basic">
@@ -95,7 +94,6 @@
         </p>
       </section>
     </footer>
-    <!-- end of footer -->
   </div>
 
   <!-- scripts -->
@@ -111,7 +109,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- custom -->
   <script src="/homepage/assets/js/scripts.js"></script>
-
   <!-- script internal -->
   <script>
     // id register onclick

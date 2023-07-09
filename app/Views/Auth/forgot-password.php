@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/homepage/assets/css/responsiveness.css" />
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../../public/favicon.ico" type="image/x-icon" />
   <!-- title -->
   <title>Lupa Password | Warga Site</title>
 </head>
@@ -29,16 +29,16 @@
   <div>
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
-      <!-- brand -->
-      <a class="navbar-brand fw-bold" href="/home"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="../../index.html"> Warga </a>
+      </div>
     </nav>
     <!-- end of navigation -->
-
     <!-- main -->
     <main>
       <section class="container-fluid">
         <div class="row">
-          <div class="col-md-9 sign-container-content">
+          <div class="col-md-9 sign-container-content-big pb-100vh-420">
             <div class="sign-container-content__card mb-4">
               <div class="sign_card__content">
                 <h1 class="text-center mb-3">Lupa Password</h1>
@@ -61,17 +61,23 @@
             </div>
             <p class="text-basic text-center">
               Kembali ke halaman
-              <span><a href="/home/signin" class="fw-medium hover-underline">Masuk</a></span>
+              <span><a href="./signin.html" class="fw-medium hover-underline">Masuk</a></span>
             </p>
           </div>
-          <div class="col-md-3 bg-main-700"></div>
+          <div class="col-md-3 bg-main-700 bg-sign-image position-relative"></div>
         </div>
       </section>
     </main>
     <!-- end of main -->
-
     <!-- footer -->
-    <?= $this->include('users/template/footer'); ?>
+    <footer class="small-footer">
+      <section class="container">
+        <p class="text-center m-0 text-basic">
+          @<span id="yearNow"></span> Warga | Warga neque consequatur nemo
+          fugit voluptatem mollitia minima tempore❤️.
+        </p>
+      </section>
+    </footer>
     <!-- end of footer -->
   </div>
 
@@ -91,13 +97,13 @@
   <!-- script internal -->
   <script>
     // id register onclick
-    $('#register').click(function() {
-      window.location.href = '/home/signup';
+    $("#register").click(function() {
+      window.location.href = "./signup.html";
     });
 
     // validate
     $(document).ready(function() {
-      $('#forgotPasswordForm').validate({
+      $("#forgotPasswordForm").validate({
         rules: {
           email: {
             required: true,
@@ -106,13 +112,13 @@
         },
         messages: {
           email: {
-            required: 'Email tidak boleh kosong.',
-            email: 'Email tidak valid.',
+            required: "Email tidak boleh kosong.",
+            email: "Email tidak valid.",
           },
         },
       });
-      $('#forgotPasswordFormButton').on('click', () => {
-        console.log($('#forgotPasswordForm').valid());
+      $("#forgotPasswordFormButton").on("click", () => {
+        console.log($("#forgotPasswordForm").valid());
       });
     });
   </script>
