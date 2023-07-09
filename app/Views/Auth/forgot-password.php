@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/homepage/assets/css/responsiveness.css" />
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="../../public/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
   <!-- title -->
   <title>Lupa Password | Warga Site</title>
 </head>
@@ -30,7 +30,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="../../index.html"> Warga </a>
+        <a class="navbar-brand fw-bold" href="/"> Warga </a>
       </div>
     </nav>
     <!-- end of navigation -->
@@ -61,7 +61,7 @@
             </div>
             <p class="text-basic text-center">
               Kembali ke halaman
-              <span><a href="./signin.html" class="fw-medium hover-underline">Masuk</a></span>
+              <span><a href="/home/signin" class="fw-medium hover-underline">Masuk</a></span>
             </p>
           </div>
           <div class="col-md-3 bg-main-700 bg-sign-image position-relative"></div>
@@ -98,7 +98,7 @@
   <script>
     // id register onclick
     $("#register").click(function() {
-      window.location.href = "./signup.html";
+      window.location.href = "/home/signup";
     });
 
     // validate

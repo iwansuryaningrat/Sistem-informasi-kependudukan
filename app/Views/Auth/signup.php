@@ -30,7 +30,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="../../index.html">
+        <a class="navbar-brand fw-bold" href="/">
           Warga
         </a>
       </div>
@@ -137,7 +137,7 @@
   <script>
     // id login onclick
     $('#login').click(function() {
-      window.location.href = './signin.html';
+      window.location.href = '/home/signin';
     });
     // add method validation only letters
     $.validator.addMethod('alphabetOnly', function(value, element) {

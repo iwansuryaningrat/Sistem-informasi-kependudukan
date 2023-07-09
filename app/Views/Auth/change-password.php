@@ -30,7 +30,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="../../index.html"> Warga </a>
+        <a class="navbar-brand fw-bold" href="/"> Warga </a>
       </div>
     </nav>
     <!-- end of navigation -->
@@ -108,7 +108,7 @@
   <script>
     // id register onclick
     $("#register").click(function() {
-      window.location.href = "./signup.html";
+      window.location.href = "/home/signup";
     });
 
     // validate

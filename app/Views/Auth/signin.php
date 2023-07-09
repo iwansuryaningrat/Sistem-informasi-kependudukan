@@ -30,7 +30,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-container navbar-blur">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="../../index.html">
+        <a class="navbar-brand fw-bold" href="/">
           Warga
         </a>
       </div>
@@ -69,7 +69,7 @@
                         <label class="form-check-label forms-check-label line-clamp-1" for="remember">Remember Me</label>
                       </div>
                       <div class="">
-                        <a href="./forgot-password.html" class="fw-medium hover-underline text-sm line-clamp-1">Lupa Password?</a>
+                        <a href="/home/forgotPasswordForm" class="fw-medium hover-underline text-sm line-clamp-1">Lupa Password?</a>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-main w-100 shadow" id="loginFormButton">
@@ -113,7 +113,7 @@
   <script>
     // id register onclick
     $('#register').click(function() {
-      window.location.href = './signup.html';
+      window.location.href = '/home/signup';
     });
 
     // validate
