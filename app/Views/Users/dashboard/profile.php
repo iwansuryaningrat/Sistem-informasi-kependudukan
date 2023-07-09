@@ -39,6 +39,7 @@
       </div>
       <div class="col-md-9">
         <div class="tab-content" id="v-pills-tabContent">
+
           <!-- detail profile content -->
           <div class="tab-pane fade show active" id="detail-profil-content" role="tabpanel" aria-labelledby="detail-profil-tab" tabindex="0">
             <form class="card-form-container card" id="detailProfileForm" action="#" enctype="multipart/form-data" method="POST">
@@ -98,6 +99,7 @@
               </div>
             </form>
           </div>
+
           <!-- data pribadi content -->
           <div class="tab-pane fade" id="data-pribadi-content" role="tabpanel" aria-labelledby="data-pribadi-tab" tabindex="0">
             <form class="card-form-container card" id="profileForm" action="#" enctype="multipart/form-data" method="POST">
@@ -268,6 +270,7 @@
               </div>
             </form>
           </div>
+
           <!-- ubah kata sandi content -->
           <div class="tab-pane fade" id="ubah-kata-sandi-content" role="tabpanel" aria-labelledby="ubah-kata-sandi-tab" tabindex="0">
             <form class="card-form-container card" id="changePasswordForm" action="#" enctype="multipart/form-data" method="POST">
