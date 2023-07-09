@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jun 2023 pada 17.02
+-- Waktu pembuatan: 09 Jul 2023 pada 05.01
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -60,6 +60,7 @@ CREATE TABLE `foto` (
   `galeri_id` int(11) NOT NULL,
   `nama_foto` varchar(255) NOT NULL,
   `foto_path` varchar(255) NOT NULL,
+  `isThumbnail` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -171,6 +172,24 @@ CREATE TABLE `pengumuman` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pesan`
+--
+
+CREATE TABLE `pesan` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `kateogri` varchar(50) NOT NULL,
+  `pesan` varchar(255) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `updated_by` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `users`
 --
 
@@ -257,6 +276,13 @@ ALTER TABLE `pengumuman`
   ADD KEY `creator` (`created_by`);
 
 --
+-- Indeks untuk tabel `pesan`
+--
+ALTER TABLE `pesan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `updater` (`updated_by`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -304,6 +330,12 @@ ALTER TABLE `pengumuman`
   MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `pesan`
+--
+ALTER TABLE `pesan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
@@ -338,6 +370,12 @@ ALTER TABLE `pelaporan`
 --
 ALTER TABLE `pengumuman`
   ADD CONSTRAINT `creator` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`);
+
+--
+-- Ketidakleluasaan untuk tabel `pesan`
+--
+ALTER TABLE `pesan`
+  ADD CONSTRAINT `updater` FOREIGN KEY (`updated_by`) REFERENCES `users` (`nik`);
 
 --
 -- Ketidakleluasaan untuk tabel `users`
