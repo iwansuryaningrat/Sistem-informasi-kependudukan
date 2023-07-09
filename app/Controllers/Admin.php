@@ -348,4 +348,18 @@ class Admin extends BaseController
 
         return view('admin/edit/editpengumuman', $data);
     }
+
+    // Contact
+    public function messages()
+    {
+        $data = [
+            'title' => 'Pesan',
+            'active' => 'pesan',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'session' => $this->session->get(),
+        ];
+
+        return view('admin/pesan', $data);
+    }
 }

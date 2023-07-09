@@ -94,6 +94,17 @@
                         <?php } ?>
                     </a>
                 </li>
+                <li class="nav-item <?php if ($active == 'pesan') echo 'active' ?>">
+                    <a href="/admin/pesan">
+                        <i class="fas fa-comment-dots"></i>
+                        <p>Pesan</p>
+                        <?php if ($reqLaporan != 0 || $reqLaporan != null) { ?>
+                            <span class="badge badge-success">
+                                <?= $reqLaporan; ?>
+                            </span>
+                        <?php } ?>
+                    </a>
+                </li>
                 <li class="nav-item <?php if ($active == 'galeri') echo 'active' ?>">
                     <a data-toggle="collapse" href="#galeri">
                         <i class="fas fa-images"></i>
