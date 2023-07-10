@@ -13,3 +13,15 @@ Main connection [MySQLi]: No connection could be made because the target machine
 #9 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #11 {main}
+CRITICAL - 2023-07-10 17:06:03 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 E:\xampp\htdocs\Sistem-informasi-kependudukan\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 E:\xampp\htdocs\Sistem-informasi-kependudukan\spark(45): require('E:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2023-07-10 17:09:18 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 E:\xampp\htdocs\Sistem-informasi-kependudukan\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 E:\xampp\htdocs\Sistem-informasi-kependudukan\spark(45): require('E:\\xampp\\htdocs...')
+#2 {main}
+CRITICAL - 2023-07-10 17:09:24 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 E:\xampp\htdocs\Sistem-informasi-kependudukan\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#1 E:\xampp\htdocs\Sistem-informasi-kependudukan\spark(45): require('E:\\xampp\\htdocs...')
+#2 {main}
