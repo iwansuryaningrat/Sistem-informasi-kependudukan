@@ -44,8 +44,13 @@
                     <a class="nav-link navbar-link <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="/users/pengumuman">Pengumuman</a>
                 </li>
             </ul>
-            <!-- right -->
-            <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/home/signin">Masuk</a>
+            <?php if ($isLoggedin == true && $isLoggedin) { ?>
+                <!-- right -->
+                <a class="btn btn-main-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/home/profile"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
+            <?php } else { ?>
+                <!-- right -->
+                <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/home/signin">Masuk</a>
+            <?php } ?>
         </div>
     </div>
 </nav>

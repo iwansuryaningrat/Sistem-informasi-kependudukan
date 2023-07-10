@@ -36,6 +36,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Menu Pelaporan | Warga Site',
             'navbar' => 'pelaporan',
+            'isLoggedin' => false,
         ];
 
         return view('/users/report/report', $data);
@@ -46,6 +47,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Galeri | Warga Site',
             'navbar' => 'galeri',
+            'isLoggedin' => false,
         ];
 
         return view('/users/gallery/gallery', $data);
@@ -56,6 +58,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Portal Pengumuman | Warga Site',
             'navbar' => 'pengumuman',
+            'isLoggedin' => false,
         ];
 
         return view('/users/news/announcement', $data);
@@ -66,6 +69,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Profile | Warga Site',
             'navbar' => 'profile',
+            'isLoggedin' => false,
         ];
 
         return view('/users/dashboard/profile', $data);
@@ -77,6 +81,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Menu Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'isLoggedin' => false,
         ];
 
         return view('/users/family/family', $data);
@@ -87,6 +92,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Detail Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'isLoggedin' => false,
         ];
 
         return view('/users/family/family-detail', $data);
@@ -97,6 +103,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Tambah Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'isLoggedin' => false,
         ];
 
         return view('/users/family/family-form-add', $data);
@@ -107,6 +114,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Edit Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'isLoggedin' => false,
         ];
 
         return view('/users/family/family-form-edit', $data);
@@ -119,6 +127,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Menu Administrasi | Warga Site',
             'navbar' => 'administrasi',
+            'isLoggedin' => false,
         ];
 
         return view('/users/administration/administration', $data);
@@ -129,6 +138,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Detail Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
+            'isLoggedin' => false,
         ];
 
         return view('/users/administration/administration-detail', $data);
@@ -139,6 +149,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
+            'isLoggedin' => false,
         ];
 
         return view('/users/administration/administration-form-add', $data);
@@ -149,6 +160,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Edit Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
+            'isLoggedin' => false,
         ];
 
         return view('/users/administration/administration-form-edit', $data);
@@ -161,9 +173,23 @@ class Users extends BaseController
         $data = [
             'title' => 'Kontak Kami | Warga Site',
             'navbar' => 'contact',
+            'isLoggedin' => false,
         ];
 
         return view('/users/contact/contact', $data);
     }
     // End of Contact Method
+
+    // Profile Method
+    public function profileEdit()
+    {
+        $data = [
+            'title' => 'Edit Profile | Warga Site',
+            'navbar' => 'profile',
+            'isLoggedin' => false,
+        ];
+
+        return view('/users/dashboard/profile', $data);
+    }
+    // End of Profile Method
 }

@@ -25,6 +25,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Warga Site | Home',
             'navbar' => 'home',
+            'isLoggedin' => false,
         ];
 
         return view('/users/index', $data);
@@ -35,6 +36,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Warga Site | Login',
             'navbar' => 'login',
+            'isLoggedin' => false,
         ];
 
         return view('/auth/signin', $data);
@@ -45,6 +47,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Warga Site | Register',
             'navbar' => 'register',
+            'isLoggedin' => false,
         ];
 
         return view('/auth/signup', $data);
@@ -55,6 +58,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Warga Site | Forgot Password',
             'navbar' => 'forgot-password',
+            'isLoggedin' => false,
         ];
 
         return view('/auth/forgot-password', $data);
