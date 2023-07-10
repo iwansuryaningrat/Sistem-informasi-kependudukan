@@ -1,0 +1,36 @@
+CRITICAL - 2023-07-04 00:44:56 --> View themes, no current section.
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Views\Users\gallery\gallery.php(165): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('/users/gallery/...', Array, true)
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Users.php(51): view('/users/gallery/...', Array)
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Users->galeri()
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-07-04 00:45:21 --> View themes, no current section.
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Views\Users\gallery\gallery.php(166): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('/users/gallery/...', Array, true)
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Users.php(51): view('/users/gallery/...', Array)
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Users->galeri()
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-07-04 00:45:28 --> View themes, no current section.
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Views\Users\gallery\gallery.php(166): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('/users/gallery/...', Array, true)
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Users.php(51): view('/users/gallery/...', Array)
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Users->galeri()
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

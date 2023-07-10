@@ -1,0 +1,52 @@
+ERROR - 2023-07-09 09:40:58 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2023-07-09 09:40:58 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Models\AdministrasiModel.php(91): CodeIgniter\Model->countAllResults()
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Admin.php(70): App\Models\AdministrasiModel->getAdministrasiCount()
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Admin.php(88): App\Controllers\Admin->getReqAdministrasi()
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Admin->index()
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-07-09 12:06:53 --> Invalid file: /users/auth/signin.php
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/users/auth/sig...')
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('/users/auth/sig...', Array, true)
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Home.php(40): view('/users/auth/sig...', Array)
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Home->signin()
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2023-07-09 12:09:31 --> Invalid file: /users/auth/signin.php
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/users/auth/sig...')
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('/users/auth/sig...', Array, true)
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Home.php(40): view('/users/auth/sig...', Array)
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Home->signin()
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2023-07-09 12:35:30 --> Undefined variable $isLoggedin
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Views\Users\template\navbar.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 47)
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(424): CodeIgniter\View\View->render('users/template/...', NULL, true)
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Views\Users\template\layout.php(39): CodeIgniter\View\View->include('users/template/...')
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(226): CodeIgniter\View\View->render('users/template/...', Array, true)
+#8 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('/users/index', Array, true)
+#9 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Home.php(30): view('/users/index', Array)
+#10 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#11 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#12 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#15 {main}

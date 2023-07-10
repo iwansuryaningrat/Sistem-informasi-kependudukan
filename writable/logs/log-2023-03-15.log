@@ -1,0 +1,32 @@
+CRITICAL - 2023-03-15 05:48:43 --> View themes, no current section.
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Views\Admin\daftarkeluarga.php(1308): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('admin/daftarkel...', Array, true)
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Admin.php(56): view('admin/daftarkel...', Array)
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Admin->families()
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-03-15 06:09:19 --> Invalid file: admin/galeri.php
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/galeri.ph...')
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('admin/galeri', Array, true)
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Admin.php(192): view('admin/galeri', Array)
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Admin->galeri()
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2023-03-15 06:11:47 --> Invalid file: admin/daftarpelaporan.php
+#0 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/daftarpel...')
+#1 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Common.php(1089): CodeIgniter\View\View->render('admin/daftarpel...', Array, true)
+#2 C:\xampp\htdocs\Sistem-informasi-kependudukan\app\Controllers\Admin.php(167): view('admin/daftarpel...', Array)
+#3 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(832): App\Controllers\Admin->pelaporan()
+#4 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Sistem-informasi-kependudukan\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\Sistem-informasi-kependudukan\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
