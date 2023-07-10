@@ -60,7 +60,7 @@
                     <input type="file" class="form-control-image" id="foto_profil" name="foto_profil" required accept="image/*" />
                   </div>
                   <p class="text-sm text-basic">
-                    Foto profil kamu disarankan memiliki rasio 1 : 1 atau
+                    Foto profil kamu disarankan memiliki rasio 1 : 1 dan
                     berukuran tidak lebih dari 2MB
                   </p>
                 </div>
