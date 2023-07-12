@@ -5,10 +5,10 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">DataTables.Net</h4>
+            <h4 class="page-title">Data Penduduk</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
-                    <a href="#">
+                    <a href="/admin">
                         <i class="flaticon-home"></i>
                     </a>
                 </li>
@@ -16,13 +16,13 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Tables</a>
+                    <a href="/admin/people">Penduduk</a>
                 </li>
                 <li class="separator">
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Datatables</a>
+                    <a href="/admin/people">Data Penduduk</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex align-items-center">
-                            <h4 class="card-title">Add Row</h4>
+                            <h4 class="card-title">Daftar Penduduk</h4>
                             <a class="d-block ml-auto" href="/admin/addfamily">
                                 <button class="btn btn-primary btn-round ml-auto">
                                     <i class="fa fa-plus">
