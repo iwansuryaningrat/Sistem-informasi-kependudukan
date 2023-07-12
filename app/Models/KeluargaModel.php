@@ -26,6 +26,7 @@ class KeluargaModel extends Model
     {
         if ($no_kk == null) {
             return $this->select('*')
+                ->orderBy('status', 'DESC')
                 ->orderBy('created_at', 'DESC')
                 ->findAll();
         }

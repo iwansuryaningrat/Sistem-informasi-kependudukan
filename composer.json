@@ -1,5 +1,6 @@
 {
     "require": {
-        "codeigniter4/framework": "4.1.9"
+        "codeigniter4/framework": "4.1.9",
+        "fzaninotto/faker": "^1.5"
     }
 }

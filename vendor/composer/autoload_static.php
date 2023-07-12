@@ -23,6 +23,10 @@ class ComposerStaticInitb21ba8b1eb1ef1af68fce3eac818cf40
         array (
             'Kint\\' => 5,
         ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'C' => 
         array (
             'CodeIgniter\\' => 12,
@@ -41,6 +45,10 @@ class ComposerStaticInitb21ba8b1eb1ef1af68fce3eac818cf40
         'Kint\\' => 
         array (
             0 => __DIR__ . '/..' . '/kint-php/kint/src',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
         'CodeIgniter\\' => 
         array (

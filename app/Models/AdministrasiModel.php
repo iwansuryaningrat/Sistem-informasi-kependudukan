@@ -24,14 +24,14 @@ class AdministrasiModel extends Model
     {
         if ($administrasi_id == null) {
             return $this->select('administrasi.*, users.nama')
-                ->join('users', 'users.user_id = administrasi.pemohon')
+                ->join('users', 'users.nik = administrasi.pemohon')
                 ->orderBy('administrasi.created_at', 'DESC')
                 ->orderBy('administrasi.administrasi_status', 'ASC')
                 ->findAll();
         }
 
         return $this->select('administrasi.*, users.nama')
-            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->join('users', 'users.nik = administrasi.pemohon')
             ->where(['administrasi_id' => $administrasi_id])
             ->first();
     }
@@ -40,7 +40,7 @@ class AdministrasiModel extends Model
     public function getAdministrasiByNik($nik)
     {
         return $this->select('administrasi.*, users.nama')
-            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->join('users', 'users.nik = administrasi.pemohon')
             ->where(['nik' => $nik])
             ->orderBy('administrasi.created_at', 'DESC')
             ->findAll();
@@ -50,7 +50,7 @@ class AdministrasiModel extends Model
     public function getAdministrasiByStatus($administrasi_status)
     {
         return $this->select('administrasi.*, users.nama')
-            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->join('users', 'users.nik = administrasi.pemohon')
             ->where(['administrasi_status' => $administrasi_status])
             ->orderBy('administrasi.created_at', 'DESC')
             ->findAll();
@@ -60,7 +60,7 @@ class AdministrasiModel extends Model
     public function countAdministrasiByStatus($administrasi_status)
     {
         return $this->select('administrasi.*, users.nama')
-            ->join('users', 'users.user_id = administrasi.pemohon')
+            ->join('users', 'users.nik = administrasi.pemohon')
             ->where(['administrasi_status' => $administrasi_status])
             ->countAllResults();
     }

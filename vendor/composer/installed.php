@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '693071fa694a140288d2ae0b553c1e783e624411',
+        'reference' => '45215adc85e3b02596a5f90b6693c7200e5e9651',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '693071fa694a140288d2ae0b553c1e783e624411',
+            'reference' => '45215adc85e3b02596a5f90b6693c7200e5e9651',
             'dev_requirement' => false,
         ),
         'codeigniter4/framework' => array(
@@ -26,6 +26,15 @@
             'install_path' => __DIR__ . '/../codeigniter4/framework',
             'aliases' => array(),
             'reference' => '4ec623a6b8269dd09f570ab514e5864276bb7f56',
+            'dev_requirement' => false,
+        ),
+        'fzaninotto/faker' => array(
+            'pretty_version' => 'v1.5.0',
+            'version' => '1.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fzaninotto/faker',
+            'aliases' => array(),
+            'reference' => 'd0190b156bcca848d401fb80f31f504f37141c8d',
             'dev_requirement' => false,
         ),
         'kint-php/kint' => array(

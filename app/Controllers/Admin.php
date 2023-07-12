@@ -111,27 +111,30 @@ class Admin extends BaseController
     public function families()
     {
         $dataKeluarga = $this->keluargaModel->getKeluarga();
-        dd($dataKeluarga);
+
         $data = [
             'title' => 'Data Keluarga',
             'active' => 'penduduk',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'dataKeluarga' => $dataKeluarga
         ];
-        dd($data);
 
         return view('admin/daftarkeluarga', $data);
     }
 
     public function people()
     {
+        $dataPenduduk = $this->usersModel->getUsers();
+
         $data = [
             'title' => 'Data Penduduk',
             'active' => 'penduduk',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'dataPenduduk' => $dataPenduduk
         ];
 
         return view('admin/daftarpenduduk', $data);
@@ -195,14 +198,16 @@ class Admin extends BaseController
 
     public function administrasi()
     {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi();
+
         $data = [
             'title' => 'Administrasi',
             'active' => 'administrasi',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'dataAdministrasi' => $dataAdministrasi
         ];
-        dd($data);
 
         return view('admin/daftaradministrasi', $data);
     }
