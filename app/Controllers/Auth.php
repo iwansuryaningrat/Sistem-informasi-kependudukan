@@ -13,6 +13,7 @@ class Auth extends BaseController
     protected $usersModel;
     protected $validation;
     protected $session;
+    protected $user_data;
 
     public function __construct()
     {
@@ -23,7 +24,7 @@ class Auth extends BaseController
         $this->session = \Config\Services::session();
     }
 
-    public function loginSession()
+    public function login()
     {
         // Check Login status
         if (session()->get('isLoggedIn')) {
@@ -31,22 +32,17 @@ class Auth extends BaseController
                 return redirect()->to('/admin');
             } elseif (session()->get('role') == 'users') {
                 return redirect()->to('/users');
-            } else {
-                return false;
             }
         }
-    }
 
-    public function login()
-    {
         $data = [
-            'title' => 'Login Users'
+            'title' => 'Masuk | Warga Site'
         ];
 
         return view('auth/login', $data);
     }
 
-    public function logingin()
+    public function loginprocess()
     {
         $nik = $this->request->getVar('nik');
         $password = $this->request->getVar('password');
@@ -63,7 +59,7 @@ class Auth extends BaseController
         // Check if password is correct
         if (!password_verify($password, $user['password'])) {
             session()->setFlashdata('message', 'Password yang Anda masukkan salah');
-            return redirect()->to('/auth/adminlogin');
+            return redirect()->to('/auth/login');
         }
 
         // Set session
@@ -79,8 +75,11 @@ class Auth extends BaseController
             'status_perkawinan' => $user['status_perkawinan'],
             'pendidikan' => $user['pendidikan'],
             'email' => $user['email'],
+            'no_hp' => $user['no_hp'],
             'role' => $user['role'],
             'foto' => $user['foto'],
+            'status_kependudukan' => $user['status_kependudukan'],
+            'alamat' => $user['alamat'],
             'isLoggedIn' => true
         ];
 
@@ -93,9 +92,9 @@ class Auth extends BaseController
             $this->session->sess_expiration = $expired;
         }
 
-        if ($user['role'] == 'admin' || $user['role'] == 'ketua_rt') {
+        if ($user['role'] == 'Admin' || $user['role'] == 'Ketua_rt') {
             return redirect()->to('/admin');
-        } elseif ($user['role'] == 'user') {
+        } elseif ($user['role'] == 'User') {
             return redirect()->to('/users');
         }
     }
@@ -105,5 +104,23 @@ class Auth extends BaseController
         session()->destroy();
 
         return redirect()->to('/auth/login');
+    }
+
+    public function register()
+    {
+        // Check Login status
+        if (session()->get('isLoggedIn')) {
+            if (session()->get('role') == 'admin') {
+                return redirect()->to('/admin');
+            } elseif (session()->get('role') == 'users') {
+                return redirect()->to('/users');
+            }
+        }
+
+        $data = [
+            'title' => 'Daftar | Warga Site'
+        ];
+
+        return view('auth/register', $data);
     }
 }

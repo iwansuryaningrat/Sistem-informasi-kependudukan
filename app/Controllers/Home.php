@@ -31,36 +31,36 @@ class Home extends BaseController
         return view('/users/index', $data);
     }
 
-    public function signin()
+    public function galeri()
     {
         $data = [
-            'title' => 'Warga Site | Login',
-            'navbar' => 'login',
+            'title' => 'Galeri | Warga Site',
+            'navbar' => 'galeri',
             'isLoggedin' => false,
         ];
 
-        return view('/auth/signin', $data);
+        return view('/users/gallery/gallery', $data);
     }
 
-    public function signup()
+    public function pengumuman()
     {
         $data = [
-            'title' => 'Warga Site | Register',
-            'navbar' => 'register',
+            'title' => 'Portal Pengumuman | Warga Site',
+            'navbar' => 'pengumuman',
             'isLoggedin' => false,
         ];
 
-        return view('/auth/signup', $data);
+        return view('/users/news/announcement', $data);
     }
 
-    public function forgotPasswordForm()
+    public function contact()
     {
         $data = [
-            'title' => 'Warga Site | Forgot Password',
-            'navbar' => 'forgot-password',
+            'title' => 'Kontak Kami | Warga Site',
+            'navbar' => 'contact',
             'isLoggedin' => false,
         ];
 
-        return view('/auth/forgot-password', $data);
+        return view('/users/contact/contact', $data);
     }
 }

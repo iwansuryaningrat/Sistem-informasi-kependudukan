@@ -20,6 +20,7 @@ class Users extends BaseController
     protected $keluargaController;
     protected $pelaporanController;
     protected $pengumumanController;
+    protected $user_data;
 
     public function __construct()
     {
@@ -29,6 +30,37 @@ class Users extends BaseController
         $this->keluargaController = new KeluargaController();
         $this->pelaporanController = new PelaporanController();
         $this->pengumumanController = new PengumumanController();
+
+        $this->user_data = [
+            'nik' => session()->get('nik'),
+            'no_kk' => session()->get('no_kk'),
+            'nama' => session()->get('nama'),
+            'status' => session()->get('status'),
+            'jenis_kelamin' => session()->get('jenis_kelamin'),
+            'tempat_lahir' => session()->get('tempat_lahir'),
+            'tgl_lahir' => session()->get('tgl_lahir'),
+            'usia' => session()->get('usia'),
+            'status_perkawinan' => session()->get('status_perkawinan'),
+            'pendidikan' => session()->get('pendidikan'),
+            'email' => session()->get('email'),
+            'no_hp' => session()->get('no_hp'),
+            'role' => session()->get('role'),
+            'foto' => session()->get('foto'),
+            'status_kependudukan' => session()->get('status_kependudukan'),
+            'alamat' => session()->get('alamat'),
+            'isLoggedIn' => session()->get('isLoggedIn'),
+        ];
+    }
+
+    public function index()
+    {
+        $data = [
+            'title' => 'Warga Site | Home',
+            'navbar' => 'home',
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/index', $data);
     }
 
     public function pelaporan()
@@ -36,7 +68,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Menu Pelaporan | Warga Site',
             'navbar' => 'pelaporan',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/report/report', $data);
@@ -47,7 +79,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Galeri | Warga Site',
             'navbar' => 'galeri',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/gallery/gallery', $data);
@@ -58,21 +90,10 @@ class Users extends BaseController
         $data = [
             'title' => 'Portal Pengumuman | Warga Site',
             'navbar' => 'pengumuman',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/news/announcement', $data);
-    }
-
-    public function profile()
-    {
-        $data = [
-            'title' => 'Profile | Warga Site',
-            'navbar' => 'profile',
-            'isLoggedin' => false,
-        ];
-
-        return view('/users/dashboard/profile', $data);
     }
 
     // Keluarga Method
@@ -81,7 +102,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Menu Keluarga | Warga Site',
             'navbar' => 'keluarga',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/family/family', $data);
@@ -92,7 +113,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Detail Keluarga | Warga Site',
             'navbar' => 'keluarga',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/family/family-detail', $data);
@@ -103,7 +124,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Tambah Keluarga | Warga Site',
             'navbar' => 'keluarga',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/family/family-form-add', $data);
@@ -114,7 +135,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Edit Keluarga | Warga Site',
             'navbar' => 'keluarga',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/family/family-form-edit', $data);
@@ -127,7 +148,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Menu Administrasi | Warga Site',
             'navbar' => 'administrasi',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/administration/administration', $data);
@@ -138,7 +159,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Detail Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/administration/administration-detail', $data);
@@ -149,7 +170,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/administration/administration-form-add', $data);
@@ -160,7 +181,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Form Edit Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/administration/administration-form-edit', $data);
@@ -173,7 +194,7 @@ class Users extends BaseController
         $data = [
             'title' => 'Kontak Kami | Warga Site',
             'navbar' => 'contact',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/contact/contact', $data);
@@ -181,12 +202,13 @@ class Users extends BaseController
     // End of Contact Method
 
     // Profile Method
-    public function profileEdit()
+    public function profile()
     {
         $data = [
-            'title' => 'Edit Profile | Warga Site',
+            'title' => 'Profile | Warga Site',
             'navbar' => 'profile',
-            'isLoggedin' => false,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+            'user' => $this->user_data,
         ];
 
         return view('/users/dashboard/profile', $data);

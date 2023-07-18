@@ -27,9 +27,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'login'         => Login::class,
-        'admin'         => Admin::class,
-        'users'         => Users::class,
+        // 'login'         => Login::class,
+        // 'admin'         => Admin::class,
+        // 'users'         => Users::class,
     ];
 
     /**
@@ -72,21 +72,21 @@ class Filters extends BaseConfig
      * @var array
      */
     public $filters = [
-        'login' => [
-            'before' => [
-                'admin/*',
-                'users/*',
-            ],
-        ],
-        'admin' => [
-            'before' => [
-                'admin/*',
-            ],
-        ],
-        'users' => [
-            'before' => [
-                'users/*',
-            ],
-        ],
+        // 'login' => [
+        //     'before' => [
+        //         'admin/*',
+        //         'users/*',
+        //     ],
+        // ],
+        // 'admin' => [
+        //     'before' => [
+        //         'admin/*',
+        //     ],
+        // ],
+        // 'users' => [
+        //     'before' => [
+        //         'users/*',
+        //     ],
+        // ],
     ];
 }

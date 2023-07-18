@@ -11,7 +11,7 @@ class UsersModel extends Model
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'usia', 'status_perkawinan', 'pendidikan', 'email', 'password', 'role', 'foto', 'status_kependudukan',  'created_at', 'updated_at'];
+    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'usia', 'status_perkawinan', 'pendidikan', 'email', 'no_hp', 'password', 'role', 'foto', 'status_kependudukan',  'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -23,14 +23,14 @@ class UsersModel extends Model
     public function getUsers($nik = null)
     {
         if ($nik == null) {
-            return $this->select('users.*, keluarga.nama_kepala_keluarga')
+            return $this->select('users.*, keluarga.nama_kepala_keluarga, keluarga.alamat')
                 ->join('keluarga', 'keluarga.no_kk = users.no_kk')
                 ->orderBy('users.created_at', 'DESC')
                 ->orderBy('users.status', 'DESC')
                 ->findAll();
         }
 
-        return $this->select('users.*, keluarga.nama_kepala_keluarga')
+        return $this->select('users.*, keluarga.nama_kepala_keluarga, keluarga.alamat')
             ->join('keluarga', 'keluarga.no_kk = users.no_kk')
             ->where(['nik' => $nik])
             ->first();

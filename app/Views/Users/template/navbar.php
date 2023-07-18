@@ -38,18 +38,18 @@
                     </ul>
                 </li>
                 <li class="nav-item nav-items">
-                    <a class="nav-link navbar-link <?php if ($navbar == 'galeri') echo ' active'; ?>" href="/users/galeri">Galeri</a>
+                    <a class="nav-link navbar-link <?php if ($navbar == 'galeri') echo ' active'; ?>" href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>">Galeri</a>
                 </li>
                 <li class="nav-item nav-items">
-                    <a class="nav-link navbar-link <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="/users/pengumuman">Pengumuman</a>
+                    <a class="nav-link navbar-link <?php if ($navbar == 'pengumuman') echo ' active'; ?>" href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>">Pengumuman</a>
                 </li>
             </ul>
             <?php if ($isLoggedin == true && $isLoggedin) { ?>
                 <!-- right -->
-                <a class="btn btn-main-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/home/profile"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
+                <a class="btn btn-main-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/users/profile"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
             <?php } else { ?>
                 <!-- right -->
-                <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/home/signin">Masuk</a>
+                <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/login">Masuk</a>
             <?php } ?>
         </div>
     </div>

@@ -11,7 +11,7 @@
     </div>
     <h3 class="mb-2">Dashboard Profil</h3>
     <p class="text-basic mb-0">
-      Selamat datang di dashboard profil, Iwan Suryaningrat!
+      Selamat datang di dashboard profil, <?= $user['nama'] ?>!
     </p>
   </div>
 </header>
@@ -42,7 +42,7 @@
 
           <!-- detail profile content -->
           <div class="tab-pane fade show active" id="detail-profil-content" role="tabpanel" aria-labelledby="detail-profil-tab" tabindex="0">
-            <form class="card-form-container card" id="detailProfileForm" action="#" enctype="multipart/form-data" method="POST">
+            <form class="card-form-container card" id="detailProfileForm" action="/usercontroller/saveDetailProfile" enctype="multipart/form-data" method="POST">
               <div class="card-header card-form-header">
                 <p class="mb-0 fw-semibold">Detail Profil</p>
               </div>
@@ -54,7 +54,7 @@
                   </p>
                   <div class="d-flex align-items-center flex-column flex-sm-row mb-2">
                     <figure class="profile-image-wrapper mb-2 mb-sm-0">
-                      <img src="/homepage/assets/img/khoeru1x1.png" alt="photo-profile-iwan" class="profile-image" />
+                      <img src="/upload/photos/<?= $user['foto'] ?>" alt="photo-profile-iwan" class="profile-image" />
                     </figure>
                     <label for="foto_profil" class="btn btn-dark ms-sm-4 text-sm fw-semibold px-3 py-2">Unggah Foto</label>
                     <input type="file" class="form-control-image" id="foto_profil" name="foto_profil" required accept="image/*" />
@@ -67,27 +67,33 @@
                 <div class="row mb-3">
                   <!-- nama depan -->
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label for="nama_depan" class="form-label forms-label">Nama Depan
+                    <label for="nama" class="form-label forms-label">Nama Lengkap
                       <span class="text-important">*</span></label>
-                    <input type="text" class="form-control input-control" id="nama_depan" name="nama_depan" required placeholder="Masukkan Nama Depan" value="Iwan" />
+                    <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama Depan" value="<?= $user['nama'] ?>" />
                   </div>
                   <!-- nama belakang -->
                   <div class="col-md-6">
-                    <label for="nama_belakang" class="form-label forms-label">Nama Belakang
+                    <label for="no_hp" class="form-label forms-label">Nomor HP
                       <span class="text-important">*</span></label>
-                    <input type="text" class="form-control input-control" id="nama_belakang" name="nama_belakang" required placeholder="Masukkan Nama Belakang" value="Suryaningrat" />
+                    <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan Nomor HP" value="<?= $user['no_hp'] ? $user['no_hp'] : '08xxxxxxxxxx' ?>" />
                   </div>
                 </div>
                 <!-- email -->
                 <div class="mb-3">
                   <label for="email" class="form-label forms-label">Alamat Email
                     <span class="text-important">*</span></label>
-                  <input type="email" class="form-control input-control" id="email" name="email" required disabled placeholder="Masukkan Nama Belakang" value="suryaningrat@gmail.com" />
+                  <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" value="<?= $user['email'] ?>" />
+                </div>
+                <!-- kk -->
+                <div class="mb-3">
+                  <label for="no_kk" class="form-label forms-label">Nomor Kartu Keluarga
+                    <span class="text-important">*</span></label>
+                  <input type="no_kk" class="form-control input-control" id="no_kk" name="no_kk" required disabled placeholder="Masukkan Nomor Kartu Keluarga" value="<?= $user['no_kk'] ?>" />
                 </div>
                 <!-- nik -->
                 <div class="mb-3">
                   <label for="nik" class="form-label forms-label">NIK <span class="text-important">*</span></label>
-                  <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" value="3325090602010001" />
+                  <input type="text" class="form-control input-control" id="nik" name="nik" required disabled placeholder="Masukkan NIK" value="<?= $user['nik'] ?>" />
                 </div>
               </div>
               <div class="card-footer card-form-footer">
@@ -114,8 +120,7 @@
                     <div class="col-md-6 mb-3 mb-md-0">
                       <label for="no_hp" class="form-label forms-label">No. Telp
                         <span class="text-important">*</span></label>
-
-                      <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" value="" />
+                      <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" value="<?= $user['no_hp'] ? $user['no_hp'] : '08xxxxxxxxxx' ?>" />
                     </div>
                     <!-- jenis kelamin -->
                     <div class="col-md-6">
@@ -148,9 +153,9 @@
 
                       <select id="status" name="status" required class="form-select select-control">
                         <option value="">Pilih Status</option>
-                        <option value="1">Status 1</option>
-                        <option value="2">Status 2</option>
-                        <option value="3">Status 3</option>
+                        <option value="kepala_keluarga" <?= ($user['status'] == 'kepala_keluarga' || $user['status'] == 'Kepala Keluarga') ? 'selected' : '' ?>>Kepala Keluarga</option>
+                        <option value="istri" <?= ($user['status'] == 'istri' || $user['status'] == 'Istri') ? 'selected' : '' ?>>Istri</option>
+                        <option value="anak" <?= ($user['status'] == 'anak' || $user['status'] == 'Anak') ? 'selected' : '' ?>>Anak</option>
                       </select>
                     </div>
                     <!-- status perkawinan -->
@@ -160,9 +165,10 @@
 
                       <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                         <option value="">Pilih Status Perkawinan</option>
-                        <option value="1">Status Perkawinan 1</option>
-                        <option value="2">Status Perkawinan 2</option>
-                        <option value="3">Status Perkawinan 3</option>
+                        <option value="belum_kawin" <?= ($user['status_perkawinan'] == 'belum_kawin' || $user['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
+                        <option value="kawin" <?= ($user['status_perkawinan'] == 'kawin' || $user['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
+                        <option value="cerai_hidup" <?= ($user['status_perkawinan'] == 'cerai_hidup' || $user['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
+                        <option value="cerai_mati" <?= ($user['status_perkawinan'] == 'cerai_mati' || $user['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
                       </select>
                     </div>
                   </div>
@@ -173,14 +179,14 @@
                       <label for="tempat_lahir" class="form-label forms-label">Tempat Lahir
                         <span class="text-important">*</span></label>
 
-                      <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="" />
+                      <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="<?= $user['tempat_lahir'] ?>" />
                     </div>
                     <!-- tanggal lahir -->
                     <div class="col-md-6">
                       <label for="tanggal_lahir" class="form-label forms-label">Tanggal Lahir
                         <span class="text-important">*</span></label>
 
-                      <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required />
+                      <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $user['tgl_lahir'] ?>" required />
                     </div>
                   </div>
                   <!-- alamat -->
@@ -192,27 +198,15 @@
                   <div class="row mb-3">
                     <!-- provinsi -->
                     <div class="col-md-4 mb-3 mb-md-0">
-                      <label for="status" class="form-label forms-label">Provinsi
-                        <span class="text-important">*</span></label>
+                      <label for="provinsi" class="form-label forms-label">Provinsi <span class="text-important">*</span></label>
 
-                      <select id="provinsi" name="provinsi" required class="form-select select-control">
-                        <option value="">Pilih Provinsi</option>
-                        <option value="1">Provinsi 1</option>
-                        <option value="2">Provinsi 2</option>
-                        <option value="3">Provinsi 3</option>
-                      </select>
+                      <input class="form-control input-control" id="provinsi" name="provinsi" required placeholder="Masukkan Provinsi" value="" />
                     </div>
                     <!-- kota atau kabupaten -->
                     <div class="col-md-4 mb-3 mb-md-0">
-                      <label for="kota_kabupaten" class="form-label forms-label">Kota/Kabupaten
-                        <span class="text-important">*</span></label>
+                      <label for="kota_kabupaten" class="form-label forms-label">Kota/Kabupaten <span class="text-important">*</span></label>
 
-                      <select id="kota_kabupaten" name="kota_kabupaten" required class="form-select select-control">
-                        <option value="">Pilih Kota/Kabupaten</option>
-                        <option value="1">Kota/Kabupaten 1</option>
-                        <option value="2">Kota/Kabupaten 2</option>
-                        <option value="3">Kota/Kabupaten 3</option>
-                      </select>
+                      <input class="form-control input-control" id="kota_kabupaten" name="kota_kabupaten" required placeholder="Masukkan Kota/Kabupaten" value="" />
                     </div>
                     <!-- kodepos -->
                     <div class="col-md-4">
@@ -223,15 +217,29 @@
                     </div>
                   </div>
                   <!-- agama -->
-                  <div class="mb-3">
-                    <label for="agama" class="form-label forms-label">Agama <span class="text-important">*</span></label>
+                  <div class="row mb-3">
+                    <!-- Agama -->
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="pendidikan" class="form-label forms-label">Pendidikan
+                        <span class="text-important">*</span></label>
 
-                    <select id="agama" name="agama" required class="form-select select-control">
-                      <option value="">Pilih Agama</option>
-                      <option value="1">Agama 1</option>
-                      <option value="2">Agama 2</option>
-                      <option value="3">Agama 3</option>
-                    </select>
+                      <select id="pendidikan" name="pendidikan" required class="form-select select-control">
+                        <option value="">Pilih Pendidikan</option>
+                        <option value="1">Pendidikan 1</option>
+                        <option value="2">Pendidikan 2</option>
+                        <option value="3">Pendidikan 3</option>
+                      </select>
+                    </div>
+                    <!-- Status Kependudukan -->
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan
+                        <span class="text-important">*</span></label>
+                      <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
+                        <option value="">Pilih Status Kependudukan</option>
+                        <option value="1">Penduduk Tetap</option>
+                        <option value="2">Penduduk Tidak Tetap</option>
+                      </select>
+                    </div>
                   </div>
                   <!-- pekerjaan -->
                   <div class="row mb-3">
@@ -323,13 +331,13 @@
 <!-- internal script -->
 <script>
   // add method validation only letters
-  $.validator.addMethod("alphabetOnly", function(value, element) {
+  $.validator.addMethod('alphabetOnly', function(value, element) {
     return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
   });
   // validate
   $(document).ready(function() {
     // detail profile
-    $("#detailProfileForm").validate({
+    $('#detailProfileForm').validate({
       rules: {
         nama_depan: {
           required: true,
@@ -348,26 +356,26 @@
       },
       messages: {
         nama_depan: {
-          required: "Nama depan tidak boleh kosong",
-          alphabetOnly: "Nama depan hanya boleh berisi huruf",
+          required: 'Nama depan tidak boleh kosong',
+          alphabetOnly: 'Nama depan hanya boleh berisi huruf',
         },
         nama_belakang: {
-          required: "Nama belakang tidak boleh kosong",
-          alphabetOnly: "Nama belakang hanya boleh berisi huruf",
+          required: 'Nama belakang tidak boleh kosong',
+          alphabetOnly: 'Nama belakang hanya boleh berisi huruf',
         },
         nik: {
-          required: "NIK tidak boleh kosong",
-          number: "NIK hanya boleh berisi angka",
-          minlength: "NIK harus berisi 16 angka",
-          maxlength: "NIK harus berisi 16 angka",
+          required: 'NIK tidak boleh kosong',
+          number: 'NIK hanya boleh berisi angka',
+          minlength: 'NIK harus berisi 16 angka',
+          maxlength: 'NIK harus berisi 16 angka',
         },
       },
     });
-    $("#detailProfileFormButton").on("click", () => {
-      console.log($("#detailProfileForm").valid());
+    $('#detailProfileFormButton').on('click', () => {
+      console.log($('#detailProfileForm').valid());
     });
     // data pribadi
-    $("#profileForm").validate({
+    $('#profileForm').validate({
       rules: {
         no_hp: {
           required: true,
@@ -418,64 +426,64 @@
       },
       messages: {
         no_hp: {
-          required: "No. HP tidak boleh kosong.",
-          number: "No. HP harus berupa angka.",
-          minlength: "No. HP harus berjumlah 10-13 digit.",
-          maxlength: "No. HP harus berjumlah 10-13 digit.",
+          required: 'No. HP tidak boleh kosong.',
+          number: 'No. HP harus berupa angka.',
+          minlength: 'No. HP harus berjumlah 10-13 digit.',
+          maxlength: 'No. HP harus berjumlah 10-13 digit.',
         },
         jenis_kelamin: {
-          required: "Jenis kelamin tidak boleh kosong.",
+          required: 'Jenis kelamin tidak boleh kosong.',
         },
         status: {
-          required: "Status tidak boleh kosong.",
+          required: 'Status tidak boleh kosong.',
         },
         status_perkawinan: {
-          required: "Status perkawinan tidak boleh kosong.",
+          required: 'Status perkawinan tidak boleh kosong.',
         },
         tempat_lahir: {
-          required: "Tempat lahir tidak boleh kosong.",
+          required: 'Tempat lahir tidak boleh kosong.',
         },
         tanggal_lahir: {
-          required: "Tanggal lahir tidak boleh kosong.",
+          required: 'Tanggal lahir tidak boleh kosong.',
         },
         alamat: {
-          required: "Alamat tidak boleh kosong.",
+          required: 'Alamat tidak boleh kosong.',
         },
         provinsi: {
-          required: "Provinsi tidak boleh kosong.",
+          required: 'Provinsi tidak boleh kosong.',
         },
         kota_kabupaten: {
-          required: "Kota/Kabupaten tidak boleh kosong.",
+          required: 'Kota/Kabupaten tidak boleh kosong.',
         },
         kodepos: {
-          required: "Kodepos tidak boleh kosong.",
-          number: "Kodepos harus berupa angka.",
-          minlength: "Kodepos harus berjumlah 5 digit.",
-          maxlength: "Kodepos harus berjumlah 5 digit.",
+          required: 'Kodepos tidak boleh kosong.',
+          number: 'Kodepos harus berupa angka.',
+          minlength: 'Kodepos harus berjumlah 5 digit.',
+          maxlength: 'Kodepos harus berjumlah 5 digit.',
         },
         agama: {
-          required: "Agama tidak boleh kosong.",
+          required: 'Agama tidak boleh kosong.',
         },
         pendidikan: {
-          required: "Pendidikan tidak boleh kosong.",
+          required: 'Pendidikan tidak boleh kosong.',
         },
         pekerjaan: {
-          required: "Pekerjaan tidak boleh kosong.",
+          required: 'Pekerjaan tidak boleh kosong.',
         },
       },
       errorPlacement: function(error, element) {
-        if (element.is(":radio")) {
-          error.appendTo("#radioFormGender");
+        if (element.is(':radio')) {
+          error.appendTo('#radioFormGender');
         } else {
           error.insertAfter(element);
         }
       },
     });
-    $("#profileFormButton").on("click", () => {
-      console.log($("#profileForm").valid());
+    $('#profileFormButton').on('click', () => {
+      console.log($('#profileForm').valid());
     });
     // ubah kata sandi
-    $("#changePasswordForm").validate({
+    $('#changePasswordForm').validate({
       rules: {
         password_lama: {
           required: true,
@@ -487,61 +495,61 @@
         konfirmasi_password_baru: {
           required: true,
           minlength: 8,
-          equalTo: "#password_baru",
+          equalTo: '#password_baru',
         },
       },
       messages: {
         password_lama: {
-          required: "Password lama tidak boleh kosong.",
+          required: 'Password lama tidak boleh kosong.',
         },
         password_baru: {
-          required: "Password baru tidak boleh kosong.",
-          minlength: "Password baru harus berjumlah 8-16 karakter.",
+          required: 'Password baru tidak boleh kosong.',
+          minlength: 'Password baru harus berjumlah 8-16 karakter.',
         },
         konfirmasi_password_baru: {
-          required: "Konfirmasi password baru tidak boleh kosong.",
-          minlength: "Konfirmasi password baru harus berjumlah 8-16 karakter.",
-          equalTo: "Konfirmasi password baru harus sama dengan password baru.",
+          required: 'Konfirmasi password baru tidak boleh kosong.',
+          minlength: 'Konfirmasi password baru harus berjumlah 8-16 karakter.',
+          equalTo: 'Konfirmasi password baru harus sama dengan password baru.',
         },
       },
     });
-    $("#changePasswordFormButton").on("click", () => {
-      console.log($("#changePasswordForm").valid());
+    $('#changePasswordFormButton').on('click', () => {
+      console.log($('#changePasswordForm').valid());
     });
 
     // CHANGE PASSWORD TAB
     // toggle password lama
-    $("#togglePasswordLama").click(function() {
-      $(this).children().toggleClass("fa-eye-slash");
-      $(this).children().toggleClass("fa-eye");
+    $('#togglePasswordLama').click(function() {
+      $(this).children().toggleClass('fa-eye-slash');
+      $(this).children().toggleClass('fa-eye');
 
       var type =
-        $("#password_lama").attr("type") === "password" ?
-        "text" :
-        "password";
-      $("#password_lama").attr("type", type);
+        $('#password_lama').attr('type') === 'password' ?
+        'text' :
+        'password';
+      $('#password_lama').attr('type', type);
     });
     // toggle password baru
-    $("#togglePasswordBaru").click(function() {
-      $(this).children().toggleClass("fa-eye-slash");
-      $(this).children().toggleClass("fa-eye");
+    $('#togglePasswordBaru').click(function() {
+      $(this).children().toggleClass('fa-eye-slash');
+      $(this).children().toggleClass('fa-eye');
 
       var type =
-        $("#password_baru").attr("type") === "password" ?
-        "text" :
-        "password";
-      $("#password_baru").attr("type", type);
+        $('#password_baru').attr('type') === 'password' ?
+        'text' :
+        'password';
+      $('#password_baru').attr('type', type);
     });
     // toggle konfirmasi password baru
-    $("#toggleKonfirmasiPasswordBaru").click(function() {
-      $(this).children().toggleClass("fa-eye-slash");
-      $(this).children().toggleClass("fa-eye");
+    $('#toggleKonfirmasiPasswordBaru').click(function() {
+      $(this).children().toggleClass('fa-eye-slash');
+      $(this).children().toggleClass('fa-eye');
 
       var type =
-        $("#konfirmasi_password_baru").attr("type") === "password" ?
-        "text" :
-        "password";
-      $("#konfirmasi_password_baru").attr("type", type);
+        $('#konfirmasi_password_baru').attr('type') === 'password' ?
+        'text' :
+        'password';
+      $('#konfirmasi_password_baru').attr('type', type);
     });
   });
 </script>

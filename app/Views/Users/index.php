@@ -260,7 +260,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-center pt-1 pt-sm-3">
-      <a href="./pages/gallery/gallery.html" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+      <a href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
     </div>
   </section>
 
@@ -364,7 +364,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-center pt-1 pt-sm-3">
-        <a href="/users/pengumuman" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+        <a href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
       </div>
     </div>
   </section>
@@ -382,14 +382,14 @@
             Ducimus, nobis pariatur tempore labore deleniti beatae
             architecto enim iusto.
           </p>
-          <a class="btn btn-white shadow" role="button" href="./contact.html">
+          <a class="btn btn-white shadow" role="button" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
             Kritik & Saran
           </a>
         </div>
         <div class="col-12 col-md-7">
           <div class="position-relative">
             <figure class="cta-image-wrapper">
-              <img src="./assets/img/phone-2.png" alt="cta-contat" class="cta-image" />
+              <img src="/homepage/assets/img/phone-2.png" alt="cta-contat" class="cta-image" />
             </figure>
           </div>
         </div>

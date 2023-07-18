@@ -17,7 +17,7 @@
                         Jl. Raya Kebayoran Lama Bl A-5/194, DKI Jakarta, Kota Jakarta
                         12240
                     </p>
-                    <a class="btn btn-main" role="button" href="/users/contact">
+                    <a class="btn btn-main" role="button" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
                         <button class="btn btn-main" type="button">
                             Kontak Kami
                         </button>
@@ -31,8 +31,8 @@
                     <div class="footer-menu-wrapper">
                         <ul class="ps-0 ps-md-5">
                             <li class="footer-menu__header">Warga</li>
-                            <li><a href="/users/pengumuman">Pengumuman</a></li>
-                            <li><a href="/users/galeri">Galeri</a></li>
+                            <li><a href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>">Pengumuman</a></li>
+                            <li><a href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>">Galeri</a></li>
                         </ul>
                     </div>
                     <div class="footer-menu-wrapper">

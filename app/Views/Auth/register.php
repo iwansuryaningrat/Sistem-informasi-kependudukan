@@ -22,7 +22,7 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="/homepage/public/favicon.ico" type="image/x-icon" />
   <!-- title -->
-  <title>Masuk | Warga Site</title>
+  <title><?= $title ?></title>
 </head>
 
 <body>
@@ -40,40 +40,63 @@
     <main>
       <section class="container-fluid">
         <div class="row">
-          <div class="col-md-9 sign-container-content-big pb-100vh-420">
+          <div class="col-md-9 sign-container-content-small">
             <div class="sign-container-content__card">
               <div class="sign_card__content">
-                <h1 class="text-center mb-3">Masuk</h1>
+                <h1 class="text-center mb-3">Daftar</h1>
                 <p class="text-center mb-4 text-basic">
-                  Belum memiliki Akun?
-                  <span><a href="javascript:void(0)" id="register" class="fw-medium hover-underline">Daftar</a></span>
+                  Sudah memiliki Akun?
+                  <span><a href="javascript:void(0)" id="login" class="fw-medium hover-underline">Masuk</a></span>
                 </p>
                 <div class="sign-card">
-                  <form id="loginForm" action="#" enctype="multipart/form-data" method="POST">
+                  <form id="signupForm" action="#" enctype="multipart/form-data" method="POST">
+                    <!-- NIK -->
                     <div class="mb-3">
-                      <label for="email" class="form-label forms-label">Email / NIK</label>
-                      <input type="text" id="email" name="email" value="" required placeholder="Masukkan Email / NIK" aria-describedby="emailHelp" class="form-control input-control" />
-                      <div id="emailHelp" class="form-text input-text">
-                        Gunakan email aktif atau Nomor Induk Kependudukan (No.
-                        KTP).
+                      <label for="nik" class="form-label forms-label">Nomor Induk Kependudukan (No. KTP)</label>
+                      <input type="text" id="nik" name="nik" value="" required placeholder="Masukkan NIK" class="form-control input-control" />
+                    </div>
+                    <!-- KK -->
+                    <div class="mb-3">
+                      <label for="kk" class="form-label forms-label">Nomor Kartu Keluarga</label>
+                      <input type="text" id="kk" name="kk" value="" required placeholder="Masukkan Nomor KK" class="form-control input-control" />
+                    </div>
+                    <!-- Nama -->
+                    <div class="mb-3">
+                      <label for="nama" class="form-label forms-label">Nama</label>
+                      <input type="text" id="nama" name="nama" value="" required placeholder="Masukkan Nama" aria-describedby="namaHelp" class="form-control input-control" />
+                      <div id="namaHelp" class="form-text input-text">
+                        Masukkan nama asli Anda, sesuai dengan KTP.
                       </div>
                     </div>
+                    <!-- Email -->
+                    <div class="mb-3">
+                      <label for="email" class="form-label forms-label">Email</label>
+                      <input type="email" id="email" name="email" value="" required placeholder="Masukkan Email" aria-describedby="emailHelp" class="form-control input-control" />
+                      <div id="emailHelp" class="form-text input-text">
+                        Gunakan alamat email aktif Anda.
+                      </div>
+                    </div>
+                    <!-- Password -->
                     <div class="mb-3 position-relative">
                       <label for="password" class="form-label forms-label">Password</label>
-                      <input type="password" id="password" name="password" value="" required placeholder="Masukkan Password" class="form-control input-control-password" />
+                      <input type="password" id="password" name="password" value="" required placeholder="Masukkan Password" aria-describedby="passwordHelp" class="form-control input-control-password" />
                       <span id="togglePassword"><i class="fa-solid fa-eye" title="show password"></i></span>
-                    </div>
-                    <div class="mb-4 d-flex align-items-center justify-content-between">
-                      <div class="form-check mb-0">
-                        <input type="checkbox" class="form-check-input" id="remember" />
-                        <label class="form-check-label forms-check-label line-clamp-1" for="remember">Remember Me</label>
-                      </div>
-                      <div class="">
-                        <a href="/home/forgotPasswordForm" class="fw-medium hover-underline text-sm line-clamp-1">Lupa Password?</a>
+                      <div id="passwordHelp" class="form-text input-text">
+                        Gunakan minimal 8 karakter dengan kombinasi huruf dan
+                        angka.
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-main w-100 shadow" id="loginFormButton">
-                      Login
+                    <!-- Confirm Password -->
+                    <div class="mb-4">
+                      <label for="confirmPassword" class="form-label forms-label">Konfirmasi Password</label>
+                      <input type="password" id="confirmPassword" name="confirmPassword" value="" required placeholder="Masukkan Konfirmasi Password" aria-describedby="confirmPasswordHelp" class="form-control input-control" />
+                      <div id="confirmPasswordHelp" class="form-text input-text">
+                        Masukkan password yang sama dengan di atas.
+                      </div>
+                    </div>
+                    <!-- button -->
+                    <button type="submit" class="btn btn-main w-100 shadow" id="signupFormButton">
+                      Daftar
                     </button>
                   </form>
                 </div>
@@ -85,7 +108,7 @@
       </section>
     </main>
     <!-- end of main -->
-
+    <!-- footer -->
     <footer class="small-footer">
       <section class="container">
         <p class="text-center m-0 text-basic">
@@ -94,6 +117,7 @@
         </p>
       </section>
     </footer>
+    <!-- end of footer -->
   </div>
 
   <!-- scripts -->
@@ -111,33 +135,74 @@
   <script src="/homepage/assets/js/scripts.js"></script>
   <!-- script internal -->
   <script>
-    // id register onclick
-    $('#register').click(function() {
-      window.location.href = '/home/signup';
+    // id login onclick
+    $('#login').click(function() {
+      window.location.href = '/login';
     });
-
+    // add method validation only letters
+    $.validator.addMethod('alphabetOnly', function(value, element) {
+      return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
+    });
     // validate
     $(document).ready(function() {
-      $('#loginForm').validate({
+      $('#signupForm').validate({
         rules: {
+          nik: {
+            required: true,
+            number: true,
+          },
+          kk: {
+            required: true,
+            number: true,
+          },
+          nama: {
+            required: true,
+            alphabetOnly: true,
+          },
           email: {
             required: true,
+            email: true,
           },
           password: {
             required: true,
+            minlength: 8,
+            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+          },
+          confirmPassword: {
+            required: true,
+            equalTo: '#password',
           },
         },
         messages: {
+          nik: {
+            required: 'NIK tidak boleh kosong.',
+            number: 'NIK harus berupa angka.',
+          },
+          kk: {
+            required: 'No. KK tidak boleh kosong.',
+            number: 'No. KK harus berupa angka.',
+          },
+          nama: {
+            required: 'Nama tidak boleh kosong.',
+            alphabetOnly: 'Nama harus berupa huruf.',
+          },
           email: {
-            required: 'Email atau NIK tidak boleh kosong.',
+            required: 'Email tidak boleh kosong.',
+            email: 'Email tidak valid.',
           },
           password: {
             required: 'Password tidak boleh kosong.',
+            minlength: 'Password minimal 8 karakter.',
+            pattern: 'Password harus mengandung huruf dan angka.',
+          },
+          confirmPassword: {
+            required: 'Konfirmasi Password tidak boleh kosong.',
+            equalTo: 'Konfirmasi Password harus sama dengan Password.',
           },
         },
       });
-      $('#loginFormButton').on('click', () => {
-        console.log($('#loginForm').valid());
+      $('#signupFormButton').on('click', () => {
+        console.log($('#signupForm').valid());
       });
     });
 
