@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class Users implements FilterInterface
+class LoginFirstFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
