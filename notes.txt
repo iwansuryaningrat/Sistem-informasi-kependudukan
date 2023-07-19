@@ -18,4 +18,4 @@
 ### Status Users = [Kepala keluarga, Istri, Anak]
 ### Status Perkawinan = [Belum Kawin, Kawin, Cerai Hidup, Cerai Mati]
 ### Role = [Admin, User]
-### Status Kependudukan = ['Penduduk Tetap', 'Penduduk Sementara', 'Penduduk Pendatang', 'Penduduk Pindahan']
+### Status Kependudukan = ['Tetap', 'Sementara', 'Pendatang', 'Pindahan']

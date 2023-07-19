@@ -120,10 +120,10 @@
 	Circles.create({
 		id: 'circles-1',
 		radius: 45,
-		value: 60,
-		maxValue: 100,
+		value: <?= $totalKeluarga ? $totalKeluarga : 0; ?>,
+		maxValue: 1000,
 		width: 7,
-		text: 5,
+		text: <?= $totalKeluarga ? $totalKeluarga : 0; ?>,
 		colors: ['#f1f1f1', '#FF9E27'],
 		duration: 400,
 		wrpClass: 'circles-wrp',
@@ -135,10 +135,10 @@
 	Circles.create({
 		id: 'circles-2',
 		radius: 45,
-		value: 70,
-		maxValue: 100,
+		value: <?= $totalPenduduk ? $totalPenduduk : 0 ?>,
+		maxValue: 1000,
 		width: 7,
-		text: 36,
+		text: <?= $totalPenduduk ? $totalPenduduk : 0 ?>,
 		colors: ['#f1f1f1', '#2BB930'],
 		duration: 400,
 		wrpClass: 'circles-wrp',
@@ -150,10 +150,10 @@
 	Circles.create({
 		id: 'circles-3',
 		radius: 45,
-		value: 40,
-		maxValue: 100,
+		value: <?= $totalAdministrasi ? $totalAdministrasi : 0 ?>,
+		maxValue: 1000,
 		width: 7,
-		text: 12,
+		text: <?= $totalAdministrasi ? $totalAdministrasi : 0 ?>,
 		colors: ['#f1f1f1', '#F25961'],
 		duration: 400,
 		wrpClass: 'circles-wrp',
@@ -185,8 +185,8 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [50, 35],
-				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b"],
+				data: [<?= $totalLakilaki ? $totalLakilaki : 0 ?>, <?= $totalPerempuan ? $totalPerempuan : 0 ?>],
+				backgroundColor: ["#1d7af3", "#f3545d"],
 				borderWidth: 0
 			}],
 			labels: ['Laki - Laki', 'Perempuan']
@@ -234,11 +234,11 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [100, 35, 15, 33, 100],
+				data: [<?= $dataUsia['anak'] ?>, <?= $dataUsia['remaja'] ?>, <?= $dataUsia['dewasa'] ?>, <?= $dataUsia['ortu'] ?>, <?= $dataUsia['lansia'] ?>],
 				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C", "#FF00FF"],
 				borderWidth: 0
 			}],
-			labels: ['<17', '17-25', '25-35', '35-50', '>50']
+			labels: ['<17', '17-25', '26-35', '36-50', '>50']
 		},
 		options: {
 			responsive: true,
@@ -283,7 +283,7 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [100, 35, 15, 33],
+				data: [<?= $dataStatusPerkawinan['belumKawin'] ?>, <?= $dataStatusPerkawinan['kawin'] ?>, <?= $dataStatusPerkawinan['ceraiHidup']  ?>, <?= $dataStatusPerkawinan['ceraiMati'] ?>],
 				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C"],
 				borderWidth: 0
 			}],
@@ -332,7 +332,7 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+				data: [<?= $dataStatusPendidikan['tidakSekolah'] ?>, <?= $dataStatusPendidikan['sd'] ?>, <?= $dataStatusPendidikan['smp'] ?>, <?= $dataStatusPendidikan['sma'] ?>, <?= $dataStatusPendidikan['d1'] ?>, <?= $dataStatusPendidikan['d2'] ?>, <?= $dataStatusPendidikan['d3'] ?>, <?= $dataStatusPendidikan['d4'] ?>, <?= $dataStatusPendidikan['s1'] ?>, <?= $dataStatusPendidikan['s2'] ?>, <?= $dataStatusPendidikan['s3'] ?>],
 				backgroundColor: [
 					"#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C", "#FFA500", "#800080", "#FFC0CB", "#A52A2A", "#808080", "#000000", "#FF00FF", "#9C27B0", "#4CAF50", "#FF5722"
 				],
@@ -383,7 +383,7 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [100, 35, 15, 33],
+				data: [<?= $dataStatusKependudukan['pendudukTetap'] ?>, <?= $dataStatusKependudukan['pendudukSementara'] ?>, <?= $dataStatusKependudukan['pendudukPendatang'] ?>, <?= $dataStatusKependudukan['pendudukPindahan'] ?>],
 				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C"],
 				borderWidth: 0
 			}],

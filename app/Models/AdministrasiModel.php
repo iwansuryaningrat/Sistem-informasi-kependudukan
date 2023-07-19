@@ -96,4 +96,10 @@ class AdministrasiModel extends Model
     {
         return $this->db->table($this->table)->update(['administrasi_status' => $administrasi_status], ['administrasi_id' => $administrasi_id]);
     }
+
+    // Count Administrasi data
+    public function countAdministrasi()
+    {
+        return $this->countAll();
+    }
 }

@@ -97,12 +97,58 @@ class Admin extends BaseController
         //  get session data
         $sessionData = $this->session->get();
         // dd($sessionData);
+
+        $dataStatusKependudukan = [
+            "pendudukTetap" => $this->usersModel->countUsersByStatusKependudukan('Tetap')['total'] ? $this->usersModel->countUsersByStatusKependudukan('Tetap')['total'] : 0,
+            "pendudukSementara" => $this->usersModel->countUsersByStatusKependudukan('Sementara')['total'] ? $this->usersModel->countUsersByStatusKependudukan('Sementara')['total'] : 0,
+            "pendudukPendatang" => $this->usersModel->countUsersByStatusKependudukan('Pendatang')['total'] ? $this->usersModel->countUsersByStatusKependudukan('Pendatang')['total'] : 0,
+            "pendudukPindahan" => $this->usersModel->countUsersByStatusKependudukan('Pindahan')['total'] ? $this->usersModel->countUsersByStatusKependudukan('Pindahan')['total'] : 0,
+        ];
+
+        $dataStatusPerkawinan = [
+            'belumKawin' => $this->usersModel->countUsersByStatusPerkawinan('Belum Kawin')['total'] ? $this->usersModel->countUsersByStatusPerkawinan('Belum Kawin')['total'] : 0,
+            'kawin' => $this->usersModel->countUsersByStatusPerkawinan('Kawin')['total'] ? $this->usersModel->countUsersByStatusPerkawinan('Kawin')['total'] : 0,
+            'ceraiHidup' => $this->usersModel->countUsersByStatusPerkawinan('Cerai Hidup')['total'] ? $this->usersModel->countUsersByStatusPerkawinan('Cerai Hidup')['total'] : 0,
+            'ceraiMati' => $this->usersModel->countUsersByStatusPerkawinan('Cerai Mati')['total'] ? $this->usersModel->countUsersByStatusPerkawinan('Cerai Mati')['total'] : 0,
+        ];
+
+        $dataStatusPendidikan = [
+            'tidakSekolah' => $this->usersModel->countUsersByPendidikan('Tidak Sekolah')['total'] ? $this->usersModel->countUsersByPendidikan('Tidak Sekolah')['total'] : 0,
+            'sd' => $this->usersModel->countUsersByPendidikan('SD')['total'] ? $this->usersModel->countUsersByPendidikan('SD')['total'] : 0,
+            'smp' => $this->usersModel->countUsersByPendidikan('SMP')['total'] ? $this->usersModel->countUsersByPendidikan('SMP')['total'] : 0,
+            'sma' => $this->usersModel->countUsersByPendidikan('SMA')['total'] ? $this->usersModel->countUsersByPendidikan('SMA')['total'] : 0,
+            'd1' => $this->usersModel->countUsersByPendidikan('D1')['total'] ? $this->usersModel->countUsersByPendidikan('D1')['total'] : 0,
+            'd2' => $this->usersModel->countUsersByPendidikan('D2')['total'] ? $this->usersModel->countUsersByPendidikan('D2')['total'] : 0,
+            'd3' => $this->usersModel->countUsersByPendidikan('D3')['total'] ? $this->usersModel->countUsersByPendidikan('D3')['total'] : 0,
+            'd4' => $this->usersModel->countUsersByPendidikan('D4')['total'] ? $this->usersModel->countUsersByPendidikan('D4')['total'] : 0,
+            's1' => $this->usersModel->countUsersByPendidikan('S1')['total'] ? $this->usersModel->countUsersByPendidikan('S1')['total'] : 0,
+            's2' => $this->usersModel->countUsersByPendidikan('S2')['total'] ? $this->usersModel->countUsersByPendidikan('S2')['total'] : 0,
+            's3' => $this->usersModel->countUsersByPendidikan('S3')['total'] ? $this->usersModel->countUsersByPendidikan('S3')['total'] : 0,
+        ];
+
+        $dataUsia = [
+            'anak' => $this->usersModel->countUsersByAge(0, 16)['total'] ? $this->usersModel->countUsersByAge(0, 16)['total'] : 0,
+            'remaja' => $this->usersModel->countUsersByAge(17, 25)['total'] ? $this->usersModel->countUsersByAge(17, 25)['total'] : 0,
+            'dewasa' => $this->usersModel->countUsersByAge(26, 35)['total'] ? $this->usersModel->countUsersByAge(26, 35)['total'] : 0,
+            'ortu' => $this->usersModel->countUsersByAge(36, 50)['total'] ? $this->usersModel->countUsersByAge(36, 50)['total'] : 0,
+            'lansia' => $this->usersModel->countUsersByAge(51, 100)['total'] ? $this->usersModel->countUsersByAge(51, 100)['total'] : 0,
+        ];
+
         $data = [
             'title' => 'Admin Dashboard',
             'active' => 'dashboard',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'totalPenduduk' => $this->usersModel->countUsers(),
+            'totalKeluarga' => $this->keluargaModel->countKeluarga(),
+            'totalAdministrasi' => $this->administrasiModel->countAdministrasi(),
+            'totalLakilaki' => $this->usersModel->countUsersByGender('Laki-laki')['total'],
+            'totalPerempuan' => $this->usersModel->countUsersByGender('Perempuan')['total'],
+            'dataStatusKependudukan' => $dataStatusKependudukan,
+            'dataStatusPerkawinan' => $dataStatusPerkawinan,
+            'dataStatusPendidikan' => $dataStatusPendidikan,
+            'dataUsia' => $dataUsia,
         ];
 
         return view('admin/index', $data);

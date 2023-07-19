@@ -77,4 +77,51 @@ class UsersModel extends Model
     {
         return $this->db->table($this->table)->delete(['no_kk' => $no_kk]);
     }
+
+    // Count Users by jenis_kelamin
+    public function countUsersByGender($jenis_kelamin)
+    {
+        return $this->select('count(*) as total')
+            ->where(['jenis_kelamin' => $jenis_kelamin])
+            ->first();
+    }
+
+    // Count Users
+    public function countUsers()
+    {
+        return $this->countAll();
+    }
+
+    // Count Users by usia range
+    public function countUsersByAge($start, $end)
+    {
+        return $this->select('count(*) as total')
+            ->where('usia >=', $start)
+            ->where('usia <=', $end)
+            ->first();
+    }
+
+    // Count Users by status_perkawinan
+    public function countUsersByStatusPerkawinan($status_perkawinan)
+    {
+        return $this->select('count(*) as total')
+            ->where(['status_perkawinan' => $status_perkawinan])
+            ->first();
+    }
+
+    // Count Users by pendidikan
+    public function countUsersByPendidikan($pendidikan)
+    {
+        return $this->select('count(*) as total')
+            ->where(['pendidikan' => $pendidikan])
+            ->first();
+    }
+
+    // Count Users by status_kependudukan
+    public function countUsersByStatusKependudukan($status_kependudukan)
+    {
+        return $this->select('count(*) as total')
+            ->where(['status_kependudukan' => $status_kependudukan])
+            ->first();
+    }
 }

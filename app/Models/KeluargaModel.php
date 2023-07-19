@@ -51,4 +51,10 @@ class KeluargaModel extends Model
     {
         return $this->db->table($this->table)->insert($data);
     }
+
+    // Count Keluarga data
+    public function countKeluarga()
+    {
+        return $this->countAll();
+    }
 }
