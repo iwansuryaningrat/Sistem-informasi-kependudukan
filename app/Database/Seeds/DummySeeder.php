@@ -46,7 +46,7 @@ class DummySeeder extends Seeder
                 'password' => password_hash('12345678', PASSWORD_DEFAULT),
                 'role' => 'User',
                 'foto' => 'default.png',
-                'status_akun' => $faker->randomElement(['Aktif', 'Nonaktif']),
+                'status_kependudukan' => $faker->randomElement(['Tetap', 'Sementara', 'Pendatang', 'Pindahan']),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
