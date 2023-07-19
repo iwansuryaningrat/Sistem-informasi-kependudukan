@@ -15,7 +15,7 @@
             </ul>
         </nav>
         <div class="copyright ml-auto">
-            Elsavira © 2023 Copyright. All right reserved
+            Desaku © 2023 Copyright. All right reserved
         </div>
     </div>
 </footer>
