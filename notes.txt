@@ -19,3 +19,4 @@
 ### Status Perkawinan = [Belum Kawin, Kawin, Cerai Hidup, Cerai Mati]
 ### Role = [Admin, User]
 ### Status Kependudukan = ['Tetap', 'Sementara', 'Pendatang', 'Pindahan']
+### Agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']

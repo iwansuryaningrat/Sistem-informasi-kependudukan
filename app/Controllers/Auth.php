@@ -26,15 +26,6 @@ class Auth extends BaseController
 
     public function login()
     {
-        // Check Login status
-        if (session()->get('isLoggedIn')) {
-            if (session()->get('role') == 'admin') {
-                return redirect()->to('/admin');
-            } elseif (session()->get('role') == 'users') {
-                return redirect()->to('/users');
-            }
-        }
-
         $data = [
             'title' => 'Masuk | Warga Site'
         ];
@@ -69,11 +60,13 @@ class Auth extends BaseController
             'nama' => $user['nama'],
             'status' => $user['status'],
             'jenis_kelamin' => $user['jenis_kelamin'],
+            'agama' => $user['agama'],
             'tempat_lahir' => $user['tempat_lahir'],
             'tgl_lahir' => $user['tgl_lahir'],
             'usia' => $user['usia'],
             'status_perkawinan' => $user['status_perkawinan'],
             'pendidikan' => $user['pendidikan'],
+            'pekerjaan' => $user['pekerjaan'],
             'email' => $user['email'],
             'no_hp' => $user['no_hp'],
             'role' => $user['role'],
@@ -122,5 +115,30 @@ class Auth extends BaseController
         ];
 
         return view('auth/register', $data);
+    }
+
+    public function ubahSandi()
+    {
+        $nik = session()->get('nik');
+
+        $userData = $this->usersModel->getUsers($nik);
+
+        if (!$userData) {
+            session()->setFlashdata('message', 'NIK tidak terdaftar');
+            $this->logout();
+        }
+
+        $passwordLama = $this->request->getVar('password_lama');
+        $passwordBaru = $this->request->getVar('password_baru');
+
+        if (!password_verify($passwordLama, $userData['password'])) {
+            session()->setFlashdata('message', 'Password yang Anda masukkan salah');
+            return redirect()->to('/users/profile');
+        }
+
+        $this->usersModel->editUsers(['password' => password_hash($passwordBaru, PASSWORD_DEFAULT)], $nik);
+
+        session()->setFlashdata('message', 'Password berhasil diubah');
+        return redirect()->to('/users/profile');
     }
 }

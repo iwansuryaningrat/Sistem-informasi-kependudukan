@@ -130,6 +130,15 @@ class Admin extends BaseController
             'lansia' => $this->usersModel->countUsersByAge(51, 100)['total'] ? $this->usersModel->countUsersByAge(51, 100)['total'] : 0,
         ];
 
+        $dataAgama = [
+            'islam' => $this->usersModel->countUsersByAgama('Islam')['total'] ? $this->usersModel->countUsersByAgama('Islam')['total'] : 0,
+            'kristen' => $this->usersModel->countUsersByAgama('Kristen')['total'] ? $this->usersModel->countUsersByAgama('Kristen')['total'] : 0,
+            'katholik' => $this->usersModel->countUsersByAgama('Katholik')['total'] ? $this->usersModel->countUsersByAgama('Katholik')['total'] : 0,
+            'hindu' => $this->usersModel->countUsersByAgama('Hindu')['total'] ? $this->usersModel->countUsersByAgama('Hindu')['total'] : 0,
+            'budha' => $this->usersModel->countUsersByAgama('Budha')['total'] ? $this->usersModel->countUsersByAgama('Budha')['total'] : 0,
+            'konghucu' => $this->usersModel->countUsersByAgama('Konghucu')['total'] ? $this->usersModel->countUsersByAgama('Konghucu')['total'] : 0,
+        ];
+
         $data = [
             'title' => 'Admin Dashboard',
             'active' => 'dashboard',
@@ -145,6 +154,7 @@ class Admin extends BaseController
             'dataStatusPerkawinan' => $dataStatusPerkawinan,
             'dataStatusPendidikan' => $dataStatusPendidikan,
             'dataUsia' => $dataUsia,
+            'dataAgama' => $dataAgama,
             'session' => $this->session->get(),
         ];
 

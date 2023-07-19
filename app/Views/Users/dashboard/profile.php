@@ -5,7 +5,7 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="location.href='../../index.html'">
+      <button class="btn btn-main-outline-xs" type="button" onclick="location.href='/users/'">
         <i class="fa-solid fa-house me-2"></i>Beranda
       </button>
     </div>
@@ -108,43 +108,13 @@
 
           <!-- data pribadi content -->
           <div class="tab-pane fade" id="data-pribadi-content" role="tabpanel" aria-labelledby="data-pribadi-tab" tabindex="0">
-            <form class="card-form-container card" id="profileForm" action="#" enctype="multipart/form-data" method="POST">
+            <form class="card-form-container card" id="profileForm" action="/usercontroller/editdatapribadi" enctype="multipart/form-data" method="POST">
               <div class="card-header card-form-header">
                 <p class="mb-0 fw-semibold">Profile</p>
               </div>
               <div class="card-body card-form-body">
                 <div>
-                  <!-- no & jenis kelamin -->
-                  <div class="row mb-3">
-                    <!-- no. hp -->
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <label for="no_hp" class="form-label forms-label">No. Telp
-                        <span class="text-important">*</span></label>
-                      <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" value="<?= $user['no_hp'] ? $user['no_hp'] : '08xxxxxxxxxx' ?>" />
-                    </div>
-                    <!-- jenis kelamin -->
-                    <div class="col-md-6">
-                      <label class="form-label forms-label mb-3">Jenis Kelamin
-                        <span class="text-important">*</span></label>
-                      <div id="radioFormGender">
-                        <div class="d-flex align-items-center">
-                          <div class="form-check me-4">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" />
-                            <label class="form-check-label" for="pria">
-                              Laki-laki
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" />
-                            <label class="form-check-label" for="wanita">
-                              Perempuan
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- status -->
+
                   <div class="row mb-3">
                     <!-- status -->
                     <div class="col-md-6 mb-3 mb-md-0">
@@ -153,11 +123,12 @@
 
                       <select id="status" name="status" required class="form-select select-control">
                         <option value="">Pilih Status</option>
-                        <option value="kepala_keluarga" <?= ($user['status'] == 'kepala_keluarga' || $user['status'] == 'Kepala Keluarga') ? 'selected' : '' ?>>Kepala Keluarga</option>
-                        <option value="istri" <?= ($user['status'] == 'istri' || $user['status'] == 'Istri') ? 'selected' : '' ?>>Istri</option>
-                        <option value="anak" <?= ($user['status'] == 'anak' || $user['status'] == 'Anak') ? 'selected' : '' ?>>Anak</option>
+                        <option value="Kepala Keluarga" <?= ($user['status'] == 'kepala_keluarga' || $user['status'] == 'Kepala Keluarga') ? 'selected' : '' ?>>Kepala Keluarga</option>
+                        <option value="Istri" <?= ($user['status'] == 'istri' || $user['status'] == 'Istri') ? 'selected' : '' ?>>Istri</option>
+                        <option value="Anak" <?= ($user['status'] == 'anak' || $user['status'] == 'Anak') ? 'selected' : '' ?>>Anak</option>
                       </select>
                     </div>
+
                     <!-- status perkawinan -->
                     <div class="col-md-6">
                       <label for="status_perkawinan" class="form-label forms-label">Status Perkawinan
@@ -172,7 +143,47 @@
                       </select>
                     </div>
                   </div>
-                  <!-- lahir -->
+
+                  <div class="row mb-3">
+                    <!-- Agama -->
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="agama" class="form-label forms-label">Agama
+                        <span class="text-important">*</span></label>
+
+                      <select id="agama" name="agama" required class="form-select select-control">
+                        <option value="">Pilih Agama</option>
+                        <option value="Islam" <?= $user['agama'] === 'Islam' ? 'selected' : '' ?>>Islam</option>
+                        <option value="Khatolik" <?= $user['agama'] === 'Khatolik' ? 'selected' : '' ?>>Khatolik</option>
+                        <option value="Kristen" <?= $user['agama'] === 'Kristen' ? 'selected' : '' ?>>Kristen</option>
+                        <option value="Hindu" <?= $user['agama'] === 'Hindu' ? 'selected' : '' ?>>Hindu</option>
+                        <option value="Budha" <?= $user['agama'] === 'Budha' ? 'selected' : '' ?>>Budha</option>
+                        <option value="Konghucu" <?= $user['agama'] === 'Konghucu' ? 'selected' : '' ?>>Konghucu</option>
+                      </select>
+                    </div>
+
+                    <!-- jenis kelamin -->
+                    <div class="col-md-6">
+                      <label class="form-label forms-label mb-3">Jenis Kelamin
+                        <span class="text-important">*</span></label>
+                      <div id="radioFormGender">
+                        <div class="d-flex align-items-center">
+                          <div class="form-check me-4">
+                            <input class="form-check-input" type="radio" name="pria" id="pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> />
+                            <label class="form-check-label" for="pria">
+                              Laki-laki
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="wanita" id="wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> />
+                            <label class="form-check-label" for="wanita">
+                              Perempuan
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="row mb-3">
                     <!-- tempat lahir -->
                     <div class="col-md-6 mb-3 mb-md-0">
@@ -181,6 +192,7 @@
 
                       <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="<?= $user['tempat_lahir'] ?>" />
                     </div>
+
                     <!-- tanggal lahir -->
                     <div class="col-md-6">
                       <label for="tanggal_lahir" class="form-label forms-label">Tanggal Lahir
@@ -189,59 +201,46 @@
                       <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $user['tgl_lahir'] ?>" required />
                     </div>
                   </div>
-                  <!-- alamat -->
+
+                  <?php
+                  $alamat = explode(',', $user['alamat']);
+                  $kota = explode(' ', $alamat[1]);
+                  $kodepos = $kota[1];
+                  $kota_kabupaten = $kota[0];
+                  $provinsi = $alamat[2];
+                  $alamat = $alamat[0];
+                  ?>
+
                   <div class="mb-3">
                     <label for="alamat" class="form-label forms-label">Alamat <span class="text-important">*</span></label>
 
-                    <input class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="" />
+                    <input class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $alamat ?>" />
                   </div>
+
                   <div class="row mb-3">
                     <!-- provinsi -->
                     <div class="col-md-4 mb-3 mb-md-0">
                       <label for="provinsi" class="form-label forms-label">Provinsi <span class="text-important">*</span></label>
 
-                      <input class="form-control input-control" id="provinsi" name="provinsi" required placeholder="Masukkan Provinsi" value="" />
+                      <input class="form-control input-control" id="provinsi" name="provinsi" required placeholder="Masukkan Provinsi" value="<?= $provinsi ?>" />
                     </div>
+
                     <!-- kota atau kabupaten -->
                     <div class="col-md-4 mb-3 mb-md-0">
                       <label for="kota_kabupaten" class="form-label forms-label">Kota/Kabupaten <span class="text-important">*</span></label>
 
-                      <input class="form-control input-control" id="kota_kabupaten" name="kota_kabupaten" required placeholder="Masukkan Kota/Kabupaten" value="" />
+                      <input class="form-control input-control" id="kota_kabupaten" name="kota_kabupaten" required placeholder="Masukkan Kota/Kabupaten" value="<?= $kota_kabupaten ?>" />
                     </div>
+
                     <!-- kodepos -->
                     <div class="col-md-4">
                       <label for="kodepos" class="form-label forms-label">Kode Pos
                         <span class="text-important">*</span></label>
 
-                      <input type="text" class="form-control input-control" id="kodepos" name="kodepos" required placeholder="Masukkan Kode Pos" value="" />
+                      <input type="text" class="form-control input-control" id="kodepos" name="kodepos" required placeholder="Masukkan Kode Pos" value="<?= $kodepos ?>" />
                     </div>
                   </div>
-                  <!-- agama -->
-                  <div class="row mb-3">
-                    <!-- Agama -->
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <label for="pendidikan" class="form-label forms-label">Pendidikan
-                        <span class="text-important">*</span></label>
 
-                      <select id="pendidikan" name="pendidikan" required class="form-select select-control">
-                        <option value="">Pilih Pendidikan</option>
-                        <option value="1">Pendidikan 1</option>
-                        <option value="2">Pendidikan 2</option>
-                        <option value="3">Pendidikan 3</option>
-                      </select>
-                    </div>
-                    <!-- Status Kependudukan -->
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan
-                        <span class="text-important">*</span></label>
-                      <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
-                        <option value="">Pilih Status Kependudukan</option>
-                        <option value="1">Penduduk Tetap</option>
-                        <option value="2">Penduduk Tidak Tetap</option>
-                      </select>
-                    </div>
-                  </div>
-                  <!-- pekerjaan -->
                   <div class="row mb-3">
                     <!-- pendidikan -->
                     <div class="col-md-6 mb-3 mb-md-0">
@@ -250,21 +249,40 @@
 
                       <select id="pendidikan" name="pendidikan" required class="form-select select-control">
                         <option value="">Pilih Pendidikan</option>
-                        <option value="1">Pendidikan 1</option>
-                        <option value="2">Pendidikan 2</option>
-                        <option value="3">Pendidikan 3</option>
+                        <option value="Tidak Sekolah" <?= $user['pendidikan'] === "Tidak Sekolah" ? 'selected' : '' ?>>Tidak Sekolah</option>
+                        <option value="SD" <?= $user['pendidikan'] === "SD" ? 'selected' : '' ?>>SD</option>
+                        <option value="SMP" <?= $user['pendidikan'] === "SMP" ? 'selected' : '' ?>>SMP</option>
+                        <option value="SMA" <?= $user['pendidikan'] === "SMA" ? 'selected' : '' ?>>SMA</option>
+                        <option value="D1" <?= $user['pendidikan'] === "D1" ? 'selected' : '' ?>>D1</option>
+                        <option value="D2" <?= $user['pendidikan'] === "D2" ? 'selected' : '' ?>>D2</option>
+                        <option value="D3" <?= $user['pendidikan'] === "D3" ? 'selected' : '' ?>>D3</option>
+                        <option value="D4" <?= $user['pendidikan'] === "D4" ? 'selected' : '' ?>>D4</option>
+                        <option value="S1" <?= $user['pendidikan'] === "S1" ? 'selected' : '' ?>>S1</option>
+                        <option value="S2" <?= $user['pendidikan'] === "S2" ? 'selected' : '' ?>>S2</option>
+                        <option value="S3" <?= $user['pendidikan'] === "S3" ? 'selected' : '' ?>>S3</option>
                       </select>
                     </div>
-                    <!-- pekerjaan -->
+
+                    <!-- Status Kependudukan -->
                     <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan
+                        <span class="text-important">*</span></label>
+                      <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
+                        <option value="">Pilih Status Kependudukan</option>
+                        <option value="Tetap" <?= $user['status_kependudukan'] === 'Tetap' ? 'selected' : '' ?>>Penduduk Tetap</option>
+                        <option value="Sementara" <?= $user['status_kependudukan'] === 'Sementara' ? 'selected' : '' ?>>Penduduk Sementara</option>
+                        <option value="Pendatang" <?= $user['status_kependudukan'] === 'Pendatang' ? 'selected' : '' ?>>Penduduk Pendatang</option>
+                        <option value="Pindahan" <?= $user['status_kependudukan'] === 'Pindahan' ? 'selected' : '' ?>>Penduduk Pindahan</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <!-- pekerjaan -->
+                    <div class="col-md-12 mb-3 mb-md-0">
                       <label for="pekerjaan" class="form-label forms-label">Pekerjaan
                         <span class="text-important">*</span></label>
-                      <select id="pekerjaan" name="pekerjaan" required class="form-select select-control">
-                        <option value="">Pilih Pekerjaan</option>
-                        <option value="1">Pekerjaan 1</option>
-                        <option value="2">Pekerjaan 2</option>
-                        <option value="3">Pekerjaan 3</option>
-                      </select>
+                      <input type="text" class="form-control input-control" id="pekerjaan" name="pekerjaan" required placeholder="Masukkan Pekerjaan" value="<?= $user['pekerjaan'] ?>" />
                     </div>
                   </div>
                 </div>
@@ -281,7 +299,7 @@
 
           <!-- ubah kata sandi content -->
           <div class="tab-pane fade" id="ubah-kata-sandi-content" role="tabpanel" aria-labelledby="ubah-kata-sandi-tab" tabindex="0">
-            <form class="card-form-container card" id="changePasswordForm" action="#" enctype="multipart/form-data" method="POST">
+            <form class="card-form-container card" id="changePasswordForm" action="/auth/ubahsandi" enctype="multipart/form-data" method="POST">
               <div class="card-header card-form-header">
                 <p class="mb-0 fw-semibold">Ubah Kata Sandi</p>
               </div>

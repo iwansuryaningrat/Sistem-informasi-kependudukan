@@ -37,6 +37,7 @@ class Users extends BaseController
             'nama' => session()->get('nama'),
             'status' => session()->get('status'),
             'jenis_kelamin' => session()->get('jenis_kelamin'),
+            'agama' => session()->get('agama'),
             'tempat_lahir' => session()->get('tempat_lahir'),
             'tgl_lahir' => session()->get('tgl_lahir'),
             'usia' => session()->get('usia'),
@@ -48,6 +49,7 @@ class Users extends BaseController
             'foto' => session()->get('foto'),
             'status_kependudukan' => session()->get('status_kependudukan'),
             'alamat' => session()->get('alamat'),
+            'pekerjaan' => session()->get('pekerjaan'),
             'isLoggedIn' => session()->get('isLoggedIn'),
         ];
     }
@@ -210,7 +212,6 @@ class Users extends BaseController
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'user' => $this->user_data,
         ];
-        dd($data);
 
         return view('/users/dashboard/profile', $data);
     }

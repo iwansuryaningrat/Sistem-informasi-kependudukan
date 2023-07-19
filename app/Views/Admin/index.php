@@ -40,6 +40,7 @@
 		</div>
 		<div class="row">
 
+			<!-- Jenis Kelamin -->
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
@@ -53,7 +54,7 @@
 				</div>
 			</div>
 
-
+			<!-- Usia -->
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
@@ -67,6 +68,7 @@
 				</div>
 			</div>
 
+			<!-- Status Perkawinan -->
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
@@ -80,6 +82,21 @@
 				</div>
 			</div>
 
+			<!-- Agama -->
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Agama</div>
+					</div>
+					<div class="card-body">
+						<div class="chart-container">
+							<canvas id="agama" style="width: 50%; height: 50%"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Pendidikan -->
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
@@ -93,9 +110,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-3">
-			</div>
-
+			<!-- Status Kependudukan -->
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
@@ -339,6 +354,57 @@
 				borderWidth: 0
 			}],
 			labels: ['Tidak Sekolah', 'SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					fontColor: 'rgb(154, 154, 154)',
+					fontSize: 11,
+					usePointStyle: true,
+					padding: 20
+				}
+			},
+			pieceLabel: {
+				render: 'percentage',
+				fontColor: 'white',
+				fontSize: 14,
+			},
+			tooltips: {
+				bodySpacing: 4,
+				mode: "nearest",
+				intersect: 0,
+				position: "nearest",
+				xPadding: 10,
+				yPadding: 10,
+				caretPadding: 10
+			},
+			layout: {
+				padding: {
+					left: 20,
+					right: 20,
+					top: 20,
+					bottom: 20
+				}
+			}
+		}
+	})
+
+	var agama = document.getElementById('agama').getContext('2d');
+
+	var agama = new Chart(agama, {
+		type: 'pie',
+		data: {
+			datasets: [{
+				data: [<?= $dataAgama['islam'] ?>, <?= $dataAgama['kristen'] ?>, <?= $dataAgama['katholik'] ?>, <?= $dataAgama['hindu'] ?>, <?= $dataAgama['budha'] ?>, <?= $dataAgama['konghucu'] ?>],
+				backgroundColor: [
+					"#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C", "#FFA500", "#800080"
+				],
+				borderWidth: 0
+			}],
+			labels: ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']
 		},
 		options: {
 			responsive: true,

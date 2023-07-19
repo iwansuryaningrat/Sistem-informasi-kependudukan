@@ -3,17 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\UsersModel;
+use App\Models\KeluargaModel;
 
 use App\Controllers\BaseController;
 
 class UserController extends BaseController
 {
     protected $userModel;
+    protected $keluargaModel;
     protected $user_data;
 
     public function __construct()
     {
         $this->userModel = new UsersModel();
+        $this->keluargaModel = new KeluargaModel();
 
         $this->user_data = [
             'nik' => session()->get('nik'),
@@ -36,53 +39,8 @@ class UserController extends BaseController
         ];
     }
 
-    public function allUsers()
-    {
-        $data = [
-            'title' => 'User',
-            'users' => $this->userModel->findAll()
-        ];
-
-        return view('user/index', $data);
-    }
-
-    public function detailUser($id)
-    {
-        $data = [
-            'title' => 'Detail User',
-            'user' => $this->userModel->getUser($id)
-        ];
-
-        if (empty($data['user'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('User tidak ditemukan');
-        }
-
-        return view('user/detail', $data);
-    }
-
-    public function createUser()
-    {
-        $data = [
-            'title' => 'Tambah User',
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('user/create', $data);
-    }
-
     public function saveUser()
     {
-    }
-
-    public function editUser($nik)
-    {
-        $data = [
-            'title' => 'Edit User',
-            'validation' => \Config\Services::validation(),
-            'user' => $this->userModel->getUser($nik)
-        ];
-
-        return view('user/edit', $data);
     }
 
     public function updateUser()
@@ -134,6 +92,58 @@ class UserController extends BaseController
         ]);
 
         session()->setFlashdata('message', 'Profil berhasil diperbarui');
+        return redirect()->to('/users/profile');
+    }
+
+    public function editdatapribadi()
+    {
+        $nik = $this->user_data['nik'];
+        $no_kk = $this->user_data['no_kk'];
+        $alamat = $this->request->getVar('alamat') . ',' . $this->request->getVar('kota_kabupaten') . ' ' . $this->request->getVar('kodepos') . ',' . $this->request->getVar('provinsi');
+        $jenis_kelamin = $this->request->getVar('pria') ? 'Laki-laki' : 'Perempuan';
+        // dd($this->request->getVar('tanggal_lahir'));
+
+        // calculate age
+        $tgl_lahir = $this->request->getVar('tanggal_lahir');
+        $tgl_lahir = explode('-', $tgl_lahir);
+        $tgl_lahir = $tgl_lahir[0];
+        $usia = date('Y') - $tgl_lahir;
+
+        // Update user data
+        $this->userModel->editUsers([
+            'status' => $this->request->getVar('status'),
+            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
+            'agama' => $this->request->getVar('agama'),
+            'jenis_kelamin' => $jenis_kelamin,
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
+            'usia' => $usia,
+            'pendidikan' => $this->request->getVar('pendidikan'),
+            'status_kependudukan' => $this->request->getVar('status_kependudukan'),
+            'pekerjaan' => $this->request->getVar('pekerjaan'),
+        ], $nik);
+
+        // Update keluarga data
+        $this->keluargaModel->editKeluarga([
+            'alamat' => $alamat
+        ], $no_kk);
+
+        // Update session
+        session()->set([
+            'status' => $this->request->getVar('status'),
+            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
+            'agama' => $this->request->getVar('agama'),
+            'jenis_kelamin' => $jenis_kelamin,
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
+            'usia' => $usia,
+            'alamat' => $alamat,
+            'pendidikan' => $this->request->getVar('pendidikan'),
+            'status_kependudukan' => $this->request->getVar('status_kependudukan'),
+            'pekerjaan' => $this->request->getVar('pekerjaan'),
+        ]);
+
+        session()->setFlashdata('message', 'Data pribadi berhasil diperbarui');
         return redirect()->to('/users/profile');
     }
 }

@@ -11,7 +11,7 @@ class UsersModel extends Model
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'usia', 'status_perkawinan', 'pendidikan', 'email', 'no_hp', 'password', 'role', 'foto', 'status_kependudukan',  'created_at', 'updated_at'];
+    protected $allowedFields    = ['nik', 'no_kk', 'nama', 'status', 'jenis_kelamin', 'agama', 'tempat_lahir', 'tgl_lahir', 'usia', 'status_perkawinan', 'pendidikan', 'pekerjaan', 'email', 'no_hp', 'password', 'role', 'foto', 'status_kependudukan',  'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -122,6 +122,14 @@ class UsersModel extends Model
     {
         return $this->select('count(*) as total')
             ->where(['status_kependudukan' => $status_kependudukan])
+            ->first();
+    }
+
+    // Count Users by Agama
+    public function countUsersByAgama($agama)
+    {
+        return $this->select('count(*) as total')
+            ->where(['agama' => $agama])
             ->first();
     }
 }
