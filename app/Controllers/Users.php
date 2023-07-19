@@ -210,6 +210,7 @@ class Users extends BaseController
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'user' => $this->user_data,
         ];
+        dd($data);
 
         return view('/users/dashboard/profile', $data);
     }

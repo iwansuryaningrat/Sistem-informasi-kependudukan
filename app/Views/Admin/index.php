@@ -31,7 +31,7 @@
 							</div>
 							<div class="px-2 pb-2 pb-md-0 text-center">
 								<div id="circles-3"></div>
-								<h6 class="fw-bold mt-3 mb-0">xxx</h6>
+								<h6 class="fw-bold mt-3 mb-0">Administrasi</h6>
 							</div>
 						</div>
 					</div>
@@ -62,6 +62,48 @@
 					<div class="card-body">
 						<div class="chart-container">
 							<canvas id="Usia" style="width: 50%; height: 50%"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Status Perkawinan</div>
+					</div>
+					<div class="card-body">
+						<div class="chart-container">
+							<canvas id="status_perkawinan" style="width: 50%; height: 50%"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Pendidikan</div>
+					</div>
+					<div class="card-body">
+						<div class="chart-container">
+							<canvas id="pendidikan" style="width: 50%; height: 50%"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+			</div>
+
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Status Kependudukan</div>
+					</div>
+					<div class="card-body">
+						<div class="chart-container">
+							<canvas id="status_kependudukan" style="width: 50%; height: 50%"></canvas>
 						</div>
 					</div>
 				</div>
@@ -119,54 +161,6 @@
 		styleWrapper: true,
 		styleText: true
 	})
-
-	var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
-
-	var mytotalIncomeChart = new Chart(totalIncomeChart, {
-		type: 'bar',
-		data: {
-			labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
-			datasets: [{
-				label: "Total Income",
-				backgroundColor: '#ff9e27',
-				borderColor: 'rgb(23, 125, 255)',
-				data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
-			}],
-		},
-		options: {
-			responsive: true,
-			maintainAspectRatio: false,
-			legend: {
-				display: false,
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						display: false //this will remove only the label
-					},
-					gridLines: {
-						drawBorder: false,
-						display: false
-					}
-				}],
-				xAxes: [{
-					gridLines: {
-						drawBorder: false,
-						display: false
-					}
-				}]
-			},
-		}
-	});
-
-	$('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
-		type: 'line',
-		height: '70',
-		width: '100%',
-		lineWidth: '2',
-		lineColor: '#ffa534',
-		fillColor: 'rgba(255, 165, 52, .14)'
-	});
 </script>
 
 <script>
@@ -240,11 +234,160 @@
 		type: 'pie',
 		data: {
 			datasets: [{
+				data: [100, 35, 15, 33, 100],
+				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C", "#FF00FF"],
+				borderWidth: 0
+			}],
+			labels: ['<17', '17-25', '25-35', '35-50', '>50']
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					fontColor: 'rgb(154, 154, 154)',
+					fontSize: 11,
+					usePointStyle: true,
+					padding: 20
+				}
+			},
+			pieceLabel: {
+				render: 'percentage',
+				fontColor: 'white',
+				fontSize: 14,
+			},
+			tooltips: {
+				bodySpacing: 4,
+				mode: "nearest",
+				intersect: 0,
+				position: "nearest",
+				xPadding: 10,
+				yPadding: 10,
+				caretPadding: 10
+			},
+			layout: {
+				padding: {
+					left: 20,
+					right: 20,
+					top: 20,
+					bottom: 20
+				}
+			}
+		}
+	})
+
+	var status_perkawinan = document.getElementById('status_perkawinan').getContext('2d');
+
+	var status_perkawinan = new Chart(status_perkawinan, {
+		type: 'pie',
+		data: {
+			datasets: [{
 				data: [100, 35, 15, 33],
 				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C"],
 				borderWidth: 0
 			}],
-			labels: ['<17', '17-25', '25-35', '>35']
+			labels: ['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati']
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					fontColor: 'rgb(154, 154, 154)',
+					fontSize: 11,
+					usePointStyle: true,
+					padding: 20
+				}
+			},
+			pieceLabel: {
+				render: 'percentage',
+				fontColor: 'white',
+				fontSize: 14,
+			},
+			tooltips: {
+				bodySpacing: 4,
+				mode: "nearest",
+				intersect: 0,
+				position: "nearest",
+				xPadding: 10,
+				yPadding: 10,
+				caretPadding: 10
+			},
+			layout: {
+				padding: {
+					left: 20,
+					right: 20,
+					top: 20,
+					bottom: 20
+				}
+			}
+		}
+	})
+
+	var pendidikan = document.getElementById('pendidikan').getContext('2d');
+
+	var pendidikan = new Chart(pendidikan, {
+		type: 'pie',
+		data: {
+			datasets: [{
+				data: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+				backgroundColor: [
+					"#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C", "#FFA500", "#800080", "#FFC0CB", "#A52A2A", "#808080", "#000000", "#FF00FF", "#9C27B0", "#4CAF50", "#FF5722"
+				],
+				borderWidth: 0
+			}],
+			labels: ['Tidak Sekolah', 'SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					fontColor: 'rgb(154, 154, 154)',
+					fontSize: 11,
+					usePointStyle: true,
+					padding: 20
+				}
+			},
+			pieceLabel: {
+				render: 'percentage',
+				fontColor: 'white',
+				fontSize: 14,
+			},
+			tooltips: {
+				bodySpacing: 4,
+				mode: "nearest",
+				intersect: 0,
+				position: "nearest",
+				xPadding: 10,
+				yPadding: 10,
+				caretPadding: 10
+			},
+			layout: {
+				padding: {
+					left: 20,
+					right: 20,
+					top: 20,
+					bottom: 20
+				}
+			}
+		}
+	})
+
+	var status_kependudukan = document.getElementById('status_kependudukan').getContext('2d');
+
+	var status_kependudukan = new Chart(status_kependudukan, {
+		type: 'pie',
+		data: {
+			datasets: [{
+				data: [100, 35, 15, 33],
+				backgroundColor: ["#1d7af3", "#f3545d", "#fdaf4b", "#3CC47C"],
+				borderWidth: 0
+			}],
+			labels: ['Penduduk Tetap', 'Penduduk Sementara', 'Penduduk Pendatang', 'Penduduk Pindahan']
 		},
 		options: {
 			responsive: true,
