@@ -9,9 +9,11 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 
-use App\Filters\Login;
-use App\Filters\Admin;
-use App\Filters\Users;
+use App\Filters\LoginFilter;
+use App\Filters\LoginPageFilter;
+use App\Filters\AdminFilter;
+use App\Filters\UsersFilter;
+
 
 class Filters extends BaseConfig
 {
@@ -27,9 +29,10 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        // 'login'         => Login::class,
-        // 'admin'         => Admin::class,
-        // 'users'         => Users::class,
+        'login'         => LoginFilter::class,
+        'loginpage'     => LoginPageFilter::class,
+        'admin'         => AdminFilter::class,
+        'users'         => UsersFilter::class,
     ];
 
     /**
@@ -72,21 +75,29 @@ class Filters extends BaseConfig
      * @var array
      */
     public $filters = [
-        // 'login' => [
-        //     'before' => [
-        //         'admin/*',
-        //         'users/*',
-        //     ],
-        // ],
-        // 'admin' => [
-        //     'before' => [
-        //         'admin/*',
-        //     ],
-        // ],
-        // 'users' => [
-        //     'before' => [
-        //         'users/*',
-        //     ],
-        // ],
+        'login' => [
+            'before' => [
+                'admin/*',
+                'users/*',
+            ]
+        ],
+        'loginpage' => [
+            'before' => [
+                'login',
+                'register',
+            ]
+        ],
+        'admin' => [
+            'before' => [
+                'admin',
+                'admin/*',
+            ]
+        ],
+        'users' => [
+            'before' => [
+                'users',
+                'users/*',
+            ]
+        ],
     ];
 }

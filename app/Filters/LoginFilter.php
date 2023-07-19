@@ -25,7 +25,10 @@ class LoginFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        if (!session()->get('isLoggedIn')) {
+            session()->setFlashdata('gagal', 'Mohon maaf Anda tidak dapat mengakses halaman ini. Anda harus login terlebih dahulu');
+            return redirect()->to('/login');
+        }
     }
 
     /**

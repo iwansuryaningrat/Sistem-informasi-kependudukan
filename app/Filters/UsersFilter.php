@@ -25,7 +25,9 @@ class UsersFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        if (session()->get('role') != 'User') {
+            return redirect()->to('/admin');
+        }
     }
 
     /**

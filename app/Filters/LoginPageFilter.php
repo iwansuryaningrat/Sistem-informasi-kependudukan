@@ -25,7 +25,13 @@ class LoginPageFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        if (session()->get('isLoggedIn')) {
+            if (session()->get('role') == 'Admin') {
+                return redirect()->to('/admin');
+            } elseif (session()->get('role') == 'User') {
+                return redirect()->to('/users');
+            }
+        }
     }
 
     /**
