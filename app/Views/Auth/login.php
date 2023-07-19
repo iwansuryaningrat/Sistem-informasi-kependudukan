@@ -54,8 +54,7 @@
                       <label for="email" class="form-label forms-label">NIK</label>
                       <input type="text" id="nik" name="nik" value="" required placeholder="Masukkan NIK" aria-describedby="emailHelp" class="form-control input-control" />
                       <div id="emailHelp" class="form-text input-text">
-                        Gunakan email aktif atau Nomor Induk Kependudukan (No.
-                        KTP).
+                        Gunakan Nomor Induk Kependudukan (No. KTP).
                       </div>
                     </div>
                     <div class="mb-3 position-relative">
