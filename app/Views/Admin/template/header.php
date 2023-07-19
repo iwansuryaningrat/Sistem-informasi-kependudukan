@@ -27,7 +27,9 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-comment-dots"></i>
-                        <span class="notification"><?= $reqPesan; ?></span>
+                        <?php if ($reqPesan) : ?>
+                            <span class="notification"><?= $reqPesan; ?></span>
+                        <?php endif; ?>
                     </a>
                     <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
                         <li>
@@ -43,7 +45,9 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
-                        <span class="notification"><?= $reqAdministrasi; ?></span>
+                        <?php if ($reqAdministrasi) : ?>
+                            <span class="notification"><?= $reqAdministrasi; ?></span>
+                        <?php endif; ?>
                     </a>
                     <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
                         <li>
@@ -59,7 +63,9 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
-                        <span class="notification"><?= $reqLaporan ?></span>
+                        <?php if ($reqLaporan) : ?>
+                            <span class="notification"><?= $reqLaporan ?></span>
+                        <?php endif; ?>
                     </a>
                     <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
                         <li>
@@ -75,26 +81,26 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                            <img src="/upload/photos/<?= $session['foto'] ?>" alt="..." class="avatar-img rounded-circle">
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated fadeIn">
                         <div class="dropdown-user-scroll scrollbar-outer">
                             <li>
                                 <div class="user-box">
-                                    <div class="avatar-lg"><img src="/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+                                    <div class="avatar-lg"><img src="/upload/photos/<?= $session['foto'] ?>" alt="image profile" class="avatar-img rounded"></div>
                                     <div class="u-text">
                                         <!-- Nama -->
-                                        <h4>Hizrian</h4>
+                                        <h4><?= $session['nama'] ?></h4>
                                         <!-- Role -->
-                                        <p class="text-muted">hello@example.com</p>
+                                        <p class="text-muted"><?= $session['email'] ?></p>
                                         <a href="/admin/profile" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">My Profile</a>
+                                <a class="dropdown-item" href="/admin/profile">My Profile</a>
                                 <a class="dropdown-item" href="/auth/logout">Logout</a>
                             </li>
                         </div>

@@ -167,7 +167,7 @@
 	//Notify
 	$.notify({
 		icon: 'flaticon-alarm-1',
-		title: 'Welcome Back!',
+		title: 'Welcome Back <?= $session['nama'] ?>!',
 		message: 'Selamat datang di dashboard admin',
 	}, {
 		type: 'secondary',

@@ -94,10 +94,6 @@ class Admin extends BaseController
 
     public function index()
     {
-        //  get session data
-        $sessionData = $this->session->get();
-        // dd($sessionData);
-
         $dataStatusKependudukan = [
             "pendudukTetap" => $this->usersModel->countUsersByStatusKependudukan('Tetap')['total'] ? $this->usersModel->countUsersByStatusKependudukan('Tetap')['total'] : 0,
             "pendudukSementara" => $this->usersModel->countUsersByStatusKependudukan('Sementara')['total'] ? $this->usersModel->countUsersByStatusKependudukan('Sementara')['total'] : 0,
@@ -149,6 +145,7 @@ class Admin extends BaseController
             'dataStatusPerkawinan' => $dataStatusPerkawinan,
             'dataStatusPendidikan' => $dataStatusPendidikan,
             'dataUsia' => $dataUsia,
+            'session' => $this->session->get(),
         ];
 
         return view('admin/index', $data);
