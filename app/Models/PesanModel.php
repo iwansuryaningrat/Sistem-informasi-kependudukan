@@ -24,4 +24,15 @@ class PesanModel extends Model
     {
         return $this->where(['status' => 'Belum Dibaca'])->countAllResults();
     }
+
+    // Get Pesan
+    public function getPesan($id = null)
+    {
+        if ($id == null) {
+            // Find all and order by created_at DESC
+            return $this->orderBy('created_at', 'DESC')->findAll();
+        } else {
+            return $this->where(['id' => $id])->first();
+        }
+    }
 }
