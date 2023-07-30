@@ -48,6 +48,13 @@
                   Belum memiliki Akun?
                   <span><a href="javascript:void(0)" id="register" class="fw-medium hover-underline">Daftar</a></span>
                 </p>
+                <!-- get flashdata message -->
+                <?php if (session()->getFlashdata('message')) : ?>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('message') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                <?php endif; ?>
                 <div class="sign-card">
                   <form id="loginForm" action="/auth/loginprocess" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
