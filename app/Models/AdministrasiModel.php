@@ -102,4 +102,12 @@ class AdministrasiModel extends Model
     {
         return $this->countAll();
     }
+
+    // Count Administrasi data this month
+    public function countAdministrasiThisMonth()
+    {
+        return $this->select('*')
+            ->where('MONTH(created_at)', date('m'))
+            ->countAllResults();
+    }
 }
