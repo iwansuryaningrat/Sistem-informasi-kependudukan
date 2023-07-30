@@ -40,6 +40,22 @@
       <div class="col-md-9">
         <div class="tab-content" id="v-pills-tabContent">
 
+          <!-- get flashdata message -->
+          <?php if (session()->getFlashdata('success')) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <?= session()->getFlashdata('success') ?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <?php endif; ?>
+
+          <!-- get flashdata message -->
+          <?php if (session()->getFlashdata('error')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <?= session()->getFlashdata('error') ?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <?php endif; ?>
+
           <!-- detail profile content -->
           <div class="tab-pane fade show active" id="detail-profil-content" role="tabpanel" aria-labelledby="detail-profil-tab" tabindex="0">
             <form class="card-form-container card" id="detailProfileForm" action="/usercontroller/saveDetailProfile" enctype="multipart/form-data" method="POST">

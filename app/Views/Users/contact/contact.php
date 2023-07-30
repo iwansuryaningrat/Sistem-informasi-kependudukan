@@ -20,7 +20,24 @@
         <div class="contact-container mb-4 row">
             <div class="col-md-6 mb-5 mb-md-0">
                 <div class="me-md-3">
-                    <form action="#" id="contactForm">
+
+                    <!-- get flashdata message -->
+                    <?php if (session()->getFlashdata('success')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <?= session()->getFlashdata('success') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- get flashdata message -->
+                    <?php if (session()->getFlashdata('error')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <?= session()->getFlashdata('error') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="#" id="contactForm" enctype="multipart/form-data" method="POST">
                         <!-- fullname -->
                         <div class="mb-3">
                             <label for="namaLengkap" class="form-label forms-label">Nama Lengkap</label>

@@ -17,6 +17,23 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-3">
+
+    <!-- get flashdata message -->
+    <?php if (session()->getFlashdata('success')) : ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('success') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+
+    <!-- get flashdata message -->
+    <?php if (session()->getFlashdata('error')) : ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('error') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+
     <form class="card-form-container card shadow" id="adminFormEdit" action="#" enctype="multipart/form-data" method="POST">
       <div class="card-header">
         <p class="mb-0">Form Edit Pengajuan Permohonan Administrasi</p>

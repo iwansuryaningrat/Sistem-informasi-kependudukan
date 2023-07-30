@@ -19,6 +19,23 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-0">
+
+    <!-- get flashdata message -->
+    <?php if (session()->getFlashdata('success')) : ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('success') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+
+    <!-- get flashdata message -->
+    <?php if (session()->getFlashdata('error')) : ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('error') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+
     <form class="card-form-container card" id="reportFormEdit" action="#" enctype="multipart/form-data" method="POST">
       <!-- header -->
       <div class="card-header card-form-header">

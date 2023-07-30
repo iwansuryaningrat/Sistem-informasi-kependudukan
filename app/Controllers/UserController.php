@@ -91,7 +91,7 @@ class UserController extends BaseController
             'foto' => $namaFoto
         ]);
 
-        session()->setFlashdata('message', 'Profil berhasil diperbarui');
+        session()->setFlashdata('success', 'Profil berhasil diperbarui');
         return redirect()->to('/users/profile');
     }
 
@@ -143,7 +143,7 @@ class UserController extends BaseController
             'pekerjaan' => $this->request->getVar('pekerjaan'),
         ]);
 
-        session()->setFlashdata('message', 'Data pribadi berhasil diperbarui');
+        session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
         return redirect()->to('/users/profile');
     }
 }
