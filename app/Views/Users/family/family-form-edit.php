@@ -44,14 +44,14 @@
           <div class="row mb-3">
             <label for="nama" class="col-md-2 form-label forms-label mt-md-2">Nama <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama" value="Mahmudin Suyono Sudrajad" />
+              <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama" value="<?= $dataKeluarga['nama'] ?>" />
             </div>
           </div>
           <!-- nik -->
           <div class="row mb-3">
             <label for="nik" class="col-md-2 form-label forms-label mt-md-2">NIK <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" value="1234567890123456" />
+              <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" value="<?= $dataKeluarga['nik'] ?>" disabled />
             </div>
           </div>
           <!-- jenis kelamin -->
@@ -74,20 +74,14 @@
           <div class="row mb-3">
             <label for="tempat_lahir" class="col-md-2 form-label forms-label mt-md-2">Tempat Lahir <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="tempat_lahir" name="tempat_lahir" required class="form-select select-control">
-                <option value="">Pilih Kabupaten/Kota</option>
-                <option value="1">Kota 1</option>
-                <option value="2">Kota 2</option>
-                <option value="3">Kota 3</option>
-                <option value="4" selected>Kota 4</option>
-              </select>
+              <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="<?= $dataKeluarga['tempat_lahir'] ?>" />
             </div>
           </div>
           <!-- tanggal lahir -->
           <div class="row mb-3">
             <label for="tanggal_lahir" class="col-md-2 form-label forms-label mt-md-2">Tanggal Lahir <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required value="1990-01-01" />
+              <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required value="<?= $dataKeluarga['tgl_lahir'] ?>" />
             </div>
           </div>
           <!-- agama -->
@@ -96,9 +90,13 @@
             <div class="col-md-10">
               <select id="agama" name="agama" required class="form-select select-control">
                 <option value="">Pilih Agama</option>
-                <option value="1" selected>Agama 1</option>
-                <option value="2">Agama 2</option>
-                <option value="3">Agama 3</option>
+                <option value="Islam" <?= $dataKeluarga['agama'] === 'Islam' ? 'selected' : '' ?>>Islam</option>
+                <option value="Khatolik" <?= $dataKeluarga['agama'] === 'Khatolik' ? 'selected' : '' ?>>Khatolik</option>
+                <option value="Kristen" <?= $dataKeluarga['agama'] === 'Kristen' ? 'selected' : '' ?>>Kristen</option>
+                <option value="Hindu" <?= $dataKeluarga['agama'] === 'Hindu' ? 'selected' : '' ?>>Hindu</option>
+                <option value="Budha" <?= $dataKeluarga['agama'] === 'Budha' ? 'selected' : '' ?>>Budha</option>
+                <option value="Konghucu" <?= $dataKeluarga['agama'] === 'Konghucu' ? 'selected' : '' ?>>Konghucu</option>
+              </select>
               </select>
             </div>
           </div>
@@ -109,9 +107,10 @@
             <div class="col-md-10">
               <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                 <option value="">Pilih Status Perkawinan</option>
-                <option value="1">Status Perkawinan 1</option>
-                <option value="2" selected>Status Perkawinan 2</option>
-                <option value="3">Status Perkawinan 3</option>
+                <option value="belum_kawin" <?= ($dataKeluarga['status_perkawinan'] == 'belum_kawin' || $dataKeluarga['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
+                <option value="kawin" <?= ($dataKeluarga['status_perkawinan'] == 'kawin' || $dataKeluarga['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
+                <option value="cerai_hidup" <?= ($dataKeluarga['status_perkawinan'] == 'cerai_hidup' || $dataKeluarga['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
+                <option value="cerai_mati" <?= ($dataKeluarga['status_perkawinan'] == 'cerai_mati' || $dataKeluarga['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
               </select>
             </div>
           </div>
@@ -121,9 +120,30 @@
             <div class="col-md-10">
               <select id="pendidikan" name="pendidikan" required class="form-select select-control">
                 <option value="">Pilih Pendidikan</option>
-                <option value="1">Pendidikan 1</option>
-                <option value="2">Pendidikan 2</option>
-                <option value="3" selected>Pendidikan 3</option>
+                <option value="Tidak Sekolah" <?= $dataKeluarga['pendidikan'] === "Tidak Sekolah" ? 'selected' : '' ?>>Tidak Sekolah</option>
+                <option value="SD" <?= $dataKeluarga['pendidikan'] === "SD" ? 'selected' : '' ?>>SD</option>
+                <option value="SMP" <?= $dataKeluarga['pendidikan'] === "SMP" ? 'selected' : '' ?>>SMP</option>
+                <option value="SMA" <?= $dataKeluarga['pendidikan'] === "SMA" ? 'selected' : '' ?>>SMA</option>
+                <option value="D1" <?= $dataKeluarga['pendidikan'] === "D1" ? 'selected' : '' ?>>D1</option>
+                <option value="D2" <?= $dataKeluarga['pendidikan'] === "D2" ? 'selected' : '' ?>>D2</option>
+                <option value="D3" <?= $dataKeluarga['pendidikan'] === "D3" ? 'selected' : '' ?>>D3</option>
+                <option value="D4" <?= $dataKeluarga['pendidikan'] === "D4" ? 'selected' : '' ?>>D4</option>
+                <option value="S1" <?= $dataKeluarga['pendidikan'] === "S1" ? 'selected' : '' ?>>S1</option>
+                <option value="S2" <?= $dataKeluarga['pendidikan'] === "S2" ? 'selected' : '' ?>>S2</option>
+                <option value="S3" <?= $dataKeluarga['pendidikan'] === "S3" ? 'selected' : '' ?>>S3</option>
+              </select>
+            </div>
+          </div>
+          <!-- status kependudukan -->
+          <div class="row mb-3">
+            <label for="status_kependudukan" class="col-md-2 form-label forms-label mt-md-2">Status Kependudukan <span class="text-important">*</span></label>
+            <div class="col-md-10">
+              <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
+                <option value="">Pilih Status Kependudukan</option>
+                <option value="Tetap" <?= $dataKeluarga['status_kependudukan'] === 'Tetap' ? 'selected' : '' ?>>Penduduk Tetap</option>
+                <option value="Sementara" <?= $dataKeluarga['status_kependudukan'] === 'Sementara' ? 'selected' : '' ?>>Penduduk Sementara</option>
+                <option value="Pendatang" <?= $dataKeluarga['status_kependudukan'] === 'Pendatang' ? 'selected' : '' ?>>Penduduk Pendatang</option>
+                <option value="Pindahan" <?= $dataKeluarga['status_kependudukan'] === 'Pindahan' ? 'selected' : '' ?>>Penduduk Pindahan</option>
               </select>
             </div>
           </div>
@@ -131,11 +151,7 @@
           <div class="row mb-3">
             <label for="pekerjaan" class="col-md-2 form-label forms-label mt-md-2">Pekerjaan <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="pekerjaan" name="pekerjaan" required class="form-select select-control">
-                <option value="">Pilih Pekerjaan</option>
-                <option value="1" selected>Pekerjaan 1</option>
-                <option value="2">Pekerjaan 2</option>
-                <option value="3">Pekerjaan 3</option>
+              <input type="text" class="form-control input-control" id="pekerjaan" name="pekerjaan" required placeholder="Masukkan Pekerjaan" value="<?= $dataKeluarga['pekerjaan'] ?>" />
               </select>
             </div>
           </div>
@@ -143,14 +159,14 @@
           <div class="row mb-3">
             <label for="no_hp" class="col-md-2 form-label forms-label mt-md-2">No. HP <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" value="08123456789" />
+              <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" value="<?= $dataKeluarga['no_hp'] ?>" />
             </div>
           </div>
           <!-- email -->
           <div class="row mb-3">
             <label for="email" class="col-md-2 form-label forms-label mt-md-2">Email <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" value="mahmudinss@gmail.com" />
+              <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" value="<?= $dataKeluarga['email'] ?>" />
             </div>
           </div>
           <!-- foto -->

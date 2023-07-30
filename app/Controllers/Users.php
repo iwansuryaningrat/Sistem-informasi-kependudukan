@@ -4,12 +4,21 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Controllers\AdministrasiController;
-use App\Controllers\AuthController;
 use App\Controllers\FotoController;
 use App\Controllers\GaleriController;
 use App\Controllers\KeluargaController;
 use App\Controllers\PelaporanController;
 use App\Controllers\PengumumanController;
+
+use App\Models\AdministrasiModel;
+use App\Models\FotoModel;
+use App\Models\GaleriModel;
+use App\Models\KategoriGaleriModel;
+use App\Models\KeluargaModel;
+use App\Models\PelaporanModel;
+use App\Models\PengumumanModel;
+use App\Models\PesanModel;
+use App\Models\UsersModel;
 
 class Users extends BaseController
 {
@@ -20,6 +29,17 @@ class Users extends BaseController
     protected $keluargaController;
     protected $pelaporanController;
     protected $pengumumanController;
+
+    protected $administrasiModel;
+    protected $fotoModel;
+    protected $galeriModel;
+    protected $kategoriGaleriModel;
+    protected $keluargaModel;
+    protected $pelaporanModel;
+    protected $pengumumanModel;
+    protected $pesanModel;
+    protected $usersModel;
+
     protected $user_data;
 
     public function __construct()
@@ -30,6 +50,16 @@ class Users extends BaseController
         $this->keluargaController = new KeluargaController();
         $this->pelaporanController = new PelaporanController();
         $this->pengumumanController = new PengumumanController();
+
+        $this->administrasiModel = new AdministrasiModel();
+        $this->fotoModel = new FotoModel();
+        $this->galeriModel = new GaleriModel();
+        $this->kategoriGaleriModel = new KategoriGaleriModel();
+        $this->keluargaModel = new KeluargaModel();
+        $this->pelaporanModel = new PelaporanModel();
+        $this->pengumumanModel = new PengumumanModel();
+        $this->pesanModel = new PesanModel();
+        $this->usersModel = new UsersModel();
 
         $this->user_data = [
             'nik' => session()->get('nik'),
@@ -101,20 +131,26 @@ class Users extends BaseController
     // Keluarga Method
     public function keluarga()
     {
+        $anggotaKeluarga = $this->usersModel->getUsersByKK($this->user_data['no_kk']);
+
         $data = [
             'title' => 'Menu Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'anggotaKeluarga' => $anggotaKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/family/family', $data);
     }
 
-    public function detailkeluarga()
+    public function detailkeluarga($nik)
     {
+        $dataKeluarga = $this->usersModel->getUsers($nik);
+
         $data = [
             'title' => 'Detail Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'dataKeluarga' => $dataKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
@@ -132,11 +168,15 @@ class Users extends BaseController
         return view('/users/family/family-form-add', $data);
     }
 
-    public function formEditKeluarga()
+    public function formEditKeluarga($nik)
     {
+        $dataKeluarga = $this->usersModel->getUsers($nik);
+        // dd($dataKeluarga);
+
         $data = [
             'title' => 'Form Edit Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'dataKeluarga' => $dataKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
