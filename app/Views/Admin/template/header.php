@@ -56,7 +56,7 @@
                             </div>
                         </li>
                         <li>
-                            <a class="see-all" href="/admin/laporan">Lihat Semua Permintaan Administrasi<i class="fa fa-angle-right"></i> </a>
+                            <a class="see-all" href="/admin/administrasi">Lihat Semua Permintaan Administrasi<i class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
                 </li>
@@ -74,7 +74,7 @@
                             </div>
                         </li>
                         <li>
-                            <a class="see-all" href="/admin/administrasi">Lihat Semua Laporan<i class="fa fa-angle-right"></i> </a>
+                            <a class="see-all" href="/admin/laporan">Lihat Semua Laporan<i class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
                 </li>
