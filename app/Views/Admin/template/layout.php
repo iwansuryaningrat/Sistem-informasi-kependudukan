@@ -65,7 +65,6 @@
 
     <!-- Chart JS -->
     <script src="/assets/js/plugin/chart.js/chart.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script> -->
 
     <!-- jQuery Sparkline -->
     <script src="/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>

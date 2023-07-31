@@ -203,9 +203,9 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
         ];
-        dd($data);
-
+        session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
         return view('admin/add/addkeluarga', $data);
     }
 
