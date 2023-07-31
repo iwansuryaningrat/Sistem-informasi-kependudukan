@@ -187,10 +187,13 @@ class Users extends BaseController
     // Administrasi Method
     public function administrasi()
     {
+        $administrasiData = $this->administrasiModel->getAdministrasiByPemohon($this->user_data['no_kk']);
+        // dd($administrasiData);
         $data = [
             'title' => 'Menu Administrasi | Warga Site',
             'navbar' => 'administrasi',
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'administrasiData' => $administrasiData,
         ];
 
         return view('/users/administration/administration', $data);

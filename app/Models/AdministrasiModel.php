@@ -110,4 +110,14 @@ class AdministrasiModel extends Model
             ->where('MONTH(created_at)', date('m'))
             ->countAllResults();
     }
+
+    // Find all administrasi data by pemohon while no_kk of pemohon is same with no_kk of user
+    public function getAdministrasiByPemohon($no_kk)
+    {
+        return $this->select('administrasi.*, users.nama')
+            ->join('users', 'users.nik = administrasi.pemohon')
+            ->where(['users.no_kk' => $no_kk])
+            ->orderBy('administrasi.created_at', 'DESC')
+            ->findAll();
+    }
 }

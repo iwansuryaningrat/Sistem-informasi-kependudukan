@@ -47,126 +47,40 @@
               </tr>
             </thead>
             <tbody class="body-table">
-              <tr>
-                <td>1</td>
-                <td>Khoeru Roziqin</td>
-                <td>Kategori 19</td>
-                <td>0712032023/UNDIP/FSM/IF/RPL</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-accepted">
-                      <i class="fa-solid fa-circle"></i>Diterima
+              <?php $i = 1;
+              foreach ($administrasiData as $data) : ?>
+                <tr>
+                  <td><?= $i ?></td>
+                  <td><?= $data['nama'] ?></td>
+                  <td><?= $data['kategori'] ?></td>
+                  <td><?= $data['no_surat'] ?></td>
+                  <td>
+                    <div class="d-flex justify-content-start">
+                      <div class="status-badge badge-accepted">
+                        <i class="fa-solid fa-circle"></i>Diterima
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>15 Maret 2023</td>
-                <td>16 Maret 2023</td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Iwan Suryaningrat</td>
-                <td>Kategori 19</td>
-                <td>0712032023/UNDIP/FSM/IF/RPL</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-accepted">
-                      <i class="fa-solid fa-circle"></i>Diterima
+                  </td>
+                  <td><?= $data['created_at'] ?></td>
+                  <td><?= $data['tgl_penerimaan'] ?></td>
+                  <td>
+                    <div class="dropdown dropdown-table pe-3">
+                      <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-ellipsis"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-table shadow">
+                        <li>
+                          <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
-                </td>
-                <td>15 Maret 2023</td>
-                <td>16 Maret 2023</td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Rafli Ferdian Ramadhan</td>
-                <td>Kategori 19</td>
-                <td>0712032023/UNDIP/FSM/IF/RPL</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-accepted">
-                      <i class="fa-solid fa-circle"></i>Diterima
-                    </div>
-                  </div>
-                </td>
-                <td>15 Maret 2023</td>
-                <td>16 Maret 2023</td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Lathifa Inayah Sari</td>
-                <td>Kategori 19</td>
-                <td>0712032023/UNDIP/FSM/IF/RPL</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-accepted">
-                      <i class="fa-solid fa-circle"></i>Diterima
-                    </div>
-                  </div>
-                </td>
-                <td>15 Maret 2023</td>
-                <td>16 Maret 2023</td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./administration-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              <?php $i++;
+              endforeach; ?>
             </tbody>
           </table>
         </div>
