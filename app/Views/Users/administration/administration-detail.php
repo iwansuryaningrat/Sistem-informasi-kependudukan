@@ -58,6 +58,14 @@
               <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" required disabled value="Keperluan Bersama" />
             </div>
           </div>
+          <!-- deskripsi -->
+          <div class="row mb-3">
+            <label for="deskripsi" class="col-md-2 form-label forms-label mt-md-2">Deskripsi <span class="text-important">*</span></label>
+            <div class="col-md-10">
+              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required disabled rows="3">
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem et assumenda corporis veritatis? Necessitatibus ullam commodi, iusto nostrum esse numquam officia consectetur, dolor sed, dolore voluptate atque nemo adipisci blanditiis?</textarea>
+            </div>
+          </div>
           <!-- status -->
           <div class="row mb-3">
             <label for="status" class="col-md-2 form-label forms-label mt-md-2">Status <span class="text-important">*</span></label>
@@ -95,14 +103,6 @@
                   <i class="fa-solid fa-upload me-2"></i>Unggah
                 </button>
               </div>
-            </div>
-          </div>
-          <!-- deskripsi -->
-          <div class="row mb-3">
-            <label for="deskripsi" class="col-md-2 form-label forms-label mt-md-2">Deskripsi <span class="text-important">*</span></label>
-            <div class="col-md-10">
-              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required disabled rows="3">
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem et assumenda corporis veritatis? Necessitatibus ullam commodi, iusto nostrum esse numquam officia consectetur, dolor sed, dolore voluptate atque nemo adipisci blanditiis?</textarea>
             </div>
           </div>
         </div>

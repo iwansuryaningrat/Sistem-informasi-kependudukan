@@ -199,11 +199,14 @@ class Users extends BaseController
         return view('/users/administration/administration', $data);
     }
 
-    public function detailadministrasi()
+    public function detailadministrasi($id)
     {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+        // dd($dataAdministrasi);
         $data = [
             'title' => 'Detail Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
+            'dataAdministrasi' => $dataAdministrasi,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
@@ -221,8 +224,9 @@ class Users extends BaseController
         return view('/users/administration/administration-form-add', $data);
     }
 
-    public function formEditAdministrasi()
+    public function formEditAdministrasi($id)
     {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
         $data = [
             'title' => 'Form Edit Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',

@@ -37,7 +37,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="#" id="contactForm" enctype="multipart/form-data" method="POST">
+                    <form action="/pesancontroller/savePesan" id="contactForm" enctype="multipart/form-data" method="POST">
                         <!-- fullname -->
                         <div class="mb-3">
                             <label for="namaLengkap" class="form-label forms-label">Nama Lengkap</label>
@@ -55,9 +55,9 @@
                                 <option selected value="">
                                     Pilih Subjek
                                 </option>
-                                <option value="1">Pertanyaan</option>
-                                <option value="2">Saran</option>
-                                <option value="3">Lainnya</option>
+                                <option value="Pertanyaan">Pertanyaan</option>
+                                <option value="Saran">Saran</option>
+                                <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
                         <!-- message -->
