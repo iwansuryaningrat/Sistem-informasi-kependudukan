@@ -46,22 +46,31 @@
                             <table id="add-row" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
+                                        <th>Judul</th>
+                                        <th>Kategori</th>
+                                        <th>Tanggal</th>
+                                        <th>Jam</th>
+                                        <th>Tampat</th>
+                                        <th>Status</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
+                                        <th>Judul</th>
+                                        <th>Kategori</th>
+                                        <th>Tanggal</th>
+                                        <th>Jam</th>
+                                        <th>Tampat</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>Edinburgh</td>
                                         <td>Tiger Nixon</td>
                                         <td>System Architect</td>
                                         <td>Edinburgh</td>
