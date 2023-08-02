@@ -17387,6 +17387,7 @@ table.dataTable th {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   align-items: center;
+  text-align: center;
 }
 
 table.dataTable td.dataTables_empty,
