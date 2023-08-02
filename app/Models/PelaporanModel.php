@@ -11,7 +11,7 @@ class PelaporanModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nik_pelapor', 'nama_terlapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['nik_pelapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,16 +24,16 @@ class PelaporanModel extends Model
     {
         if ($pelaporan_id == null) {
             return $this->select('pelaporan.*, users.nama')
-                ->join('users', 'users.user_id = pelaporan.nik_pelapor')
-                ->join('users', "users.user_id = pelaporan.nik_terlapor")
+                ->join('users', 'users.nik = pelaporan.nik_pelapor')
+                ->join('users', "users.nik = pelaporan.nik_terlapor")
                 ->orderBy('pelaporan.created_at', 'DESC')
                 ->orderBy('pelaporan.status_pelaporan', 'ASC')
                 ->findAll();
         }
 
         return $this->select('pelaporan.*, users.nama')
-            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
-            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->join('users', 'users.nik = pelaporan.nik_pelapor')
+            ->join('users', "users.nik = pelaporan.nik_terlapor")
             ->where(['pelaporan_id' => $pelaporan_id])
             ->first();
     }
@@ -42,8 +42,8 @@ class PelaporanModel extends Model
     public function getPelaporanByNik($nik)
     {
         return $this->select('pelaporan.*, users.nama')
-            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
-            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->join('users', 'users.nik = pelaporan.nik_pelapor')
+            ->join('users', "users.nik = pelaporan.nik_terlapor")
             ->where(['nik_pelapor' => $nik])
             ->orderBy('pelaporan.created_at', 'DESC')
             ->findAll();
@@ -53,8 +53,8 @@ class PelaporanModel extends Model
     public function getPelaporanByStatus($status)
     {
         return $this->select('pelaporan.*, users.nama')
-            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
-            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->join('users', 'users.nik = pelaporan.nik_pelapor')
+            ->join('users', "users.nik = pelaporan.nik_terlapor")
             ->where(['status_pelaporan' => $status])
             ->orderBy('pelaporan.created_at', 'DESC')
             ->findAll();
@@ -64,8 +64,8 @@ class PelaporanModel extends Model
     public function countPelaporanByStatus($status)
     {
         return $this->select('pelaporan.*, users.nama')
-            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
-            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->join('users', 'users.nik = pelaporan.nik_pelapor')
+            ->join('users', "users.nik = pelaporan.nik_terlapor")
             ->where(['status_pelaporan' => $status])
             ->countAllResults();
     }
@@ -74,8 +74,8 @@ class PelaporanModel extends Model
     public function getPelaporanByKategori($kategori)
     {
         return $this->select('pelaporan.*, users.nama')
-            ->join('users', 'users.user_id = pelaporan.nik_pelapor')
-            ->join('users', "users.user_id = pelaporan.nik_terlapor")
+            ->join('users', 'users.nik = pelaporan.nik_pelapor')
+            ->join('users', "users.nik = pelaporan.nik_terlapor")
             ->where(['kategori' => $kategori])
             ->orderBy('pelaporan.created_at', 'DESC')
             ->findAll();
