@@ -461,6 +461,7 @@ class Admin extends BaseController
     // Contact
     public function pesan()
     {
+        $this->pesanModel->set('status', 'Sudah Dibaca');
         $data = [
             'title' => 'Pesan',
             'active' => 'pesan',
@@ -471,8 +472,27 @@ class Admin extends BaseController
             'session' => $this->session->get(),
             'dataPesan' => $this->pesanModel->getPesan(),
         ];
-        dd($data);
 
         return view('admin/pesan', $data);
+    }
+
+    public function detailpesan($id)
+    {
+        $adminNIk = $this->session->get('nik');
+        $this->pesanModel->readPesan($id, $adminNIk);
+
+        $data = [
+            'title' => 'Detail Pesan',
+            'active' => 'pesan',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'session' => $this->session->get(),
+            'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'dataPesan' => $this->pesanModel->getPesan($id),
+        ];
+        dd($data);
+
+        return view('admin/detailpesan', $data);
     }
 }

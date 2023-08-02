@@ -41,12 +41,12 @@
                         <!-- fullname -->
                         <div class="mb-3">
                             <label for="namaLengkap" class="form-label forms-label">Nama Lengkap</label>
-                            <input type="text" class="form-control input-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan Nama Lengkap" />
+                            <input type="text" class="form-control input-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan Nama Lengkap" value='<?= (session()->get('isLoggedIn')) ? $user['nama'] : '' ?>' />
                         </div>
                         <!-- email -->
                         <div class="mb-3">
                             <label for="email" class="form-label forms-label">Email</label>
-                            <input type="email" class="form-control input-control" id="email" name="email" placeholder="username@email.com" />
+                            <input type="email" class="form-control input-control" id="email" name="email" placeholder="username@email.com" value='<?= (session()->get('isLoggedIn')) ? $user['email'] : '' ?>' />
                         </div>
                         <!-- subject -->
                         <div class="mb-3">
@@ -121,7 +121,7 @@
 <script>
     // validate
     $(document).ready(function() {
-        $('#contactForm').validate({
+        $(' #contactForm').validate({
             rules: {
                 namaLengkap: {
                     required: true,

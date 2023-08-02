@@ -244,6 +244,7 @@ class Users extends BaseController
             'title' => 'Kontak Kami | Warga Site',
             'navbar' => 'contact',
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'user' => $this->user_data,
         ];
 
         return view('/users/contact/contact', $data);

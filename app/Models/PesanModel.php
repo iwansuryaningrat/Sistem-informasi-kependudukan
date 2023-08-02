@@ -11,7 +11,7 @@ class PesanModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'email', 'kategori', 'pesan', 'status', 'updated_by', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['nama_pengirim', 'email', 'kategori', 'pesan', 'status', 'updated_by', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -30,9 +30,23 @@ class PesanModel extends Model
     {
         if ($id == null) {
             // Find all and order by created_at DESC
-            return $this->orderBy('created_at', 'DESC')->findAll();
+            return $this->orderBy('status', 'ASC')->findAll();
         } else {
-            return $this->where(['id' => $id])->first();
+            return $this->select('pesan.*, users.nama')
+            ->join('users', 'users.nik = pesan.updated_by')
+            ->where(['pesan.id' => $id])
+            ->first();
         }
+    }
+
+    // Read Pesan
+    public function readPesan($id, $nikAdmin)
+    {
+        $data = [
+            'status' => 'Sudah Dibaca',
+            'updated_by' => $nikAdmin,
+        ];
+
+        $this->where(['id' => $id])->set($data)->update();
     }
 }

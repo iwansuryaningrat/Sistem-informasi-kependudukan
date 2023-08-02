@@ -45,21 +45,29 @@ class PesanController extends BaseController
     public function savePesan()
     {
         $data = [
-            'nama' => $this->request->getVar('namaLengkap'),
+            'nama_pengirim' => $this->request->getVar('namaLengkap'),
             'email' => $this->request->getVar('email'),
             'kategori' => $this->request->getVar('subjek'),
             'pesan' => $this->request->getVar('pesan'),
             'status' => 'Belum Dibaca',
         ];
-        dd($data);
 
         $this->pesanModel->save($data);
 
         session()->setFlashdata('success', 'Pesan berhasil dikirimkan!');
 
         if (session()->get('isLoggedIn'))
-            return redirect()->to('/home/contact');
-        else
             return redirect()->to('/users/contact');
+        else
+            return redirect()->to('/home/contact');
+    }
+
+    public function deletePesan($id)
+    {
+        $this->pesanModel->delete($id);
+
+        session()->setFlashdata('success', 'Pesan berhasil dihapus!');
+
+        return redirect()->to('/admin/pesan');
     }
 }

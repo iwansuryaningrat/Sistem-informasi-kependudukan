@@ -17377,11 +17377,18 @@ table.dataTable {
   max-width: none !important;
   border-collapse: separate !important;
 }
+table.dataTable thead th,
+table.dataTable tfoot th {  
+  align-items: center;
+  text-align: center;
+}
 table.dataTable td,
 table.dataTable th {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
+  align-items: center;
 }
+
 table.dataTable td.dataTables_empty,
 table.dataTable th.dataTables_empty {
   text-align: center;
