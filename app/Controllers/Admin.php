@@ -205,7 +205,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
         ];
-        session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
+
         return view('admin/add/addkeluarga', $data);
     }
 

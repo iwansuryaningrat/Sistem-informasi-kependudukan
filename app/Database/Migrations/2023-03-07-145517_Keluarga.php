@@ -13,6 +13,6 @@ class Keluarga extends Migration
 
     public function down()
     {
-        //
+        $this->forge->dropTable('keluarga');
     }
 }
