@@ -152,10 +152,10 @@
 
                       <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                         <option value="">Pilih Status Perkawinan</option>
-                        <option value="belum_kawin" <?= ($user['status_perkawinan'] == 'belum_kawin' || $user['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
-                        <option value="kawin" <?= ($user['status_perkawinan'] == 'kawin' || $user['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
-                        <option value="cerai_hidup" <?= ($user['status_perkawinan'] == 'cerai_hidup' || $user['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
-                        <option value="cerai_mati" <?= ($user['status_perkawinan'] == 'cerai_mati' || $user['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
+                        <option value="Belum Kawin" <?= ($user['status_perkawinan'] == 'belum_kawin' || $user['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
+                        <option value="Kawin" <?= ($user['status_perkawinan'] == 'kawin' || $user['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
+                        <option value="Cerai Hidup" <?= ($user['status_perkawinan'] == 'cerai_hidup' || $user['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
+                        <option value="erai Mati" <?= ($user['status_perkawinan'] == 'cerai_mati' || $user['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
                       </select>
                     </div>
                   </div>

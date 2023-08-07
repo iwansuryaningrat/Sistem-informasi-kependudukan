@@ -19,7 +19,7 @@
   <section class="container container-space pt-0">
     <div class="row">
       <div class="col-12 col-lg-8 mb-5 mb-lg-0">
-        <form class="card-form-container card" id="familyFormAdd" action="#" enctype="multipart/form-data" method="POST">
+        <form class="card-form-container card" id="familyFormAdd" action="/usercontroller/saveUser" enctype="multipart/form-data" method="POST">
           <div class="card-header card-form-header">
             <p class="mb-0 fw-semibold">Form Tambah Keluarga</p>
           </div>
@@ -37,6 +37,7 @@
                   <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" />
                 </div>
               </div>
+
               <!-- jenis kelamin -->
               <div class="mb-3">
                 <label class="form-label forms-label">Jenis Kelamin
@@ -44,47 +45,70 @@
                 <div class="col-sm-10" id="radioFormGender">
                   <div class="d-flex align-items-center">
                     <div class="form-check me-4">
-                      <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" />
+                      <input class="form-check-input" type="radio" name="pria" id="pria" />
                       <label class="form-check-label" for="pria">Laki-laki</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" />
+                      <input class="form-check-input" type="radio" name="wanita" id="wanita" />
                       <label class="form-check-label" for="wanita">Perempuan</label>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="row mb-3">
-                <!-- tempat lahir -->
+                <!-- Status -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
-                  <label for="tempat_lahir" class="form-label forms-label">Tempat Lahir
-                    <span class="text-important">*</span></label>
-                  <select id="tempat_lahir" name="tempat_lahir" required class="form-select select-control">
-                    <option value="">Pilih Kabupaten/Kota</option>
-                    <option value="1">Kota 1</option>
-                    <option value="2">Kota 2</option>
-                    <option value="3">Kota 3</option>
-                    <option value="4">Kota 4</option>
+                  <label for="status" class="form-label forms-label">Status <span class="text-important">*</span></label>
+
+                  <select id="status" name="status" required class="form-select select-control">
+                    <option value="">Pilih Status</option>
+                    <option value="Kepala Keluarga">Kepala Keluarga</option>
+                    <option value="Istri">Istri</option>
+                    <option value="Anak">Anak</option>
                   </select>
                 </div>
-                <!-- tanggal lahir -->
-                <div class="col-12 col-md-6">
-                  <label for="tanggal_lahir" class="form-label forms-label">Tanggal Lahir
-                    <span class="text-important">*</span></label>
-
-                  <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required />
-                </div>
-              </div>
-              <div class="row mb-3">
                 <!-- agama -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                   <label for="agama" class="form-label forms-label">Agama <span class="text-important">*</span></label>
 
                   <select id="agama" name="agama" required class="form-select select-control">
                     <option value="">Pilih Agama</option>
-                    <option value="1">Agama 1</option>
-                    <option value="2">Agama 2</option>
-                    <option value="3">Agama 3</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Khatolik">Khatolik</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Budha">Budha</option>
+                    <option value="Konghucu">Konghucu</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <!-- tempat lahir -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="tempat_lahir" class="form-label forms-label">Tempat Lahir
+                    <span class="text-important">*</span></label>
+                  <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" />
+                </div>
+                <!-- tanggal lahir -->
+                <div class="col-12 col-md-6">
+                  <label for="tgl_lahir" class="form-label forms-label">Tanggal Lahir <span class="text-important">*</span></label>
+
+                  <input type="date" class="form-control input-control" id="tgl_lahir" name="tgl_lahir" required />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <!-- Status Kependudukan -->
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                  <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan <span class="text-important">*</span></label>
+                  <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
+                    <option value="">Pilih Status Kependudukan</option>
+                    <option value="Tetap">Penduduk Tetap</option>
+                    <option value="Sementara">Penduduk Sementara</option>
+                    <option value="Pendatang">Penduduk Pendatang</option>
+                    <option value="Pindahan">Penduduk Pindahan</option>
                   </select>
                 </div>
                 <!-- status perkawinan -->
@@ -94,12 +118,15 @@
 
                   <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                     <option value="">Pilih Status Perkawinan</option>
-                    <option value="1">Status Perkawinan 1</option>
-                    <option value="2">Status Perkawinan 2</option>
-                    <option value="3">Status Perkawinan 3</option>
+                    <option value="Belum Kawin">Belum Kawin</option>
+                    <option value="Kawin">Kawin</option>
+                    <option value="Cerai Hidup">Cerai Hidup</option>
+                    <option value="Cerai Mati">Cerai Mati</option>
+                  </select>
                   </select>
                 </div>
               </div>
+
               <div class="row mb-3">
                 <!-- pendidikan -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
@@ -108,9 +135,17 @@
 
                   <select id="pendidikan" name="pendidikan" required class="form-select select-control">
                     <option value="">Pilih Pendidikan</option>
-                    <option value="1">Pendidikan 1</option>
-                    <option value="2">Pendidikan 2</option>
-                    <option value="3">Pendidikan 3</option>
+                    <option value="Tidak Sekolah">Tidak Sekolah</option>
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="D1">D1</option>
+                    <option value="D2">D2</option>
+                    <option value="D3">D3</option>
+                    <option value="D4">D4</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
                   </select>
                 </div>
                 <!-- pekerjaan -->
@@ -118,14 +153,10 @@
                   <label for="pekerjaan" class="form-label forms-label">Pekerjaan
                     <span class="text-important">*</span></label>
 
-                  <select id="pekerjaan" name="pekerjaan" required class="form-select select-control">
-                    <option value="">Pilih Pekerjaan</option>
-                    <option value="1">Pekerjaan 1</option>
-                    <option value="2">Pekerjaan 2</option>
-                    <option value="3">Pekerjaan 3</option>
-                  </select>
+                  <input type="text" class="form-control input-control" id="pekerjaan" name="pekerjaan" required placeholder="Masukkan Pekerjaan" />
                 </div>
               </div>
+
               <div class="row mb-3">
                 <!-- no. hp -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
@@ -140,6 +171,7 @@
                   <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" />
                 </div>
               </div>
+
               <!-- foto -->
               <div class="mb-3">
                 <label for="foto" class="form-label forms-label">Foto <span class="text-important">*</span></label>

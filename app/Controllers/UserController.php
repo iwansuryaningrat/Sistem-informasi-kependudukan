@@ -41,6 +41,54 @@ class UserController extends BaseController
 
     public function saveUser()
     {
+        $no_kk = $this->user_data['no_kk'];
+
+        // handle image
+        $foto = $this->request->getFile('foto');
+
+        // Check if foto is uploaded
+        if ($foto == null || $foto->getError() == 4) {
+            $namaFoto = 'default.png';
+        } else {
+            // Generate random name
+            $namaFoto = $foto->getRandomName();
+
+            // Move foto to img folder
+            $foto->move('upload/photos/', $namaFoto);
+        }
+
+        // calculate age
+        $tgl_lahir = $this->request->getVar('tgl_lahir');
+
+        $tgl_lahir = explode('-', $tgl_lahir);
+        $tgl_lahir = $tgl_lahir[0];
+        $usia = date('Y') - $tgl_lahir;
+
+        // Insert user data
+        $this->userModel->save([
+            'nik' => $this->request->getVar('nik'),
+            'no_kk' => $no_kk,
+            'nama' => $this->request->getVar('nama'),
+            'status' => $this->request->getVar('status'),
+            'jenis_kelamin' => ($this->request->getVar('pria') == 'on') ? 'Laki-laki' : 'Perempuan',
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $this->request->getVar('tgl_lahir'),
+            'usia' => $usia,
+            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
+            'pendidikan' => $this->request->getVar('pendidikan'),
+            'agama' => $this->request->getVar('agama'),
+            'pekerjaan' => $this->request->getVar('pekerjaan'),
+            'email' => $this->request->getVar('email'),
+            'no_hp' => $this->request->getVar('no_hp'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'role' => 'User',
+            'foto' => $namaFoto,
+            'status_kependudukan' => $this->request->getVar('status_kependudukan'),
+        ]);
+
+        // Set flashdata
+        session()->setFlashdata('success', 'Anggota keluarga berhasil ditambahkan');
+        return redirect()->to('/users/keluarga');
     }
 
     public function updateUser()
@@ -60,7 +108,7 @@ class UserController extends BaseController
         $no_hp = $this->request->getVar('no_hp');
 
         // Check if foto is uploaded
-        if ($foto->getError() == 4) {
+        if ($foto == null || $foto->getError() == 4) {
             $namaFoto = $this->user_data['foto'];
         } else {
             // Generate random name
@@ -100,8 +148,7 @@ class UserController extends BaseController
         $nik = $this->user_data['nik'];
         $no_kk = $this->user_data['no_kk'];
         $alamat = $this->request->getVar('alamat') . ',' . $this->request->getVar('kota_kabupaten') . ' ' . $this->request->getVar('kodepos') . ',' . $this->request->getVar('provinsi');
-        $jenis_kelamin = $this->request->getVar('pria') ? 'Laki-laki' : 'Perempuan';
-        // dd($this->request->getVar('tanggal_lahir'));
+        $jenis_kelamin = ($this->request->getVar('pria') == 'on') ? 'Laki-laki' : 'Perempuan';
 
         // calculate age
         $tgl_lahir = $this->request->getVar('tanggal_lahir');
@@ -151,8 +198,7 @@ class UserController extends BaseController
     {
         $no_kk = $this->user_data['no_kk'];
         $alamat = $this->request->getVar('alamat') . ',' . $this->request->getVar('kota_kabupaten') . ' ' . $this->request->getVar('kodepos') . ',' . $this->request->getVar('provinsi');
-        $jenis_kelamin = $this->request->getVar('pria') ? 'Laki-laki' : 'Perempuan';
-        // dd($this->request->getVar('tanggal_lahir'));
+        $jenis_kelamin = ($this->request->getVar('pria') == 'on') ? 'Laki-laki' : 'Perempuan';
 
         // calculate age
         $tgl_lahir = $this->request->getVar('tanggal_lahir');
@@ -164,7 +210,7 @@ class UserController extends BaseController
         $foto = $this->request->getFile('foto_profil');
 
         // Check if foto is uploaded
-        if ($foto->getError() == 4) {
+        if ($foto == null || $foto->getError() == 4) {
             $namaFoto = $this->user_data['foto'];
         } else {
             // Generate random name
@@ -228,7 +274,7 @@ class UserController extends BaseController
         $foto = $this->request->getFile('foto_profil');
 
         // Check if foto is uploaded
-        if ($foto->getError() == 4) {
+        if ($foto == null || $foto->getError() == 4) {
             $namaFoto = $this->user_data['foto'];
         } else {
             // Generate random name

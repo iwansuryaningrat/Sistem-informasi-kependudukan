@@ -60,11 +60,11 @@
             <div class="col-sm-10" id="radioFormGender">
               <div class="d-flex align-items-center">
                 <div class="form-check me-4">
-                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" checked />
+                  <input class="form-check-input" type="radio" name="pria" id="pria" checked />
                   <label class="form-check-label" for="pria">Laki-laki</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" />
+                  <input class="form-check-input" type="radio" name="wanita" id="wanita" />
                   <label class="form-check-label" for="wanita">Perempuan</label>
                 </div>
               </div>
@@ -97,7 +97,6 @@
                 <option value="Budha" <?= $dataKeluarga['agama'] === 'Budha' ? 'selected' : '' ?>>Budha</option>
                 <option value="Konghucu" <?= $dataKeluarga['agama'] === 'Konghucu' ? 'selected' : '' ?>>Konghucu</option>
               </select>
-              </select>
             </div>
           </div>
           <!-- status perkawinan -->
@@ -107,10 +106,10 @@
             <div class="col-md-10">
               <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                 <option value="">Pilih Status Perkawinan</option>
-                <option value="belum_kawin" <?= ($dataKeluarga['status_perkawinan'] == 'belum_kawin' || $dataKeluarga['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
-                <option value="kawin" <?= ($dataKeluarga['status_perkawinan'] == 'kawin' || $dataKeluarga['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
-                <option value="cerai_hidup" <?= ($dataKeluarga['status_perkawinan'] == 'cerai_hidup' || $dataKeluarga['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
-                <option value="cerai_mati" <?= ($dataKeluarga['status_perkawinan'] == 'cerai_mati' || $dataKeluarga['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
+                <option value="Belum Kawin" <?= ($dataKeluarga['status_perkawinan'] == 'belum_kawin' || $dataKeluarga['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
+                <option value="Kawin" <?= ($dataKeluarga['status_perkawinan'] == 'kawin' || $dataKeluarga['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
+                <option value="Cerai Hidup" <?= ($dataKeluarga['status_perkawinan'] == 'cerai_hidup' || $dataKeluarga['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
+                <option value="Cerai Mati" <?= ($dataKeluarga['status_perkawinan'] == 'cerai_mati' || $dataKeluarga['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
               </select>
             </div>
           </div>
@@ -152,7 +151,6 @@
             <label for="pekerjaan" class="col-md-2 form-label forms-label mt-md-2">Pekerjaan <span class="text-important">*</span></label>
             <div class="col-md-10">
               <input type="text" class="form-control input-control" id="pekerjaan" name="pekerjaan" required placeholder="Masukkan Pekerjaan" value="<?= $dataKeluarga['pekerjaan'] ?>" />
-              </select>
             </div>
           </div>
           <!-- no. hp -->
@@ -174,7 +172,7 @@
             <label for="foto" class="col-md-2 form-label forms-label mt-md-2">Foto</label>
             <div class="col-md-10">
               <div class="input-group">
-                <input type="file" class="form-control input-control" id="foto" name="foto" required accept="image/*" />
+                <input type="file" class="form-control input-control" id="foto" name="foto" accept="image/*" />
                 <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
                   <i class="fa-solid fa-upload me-2"></i>Unggah
                 </button>
