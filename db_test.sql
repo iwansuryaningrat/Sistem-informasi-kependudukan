@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2023 at 07:32 PM
+-- Generation Time: Aug 07, 2023 at 09:14 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -196,12 +196,21 @@ CREATE TABLE `galeri` (
   `galeri_id` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
   `uploaded_by` bigint(17) NOT NULL,
   `kategori` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `galeri`
+--
+
+INSERT INTO `galeri` (`galeri_id`, `judul`, `deskripsi`, `thumbnail`, `uploaded_by`, `kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Test', 'test', '1691435504_61b04f5535f48c7adea9.png', 343475351188255, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
+(2, 'Test', 'test', '1691435533_b942a10441f15ec306a8.png', 343475351188255, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -216,6 +225,16 @@ CREATE TABLE `kategori_galeri` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori_galeri`
+--
+
+INSERT INTO `kategori_galeri` (`kategori_galeri_id`, `nama_kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Rekreasi', '2023-08-07 20:54:05', '2023-08-07 20:54:05', NULL),
+(2, 'Dokumentasi', '2023-08-07 20:54:05', '2023-08-07 20:54:05', NULL),
+(3, 'Acara', '2023-08-07 20:54:35', '2023-08-07 20:54:35', NULL),
+(4, 'Kerja Bakti', '2023-08-07 20:54:35', '2023-08-07 20:54:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -347,7 +366,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (5528651211914702, 'Genta Puspita', 'Dk. Qrisdoren No. 526, Bekasi 45430, KalBar', 'Kpg. Ujung No. 6, Sukabumi 50881, SumBar', 'default.png', '2007-06-04', 'Tetap', 0, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (5529607779838435, 'Eli Nadine Pudjiastuti M.Farm', 'Dk. Untung Suropati No. 620, Administrasi Jakarta Timur 90545, Papua', 'Ki. Badak No. 835, Palangka Raya 30021, Bali', 'default.png', '2019-10-22', 'Pindah', 1, '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (5534307609218378, 'Ibrani Jaga Mustofa', 'Psr. Rajawali Timur No. 727, Depok 54687, Bengkulu', 'Ki. Jagakarsa No. 435, Payakumbuh 24264, SumBar', 'default.png', '2011-06-22', 'Tetap', 0, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(5566468947251405, 'Daruna Sinaga', 'Psr. PHH. Mustofa No. 505, Bau-Bau 15070, NTB', 'Ds. Abdul Rahmat No. 729, Tangerang 63597, NTT', 'default.png', '2022-12-14', 'Pindah', 1, '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(5566468947251405, 'Daruna Sinaga', ', ,', 'Ds. Abdul Rahmat No. 729, Tangerang 63597, NTT', 'default.png', '2022-12-14', 'Pindah', 1, '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (5582980544309907, 'Kairav Sihombing', 'Jln. Agus Salim No. 893, Pontianak 45276, NTT', 'Psr. Wahidin No. 697, Yogyakarta 93422, Riau', 'default.png', '2021-07-09', 'Tetap', 1, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (5591132301778531, 'Hamima Wastuti M.TI.', 'Ki. Basket No. 593, Tomohon 93318, KalUt', 'Jln. Bayan No. 147, Tangerang Selatan 45090, JaTeng', 'default.png', '1971-06-29', 'Pindah', 1, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (6011059763493954, 'Indra Saiful Tarihoran', 'Dk. Sutoyo No. 806, Tidore Kepulauan 78332, SulTeng', 'Jln. Qrisdoren No. 321, Blitar 13548, NTB', 'default.png', '2022-10-10', 'Tetap', 0, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
@@ -431,7 +450,8 @@ CREATE TABLE `pesan` (
 
 INSERT INTO `pesan` (`id`, `nama_pengirim`, `email`, `kategori`, `pesan`, `status`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (6, 'Iwan Suryaningrat', 'iwansuryaningrat@gmail.com', 'Pertanyaan', 'Test', 'Sudah Dibaca', 4716454593739, '2023-08-02 21:42:25', '2023-08-02 23:45:28', NULL),
-(8, 'Iwan Suryaningrat', 'iwansuryaningrat@gmail.com', 'Saran', 'testes', 'Sudah Dibaca', 4716454593739, '2023-08-02 23:45:58', '2023-08-02 23:48:34', NULL);
+(8, 'Iwan Suryaningrat', 'iwansuryaningrat@gmail.com', 'Saran', 'testes', 'Sudah Dibaca', 4716454593739, '2023-08-02 23:45:58', '2023-08-02 23:48:34', NULL),
+(9, 'Raina Ilsa Laksmiwati M.Ak', 'zalindra.laksita@firgantoro.co.id', 'Pertanyaan', 'mau tanya gan', 'Belum Dibaca', NULL, '2023-08-08 01:50:19', '2023-08-08 01:50:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -488,7 +508,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (4929028086482, 5185448129424096, 'Dimas Hardiansyah', 'Anak', 'Perempuan', 'Islam', 'Sukabumi', '2017-09-12', 5, 'Cerai Hidup', 'S3', 'Wiraswasta', 'yessi44@yahoo.com', NULL, '$2y$10$vsjjeZwSIOFxWP2Fpipgee95XhFp6ReYOqLsWBZYsCZvrD/6eGEI.', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (4929422918934, 5421638786953452, 'Rahmi Usada', 'Istri', 'Perempuan', 'Islam', 'Pematangsiantar', '1995-06-12', 39, 'Cerai Mati', 'D4', 'Wiraswasta', 'prayoga.darman@gmail.co.id', NULL, '$2y$10$LJxUhNJX.CrygAR.i3ccleSn5znr0WEyZRENIdouaL1p/GCB8foEe', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
 (4989054276464, 4539493123361, 'Putri Gilda Yuniar', 'Anak', 'Perempuan', 'Islam', 'Mojokerto', '2021-05-14', 94, 'Cerai Mati', 'SD', 'Wiraswasta', 'saptono.oman@gmail.com', NULL, '$2y$10$Ur7UCXwRnT0uhc0IuQ8QX.zmTbBB2OiZ9gBxVcSN7u95fT/agu3Ra', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(343475351188255, 5566468947251405, 'Raina Ilsa Laksmiwati M.Ak', 'Istri', 'Laki-laki', 'Islam', 'Kediri', '1973-03-25', 66, 'Cerai Mati', 'S2', 'Wiraswasta', 'zalindra.laksita@firgantoro.co.id', NULL, '$2y$10$SSIAcb6DrVddiqAqE4ZJ8OqBM5RPoQKzeGnvBwyOekOC6IRqYx.0O', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(343475351188255, 5566468947251405, 'Raina Ilsa Laksmiwati M.Ak', '', 'Perempuan', 'Islam', 'Kediri', '1973-03-25', 50, 'cerai_mati', 'S1', 'Wiraswasta', 'zalindra.laksita@firgantoro.co.id', NULL, '$2y$10$SSIAcb6DrVddiqAqE4ZJ8OqBM5RPoQKzeGnvBwyOekOC6IRqYx.0O', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (344212209136981, 4916074670608, 'Putri Novi Suartini', 'Istri', 'Perempuan', 'Islam', 'Administrasi Jakarta Pusat', '2021-02-23', 82, 'Cerai Hidup', 'D4', 'Wiraswasta', 'wahyudin.karen@waluyo.info', NULL, '$2y$10$lu76W6Ddumtw2nXzr0T.LeSGjJR5yaY3Af2lRJ9WqiwXabSrqS4TW', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (345614270604616, 371449088798749, 'Viman Wardaya Najmudin S.T.', 'Istri', 'Laki-laki', 'Islam', 'Pangkal Pinang', '2010-02-01', 33, 'Belum Kawin', 'S2', 'Wiraswasta', 'tirtayasa68@oktaviani.mil.id', NULL, '$2y$10$A8BxmTYBfzfpSg3Ty/zxh.B8CPhbZ93llUlNQW9hjjTkdknl0exqq', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (347058185440633, 4532028874095, 'Siti Hariyah', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Pontianak', '1991-10-19', 68, 'Belum Kawin', 'S1', 'Wiraswasta', 'mulyani.kajen@yahoo.co.id', NULL, '$2y$10$FauCIaogMPGcvuYKAhur5.hYTwt2CAl5HTupupxULlmC.DBu5F1A6', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
@@ -503,6 +523,10 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (372316786874214, 4556643413500, 'Lala Ella Rahimah S.Sos', 'Istri', 'Laki-laki', 'Islam', 'Bandar Lampung', '1972-11-10', 7, 'Cerai Hidup', 'Tidak Sekolah', 'Wiraswasta', 'ismail18@suryatmi.net', NULL, '$2y$10$qyrPiXJrpICcjq7V7A1eQuoc1hqL3H59T2rD4iZSMdjoEOAlo6oDq', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (374935801440319, 379035151679296, 'Bagya Pangeran Hutasoit', 'Istri', 'Laki-laki', 'Islam', 'Ambon', '1994-11-03', 54, 'Belum Kawin', 'Tidak Sekolah', 'Wiraswasta', 'lutfan07@gmail.com', NULL, '$2y$10$5MRHw8bZ2BHmVgOUEyzUBOEQ6Vhy05k.dieS4nTGPuWPaOv08y8oK', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
 (377255077060528, 5591132301778531, 'Tina Zulaika', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Sorong', '1976-07-02', 44, 'Cerai Mati', 'D4', 'Wiraswasta', 'uli33@purwanti.mil.id', NULL, '$2y$10$YQIAEFNSK.x5vVSfDxAitO/42XYGv4RucmCxZ0CJddXPrWSSdaV3a', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(1426323985473439, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2000-12-14', 23, 'Belum Kawin', 'S1', 'Programmer', 'surya@gmail.com', '082345678912', '$2y$10$LbgljVG6itOPn51HbZPNKubYxrWW7wPks92bfiy5eJQpoo5UizeQm', 'User', 'default.png', 'Tetap', '2023-08-08 01:31:37', '2023-08-08 01:31:37', NULL),
+(1426323985999439, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2002-02-02', 21, 'Kawin', 'S1', 'Programmer', 'surya@gmail.com', '082345678912', '$2y$10$KVMX0A/lPxmRwSg0dLGuFeWJ/1JBBkjUk2AFaiZZew6DBN9IL1bKa', 'User', 'default.png', 'Tetap', '2023-08-08 01:35:41', '2023-08-08 01:35:41', NULL),
+(1426823985119439, 5566468947251405, 'Surya', 'Anak', 'Laki-laki', 'Islam', 'Grobogan', '2003-03-03', 20, 'Belum Kawin', 'S1', 'Programmer', 'surya@gmail.com', '08888888883', '$2y$10$8BESta6Sg1ookxTtTyptxux7Yz9i34NkW3E7e7ZJcHIrhtjtQXO42', 'User', '1691433600_a422be60d646dd706406.jpg', 'Tetap', '2023-08-08 01:40:00', '2023-08-08 01:40:00', NULL),
+(2222222222222226, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2012-12-12', 11, 'Belum Kawin', 'SMP', 'Programmer', 'virman@gmail.com', '088888888888', '$2y$10$FuHM8/CS/gNgI7M.1TUcLeE5dlTi/KAkwbjRrK93oBis3vsnaYtM.', 'User', 'default.png', 'Tetap', '2023-08-08 01:33:25', '2023-08-08 01:33:25', NULL),
 (4485369111653429, 5329755779516691, 'Banawa Marbun', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Gunungsitoli', '1979-11-08', 81, 'Kawin', 'S1', 'Wiraswasta', 'laksita.warsita@hutagalung.info', NULL, '$2y$10$xBCSkdV796/vXekXORae.e8WvRhaulZwQsWGjVeqoHcj3h4LGCWr6', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (4485425690195891, 346212495141057, 'Maman Megantara', 'Anak', 'Perempuan', 'Islam', 'Semarang', '2001-07-05', 46, 'Kawin', 'SD', 'Wiraswasta', 'wibisono.ophelia@yahoo.com', NULL, '$2y$10$TMlkf/rR2HmLGiDly4V/yOyipYDsYDvyBAbCQ/8qJK6iw6nUMDOhC', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (4485756027046005, 344917642407464, 'Dina Pertiwi S.Farm', 'Anak', 'Perempuan', 'Islam', 'Administrasi Jakarta Barat', '2018-12-03', 35, 'Belum Kawin', 'S2', 'Wiraswasta', 'yono.hidayat@yahoo.co.id', NULL, '$2y$10$vmovF.c23jzKz6F3f3CdfOb/dTl3upFwi1rk/TgkP2ZHViQO9e9q.', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
@@ -519,6 +543,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (4716165457094751, 5152545553366278, 'Maimunah Palastri', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Surabaya', '2020-09-13', 23, 'Cerai Hidup', 'D1', 'Wiraswasta', 'luwar43@yahoo.com', NULL, '$2y$10$a1/JyOc7Ba74K1/46eVHMei3lLMQh9MBab4/Uun18CTjs8OP4kkdW', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (4716198647344695, 5352394835500364, 'Danang Widodo S.H.', 'Anak', 'Perempuan', 'Islam', 'Administrasi Jakarta Selatan', '1982-02-08', 58, 'Belum Kawin', 'D3', 'Wiraswasta', 'laila45@nashiruddin.co', NULL, '$2y$10$3cJmBlb6W6M.VlYi2OIfdutVxXpMWUh2FJWa50eXSrzWDHTTP4LdW', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (4716226036973665, 4532453265330, 'Vivi Diah Pudjiastuti', 'Anak', 'Perempuan', 'Islam', 'Dumai', '1992-08-20', 45, 'Belum Kawin', 'D1', 'Wiraswasta', 'rosman.yolanda@haryanti.tv', NULL, '$2y$10$bAXKrvzoJQrk7h6/lgrRbO1fe./jaazGJgrw2iq3jWG9tRHBvrB/W', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(4716454599739233, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2010-10-10', 13, 'Belum Kawin', 'SD', 'Programmer', 'emin@gmail.com', '088765432190', '$2y$10$a92u0Ri296ZevoLCNqe9XOuXSFxBaOy2HRMU7WktPoAJNY7sRBp7m', 'User', 'default.png', 'Tetap', '2023-08-08 01:34:28', '2023-08-08 01:34:28', NULL),
 (4716584060670569, 5529607779838435, 'Jaka Galiono Widodo S.Ked', 'Anak', 'Perempuan', 'Islam', 'Mataram', '1971-11-15', 26, 'Cerai Mati', 'SMA', 'Wiraswasta', 'palastri.marsudi@permadi.name', NULL, '$2y$10$8PNAZ62Xae7Llt6bgUC0MOYIqvuBKA1neOSOHLtj8mOBWEpVZFXku', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4716811988996184, 5143303810938196, 'Eva Cornelia Purwanti S.Ked', 'Anak', 'Laki-laki', 'Islam', 'Sibolga', '2010-08-21', 99, 'Cerai Hidup', 'D3', 'Wiraswasta', 'safina32@pranowo.ac.id', NULL, '$2y$10$uKOrQgLxALLNcFseafvEteIhr3Nh.2hsMZ.jFVs/6oLu4mCqGnt8u', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
 (4929393893175256, 343237716884964, 'Lalita Susanti S.IP', 'Anak', 'Laki-laki', 'Islam', 'Jayapura', '2020-11-14', 43, 'Cerai Hidup', 'SMA', 'Wiraswasta', 'xfirmansyah@yahoo.co.id', NULL, '$2y$10$f0GZbD.T448fpiC3xsfm0ebKZ90aw2SF81dEDzd8EIhcbpy.wxrbK', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
@@ -677,13 +702,13 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori_galeri`
 --
 ALTER TABLE `kategori_galeri`
-  MODIFY `kategori_galeri_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kategori_galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pelaporan`
@@ -701,7 +726,7 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
