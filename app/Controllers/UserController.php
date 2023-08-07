@@ -160,6 +160,25 @@ class UserController extends BaseController
         $tgl_lahir = $tgl_lahir[0];
         $usia = date('Y') - $tgl_lahir;
 
+        // handle image
+        $foto = $this->request->getFile('foto_profil');
+
+        // Check if foto is uploaded
+        if ($foto->getError() == 4) {
+            $namaFoto = $this->user_data['foto'];
+        } else {
+            // Generate random name
+            $namaFoto = $foto->getRandomName();
+
+            // Move foto to img folder
+            $foto->move('upload/photos/', $namaFoto);
+
+            // Delete old foto
+            if ($this->user_data['foto'] != 'default.png') {
+                unlink('upload/photos/' . $this->user_data['foto']);
+            }
+        }
+
         // Update user data
         $this->userModel->editUsers([
             'status' => $this->request->getVar('status'),
@@ -172,6 +191,7 @@ class UserController extends BaseController
             'pendidikan' => $this->request->getVar('pendidikan'),
             'status_kependudukan' => $this->request->getVar('status_kependudukan'),
             'pekerjaan' => $this->request->getVar('pekerjaan'),
+            'foto' => $namaFoto
         ], $nik);
 
         // Update keluarga data
@@ -179,23 +199,28 @@ class UserController extends BaseController
             'alamat' => $alamat
         ], $no_kk);
 
-        // Update session
-        session()->set([
-            'status' => $this->request->getVar('status'),
-            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
-            'agama' => $this->request->getVar('agama'),
-            'jenis_kelamin' => $jenis_kelamin,
-            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
-            'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
-            'usia' => $usia,
-            'alamat' => $alamat,
-            'pendidikan' => $this->request->getVar('pendidikan'),
-            'status_kependudukan' => $this->request->getVar('status_kependudukan'),
-            'pekerjaan' => $this->request->getVar('pekerjaan'),
-        ]);
+        if ($nik == $this->user_data['nik']) {
+            // Update session
+            session()->set([
+                'status' => $this->request->getVar('status'),
+                'status_perkawinan' => $this->request->getVar('status_perkawinan'),
+                'agama' => $this->request->getVar('agama'),
+                'jenis_kelamin' => $jenis_kelamin,
+                'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+                'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
+                'usia' => $usia,
+                'alamat' => $alamat,
+                'pendidikan' => $this->request->getVar('pendidikan'),
+                'status_kependudukan' => $this->request->getVar('status_kependudukan'),
+                'pekerjaan' => $this->request->getVar('pekerjaan'),
+            ]);
 
-        session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
-        return redirect()->to('/users/profile');
+            session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
+            return redirect()->to('/users/profile');
+        } else {
+            session()->setFlashdata('success', 'Data keluarga berhasil diperbarui');
+            return redirect()->to('/users/keluarga');
+        }
     }
 
     public function updateFotoProfile($nik)

@@ -34,7 +34,7 @@
       </div>
     <?php endif; ?>
 
-    <form class="card-form-container card" id="familyFormEdit" action="#" enctype="multipart/form-data" method="POST">
+    <form class="card-form-container card" id="familyFormEdit" action="/usercontroller/editdatakeluarga/<?= $dataKeluarga['nik'] ?>" enctype="multipart/form-data" method="POST">
       <div class="card-header card-form-header">
         <p class="mb-0 fw-semibold">Form Edit Anggota Keluarga</p>
       </div>
@@ -171,7 +171,7 @@
           </div>
           <!-- foto -->
           <div class="row mb-3">
-            <label for="foto" class="col-md-2 form-label forms-label mt-md-2">Foto <span class="text-important">*</span></label>
+            <label for="foto" class="col-md-2 form-label forms-label mt-md-2">Foto</label>
             <div class="col-md-10">
               <div class="input-group">
                 <input type="file" class="form-control input-control" id="foto" name="foto" required accept="image/*" />
@@ -201,10 +201,10 @@
 
 <!-- internal script -->
 <script>
-  // add method validation only letters
+  // add method validation only letters with symbol , and .
   $.validator.addMethod("alphabetOnly", function(value, element) {
-    return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
-  });
+    return this.optional(element) || /^[a-zA-Z\s\.\,]+$/i.test(value);
+  }, "Hanya dapat mengandung huruf, spasi, titik, dan koma.");
   // validate
   $(document).ready(function() {
     $("#familyFormEdit").validate({
@@ -251,7 +251,6 @@
           email: true,
         },
         foto: {
-          required: true,
           extension: "jpg|jpeg|png",
         },
       },
