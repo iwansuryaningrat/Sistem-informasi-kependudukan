@@ -57,9 +57,9 @@
                 fugit voluptatem mollitia minima tempore.
             </p>
             <div class="footer-social-media">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a title="Facebook" href="#"><i class="fab fa-facebook"></i></a>
+                <a title="Instagram" href="#"><i class="fab fa-instagram"></i></a>
+                <a title="Twitter" href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </section>

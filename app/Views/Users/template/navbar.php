@@ -6,7 +6,7 @@
 
         <!-- toggle mobile navbar -->
         <div class="toggle-nav-mobile">
-            <button class="btn-nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+            <button class="btn-nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" title="Menu">
                 <i class="fa-solid fa-bars" style="font-size: 1.25rem"></i>
             </button>
         </div>
@@ -47,6 +47,9 @@
             <?php if ($isLoggedin == true && $isLoggedin) { ?>
                 <!-- right -->
                 <a class="btn btn-main-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/users/profile"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
+                <a class="btn btn-logout-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/logout" style="height: 41px; margin-left: 12px">
+                    <i class="fa-solid fa-sign-out"></i>
+                </a>
             <?php } else { ?>
                 <!-- right -->
                 <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/login">Masuk</a>

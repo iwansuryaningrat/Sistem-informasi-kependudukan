@@ -1,6 +1,6 @@
-@import url('./global.css');
-@import url('./utilities.css');
-@import url('./components.css');
+@import url("./global.css");
+@import url("./utilities.css");
+@import url("./components.css");
 
 /* PAGES */
 /* home */
@@ -328,7 +328,7 @@
 
 /* signin */
 .bg-sign-image::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -424,15 +424,15 @@
   vertical-align: middle;
 }
 .table-custom thead tr th.sorting::before {
-  font-family: 'Font Awesome 5 Free';
-  content: '\f106';
+  font-family: "Font Awesome 5 Free";
+  content: "\f106";
   top: 30%;
   right: 0.5rem;
   font-size: 9px;
 }
 .table-custom thead tr th.sorting::after {
-  font-family: 'Font Awesome 5 Free';
-  content: '\f107';
+  font-family: "Font Awesome 5 Free";
+  content: "\f107";
   top: 45%;
   right: 0.5rem;
   font-size: 9px;
@@ -811,8 +811,8 @@
   margin-bottom: 0.25rem;
   padding: 0.5rem 0;
 }
-.nav-collapse[aria-expanded='true'] i,
-.nav-collapse[aria-expanded='true'] svg {
+.nav-collapse[aria-expanded="true"] i,
+.nav-collapse[aria-expanded="true"] svg {
   transition: transform 0.3s ease-in-out;
   transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
@@ -824,8 +824,8 @@
   -ms-transition: transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
 }
-.nav-collapse[aria-expanded='false'] i,
-.nav-collapse[aria-expanded='false'] svg {
+.nav-collapse[aria-expanded="false"] i,
+.nav-collapse[aria-expanded="false"] svg {
   transition: transform 0.3s ease-in-out;
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
@@ -867,4 +867,10 @@
 .list-nav-collapse-item a.active,
 .nav-collapse.active {
   color: var(--primary-700);
+}
+.nav-link.piils-btn.logout-btn:hover {
+  background: #ffefef !important;
+}
+.list-nav-link-item .logout-btn:hover {
+  color: #de5151;
 }
