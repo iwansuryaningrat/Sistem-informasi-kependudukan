@@ -91,14 +91,6 @@ class UserController extends BaseController
         return redirect()->to('/users/keluarga');
     }
 
-    public function updateUser()
-    {
-    }
-
-    public function deleteUser($id)
-    {
-    }
-
     public function saveDetailProfile()
     {
         $nik = $this->user_data['nik'];
