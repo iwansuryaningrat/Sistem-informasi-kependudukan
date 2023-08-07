@@ -117,13 +117,15 @@
 </main>
 <!-- end of main -->
 
-<!-- button add gallery -->
-<div id="add-gallery-fixed">
-  <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
-    <i class="fa-solid fa-plus"></i>
-    <span class="text">Tambah Galeri</span>
+<?php if (session()->get('isLoggedIn')) : ?>
+  <!-- button add gallery -->
+  <div id="add-gallery-fixed">
+    <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
+      <i class="fa-solid fa-plus"></i>
+      <span class="text">Tambah Galeri</span>
+    </div>
   </div>
-</div>
+<?php endif; ?>
 
 <?= $this->endSection(); ?>
 
@@ -132,7 +134,7 @@
 <!-- modal add gallery -->
 <div class="modal fade" id="modalAddGallery" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddGalleryLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <form id="formAddGallery" class="modal-content" action="#">
+    <form id="formAddGallery" class="modal-content" action="/galericontroller/save" enctype="multipart/form-data" method="POST">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="modalAddGalleryLabel">
           Form Tambah Galeri
@@ -150,9 +152,9 @@
           <label for="kategori" class="form-label forms-label">Kategori</label>
           <select class="form-select select-control" id="kategori" name="kategori">
             <option selected value="">Pilih Kategori Galeri</option>
-            <option value="1">Kategori 1</option>
-            <option value="2">Kategori 2</option>
-            <option value="3">Kategori 3</option>
+            <?php foreach ($kategoriGaleri as $kategori) : ?>
+              <option value="<?= $kategori['kategori_galeri_id'] ?>"><?= $kategori['nama_kategori'] ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
         <!-- deskripsi galeri -->

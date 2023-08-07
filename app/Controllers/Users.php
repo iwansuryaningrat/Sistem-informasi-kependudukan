@@ -111,6 +111,8 @@ class Users extends BaseController
         $data = [
             'title' => 'Galeri | Warga Site',
             'navbar' => 'galeri',
+            'kategoriGaleri' => $this->kategoriGaleriModel->findAll(),
+            'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
