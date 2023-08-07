@@ -27,35 +27,35 @@
           <div class="row mb-3">
             <label for="nama" class="col-md-2 form-label forms-label mt-md-2">Nama <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama" value="Mahmudin Suyono Sudrajad" disabled />
+              <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama" value="<?= $dataKeluarga['nama'] ?>" disabled />
             </div>
           </div>
           <!-- nik -->
           <div class="row mb-3">
             <label for="nik" class="col-md-2 form-label forms-label mt-md-2">NIK <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="nik" name="nik" required placeholder="Masukkan NIK" value="1234567890123456" disabled />
+              <input type="text" class="form-control input-control" id="nik" name="nik" required value="<?= $dataKeluarga['nik'] ?>" disabled />
             </div>
           </div>
           <!-- jenis kelamin -->
           <div class="row mb-3">
             <label for="jenis_kelamin" class="col-md-2 form-label forms-label mt-md-2">Jenis Kelamin <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="jenis_kelamin" name="jenis_kelamin" required placeholder="Masukkan Jenis Kelamin" value="Laki-laki" disabled />
+              <input type="text" class="form-control input-control" id="jenis_kelamin" name="jenis_kelamin" required value="<?= $dataKeluarga['jenis_kelamin'] ?>" disabled />
             </div>
           </div>
           <!-- tempat lahir -->
           <div class="row mb-3">
             <label for="tempat_lahir" class="col-md-2 form-label forms-label mt-md-2">Tempat Lahir <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="Bandung" disabled />
+              <input type="text" class="form-control input-control" id="tempat_lahir" name="tempat_lahir" required value="<?= $dataKeluarga['tempat_lahir'] ?>" disabled />
             </div>
           </div>
           <!-- tanggal lahir -->
           <div class="row mb-3">
-            <label for="tanggal_lahir" class="col-md-2 form-label forms-label mt-md-2">Tanggal Lahir <span class="text-important">*</span></label>
+            <label for="tgl_lahir" class="col-md-2 form-label forms-label mt-md-2">Tanggal Lahir <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="date" class="form-control input-control" id="tanggal_lahir" name="tanggal_lahir" required value="1990-01-01" disabled />
+              <input type="date" class="form-control input-control" id="tgl_lahir" name="tgl_lahir" required value="<?= $dataKeluarga['tgl_lahir'] ?>" disabled />
             </div>
           </div>
           <!-- status perkawinan -->
@@ -63,12 +63,7 @@
             <label for="status_perkawinan" class="col-md-2 form-label forms-label mt-md-2">Status Perkawinan
               <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control" disabled>
-                <option value="">Pilih Status Perkawinan</option>
-                <option value="1">Status Perkawinan 1</option>
-                <option value="2" selected>Status Perkawinan 2</option>
-                <option value="3">Status Perkawinan 3</option>
-              </select>
+              <input type="text" class="form-control input-control" id="status_perkawinan" name="status_perkawinan" required value="<?= $dataKeluarga['status_perkawinan'] ?>" disabled />
             </div>
           </div>
           <!-- status hubungan dalam keluarga -->
@@ -76,64 +71,42 @@
             <label for="hubungan_keluarga" class="col-md-2 form-label forms-label mt-md-2">Status Hubungan Keluarga
               <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="hubungan_keluarga" name="hubungan_keluarga" required class="form-select select-control" disabled>
-                <option value="">
-                  Pilih Status Hubungan Dalam Keluarga
-                </option>
-                <option value="1">Kepala keluarga</option>
-                <option value="2" selected>Istri</option>
-                <option value="3">Anak</option>
-              </select>
+              <input type="text" class="form-control input-control" id="hubungan_keluarga" name="hubungan_keluarga" required value="<?= $dataKeluarga['status'] ?>" disabled />
             </div>
           </div>
           <!-- agama -->
           <div class="row mb-3">
             <label for="agama" class="col-md-2 form-label forms-label mt-md-2">Agama <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="agama" name="agama" required class="form-select select-control" disabled>
-                <option value="">Pilih Agama</option>
-                <option value="1" selected>Agama 1</option>
-                <option value="2">Agama 2</option>
-                <option value="3">Agama 3</option>
-              </select>
+              <input type="text" class="form-control input-control" id="agama" name="agama" required value="<?= $dataKeluarga['agama'] ?>" disabled />
             </div>
           </div>
           <!-- pendidikan -->
           <div class="row mb-3">
             <label for="pendidikan" class="col-md-2 form-label forms-label mt-md-2">Pendidikan <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="pendidikan" name="pendidikan" required class="form-select select-control" disabled>
-                <option value="">Pilih Pendidikan</option>
-                <option value="1">Pendidikan 1</option>
-                <option value="2">Pendidikan 2</option>
-                <option value="3" selected>Pendidikan 3</option>
-              </select>
+              <input type="text" class="form-control input-control" id="pendidikan" name="pendidikan" required value="<?= $dataKeluarga['pendidikan'] ?>" disabled />
             </div>
           </div>
           <!-- pekerjaan -->
           <div class="row mb-3">
             <label for="pekerjaan" class="col-md-2 form-label forms-label mt-md-2">Pekerjaan <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="pekerjaan" name="pekerjaan" required class="form-select select-control" disabled>
-                <option value="">Pilih Pekerjaan</option>
-                <option value="1" selected>Pekerjaan 1</option>
-                <option value="2">Pekerjaan 2</option>
-                <option value="3">Pekerjaan 3</option>
-              </select>
+              <input type="text" class="form-control input-control" id="pekerjaan" name="pekerjaan" required value="<?= $dataKeluarga['pekerjaan'] ?>" disabled />
             </div>
           </div>
           <!-- no. hp -->
           <div class="row mb-3">
             <label for="no_hp" class="col-md-2 form-label forms-label mt-md-2">No. HP <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required placeholder="Masukkan No. HP" value="08123456789" disabled />
+              <input type="text" class="form-control input-control" id="no_hp" name="no_hp" required value="<?= $dataKeluarga['no_hp'] ?>" disabled />
             </div>
           </div>
           <!-- email -->
           <div class="row mb-3">
             <label for="email" class="col-md-2 form-label forms-label mt-md-2">Email <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="email" class="form-control input-control" id="email" name="email" required placeholder="Masukkan Email" value="mahmudinss@gmail.com" disabled />
+              <input type="email" class="form-control input-control" id="email" name="email" required value="<?= $dataKeluarga['email'] ?>" disabled />
             </div>
           </div>
           <!-- foto -->

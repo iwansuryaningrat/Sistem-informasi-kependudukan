@@ -197,4 +197,38 @@ class UserController extends BaseController
         session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
         return redirect()->to('/users/profile');
     }
+
+    public function updateFotoProfile($nik)
+    {
+        $foto = $this->request->getFile('foto_profil');
+
+        // Check if foto is uploaded
+        if ($foto->getError() == 4) {
+            $namaFoto = $this->user_data['foto'];
+        } else {
+            // Generate random name
+            $namaFoto = $foto->getRandomName();
+
+            // Move foto to img folder
+            $foto->move('upload/photos/', $namaFoto);
+
+            // Delete old foto
+            if ($this->user_data['foto'] != 'default.png') {
+                unlink('upload/photos/' . $this->user_data['foto']);
+            }
+        }
+
+        // Update user data
+        $this->userModel->editUsers([
+            'foto' => $namaFoto
+        ], $nik);
+
+        // Update session
+        session()->set([
+            'foto' => $namaFoto
+        ]);
+
+        session()->setFlashdata('success', 'Foto profil berhasil diperbarui');
+        return redirect()->to('/users/profile');
+    }
 }
