@@ -47,5 +47,34 @@ class InitialSeeds extends Seeder
             'updated_at' => date('Y-m-d H:i:s'),
         ];
         $this->db->table('users')->insert($dataUser);
+
+        $dataKategoriGaleri = [
+            [
+                'nama_kategori' => 'Kegiatan',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_kategori' => 'Lomba',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_kategori' => 'Acara',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_kategori' => 'Dokumentasi',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama_kategori' => 'Lainnya',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]
+        ];
+        $this->db->table('kategori_galeri')->insertBatch($dataKategoriGaleri);
     }
 }
