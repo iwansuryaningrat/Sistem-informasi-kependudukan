@@ -11,13 +11,15 @@ class AdministrasiModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'administrasi_status', 'berkas', 'tgl_penerimaan', 'catatan', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'administrasi_status', 'berkas', 'tgl_penerimaan', 'catatan', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Get Administrasi data join with user and sort by created_at desc and administrasi_status 'Dalam Proses' first
     public function getAdministrasi($administrasi_id = null)

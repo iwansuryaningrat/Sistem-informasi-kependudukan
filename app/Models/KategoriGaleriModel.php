@@ -11,11 +11,13 @@ class KategoriGaleriModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_kategori', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['nama_kategori', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 }

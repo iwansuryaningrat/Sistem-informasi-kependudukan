@@ -11,13 +11,15 @@ class FotoModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'isThumbnail', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'isThumbnail', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Get Foto data join with galeri and sort by created_at desc
     public function getFoto($foto_id = null)

@@ -11,13 +11,15 @@ class PesanModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_pengirim', 'email', 'kategori', 'pesan', 'status', 'updated_by', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['nama_pengirim', 'email', 'kategori', 'pesan', 'status', 'updated_by', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Count Pesan while status = 'Belum Dibaca'
     public function countPesan()
@@ -33,9 +35,9 @@ class PesanModel extends Model
             return $this->orderBy('status', 'ASC')->findAll();
         } else {
             return $this->select('pesan.*, users.nama')
-            ->join('users', 'users.nik = pesan.updated_by')
-            ->where(['pesan.id' => $id])
-            ->first();
+                ->join('users', 'users.nik = pesan.updated_by')
+                ->where(['pesan.id' => $id])
+                ->first();
         }
     }
 

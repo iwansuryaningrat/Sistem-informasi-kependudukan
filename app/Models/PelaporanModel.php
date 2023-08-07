@@ -11,13 +11,15 @@ class PelaporanModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['nik_pelapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = ['nik_pelapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Get Pelaporan data join with user and sort by created_at desc and status 'Dalam Proses' first
     public function getPelaporan($pelaporan_id = null)
