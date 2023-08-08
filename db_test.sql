@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2023 at 09:14 PM
+-- Generation Time: Aug 08, 2023 at 08:19 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `elsa_db`
+-- Database: `db_test`
 --
 
 -- --------------------------------------------------------
@@ -30,14 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `administrasi` (
   `administrasi_id` int(11) NOT NULL,
   `pemohon` bigint(17) NOT NULL,
-  `kategori` varchar(30) NOT NULL,
-  `keperluan` varchar(100) NOT NULL,
-  `deskripsi` varchar(255) NOT NULL,
-  `no_surat` varchar(50) NOT NULL,
+  `kategori` varchar(30) DEFAULT NULL,
+  `keperluan` varchar(100) DEFAULT NULL,
+  `deskripsi` varchar(255) DEFAULT NULL,
+  `no_surat` varchar(50) DEFAULT NULL,
   `administrasi_status` varchar(50) NOT NULL DEFAULT 'Menunggu Konfirmasi',
   `berkas` varchar(255) NOT NULL,
-  `tgl_penerimaan` date NOT NULL,
-  `catatan` varchar(255) NOT NULL,
+  `tgl_penerimaan` date DEFAULT NULL,
+  `catatan` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -178,7 +178,7 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 CREATE TABLE `foto` (
   `foto_id` int(11) NOT NULL,
   `galeri_id` int(11) NOT NULL,
-  `nama_foto` varchar(255) NOT NULL,
+  `nama_foto` varchar(255) DEFAULT NULL,
   `foto_path` varchar(255) NOT NULL,
   `isThumbnail` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
@@ -195,10 +195,10 @@ CREATE TABLE `foto` (
 CREATE TABLE `galeri` (
   `galeri_id` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
-  `deskripsi` varchar(255) NOT NULL,
-  `thumbnail` varchar(255) DEFAULT NULL,
+  `deskripsi` varchar(255) DEFAULT NULL,
+  `thumbnail` varchar(255) NOT NULL,
   `uploaded_by` bigint(17) NOT NULL,
-  `kategori` int(11) NOT NULL,
+  `kategori` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -210,7 +210,8 @@ CREATE TABLE `galeri` (
 
 INSERT INTO `galeri` (`galeri_id`, `judul`, `deskripsi`, `thumbnail`, `uploaded_by`, `kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Test', 'test', '1691435504_61b04f5535f48c7adea9.png', 343475351188255, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
-(2, 'Test', 'test', '1691435533_b942a10441f15ec306a8.png', 343475351188255, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL);
+(2, 'Test', 'test', '1691435533_b942a10441f15ec306a8.png', 343475351188255, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
+(3, 'Test2', 'ffefef', '1691437804_7cb25618720bdc100cc4.png', 343475351188255, 1, '2023-08-08 02:50:04', '2023-08-08 02:50:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -245,9 +246,9 @@ INSERT INTO `kategori_galeri` (`kategori_galeri_id`, `nama_kategori`, `created_a
 CREATE TABLE `keluarga` (
   `no_kk` bigint(17) NOT NULL,
   `nama_kepala_keluarga` varchar(50) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
   `alamat_asal` varchar(255) DEFAULT NULL,
-  `foto_rumah` varchar(255) NOT NULL,
+  `foto_rumah` varchar(255) NOT NULL DEFAULT 'default.png',
   `tgl_pindah` date DEFAULT NULL,
   `status` varchar(15) NOT NULL,
   `isExist` tinyint(1) NOT NULL DEFAULT 1,
@@ -332,7 +333,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (5183460709493856, 'Tina Halimah', 'Jln. Sugiono No. 995, Malang 44085, DKI', 'Jln. Halim No. 151, Denpasar 84172, KalSel', 'default.png', '2002-08-06', 'Pindah', 0, '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (5185448129424096, 'Ana Sabrina Utami', 'Dk. Gajah No. 262, Lhokseumawe 35997, Riau', 'Ds. Astana Anyar No. 775, Pangkal Pinang 10817, SulTra', 'default.png', '1995-08-08', 'Pindah', 1, '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (5198736187114053, 'Harimurti Lukita Hidayat M.Kom.', 'Ds. Flores No. 994, Denpasar 88206, Gorontalo', 'Dk. Thamrin No. 504, Cilegon 34158, Maluku', 'default.png', '2014-08-24', 'Tetap', 0, '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(5201913757893631, 'Ani Wahyuni', 'Psr. Abdul No. 711, Pekanbaru 62508, SulTeng', 'Kpg. Villa No. 408, Pangkal Pinang 24859, DIY', 'default.png', '1996-10-20', 'Pindah', 0, '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(5201913757893631, 'Ani Wahyuni', ', ,', 'Kpg. Villa No. 408, Pangkal Pinang 24859, DIY', 'default.png', '1996-10-20', 'Pindah', 0, '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (5209383263047084, 'Tantri Rahmawati', 'Gg. Otto No. 588, Bukittinggi 71508, Maluku', 'Psr. Babah No. 5, Bogor 15790, JaBar', 'default.png', '1992-06-26', 'Tetap', 0, '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (5222788680717239, 'Widya Pia Wulandari M.Ak', 'Kpg. Bagonwoto  No. 432, Palangka Raya 21476, Jambi', 'Gg. Muwardi No. 646, Bukittinggi 31657, Lampung', 'default.png', '1978-06-02', 'Pindah', 1, '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (5233227255122035, 'Irnanto Budiyanto', 'Psr. Laksamana No. 457, Metro 44676, BaBel', 'Ds. Raden Saleh No. 166, Tangerang Selatan 33360, BaBel', 'default.png', '2007-08-29', 'Pindah', 1, '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
@@ -395,9 +396,9 @@ CREATE TABLE `pelaporan` (
   `pelaporan_id` int(11) NOT NULL,
   `nik_pelapor` bigint(17) NOT NULL,
   `nik_terlapor` bigint(17) NOT NULL,
-  `kategori` varchar(50) NOT NULL,
+  `kategori` varchar(50) DEFAULT NULL,
   `laporan` varchar(255) NOT NULL,
-  `deskripsi_pelaporan` varchar(255) NOT NULL,
+  `deskripsi_pelaporan` varchar(255) DEFAULT NULL,
   `status_pelaporan` varchar(20) NOT NULL DEFAULT 'Menunggu Konfirmasi',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -435,9 +436,9 @@ CREATE TABLE `pesan` (
   `id` int(11) NOT NULL,
   `nama_pengirim` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `kategori` varchar(50) NOT NULL,
+  `kategori` varchar(50) DEFAULT NULL,
   `pesan` varchar(255) NOT NULL,
-  `status` varchar(15) NOT NULL,
+  `status` varchar(15) NOT NULL DEFAULT 'Belum Dibaca',
   `updated_by` bigint(20) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -449,9 +450,10 @@ CREATE TABLE `pesan` (
 --
 
 INSERT INTO `pesan` (`id`, `nama_pengirim`, `email`, `kategori`, `pesan`, `status`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(6, 'Iwan Suryaningrat', 'iwansuryaningrat@gmail.com', 'Pertanyaan', 'Test', 'Sudah Dibaca', 4716454593739, '2023-08-02 21:42:25', '2023-08-02 23:45:28', NULL),
+(6, 'Iwan Suryaningrat', 'iwansuryaningrat@gmail.com', 'Pertanyaan', 'Test', 'Sudah Dibaca', 22222222222222222, '2023-08-02 21:42:25', '2023-08-09 00:48:40', '2023-08-09 00:48:40'),
 (8, 'Iwan Suryaningrat', 'iwansuryaningrat@gmail.com', 'Saran', 'testes', 'Sudah Dibaca', 4716454593739, '2023-08-02 23:45:58', '2023-08-02 23:48:34', NULL),
-(9, 'Raina Ilsa Laksmiwati M.Ak', 'zalindra.laksita@firgantoro.co.id', 'Pertanyaan', 'mau tanya gan', 'Belum Dibaca', NULL, '2023-08-08 01:50:19', '2023-08-08 01:50:19', NULL);
+(9, 'Raina Ilsa Laksmiwati M.Ak', 'zalindra.laksita@firgantoro.co.id', 'Pertanyaan', 'mau tanya gan', 'Belum Dibaca', NULL, '2023-08-08 01:50:19', '2023-08-08 01:50:19', NULL),
+(10, 'Pia Agnes Wastuti', 'gsaefullah@yahoo.co.id', 'Saran', 'Test', 'Belum Dibaca', NULL, '2023-08-09 00:55:25', '2023-08-09 00:55:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -463,21 +465,21 @@ CREATE TABLE `users` (
   `nik` bigint(17) NOT NULL,
   `no_kk` bigint(17) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `status` varchar(15) NOT NULL COMMENT '[Kepala Keluarga, Istri, Anak]',
-  `jenis_kelamin` varchar(20) NOT NULL,
-  `agama` varchar(25) NOT NULL,
-  `tempat_lahir` varchar(50) NOT NULL,
-  `tgl_lahir` date NOT NULL,
-  `usia` int(11) NOT NULL,
-  `status_perkawinan` varchar(20) NOT NULL COMMENT '[Kawin, Belum Kawin, Duda/Janda]',
-  `pendidikan` varchar(50) NOT NULL,
+  `status` varchar(15) DEFAULT NULL COMMENT '[Kepala Keluarga, Istri, Anak]',
+  `jenis_kelamin` varchar(20) DEFAULT NULL,
+  `agama` varchar(25) DEFAULT NULL,
+  `tempat_lahir` varchar(50) DEFAULT NULL,
+  `tgl_lahir` date DEFAULT NULL,
+  `usia` int(11) DEFAULT NULL,
+  `status_perkawinan` varchar(20) DEFAULT NULL COMMENT '[Kawin, Belum Kawin, Duda/Janda]',
+  `pendidikan` varchar(50) DEFAULT NULL,
   `pekerjaan` varchar(50) DEFAULT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
   `no_hp` varchar(15) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `role` varchar(10) NOT NULL COMMENT '[user, ketua rt, admin, superadmin]',
-  `foto` varchar(255) NOT NULL,
-  `status_kependudukan` varchar(50) NOT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'User' COMMENT '[user, ketua rt, admin, superadmin]',
+  `foto` varchar(255) NOT NULL DEFAULT 'default.png',
+  `status_kependudukan` varchar(50) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -491,7 +493,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (4024007109297, 6011619156208978, 'Emin Prasetya', 'Istri', 'Perempuan', 'Khatolik', 'Bau-Bau', '2000-12-14', 23, 'kawin', 'S1', 'Wiraswasta', 'emin@gmail.com', '088765432190', '$2y$10$uVROR7WKHlhjc/0UZQotsezLq.DE.HT4AJPZwshPZ4snkNzIir8M.', 'User', '1689786126_dd06a54dd94a12ab110e.jpg', 'Tetap', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
 (4024007168228, 6011619156208978, 'Virman Wibisono', 'Anak', 'Laki-laki', 'Islam', 'Yogyakarta', '1984-06-08', 39, 'kawin', 'SMP', 'Wiraswasta', 'virman@gmail.com', '088888888888', '$2y$10$hLKct2C/NRJ4C1BI7XgdfejGndG2se7boFzPKOSlUvLK8iaCYb4Je', 'User', '1690728293_ebe07b4b1b9deae9601a.jpg', 'Pendatang', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4024007177104, 5233227255122035, 'Ellis Widya Usamah', 'Anak', 'Perempuan', 'Islam', 'Tarakan', '2007-06-13', 35, 'Cerai Mati', 'SMA', 'Wiraswasta', 'mitra77@yulianti.ac.id', NULL, '$2y$10$J.XF8o2h51sJfExBoDPFI.j7CPZOJ3Ug/gTxflimP/6vhLjDKSRRe', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
-(4302450574955, 5201913757893631, 'Pia Agnes Wastuti', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Malang', '1986-06-14', 9, 'Kawin', 'D3', 'Wiraswasta', 'gsaefullah@yahoo.co.id', NULL, '$2y$10$RoZgDflAr5S5Ta9mZ31A/ujncy/Or.xYD0YML/oeOpcnA7qokQBYm', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(4302450574955, 5201913757893631, 'Agus', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Malang', '1986-06-14', 37, 'Kawin', 'D3', 'Wiraswasta', 'surya@gmail.com', '082345678912', '$2y$10$RoZgDflAr5S5Ta9mZ31A/ujncy/Or.xYD0YML/oeOpcnA7qokQBYm', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (4485439309609, 5489558019884408, 'Ida Yuliarti', 'Istri', 'Laki-laki', 'Islam', 'Malang', '2011-06-25', 11, 'Cerai Hidup', 'D3', 'Wiraswasta', 'xanana.oktaviani@puspasari.net', NULL, '$2y$10$a/YrX9ZicEThFkOPBP1BQ.hekOzPDUg0Vv8UXsinrHzmDveSzdt.O', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
 (4485809172694, 6011619156208978, 'Bambang Nyoman Zulkarnain M.Farm', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Manado', '2018-07-09', 43, 'Cerai Mati', 'S2', 'Wiraswasta', 'daruna.nasyiah@gmail.com', NULL, '$2y$10$HAfYa89XM/a7La6ARVnJ3e2dB7X41wymQLyNb4JLN58/sif3VEyJ2', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
 (4532216326304, 5394358651956976, 'Tri Kayun Pradipta S.IP', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Palangka Raya', '1973-09-28', 30, 'Belum Kawin', 'S1', 'Wiraswasta', 'yuniar.kenzie@gmail.com', NULL, '$2y$10$Z5h7rX9AzuC8HxDFqqovOO5GbBIjfPSJ39SpZVmKTieOlh/rNCnqS', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
@@ -527,6 +529,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (1426323985999439, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2002-02-02', 21, 'Kawin', 'S1', 'Programmer', 'surya@gmail.com', '082345678912', '$2y$10$KVMX0A/lPxmRwSg0dLGuFeWJ/1JBBkjUk2AFaiZZew6DBN9IL1bKa', 'User', 'default.png', 'Tetap', '2023-08-08 01:35:41', '2023-08-08 01:35:41', NULL),
 (1426823985119439, 5566468947251405, 'Surya', 'Anak', 'Laki-laki', 'Islam', 'Grobogan', '2003-03-03', 20, 'Belum Kawin', 'S1', 'Programmer', 'surya@gmail.com', '08888888883', '$2y$10$8BESta6Sg1ookxTtTyptxux7Yz9i34NkW3E7e7ZJcHIrhtjtQXO42', 'User', '1691433600_a422be60d646dd706406.jpg', 'Tetap', '2023-08-08 01:40:00', '2023-08-08 01:40:00', NULL),
 (2222222222222226, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2012-12-12', 11, 'Belum Kawin', 'SMP', 'Programmer', 'virman@gmail.com', '088888888888', '$2y$10$FuHM8/CS/gNgI7M.1TUcLeE5dlTi/KAkwbjRrK93oBis3vsnaYtM.', 'User', 'default.png', 'Tetap', '2023-08-08 01:33:25', '2023-08-08 01:33:25', NULL),
+(3483948274937252, 5201913757893631, 'Agus Junior', 'Anak', 'Laki-laki', 'Kristen', 'Grobogan', '2023-08-02', 0, 'Belum Kawin', 'Tidak Sekolah', 'Belum Bekerja', 'emin@gmail.com', '088765432190', '$2y$10$Fq.ELaf4lKIveqPH3g1l2ek0guJeqkntFtzuBnn8VqEO6UAMCilwC', 'User', 'default.png', 'Tetap', '2023-08-09 00:29:30', '2023-08-09 00:29:30', NULL),
 (4485369111653429, 5329755779516691, 'Banawa Marbun', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Gunungsitoli', '1979-11-08', 81, 'Kawin', 'S1', 'Wiraswasta', 'laksita.warsita@hutagalung.info', NULL, '$2y$10$xBCSkdV796/vXekXORae.e8WvRhaulZwQsWGjVeqoHcj3h4LGCWr6', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (4485425690195891, 346212495141057, 'Maman Megantara', 'Anak', 'Perempuan', 'Islam', 'Semarang', '2001-07-05', 46, 'Kawin', 'SD', 'Wiraswasta', 'wibisono.ophelia@yahoo.com', NULL, '$2y$10$TMlkf/rR2HmLGiDly4V/yOyipYDsYDvyBAbCQ/8qJK6iw6nUMDOhC', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (4485756027046005, 344917642407464, 'Dina Pertiwi S.Farm', 'Anak', 'Perempuan', 'Islam', 'Administrasi Jakarta Barat', '2018-12-03', 35, 'Belum Kawin', 'S2', 'Wiraswasta', 'yono.hidayat@yahoo.co.id', NULL, '$2y$10$vmovF.c23jzKz6F3f3CdfOb/dTl3upFwi1rk/TgkP2ZHViQO9e9q.', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
@@ -613,6 +616,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (6011888609033651, 5406976581877958, 'Jaga Halim', 'Anak', 'Perempuan', 'Islam', 'Surakarta', '2010-07-01', 80, 'Kawin', 'Tidak Sekolah', 'Wiraswasta', 'nasrullah.widodo@yahoo.com', NULL, '$2y$10$JGJzX.0VpKIXD4ubxRmSMe6e0HnxUze50SlQRrTYpitfqBAswCFr2', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (6011931144354909, 341874321581023, 'Rafid Nardi Thamrin M.Pd', 'Istri', 'Laki-laki', 'Islam', 'Balikpapan', '1970-04-03', 79, 'Belum Kawin', 'SD', 'Wiraswasta', 'titin71@gmail.com', NULL, '$2y$10$qp6rw2N3xOnYCET3feNhZOB5OiBeNRzDLTJnk9h9EIJNOQ/d/HTBG', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (6011945130164650, 5518264477344515, 'Tina Halimah', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Administrasi Jakarta Selatan', '1982-10-09', 50, 'Cerai Mati', 'D1', 'Wiraswasta', 'hafshah.widodo@pertiwi.info', NULL, '$2y$10$zTu3RKMi9FWBde8eRoOt8OFKBLUty0blJsPEH9kkdoTYZ.XsR614m', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(8764783762849373, 5201913757893631, 'Susi', 'Istri', 'Laki-laki', 'Islam', 'Grobogan', '1997-07-09', 26, 'Kawin', 'S1', 'Ibu Rumah Tangga', 'emin@gmail.com', '088765432190', '$2y$10$R6qTlX33/HG2aaPoOs.Zt.5DFhBu6jb9FyQg/DIhslXCQOE6DC0fW', 'User', '1691516090_1975c740ec9353b40015.png', 'Tetap', '2023-08-09 00:34:50', '2023-08-09 00:34:50', NULL),
 (22222222222222222, 1212121212121212, 'Admin', 'Kepala Keluarga', 'Laki-laki', '', '-', '2023-08-07', 0, 'Kawin', 'S3', NULL, 'admin@gmail.com', NULL, '$2y$10$E0KoAXJwg5ksyzopq7H0xue8ZY6a0JQLSX48X610xdV6vfxu4Bn/m', 'Admin', 'default.png', 'Tetap', '2023-08-07 21:09:20', '2023-08-07 21:09:20', NULL);
 
 --
@@ -702,7 +706,7 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kategori_galeri`
@@ -726,7 +730,7 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
