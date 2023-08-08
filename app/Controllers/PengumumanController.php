@@ -2,29 +2,65 @@
 
 namespace App\Controllers;
 
+use App\Models\AdministrasiModel;
+use App\Models\FotoModel;
+use App\Models\GaleriModel;
+use App\Models\KategoriGaleriModel;
+use App\Models\KeluargaModel;
+use App\Models\PelaporanModel;
 use App\Models\PengumumanModel;
-
-use App\Controllers\BaseController;
+use App\Models\PesanModel;
+use App\Models\UsersModel;
 
 class PengumumanController extends BaseController
 {
-
-    /* A variable that is used to store the object of the PengumumanModel class. */
+    protected $administrasiModel;
+    protected $fotoModel;
+    protected $galeriModel;
+    protected $kategoriGaleriModel;
+    protected $keluargaModel;
+    protected $pelaporanModel;
     protected $pengumumanModel;
+    protected $pesanModel;
+    protected $usersModel;
+
+    protected $user_data;
 
     public function __construct()
     {
+        $this->administrasiModel = new AdministrasiModel();
+        $this->fotoModel = new FotoModel();
+        $this->galeriModel = new GaleriModel();
+        $this->kategoriGaleriModel = new KategoriGaleriModel();
+        $this->keluargaModel = new KeluargaModel();
+        $this->pelaporanModel = new PelaporanModel();
         $this->pengumumanModel = new PengumumanModel();
+        $this->pesanModel = new PesanModel();
+        $this->usersModel = new UsersModel();
+
+        $this->user_data = [
+            'nik' => session()->get('nik'),
+            'no_kk' => session()->get('no_kk'),
+            'nama' => session()->get('nama'),
+            'status' => session()->get('status'),
+            'jenis_kelamin' => session()->get('jenis_kelamin'),
+            'agama' => session()->get('agama'),
+            'tempat_lahir' => session()->get('tempat_lahir'),
+            'tgl_lahir' => session()->get('tgl_lahir'),
+            'usia' => session()->get('usia'),
+            'status_perkawinan' => session()->get('status_perkawinan'),
+            'pendidikan' => session()->get('pendidikan'),
+            'email' => session()->get('email'),
+            'no_hp' => session()->get('no_hp'),
+            'role' => session()->get('role'),
+            'foto' => session()->get('foto'),
+            'status_kependudukan' => session()->get('status_kependudukan'),
+            'alamat' => session()->get('alamat'),
+            'pekerjaan' => session()->get('pekerjaan'),
+            'isLoggedIn' => session()->get('isLoggedIn'),
+        ];
     }
 
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * The above function is used to display all the data in the announcement table.
-     */
     public function allAnnouncements()
     {
         $data = [
@@ -35,11 +71,6 @@ class PengumumanController extends BaseController
         return view('pengumuman/index', $data);
     }
 
-    /**
-     * The above function is used to display the detail of an announcement.
-     * 
-     * @param id The name of the parameter to be used in the URL.
-     */
     public function detailAnnouncement($id)
     {
         $data = [
@@ -54,16 +85,10 @@ class PengumumanController extends BaseController
         return view('pengumuman/detail', $data);
     }
 
-    /**
-     * The above function is used to create a new announcement data.
-     */
     public function createAnnouncement()
     {
     }
 
-    /**
-     * The above function is used to save the new announcement data.
-     */
     public function saveAnnouncement()
     {
         $this->pengumumanModel->save([
@@ -78,11 +103,6 @@ class PengumumanController extends BaseController
         return redirect()->to('/pengumuman');
     }
 
-    /**
-     * The above function is used to display the edit form of an announcement.
-     * 
-     * @param id The name of the parameter to be used in the URL.
-     */
     public function editAnnouncement($id)
     {
         $data = [
@@ -93,18 +113,10 @@ class PengumumanController extends BaseController
         return view('pengumuman/edit', $data);
     }
 
-    /**
-     * The above function is used to update the announcement data.
-     */
     public function updateAnnouncement($id)
     {
     }
 
-    /**
-     * The above function is used to delete the announcement data.
-     * 
-     * @param id The name of the parameter to be used in the URL.
-     */
     public function deleteAnnouncement($id)
 
     {

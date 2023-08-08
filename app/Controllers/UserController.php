@@ -2,21 +2,43 @@
 
 namespace App\Controllers;
 
-use App\Models\UsersModel;
-use App\Models\KeluargaModel;
-
 use App\Controllers\BaseController;
+
+use App\Models\AdministrasiModel;
+use App\Models\FotoModel;
+use App\Models\GaleriModel;
+use App\Models\KategoriGaleriModel;
+use App\Models\KeluargaModel;
+use App\Models\PelaporanModel;
+use App\Models\PengumumanModel;
+use App\Models\PesanModel;
+use App\Models\UsersModel;
 
 class UserController extends BaseController
 {
-    protected $userModel;
+    protected $administrasiModel;
+    protected $fotoModel;
+    protected $galeriModel;
+    protected $kategoriGaleriModel;
     protected $keluargaModel;
+    protected $pelaporanModel;
+    protected $pengumumanModel;
+    protected $pesanModel;
+    protected $usersModel;
+
     protected $user_data;
 
     public function __construct()
     {
-        $this->userModel = new UsersModel();
+        $this->administrasiModel = new AdministrasiModel();
+        $this->fotoModel = new FotoModel();
+        $this->galeriModel = new GaleriModel();
+        $this->kategoriGaleriModel = new KategoriGaleriModel();
         $this->keluargaModel = new KeluargaModel();
+        $this->pelaporanModel = new PelaporanModel();
+        $this->pengumumanModel = new PengumumanModel();
+        $this->pesanModel = new PesanModel();
+        $this->usersModel = new UsersModel();
 
         $this->user_data = [
             'nik' => session()->get('nik'),
@@ -24,6 +46,7 @@ class UserController extends BaseController
             'nama' => session()->get('nama'),
             'status' => session()->get('status'),
             'jenis_kelamin' => session()->get('jenis_kelamin'),
+            'agama' => session()->get('agama'),
             'tempat_lahir' => session()->get('tempat_lahir'),
             'tgl_lahir' => session()->get('tgl_lahir'),
             'usia' => session()->get('usia'),
@@ -35,6 +58,7 @@ class UserController extends BaseController
             'foto' => session()->get('foto'),
             'status_kependudukan' => session()->get('status_kependudukan'),
             'alamat' => session()->get('alamat'),
+            'pekerjaan' => session()->get('pekerjaan'),
             'isLoggedIn' => session()->get('isLoggedIn'),
         ];
     }
@@ -65,7 +89,7 @@ class UserController extends BaseController
         $usia = date('Y') - $tgl_lahir;
 
         // Insert user data
-        $this->userModel->save([
+        $this->usersModel->save([
             'nik' => $this->request->getVar('nik'),
             'no_kk' => $no_kk,
             'nama' => $this->request->getVar('nama'),
@@ -116,7 +140,7 @@ class UserController extends BaseController
         }
 
         // Update user data
-        $this->userModel->editUsers([
+        $this->usersModel->editUsers([
             'nama' => $nama,
             'email' => $email,
             'no_hp' => $no_hp,
@@ -149,7 +173,7 @@ class UserController extends BaseController
         $usia = date('Y') - $tgl_lahir;
 
         // Update user data
-        $this->userModel->editUsers([
+        $this->usersModel->editUsers([
             'status' => $this->request->getVar('status'),
             'status_perkawinan' => $this->request->getVar('status_perkawinan'),
             'agama' => $this->request->getVar('agama'),
@@ -235,7 +259,7 @@ class UserController extends BaseController
         ];
 
         // Update user data
-        $this->userModel->editUsers($data, $nik);
+        $this->usersModel->editUsers($data, $nik);
 
         // Update keluarga data
         $this->keluargaModel->editKeluarga([
@@ -275,7 +299,7 @@ class UserController extends BaseController
         }
 
         // Update user data
-        $this->userModel->editUsers([
+        $this->usersModel->editUsers([
             'foto' => $namaFoto
         ], $nik);
 

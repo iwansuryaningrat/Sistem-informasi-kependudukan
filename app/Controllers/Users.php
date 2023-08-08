@@ -3,12 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Controllers\AdministrasiController;
-use App\Controllers\FotoController;
-use App\Controllers\GaleriController;
-use App\Controllers\KeluargaController;
-use App\Controllers\PelaporanController;
-use App\Controllers\PengumumanController;
 
 use App\Models\AdministrasiModel;
 use App\Models\FotoModel;
@@ -22,14 +16,6 @@ use App\Models\UsersModel;
 
 class Users extends BaseController
 {
-    protected $administrasiController;
-    protected $authController;
-    protected $fotoController;
-    protected $galeriController;
-    protected $keluargaController;
-    protected $pelaporanController;
-    protected $pengumumanController;
-
     protected $administrasiModel;
     protected $fotoModel;
     protected $galeriModel;
@@ -44,13 +30,6 @@ class Users extends BaseController
 
     public function __construct()
     {
-        $this->administrasiController = new AdministrasiController();
-        $this->fotoController = new FotoController();
-        $this->galeriController = new GaleriController();
-        $this->keluargaController = new KeluargaController();
-        $this->pelaporanController = new PelaporanController();
-        $this->pengumumanController = new PengumumanController();
-
         $this->administrasiModel = new AdministrasiModel();
         $this->fotoModel = new FotoModel();
         $this->galeriModel = new GaleriModel();
@@ -83,6 +62,7 @@ class Users extends BaseController
             'isLoggedIn' => session()->get('isLoggedIn'),
         ];
     }
+
 
     public function index()
     {
