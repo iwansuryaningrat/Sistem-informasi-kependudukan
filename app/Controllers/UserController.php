@@ -199,7 +199,7 @@ class UserController extends BaseController
         $usia = date('Y') - $tgl_lahir;
 
         // handle image
-        $foto = $this->request->getFile('foto_profil');
+        $foto = $this->request->getFile('foto');
 
         // Check if foto is uploaded
         if ($foto == null || $foto->getError() == 4) {
@@ -217,8 +217,7 @@ class UserController extends BaseController
             }
         }
 
-        // Update user data
-        $this->userModel->editUsers([
+        $data = [
             'nama' => $this->request->getVar('nama'),
             'jenis_kelamin' => $jenis_kelamin,
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
@@ -233,7 +232,10 @@ class UserController extends BaseController
             'no_hp' => $this->request->getVar('no_hp'),
             'email' => $this->request->getVar('email'),
             'foto' => $namaFoto
-        ], $nik);
+        ];
+
+        // Update user data
+        $this->userModel->editUsers($data, $nik);
 
         // Update keluarga data
         $this->keluargaModel->editKeluarga([
@@ -242,19 +244,7 @@ class UserController extends BaseController
 
         if ($nik == $this->user_data['nik']) {
             // Update session
-            session()->set([
-                'status' => $this->request->getVar('status'),
-                'status_perkawinan' => $this->request->getVar('status_perkawinan'),
-                'agama' => $this->request->getVar('agama'),
-                'jenis_kelamin' => $jenis_kelamin,
-                'tempat_lahir' => $this->request->getVar('tempat_lahir'),
-                'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
-                'usia' => $usia,
-                'alamat' => $alamat,
-                'pendidikan' => $this->request->getVar('pendidikan'),
-                'status_kependudukan' => $this->request->getVar('status_kependudukan'),
-                'pekerjaan' => $this->request->getVar('pekerjaan'),
-            ]);
+            session()->set($data);
 
             session()->setFlashdata('success', 'Data pribadi berhasil diperbarui');
             return redirect()->to('/users/profile');

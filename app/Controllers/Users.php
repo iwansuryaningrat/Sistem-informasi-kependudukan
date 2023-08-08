@@ -115,7 +115,6 @@ class Users extends BaseController
             'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
-        // dd($data['dataGaleri']);
 
         return view('/users/gallery/gallery', $data);
     }
@@ -174,7 +173,6 @@ class Users extends BaseController
     public function formEditKeluarga($nik)
     {
         $dataKeluarga = $this->usersModel->getUsers($nik);
-        // dd($dataKeluarga);
 
         $data = [
             'title' => 'Form Edit Keluarga | Warga Site',
@@ -191,7 +189,7 @@ class Users extends BaseController
     public function administrasi()
     {
         $administrasiData = $this->administrasiModel->getAdministrasiByPemohon($this->user_data['no_kk']);
-        // dd($administrasiData);
+
         $data = [
             'title' => 'Menu Administrasi | Warga Site',
             'navbar' => 'administrasi',
@@ -205,7 +203,7 @@ class Users extends BaseController
     public function detailadministrasi($id)
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
-        // dd($dataAdministrasi);
+
         $data = [
             'title' => 'Detail Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',

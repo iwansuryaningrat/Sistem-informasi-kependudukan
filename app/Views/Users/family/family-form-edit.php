@@ -159,6 +159,13 @@
               </select>
             </div>
           </div>
+          <!-- alamat -->
+          <div class="row mb-3">
+            <label for="alamat" class="col-md-2 form-label forms-label mt-md-2">alamat <span class="text-important">*</span></label>
+            <div class="col-md-10">
+              <input type="text" class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan alamat" value="<?= $dataKeluarga['alamat'] ?>" />
+            </div>
+          </div>
           <!-- pekerjaan -->
           <div class="row mb-3">
             <label for="pekerjaan" class="col-md-2 form-label forms-label mt-md-2">Pekerjaan <span class="text-important">*</span></label>
@@ -185,7 +192,7 @@
             <label for="foto" class="col-md-2 form-label forms-label mt-md-2">Foto</label>
             <div class="col-md-10">
               <div class="input-group">
-                <input type="file" class="form-control input-control" id="foto" name="foto" accept="image/*" />
+                <input type="file" class="form-control input-control" id="foto" name="foto" accept="image/*" value="<?= $dataKeluarga['foto'] ?>" />
                 <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
                   <i class="fa-solid fa-upload me-2"></i>Unggah
                 </button>
