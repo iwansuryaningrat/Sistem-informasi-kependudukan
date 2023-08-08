@@ -874,3 +874,8 @@
 .list-nav-link-item .logout-btn:hover {
   color: #de5151;
 }
+
+.swal-footer {
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}

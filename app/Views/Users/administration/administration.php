@@ -13,23 +13,6 @@
 <main>
   <section class="container container-space pt-0">
     <div class="card-table-container shadow">
-
-      <!-- get flashdata message -->
-      <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <?= session()->getFlashdata('success') ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php endif; ?>
-
-      <!-- get flashdata message -->
-      <?php if (session()->getFlashdata('error')) : ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <?= session()->getFlashdata('error') ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php endif; ?>
-
       <!-- table -->
       <div class="table-container">
         <div class="table-responsive">
@@ -155,6 +138,50 @@
     $("#tableAdmin_wrapper .row .info-table").prepend(
       '<i class="fa-solid fa-table-list ps-2 text-basic"></i>'
     );
+  });
+</script>
+
+<script>
+  //== Class definition
+  var SweetAlert2Demo = function() {
+
+    //== Demos
+    var initDemos = function() {
+
+      <?php if (session()->getFlashdata('error')) : ?>
+        swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+          icon: "error",
+          buttons: {
+            confirm: {
+              className: 'btn btn-danger'
+            }
+          },
+        });
+      <?php endif; ?>
+
+      <?php if (session()->getFlashdata('success')) : ?>
+        swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+          icon: "success",
+          buttons: {
+            confirm: {
+              className: 'btn btn-success'
+            }
+          },
+        });
+      <?php endif; ?>
+    };
+
+    return {
+      //== Init
+      init: function() {
+        initDemos();
+      },
+    };
+  }();
+
+  //== Class Initialization
+  jQuery(document).ready(function() {
+    SweetAlert2Demo.init();
   });
 </script>
 

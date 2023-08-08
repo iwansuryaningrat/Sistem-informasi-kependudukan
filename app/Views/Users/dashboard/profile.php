@@ -40,22 +40,6 @@
       <div class="col-md-9">
         <div class="tab-content" id="v-pills-tabContent">
 
-          <!-- get flashdata message -->
-          <?php if (session()->getFlashdata('success')) : ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <?= session()->getFlashdata('success') ?>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <?php endif; ?>
-
-          <!-- get flashdata message -->
-          <?php if (session()->getFlashdata('error')) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <?= session()->getFlashdata('error') ?>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <?php endif; ?>
-
           <!-- detail profile content -->
           <div class="tab-pane fade show active" id="detail-profil-content" role="tabpanel" aria-labelledby="detail-profil-tab" tabindex="0">
             <form class="card-form-container card" id="detailProfileForm" action="/usercontroller/saveDetailProfile" enctype="multipart/form-data" method="POST">
@@ -585,6 +569,50 @@
         'password';
       $('#konfirmasi_password_baru').attr('type', type);
     });
+  });
+</script>
+
+<script>
+  //== Class definition
+  var SweetAlert2Demo = function() {
+
+    //== Demos
+    var initDemos = function() {
+
+      <?php if (session()->getFlashdata('error')) : ?>
+        swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+          icon: "error",
+          buttons: {
+            confirm: {
+              className: 'btn btn-danger'
+            }
+          },
+        });
+      <?php endif; ?>
+
+      <?php if (session()->getFlashdata('success')) : ?>
+        swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+          icon: "success",
+          buttons: {
+            confirm: {
+              className: 'btn btn-success'
+            }
+          },
+        });
+      <?php endif; ?>
+    };
+
+    return {
+      //== Init
+      init: function() {
+        initDemos();
+      },
+    };
+  }();
+
+  //== Class Initialization
+  jQuery(document).ready(function() {
+    SweetAlert2Demo.init();
   });
 </script>
 

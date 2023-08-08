@@ -201,13 +201,15 @@
 </main>
 <!-- end of main -->
 
-<!-- button add gallery -->
-<div id="add-gallery-fixed">
-    <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddPhoto">
-        <i class="fa-solid fa-plus"></i>
-        <span class="text">Tambah Foto</span>
+<?php if (session()->get('isLoggedIn')) : ?>
+    <!-- button add gallery -->
+    <div id="add-gallery-fixed">
+        <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddPhoto">
+            <i class="fa-solid fa-plus"></i>
+            <span class="text">Tambah Foto</span>
+        </div>
     </div>
-</div>
+<?php endif; ?>
 
 <?= $this->endSection(); ?>
 
@@ -324,6 +326,50 @@
     };
 
     Fancybox.bind('[data-fancybox="gallery-large"]', options);
+</script>
+
+<script>
+    //== Class definition
+    var SweetAlert2Demo = function() {
+
+        //== Demos
+        var initDemos = function() {
+
+            <?php if (session()->getFlashdata('error')) : ?>
+                swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-danger'
+                        }
+                    },
+                });
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('success')) : ?>
+                swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-success'
+                        }
+                    },
+                });
+            <?php endif; ?>
+        };
+
+        return {
+            //== Init
+            init: function() {
+                initDemos();
+            },
+        };
+    }();
+
+    //== Class Initialization
+    jQuery(document).ready(function() {
+        SweetAlert2Demo.init();
+    });
 </script>
 
 <?= $this->endSection(); ?>

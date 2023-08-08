@@ -43,13 +43,13 @@ class Auth extends BaseController
 
         // Check if user exists
         if (!$user) {
-            session()->setFlashdata('message', 'NIK tidak terdaftar');
+            session()->setFlashdata('error', 'NIK tidak terdaftar');
             return redirect()->to('/auth/login');
         }
 
         // Check if password is correct
         if (!password_verify($password, $user['password'])) {
-            session()->setFlashdata('message', 'Password yang Anda masukkan salah');
+            session()->setFlashdata('error', 'Password yang Anda masukkan salah');
             return redirect()->to('/auth/login');
         }
 

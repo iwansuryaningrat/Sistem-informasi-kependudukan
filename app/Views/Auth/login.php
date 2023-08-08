@@ -48,13 +48,6 @@
                   Belum memiliki Akun?
                   <span><a href="javascript:void(0)" id="register" class="fw-medium hover-underline">Daftar</a></span>
                 </p>
-                <!-- get flashdata message -->
-                <?php if (session()->getFlashdata('message')) : ?>
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <?= session()->getFlashdata('message') ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                <?php endif; ?>
                 <div class="sign-card">
                   <form id="loginForm" action="/auth/loginprocess" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
@@ -110,6 +103,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
   <!-- fontawesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Sweet Alert -->
+  <script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
   <!-- custom -->
   <script src="/homepage/assets/js/scripts.js"></script>
   <!-- script internal -->
@@ -152,6 +147,50 @@
       var type =
         $('#password').attr('type') === 'password' ? 'text' : 'password';
       $('#password').attr('type', type);
+    });
+  </script>
+
+  <script>
+    //== Class definition
+    var SweetAlert2Demo = function() {
+
+      //== Demos
+      var initDemos = function() {
+
+        <?php if (session()->getFlashdata('error')) : ?>
+          swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+            icon: "error",
+            buttons: {
+              confirm: {
+                className: 'btn btn-danger'
+              }
+            },
+          });
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('success')) : ?>
+          swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+            icon: "success",
+            buttons: {
+              confirm: {
+                className: 'btn btn-success'
+              }
+            },
+          });
+        <?php endif; ?>
+      };
+
+      return {
+        //== Init
+        init: function() {
+          initDemos();
+        },
+      };
+    }();
+
+    //== Class Initialization
+    jQuery(document).ready(function() {
+      SweetAlert2Demo.init();
     });
   </script>
 </body>

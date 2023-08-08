@@ -142,4 +142,48 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum deserunt ut mole
   }
 </script>
 
+<script>
+  //== Class definition
+  var SweetAlert2Demo = function() {
+
+    //== Demos
+    var initDemos = function() {
+
+      <?php if (session()->getFlashdata('error')) : ?>
+        swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+          icon: "error",
+          buttons: {
+            confirm: {
+              className: 'btn btn-danger'
+            }
+          },
+        });
+      <?php endif; ?>
+
+      <?php if (session()->getFlashdata('success')) : ?>
+        swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+          icon: "success",
+          buttons: {
+            confirm: {
+              className: 'btn btn-success'
+            }
+          },
+        });
+      <?php endif; ?>
+    };
+
+    return {
+      //== Init
+      init: function() {
+        initDemos();
+      },
+    };
+  }();
+
+  //== Class Initialization
+  jQuery(document).ready(function() {
+    SweetAlert2Demo.init();
+  });
+</script>
+
 <?= $this->endSection(); ?>
