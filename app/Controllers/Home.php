@@ -2,22 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Controllers\FotoController;
-use App\Controllers\GaleriController;
-use App\Controllers\PengumumanController;
+use App\Models\FotoModel;
+use App\Models\GaleriModel;
+use App\Models\PengumumanModel;
 
 class Home extends BaseController
 {
-    protected $fotoController;
-    protected $galeriController;
-    protected $pelaporanController;
-    protected $pengumumanController;
+    protected $fotoModel;
+    protected $galeriModel;
+    protected $pengumumanModel;
 
     public function __construct()
     {
-        $this->fotoController = new FotoController();
-        $this->galeriController = new GaleriController();
-        $this->pengumumanController = new PengumumanController();
+        $this->fotoModel = new FotoModel();
+        $this->galeriModel = new GaleriModel();
+        $this->pengumumanModel = new PengumumanModel();
     }
 
     public function index()
@@ -36,6 +35,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Galeri | Warga Site',
             'navbar' => 'galeri',
+            'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => false,
         ];
 

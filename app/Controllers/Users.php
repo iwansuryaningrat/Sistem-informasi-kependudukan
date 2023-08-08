@@ -115,6 +115,7 @@ class Users extends BaseController
             'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
+        // dd($data['dataGaleri']);
 
         return view('/users/gallery/gallery', $data);
     }

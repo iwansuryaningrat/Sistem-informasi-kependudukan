@@ -80,7 +80,7 @@ class UserController extends BaseController
             'pekerjaan' => $this->request->getVar('pekerjaan'),
             'email' => $this->request->getVar('email'),
             'no_hp' => $this->request->getVar('no_hp'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'password' => password_hash('12345678', PASSWORD_DEFAULT),
             'role' => 'User',
             'foto' => $namaFoto,
             'status_kependudukan' => $this->request->getVar('status_kependudukan'),

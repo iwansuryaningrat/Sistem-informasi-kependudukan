@@ -36,6 +36,7 @@
     <?php endif; ?>
 
     <div class="news-container">
+
       <a href="./gallery-detail.html" class="news-card">
         <figure class="news-image__wrap h-13">
           <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
@@ -152,9 +153,11 @@
           <label for="kategori" class="form-label forms-label">Kategori</label>
           <select class="form-select select-control" id="kategori" name="kategori">
             <option selected value="">Pilih Kategori Galeri</option>
-            <?php foreach ($kategoriGaleri as $kategori) : ?>
-              <option value="<?= $kategori['kategori_galeri_id'] ?>"><?= $kategori['nama_kategori'] ?></option>
-            <?php endforeach; ?>
+            <?php if ($kategoriGaleri) :
+              foreach ($kategoriGaleri as $kategori) : ?>
+                <option value="<?= $kategori['kategori_galeri_id'] ?>"><?= $kategori['nama_kategori'] ?></option>
+            <?php endforeach;
+            endif; ?>
           </select>
         </div>
         <!-- deskripsi galeri -->

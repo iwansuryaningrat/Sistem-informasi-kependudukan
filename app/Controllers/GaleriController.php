@@ -97,7 +97,7 @@ class GaleriController extends BaseController
             'kategori' => $this->request->getVar('kategori'),
         ];
 
-        $this->galeriModel->saveGaleri($data);
+        $this->galeriModel->save($data);
 
         session()->setFlashdata('success', 'Galeri berhasil ditambahkan');
 
