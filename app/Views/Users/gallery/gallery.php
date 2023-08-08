@@ -19,82 +19,27 @@
 <main>
   <section class="container container-space">
     <div class="news-container">
-      <a href="./gallery-detail.html" class="news-card">
-        <figure class="news-image__wrap h-13">
-          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
-        </figure>
-        <div class="d-flex align-items-center mb-2">
-          <p class="mb-0">
-            <span class="badge badge-done">Kategori 1</span>
+      <?php foreach ($dataGaleri as $galeri) : ?>
+        <a href="/<?= (session()->get('isLoggedIn')) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
+          <figure class="news-image__wrap h-13">
+            <img src="/upload/photos/<?= $galeri['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
+          </figure>
+          <div class="d-flex align-items-center mb-2">
+            <p class="mb-0">
+              <span class="badge badge-done"><?= $galeri['nama_kategori'] ?></span>
+            </p>
+          </div>
+          <p class="news-title-card text-lg mb-2">
+            <?= $galeri['judul'] ?>
           </p>
-        </div>
-        <p class="news-title-card text-lg mb-2">
-          Galeri Kegiatan Warga 1
-        </p>
-        <div class="d-flex align-items-center">
-          <p class="d-flex align-items-center me-3 mb-0">
-            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
-            <span class="text-sm d-block text-gray">Abimanyu</span>
-          </p>
-        </div>
-      </a>
-      <a href="./gallery-detail.html" class="news-card">
-        <figure class="news-image__wrap h-13">
-          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
-        </figure>
-        <div class="d-flex align-items-center mb-2">
-          <p class="mb-0">
-            <span class="badge badge-done">Kategori 1</span>
-          </p>
-        </div>
-        <p class="news-title-card text-lg mb-2">
-          Galeri Kegiatan Warga 1
-        </p>
-        <div class="d-flex align-items-center">
-          <p class="d-flex align-items-center me-3 mb-0">
-            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
-            <span class="text-sm d-block text-gray">Abimanyu</span>
-          </p>
-        </div>
-      </a>
-      <a href="./gallery-detail.html" class="news-card">
-        <figure class="news-image__wrap h-13">
-          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
-        </figure>
-        <div class="d-flex align-items-center mb-2">
-          <p class="mb-0">
-            <span class="badge badge-accepted">Kategori 1</span>
-          </p>
-        </div>
-        <p class="news-title-card text-lg mb-2">
-          Galeri Kegiatan Warga 1
-        </p>
-        <div class="d-flex align-items-center">
-          <p class="d-flex align-items-center me-3 mb-0">
-            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
-            <span class="text-sm d-block text-gray">Abimanyu</span>
-          </p>
-        </div>
-      </a>
-      <a href="./gallery-detail.html" class="news-card">
-        <figure class="news-image__wrap h-13">
-          <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
-        </figure>
-        <div class="d-flex align-items-center mb-2">
-          <p class="mb-0">
-            <span class="badge badge-onproccess">Kategori 1</span>
-          </p>
-        </div>
-        <p class="news-title-card text-lg mb-2">
-          Galeri Kegiatan Warga 1
-        </p>
-        <div class="d-flex align-items-center">
-          <p class="d-flex align-items-center me-3 mb-0">
-            <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
-            <span class="text-sm d-block text-gray">Abimanyu</span>
-          </p>
-        </div>
-      </a>
+          <div class="d-flex align-items-center">
+            <p class="d-flex align-items-center me-3 mb-0">
+              <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+              <span class="text-sm d-block text-gray"><?= $galeri['nama'] ?></span>
+            </p>
+          </div>
+        </a>
+      <?php endforeach; ?>
     </div>
   </section>
 </main>

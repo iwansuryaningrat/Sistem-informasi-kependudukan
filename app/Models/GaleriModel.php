@@ -25,8 +25,9 @@ class GaleriModel extends Model
     public function getGaleri($galeri_id = null)
     {
         if ($galeri_id == null) {
-            return $this->select('galeri.*, users.nama')
+            return $this->select('galeri.*, users.nama, kategori_galeri.nama_kategori')
                 ->join('users', 'users.nik = galeri.uploaded_by')
+                ->join('kategori_galeri', 'kategori_galeri.kategori_galeri_id = galeri.kategori')
                 ->orderBy('galeri.created_at', 'DESC')
                 ->findAll();
         }

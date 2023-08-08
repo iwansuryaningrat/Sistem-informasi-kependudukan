@@ -63,7 +63,6 @@ class Users extends BaseController
         ];
     }
 
-
     public function index()
     {
         $data = [
@@ -97,6 +96,23 @@ class Users extends BaseController
         ];
 
         return view('/users/gallery/gallery', $data);
+    }
+
+    public function detailGaleri($id)
+    {
+        $dataGaleri = $this->galeriModel->getGaleri($id);
+        $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
+        // dd($dataFoto, $dataGaleri);
+
+        $data = [
+            'title' => 'Detail Galeri | Warga Site',
+            'navbar' => 'galeri',
+            'dataGaleri' => $dataGaleri,
+            'dataFoto' => $dataFoto,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/gallery/gallery-detail', $data);
     }
 
     public function pengumuman()

@@ -218,7 +218,7 @@
 <!-- modal add gallery -->
 <div class="modal fade" id="modalAddPhoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddPhotoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form id="formAddPhoto" class="modal-content" enctype="multipart/form-data" action="#">
+        <form id="formAddPhoto" class="modal-content" enctype="multipart/form-data" action="/fotocontroller/upload">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalAddPhotoLabel">
                     Form Tambah Foto Galeri
@@ -260,7 +260,7 @@
     // filepond options
     FilePond.setOptions({
         server: {
-            url: '/',
+            url: '/fotocontroller/upload',
             process: {
                 method: 'POST',
                 withCredentials: false,

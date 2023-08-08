@@ -62,4 +62,19 @@ class FotoController extends BaseController
             'isLoggedIn' => session()->get('isLoggedIn'),
         ];
     }
+
+    public function upload()
+    {
+        // $foto = $this->request->getFile('foto');
+        // $nama_foto = $foto->getRandomName();
+        // dd($nama_foto);
+        // $foto->move('upload/photos/', $nama_foto);
+        $req = $this->request->getVar();
+        dd($req);
+
+        // $data = [
+        //     'foto' => $nama_foto,
+        //     'users_id' => $this->user_data['nik'],
+        // ];
+    }
 }
