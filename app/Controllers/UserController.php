@@ -219,16 +219,19 @@ class UserController extends BaseController
 
         // Update user data
         $this->userModel->editUsers([
-            'status' => $this->request->getVar('status'),
-            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
-            'agama' => $this->request->getVar('agama'),
+            'nama' => $this->request->getVar('nama'),
             'jenis_kelamin' => $jenis_kelamin,
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
-            'usia' => $usia,
+            'agama' => $this->request->getVar('agama'),
+            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
             'pendidikan' => $this->request->getVar('pendidikan'),
-            'status_kependudukan' => $this->request->getVar('status_kependudukan'),
+            'status' => $this->request->getVar('status'),
             'pekerjaan' => $this->request->getVar('pekerjaan'),
+            'usia' => $usia,
+            'status_kependudukan' => $this->request->getVar('status_kependudukan'),
+            'no_hp' => $this->request->getVar('no_hp'),
+            'email' => $this->request->getVar('email'),
             'foto' => $namaFoto
         ], $nik);
 

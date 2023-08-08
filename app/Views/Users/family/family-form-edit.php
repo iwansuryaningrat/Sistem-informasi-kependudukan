@@ -113,6 +113,19 @@
               </select>
             </div>
           </div>
+          <!-- status perkawinan -->
+          <div class="row mb-3">
+            <label for="status" class="col-md-2 form-label forms-label mt-md-2">Status Hubungan Keluarga
+              <span class="text-important">*</span></label>
+            <div class="col-md-10">
+              <select id="status" name="status" required class="form-select select-control">
+                <option value="">Pilih Status Hubungan Keluarga</option>
+                <option value="Kepala Keluarga" <?= ($dataKeluarga['status'] == 'Kepala Keluarga') ? 'selected' : '' ?>>Kepala Keluarga</option>
+                <option value="Istri" <?= ($dataKeluarga['status'] == 'Istri') ? 'selected' : '' ?>>Istri</option>
+                <option value="Anak" <?= ($dataKeluarga['status'] == 'Anak') ? 'selected' : '' ?>>Anak</option>
+              </select>
+            </div>
+          </div>
           <!-- pendidikan -->
           <div class="row mb-3">
             <label for="pendidikan" class="col-md-2 form-label forms-label mt-md-2">Pendidikan <span class="text-important">*</span></label>
