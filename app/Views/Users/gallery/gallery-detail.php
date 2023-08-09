@@ -226,10 +226,26 @@
                 <button type="button" class="btn-close text-sm shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- foto -->
+                <!-- judul galeri -->
                 <div class="mb-3">
-                    <label for="foto" class="form-label forms-label">Foto</label>
-                    <input id="foto" name="foto" type="file" class="filepond" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="5" />
+                    <label for="judul" class="form-label forms-label">Judul</label>
+                    <input type="text" class="form-control input-control" id="judul" name="judul" placeholder="Masukkan Judul Galeri" />
+                </div>
+
+                <!-- deskripsi galeri -->
+                <div class="mb-3">
+                    <label for="deskripsi" class="form-label forms-label">Deskripsi</label>
+                    <textarea class="form-control input-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi Galeri"></textarea>
+                </div>
+                <!-- thumbnail galeri -->
+                <div class="mb-3">
+                    <label for="thumbnail" class="form-label forms-label">Thumbnail</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control input-control" id="thumbnail" name="thumbnail" required accept="image/*" />
+                        <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
+                            <i class="fa-solid fa-upload me-2"></i>Unggah
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

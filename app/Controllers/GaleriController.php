@@ -79,7 +79,18 @@ class GaleriController extends BaseController
             'kategori' => $this->request->getVar('kategori'),
         ];
 
-        $this->galeriModel->save($data);
+        $result = $this->galeriModel->save($data);
+
+        if (!$result) {
+            session()->setFlashdata('error', 'Galeri gagal ditambahkan');
+            return redirect()->to('/users/galeri');
+        }
+
+        $foto = [
+            'galeri_id' => $this->galeriModel->getInsertID(),
+            'foto' => $fileName,
+            'isThumbnail' => true,
+        ];
 
         session()->setFlashdata('success', 'Galeri berhasil ditambahkan');
 
