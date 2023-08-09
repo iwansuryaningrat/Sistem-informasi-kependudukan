@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 08:19 PM
+-- Generation Time: Aug 09, 2023 at 08:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -436,6 +436,7 @@ CREATE TABLE `pengumuman` (
   `tanggal` date NOT NULL,
   `jam` time NOT NULL,
   `tempat` varchar(255) NOT NULL,
+  `thumbnail` varchar(255) NOT NULL DEFAULT 'default.png',
   `status` varchar(20) NOT NULL,
   `created_by` bigint(17) NOT NULL,
   `created_at` datetime NOT NULL,
@@ -447,8 +448,8 @@ CREATE TABLE `pengumuman` (
 -- Dumping data for table `pengumuman`
 --
 
-INSERT INTO `pengumuman` (`pengumuman_id`, `kategori`, `judul_pengumuman`, `deskripsi`, `tanggal`, `jam`, `tempat`, `status`, `created_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Kesehatan', 'Ayok Ngumpul', 'ngumpul heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy', '2023-08-23', '08:12:16', 'Balai Desa', 'Akan Berlangsung', 22222222222222222, '2023-08-09 17:12:16', '2023-08-09 17:12:16', NULL);
+INSERT INTO `pengumuman` (`pengumuman_id`, `kategori`, `judul_pengumuman`, `deskripsi`, `tanggal`, `jam`, `tempat`, `thumbnail`, `status`, `created_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Kesehatan', 'Ayok Ngumpul', 'ngumpul heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy', '2023-08-23', '08:12:16', 'Balai Desa', 'default.png', 'Akan Berlangsung', 22222222222222222, '2023-08-09 17:12:16', '2023-08-09 17:12:16', NULL);
 
 -- --------------------------------------------------------
 
