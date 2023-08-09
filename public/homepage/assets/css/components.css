@@ -141,6 +141,24 @@
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
+.btn-main[disabled],
+.btn-main-sm[disabled],
+.btn-main-xs[disabled] {
+  background-color: rgba(83, 195, 81, 1);
+  color: #ffffff;
+  cursor: not-allowed;
+}
+.btn-white[disabled] {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(83, 195, 81, 1);
+  cursor: not-allowed;
+}
+.btn-secondaries[disabled],
+.btn-secondaries-sm[disabled] {
+  background-color: rgba(76, 104, 254, 1);
+  color: #ffffff;
+  cursor: not-allowed;
+}
 .btn-nav-toggle:hover {
   background-color: #3cb35830;
   transition: all 0.2s ease-in-out;
