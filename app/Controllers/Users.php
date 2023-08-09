@@ -164,6 +164,7 @@ class Users extends BaseController
             'dataFoto' => $dataFoto,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
+        dd($dataGaleri, $dataFoto);
 
         return view('/users/gallery/gallery-detail', $data);
     }
@@ -187,8 +188,8 @@ class Users extends BaseController
     public function detailpengumuman($id)
     {
         $pengumuman = $this->pengumumanModel->getPengumuman($id);
-        // dd($pengumuman);
         $pengumumanTerbaru = $this->pengumumanModel->getPengumumanTerbaru();
+
         $data = [
             'title' => 'Portal Pengumuman | Warga Site',
             'navbar' => 'pengumuman',
@@ -278,14 +279,16 @@ class Users extends BaseController
         return view('/users/family/family-form-edit', $data);
     }
 
-    public function editKeluarga($nik)
+    public function editKeluarga($no_kk)
     {
-        $dataKeluarga = $this->keluargaModel->getKeluarga($nik);
+        $dataKeluarga = $this->keluargaModel->getKeluarga($no_kk);
+        $listKeluarga = $this->usersModel->getUsersByKK($no_kk);
 
         $data = [
             'title' => 'Edit Data Keluarga | Warga Site',
             'navbar' => 'keluarga',
             'dataKeluarga' => $dataKeluarga,
+            'listKeluarga' => $listKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 

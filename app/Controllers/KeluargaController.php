@@ -113,6 +113,46 @@ class KeluargaController extends BaseController
 
     public function update($id)
     {
+        $keluarga = $this->keluargaModel->getKeluarga($id);
+        // dd($keluarga);
+
+        if (!$keluarga) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Keluarga tidak ditemukan');
+        }
+
+        $foto = $this->request->getFile('foto_rumah');
+
+        if ($foto && $foto->getError() == 4) {
+            $namaFoto = $keluarga['foto_rumah'];
+        } else {
+            $namaFoto = $foto->getRandomName();
+            $foto->move('upload/photos', $namaFoto);
+            if ($keluarga['foto_rumah'] != 'default.png') unlink('upload/photos/' . $keluarga['foto_rumah']);
+        }
+
+        $result = $this->keluargaModel->update(["no_kk" => $id], [
+            'nama_kepala_keluarga' => $this->request->getVar('nama_kepala_keluarga'),
+            'alamat' => $this->request->getVar('alamat'),
+            'alamat_asal' => $this->request->getVar('alamat_asal'),
+            'tgl_pindah' => $this->request->getVar('tgl_pindah'),
+            'status' => $this->request->getVar('status'),
+            'foto_rumah' => $namaFoto,
+        ]);
+
+        if ($result) $result = $this->usersModel->update([
+            "no_kk" => $id,
+            'nama' => $this->request->getVar('nama_kepala_keluarga'),
+        ], [
+            'status' => 'Kepala Keluarga',
+        ]);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Data berhasil diubah.');
+            return redirect()->to('/users/keluarga');
+        } else {
+            session()->setFlashdata('error', 'Data gagal diubah.');
+            return redirect()->to('/users/editKeluarga/' . $id);
+        }
     }
 
     public function delete($id)

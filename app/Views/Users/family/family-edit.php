@@ -17,7 +17,7 @@
 <!-- main -->
 <main>
     <section class="container container-space pt-0">
-        <form class="card-form-container card" id="familyFormEdit" action="#" enctype="multipart/form-data" method="POST">
+        <form class="card-form-container card" id="familyFormEdit" action="/keluargacontroller/update/<?= $dataKeluarga['no_kk'] ?>" enctype="multipart/form-data" method="POST">
             <div class="card-header card-form-header">
                 <p class="mb-0 fw-semibold">Form Edit Data Keluarga</p>
             </div>
@@ -34,7 +34,12 @@
                     <div class="row mb-3">
                         <label for="nama_kepala_keluarga" class="col-md-2 form-label forms-label mt-md-2">Nama Kepala Keluarga <span class="text-important">*</span></label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control input-control" id="nama_kepala_keluarga" name="nama_kepala_keluarga" required placeholder="Masukkan Nama Kepala Keluarga" value="<?= $dataKeluarga['nama_kepala_keluarga'] ?>" />
+                            <select id="nama_kepala_keluarga" name="nama_kepala_keluarga" class="form-select select-control">
+                                <option value="" disabled>Pilih Kepala Keluarga</option>
+                                <?php foreach ($listKeluarga as $keluarga) : ?>
+                                    <option value="<?= $keluarga['nama'] ?>" <?= $dataKeluarga['nama_kepala_keluarga'] == $keluarga['nama'] ? 'selected' : '' ?>><?= $keluarga['nama'] ?></option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                     </div>
                     <!-- alamat -->
@@ -64,8 +69,8 @@
                         <div class="col-md-10">
                             <select id="status" name="status" class="form-select select-control">
                                 <option value="">Pilih Status</option>
-                                <option value="pindah" <?= $dataKeluarga['status'] == 'Pindah' ? 'selected' : '' ?>>Pindah</option>
-                                <option value="tetap" <?= $dataKeluarga['status'] == 'Tetap' ? 'selected' : '' ?>>Tetap</option>
+                                <option value="Pindah" <?= $dataKeluarga['status'] == 'Pindah' ? 'selected' : '' ?>>Pindah</option>
+                                <option value="Tetap" <?= $dataKeluarga['status'] == 'Tetap' ? 'selected' : '' ?>>Tetap</option>
                             </select>
                         </div>
                     </div>
