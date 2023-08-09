@@ -25,17 +25,17 @@ class PelaporanModel extends Model
     public function getPelaporan($pelaporan_id = null)
     {
         if ($pelaporan_id == null) {
-            return $this->select('pelaporan.*, users.nama')
-                ->join('users', 'users.nik = pelaporan.nik_pelapor')
-                ->join('users', "users.nik = pelaporan.nik_terlapor")
+            return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, terlapor.nama as nama_terlapor')
+                ->join('users as pelapor', 'pelapor.nik = pelaporan.nik_pelapor')
+                ->join('users as terlapor', "terlapor.nik = pelaporan.nik_terlapor")
                 ->orderBy('pelaporan.created_at', 'DESC')
                 ->orderBy('pelaporan.status_pelaporan', 'ASC')
                 ->findAll();
         }
 
-        return $this->select('pelaporan.*, users.nama')
-            ->join('users', 'users.nik = pelaporan.nik_pelapor')
-            ->join('users', "users.nik = pelaporan.nik_terlapor")
+        return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, terlapor.nama as nama_terlapor')
+            ->join('users as pelapor', 'pelapor.nik = pelaporan.nik_pelapor')
+            ->join('users as terlapor', "terlapor.nik = pelaporan.nik_terlapor")
             ->where(['pelaporan_id' => $pelaporan_id])
             ->first();
     }
@@ -107,5 +107,22 @@ class PelaporanModel extends Model
         return $this->select('*')
             ->where(['status_pelaporan' => 'Menunggu Konfirmasi'])
             ->countAllResults();
+    }
+
+    // Find all Pelaporan data by pelapor while no_kk of pelapor is same with no_kk of user
+    public function getPelaporanByPelapor($no_kk)
+    {
+        return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, terlapor.nama as nama_terlapor')
+            ->join('users as pelapor', 'pelapor.nik = pelaporan.nik_pelapor')
+            ->join('users as terlapor', "terlapor.nik = pelaporan.nik_terlapor")
+            ->where(['pelapor.no_kk' => $no_kk])
+            ->orderBy('pelaporan.created_at', 'DESC')
+            ->findAll();
+    }
+
+    // get pelaporan kategori
+    public function getPelaporanKategori()
+    {
+        return ['Kesehatan', 'Pendidikan', 'Sosial', 'Ekonomi', 'Lingkungan', 'Lainnya'];
     }
 }

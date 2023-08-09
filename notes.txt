@@ -1,5 +1,5 @@
 ## Administrasi
-### Kategori Administrasi = []
+### Kategori Administrasi = ['KTP', 'KK', 'Surat Pindah', 'Surat Kematian', 'Surat Keterangan', 'Surat Nikah', 'Surat Kelahiran', 'Surat Keterangan,'Surat Pengantar, 'Lainnya']
 ### Status Administrasi = [Dalam Proses, Menunggu Konfirmasi, Ditolak, Selesai]
 
 ## Keluarga

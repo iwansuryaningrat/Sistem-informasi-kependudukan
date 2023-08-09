@@ -122,4 +122,16 @@ class AdministrasiModel extends Model
             ->orderBy('administrasi.created_at', 'DESC')
             ->findAll();
     }
+
+    // get kategori administrasi
+    public function getKategoriAdministrasi()
+    {
+        return ['KTP', 'KK', 'Surat Pindah', 'Surat Kematian', 'Surat Keterangan', 'Surat Nikah', 'Surat Kelahiran', 'Surat Keterangan', 'Surat Pengantar', 'Lainnya'];
+    }
+
+    // get status administrasi
+    public function getStatus()
+    {
+        return ['Menunggu Konfirmasi', 'Dalam Proses', 'Selesai', 'Ditolak'];
+    }
 }

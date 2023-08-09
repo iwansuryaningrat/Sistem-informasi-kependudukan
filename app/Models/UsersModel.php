@@ -134,4 +134,34 @@ class UsersModel extends Model
             ->where(['agama' => $agama])
             ->first();
     }
+
+    // Get status users
+    public function getStatusUsers()
+    {
+        return ['Kepala keluarga', 'Istri', 'Anak', 'Anak Kos', 'Pembantu', 'Lainnya'];
+    }
+
+    // Get status perkawinan users
+    public function getStatusPerkawinanUsers()
+    {
+        return ['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati'];
+    }
+
+    // Get pendidikan users
+    public function getPendidikanUsers()
+    {
+        return ['Tidak Sekolah', 'SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3'];
+    }
+
+    // Get status kependudukan users
+    public function getStatusKependudukanUsers()
+    {
+        return ['Tetap', 'Sementara', 'Pendatang', 'Pindahan'];
+    }
+
+    // Get agama users
+    public function getAgamaUsers()
+    {
+        return ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'];
+    }
 }

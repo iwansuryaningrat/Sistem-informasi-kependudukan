@@ -63,23 +63,19 @@
 
                   <select id="status" name="status" required class="form-select select-control">
                     <option value="">Pilih Status</option>
-                    <option value="Kepala Keluarga">Kepala Keluarga</option>
-                    <option value="Istri">Istri</option>
-                    <option value="Anak">Anak</option>
+                    <?php foreach ($statusKeluarga as $status) : ?>
+                      <option value="<?= $status ?>"><?= $status ?></option>
+                    <?php endforeach ?>
                   </select>
                 </div>
                 <!-- agama -->
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
                   <label for="agama" class="form-label forms-label">Agama <span class="text-important">*</span></label>
-
                   <select id="agama" name="agama" required class="form-select select-control">
                     <option value="">Pilih Agama</option>
-                    <option value="Islam">Islam</option>
-                    <option value="Khatolik">Khatolik</option>
-                    <option value="Kristen">Kristen</option>
-                    <option value="Hindu">Hindu</option>
-                    <option value="Budha">Budha</option>
-                    <option value="Konghucu">Konghucu</option>
+                    <?php foreach ($listAgama as $agama) : ?>
+                      <option value="<?= $agama ?>"><?= $agama ?></option>
+                    <?php endforeach ?>
                   </select>
                 </div>
               </div>
@@ -105,10 +101,9 @@
                   <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan <span class="text-important">*</span></label>
                   <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
                     <option value="">Pilih Status Kependudukan</option>
-                    <option value="Tetap">Penduduk Tetap</option>
-                    <option value="Sementara">Penduduk Sementara</option>
-                    <option value="Pendatang">Penduduk Pendatang</option>
-                    <option value="Pindahan">Penduduk Pindahan</option>
+                    <?php foreach ($statusKependudukan as $statusPenduduk) : ?>
+                      <option value="<?= $statusPenduduk ?>">Penduduk <?= $statusPenduduk ?></option>
+                    <?php endforeach ?>
                   </select>
                 </div>
                 <!-- status perkawinan -->
@@ -118,10 +113,9 @@
 
                   <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                     <option value="">Pilih Status Perkawinan</option>
-                    <option value="Belum Kawin">Belum Kawin</option>
-                    <option value="Kawin">Kawin</option>
-                    <option value="Cerai Hidup">Cerai Hidup</option>
-                    <option value="Cerai Mati">Cerai Mati</option>
+                    <?php foreach ($statusPerkawinan as $perkawinan) : ?>
+                      <option value="<?= $perkawinan ?>"><?= $perkawinan ?></option>
+                    <?php endforeach ?>
                   </select>
                   </select>
                 </div>
@@ -135,17 +129,9 @@
 
                   <select id="pendidikan" name="pendidikan" required class="form-select select-control">
                     <option value="">Pilih Pendidikan</option>
-                    <option value="Tidak Sekolah">Tidak Sekolah</option>
-                    <option value="SD">SD</option>
-                    <option value="SMP">SMP</option>
-                    <option value="SMA">SMA</option>
-                    <option value="D1">D1</option>
-                    <option value="D2">D2</option>
-                    <option value="D3">D3</option>
-                    <option value="D4">D4</option>
-                    <option value="S1">S1</option>
-                    <option value="S2">S2</option>
-                    <option value="S3">S3</option>
+                    <?php foreach ($pendidikan as $pendidikanList) : ?>
+                      <option value="<?= $pendidikanList ?>"><?= $pendidikanList ?></option>
+                    <?php endforeach ?>
                   </select>
                 </div>
                 <!-- pekerjaan -->
