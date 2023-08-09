@@ -79,7 +79,7 @@
             <label for="tanggal_pengajuan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pengajuan
             </label>
             <div class="col-md-10">
-              <input type="date" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= $dataAdministrasi['created_at'] ?>" />
+              <input type="text" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= $dataAdministrasi['created_at'] ?>" />
             </div>
           </div>
           <!-- tanggal penerimaan -->
@@ -87,7 +87,7 @@
             <label for="tanggal_penerimaan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Penerimaan
             </label>
             <div class="col-md-10">
-              <input type="date" id="tanggal_penerimaan" name="tanggal_penerimaan" class="form-control input-control" disabled value="<?= $dataAdministrasi['tgl_penerimaan'] ?>" />
+              <input type="text" id="tanggal_penerimaan" name="tanggal_penerimaan" class="form-control input-control" disabled value="<?= $dataAdministrasi['tgl_penerimaan'] ?>" />
             </div>
           </div>
           <!-- berkas -->
