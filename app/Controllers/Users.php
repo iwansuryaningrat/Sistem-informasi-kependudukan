@@ -172,21 +172,29 @@ class Users extends BaseController
     // Pengumuman Method 
     public function pengumuman()
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman();
+
         $data = [
             'title' => 'Portal Pengumuman | Warga Site',
             'navbar' => 'pengumuman',
+            'pengumuman' => $pengumuman,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/news/announcement', $data);
     }
 
-    public function detailpengumuman()
+    public function detailpengumuman($id)
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman($id);
+        // dd($pengumuman);
+        $pengumumanTerbaru = $this->pengumumanModel->getPengumumanTerbaru();
         $data = [
             'title' => 'Portal Pengumuman | Warga Site',
             'navbar' => 'pengumuman',
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'pengumuman' => $pengumuman,
+            'pengumumanTerbaru' => $pengumumanTerbaru,
         ];
 
         return view('/users/news/read-announcement', $data);
