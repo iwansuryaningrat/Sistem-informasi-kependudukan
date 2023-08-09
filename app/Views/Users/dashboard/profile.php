@@ -199,12 +199,18 @@
                   </div>
 
                   <?php
-                  $alamat = explode(',', $user['alamat']);
-                  $kota = explode(' ', $alamat[1]);
-                  $kodepos = $kota[1];
-                  $kota_kabupaten = $kota[0];
-                  $provinsi = $alamat[2];
-                  $alamat = $alamat[0];
+                  $kota_kabupaten = null;
+                  $kodepos = null;
+                  $provinsi = null;
+                  $alamat = $user['alamat'];
+                  if ($alamat != null) {
+                    $alamat = explode(',', $user['alamat']);
+                    $kota = explode(' ', $alamat[1]);
+                    $kodepos = $kota[1];
+                    $kota_kabupaten = $kota[0];
+                    $provinsi = $alamat[2];
+                    $alamat = $alamat[0];
+                  }
                   ?>
 
                   <div class="mb-3">
