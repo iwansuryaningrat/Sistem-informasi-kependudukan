@@ -64,4 +64,15 @@ class PengumumanModel extends Model
     {
         return $this->db->table($this->table)->insert($data);
     }
+
+    // Get Pengumuman Kategori
+    public function getPengumumanKategori()
+    {
+        return ['Kesehatan', 'Pendidikan', 'Sosial', 'Ekonomi', 'Lingkungan', 'Lainnya'];
+    }
+
+    public function getStatus()
+    {
+        return ['Akan Berlangsung', 'Sedang Berlangsung', 'Selesai'];
+    }
 }
