@@ -203,6 +203,7 @@ class Users extends BaseController
             'navbar' => 'keluarga',
             'anggotaKeluarga' => $anggotaKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'kk' => $this->user_data['no_kk'],
         ];
 
         return view('/users/family/family', $data);
@@ -267,6 +268,20 @@ class Users extends BaseController
         ];
 
         return view('/users/family/family-form-edit', $data);
+    }
+
+    public function editKeluarga($nik)
+    {
+        $dataKeluarga = $this->keluargaModel->getKeluarga($nik);
+
+        $data = [
+            'title' => 'Edit Data Keluarga | Warga Site',
+            'navbar' => 'keluarga',
+            'dataKeluarga' => $dataKeluarga,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/family/family-edit', $data);
     }
     // End of Keluarga Method
 
