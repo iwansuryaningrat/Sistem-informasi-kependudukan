@@ -49,7 +49,7 @@
                   <span><a href="javascript:void(0)" id="login" class="fw-medium hover-underline">Masuk</a></span>
                 </p>
                 <div class="sign-card">
-                  <form id="signupForm" action="#" enctype="multipart/form-data" method="POST">
+                  <form id="signupForm" action="/auth/regist" enctype="multipart/form-data" method="POST">
                     <!-- NIK -->
                     <div class="mb-3">
                       <label for="nik" class="form-label forms-label">Nomor Induk Kependudukan (No. KTP)</label>
@@ -57,8 +57,8 @@
                     </div>
                     <!-- KK -->
                     <div class="mb-3">
-                      <label for="kk" class="form-label forms-label">Nomor Kartu Keluarga</label>
-                      <input type="text" id="kk" name="kk" value="" required placeholder="Masukkan Nomor KK" class="form-control input-control" />
+                      <label for="no_kk" class="form-label forms-label">Nomor Kartu Keluarga</label>
+                      <input type="text" id="no_kk" name="no_kk" value="" required placeholder="Masukkan Nomor KK" class="form-control input-control" />
                     </div>
                     <!-- Nama -->
                     <div class="mb-3">
@@ -66,6 +66,14 @@
                       <input type="text" id="nama" name="nama" value="" required placeholder="Masukkan Nama" aria-describedby="namaHelp" class="form-control input-control" />
                       <div id="namaHelp" class="form-text input-text">
                         Masukkan nama asli Anda, sesuai dengan KTP.
+                      </div>
+                    </div>
+                    <!-- Nomor HP -->
+                    <div class="mb-3">
+                      <label for="no_hp" class="form-label forms-label">Nomor HP</label>
+                      <input type="no_hp" id="no_hp" name="no_hp" value="" required placeholder="Masukkan Nomor HP" aria-describedby="emailHelp" class="form-control input-control" />
+                      <div id="emailHelp" class="form-text input-text">
+                        Gunakan nomor hp Anda.
                       </div>
                     </div>
                     <!-- Email -->
@@ -163,6 +171,9 @@
             required: true,
             email: true,
           },
+          no_hp: {
+            required: true,
+          },
           password: {
             required: true,
             minlength: 8,
@@ -189,6 +200,9 @@
           email: {
             required: 'Email tidak boleh kosong.',
             email: 'Email tidak valid.',
+          },
+          no_hp: {
+            required: 'Nomor HP tidak boleh kosong.',
           },
           password: {
             required: 'Password tidak boleh kosong.',

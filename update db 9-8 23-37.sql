@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 07:18 AM
+-- Generation Time: Aug 09, 2023 at 06:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_test`
+-- Database: `elsa_db`
 --
 
 -- --------------------------------------------------------
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `administrasi` (
   `administrasi_id` int(11) NOT NULL,
   `pemohon` bigint(17) NOT NULL,
-  `kategori` varchar(30) DEFAULT NULL,
-  `keperluan` varchar(100) DEFAULT NULL,
-  `deskripsi` varchar(255) DEFAULT NULL,
+  `kategori` varchar(30) NOT NULL,
+  `keperluan` varchar(100) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
   `no_surat` varchar(50) DEFAULT NULL,
   `administrasi_status` varchar(50) NOT NULL DEFAULT 'Menunggu Konfirmasi',
   `berkas` varchar(255) NOT NULL,
-  `tgl_penerimaan` date DEFAULT NULL,
+  `tgl_penerimaan` datetime DEFAULT NULL,
   `catatan` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -48,126 +48,127 @@ CREATE TABLE `administrasi` (
 --
 
 INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan`, `deskripsi`, `no_surat`, `administrasi_status`, `berkas`, `tgl_penerimaan`, `catatan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(82, 5406052909061905, 'Surat Pindah', 'Ut maiores rem id.', 'Dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-02-11', 'Officiis aperiam ut.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(83, 4716454593739, 'Surat Kematian', 'Quis consequatur.', 'Minus tempore.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1995-01-19', 'Numquam quis.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(84, 370865048194441, 'KK', 'Eligendi neque.', 'Sit eum sapiente.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1977-01-04', 'Voluptas modi ut.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(85, 348657749568547, 'Surat Kelahiran', 'Ut est.', 'Quibusdam magni aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1977-10-05', 'Nulla et quidem.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(86, 343475351188255, 'Surat Kematian', 'Est cumque facilis.', 'Dicta quos deleniti.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2017-03-22', 'Molestiae ut nam.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(87, 4024007168228, 'Surat Keterangan', 'Dolorem veritatis.', 'Et et ipsa error.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1983-02-20', 'Quae praesentium.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(88, 5301037777747541, 'KTP', 'Atque neque enim.', 'Dolor culpa iusto.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1980-05-09', 'Fugiat nisi nostrum.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(89, 5232738574820498, 'Surat Kelahiran', 'Eaque sequi.', 'Illum ut quae.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-06', 'Voluptatem.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(90, 4556371261014, 'Surat Keterangan', 'Aut pariatur.', 'Quo explicabo.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1990-12-09', 'Aut deserunt minima.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(91, 6011931144354909, 'Surat Pindah', 'Minus quisquam id.', 'Excepturi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2023-06-14', 'Qui magnam ex ut.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(92, 5333757021114170, 'Surat Kematian', 'Optio minima magnam.', 'Et sit occaecati.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2012-10-05', 'Illo accusantium.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
-(93, 4763636283797, 'Surat Keterangan', 'Aut sed qui.', 'Nesciunt laborum.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2018-02-09', 'Aut quia non.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(94, 5117574838856170, 'Surat Keterangan', 'In molestiae vel.', 'Autem cupiditate.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1998-01-16', 'Omnis est assumenda.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(95, 4485369111653429, 'Surat Keterangan', 'Esse aperiam et.', 'Delectus occaecati.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1986-10-05', 'Eligendi repellat a.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(96, 5399809122101654, 'Surat Kelahiran', 'Aut esse cum saepe.', 'Nesciunt reiciendis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1981-02-16', 'Consequatur eveniet.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(97, 4716165457094751, 'KK', 'Tenetur optio quam.', 'Repellendus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1973-01-09', 'Sit velit atque.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(98, 4929028086482, 'Surat Kematian', 'Ex voluptatem est.', 'Accusamus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1975-01-18', 'Qui id quos esse.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(99, 5307909511625684, 'Surat Kematian', 'Sequi aliquam.', 'Sint exercitationem.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1981-11-12', 'At nobis ea nihil.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(100, 5282976529788142, 'Surat Keterangan', 'Eligendi rerum eos.', 'Totam et debitis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2007-06-23', 'Illo at tempore ex.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(101, 372316786874214, 'Surat Pindah', 'Delectus et quaerat.', 'Aut fugiat ex.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2010-10-21', 'Libero quaerat.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(102, 5404020245429872, 'Surat Kelahiran', 'Aliquid autem.', 'Provident nobis sit.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1972-05-12', 'Recusandae vero.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
-(103, 4716584060670569, 'KK', 'In ea pariatur.', 'Possimus tenetur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2013-07-31', 'Architecto harum.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
-(104, 4024007168228, 'Surat Keterangan', 'Sed sit eveniet a.', 'Doloribus modi.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1994-12-17', 'Dolor a dolor.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
-(105, 4916917114418, 'KTP', 'Aut et eum dolorem.', 'Totam odio expedita.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2012-08-01', 'Excepturi ipsa.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
-(106, 5419079758561912, 'Surat Kelahiran', 'Non et sit.', 'Et eius dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2019-11-15', 'Impedit delectus.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
-(107, 5244129854302314, 'Surat Kematian', 'Quia quae natus.', 'Aperiam temporibus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-03-11', 'Fugit voluptas.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(108, 6011945130164650, 'KK', 'Dolor enim.', 'Sapiente veniam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-01', 'Et voluptas totam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(109, 4532493442956, 'Surat Kematian', 'Dolor occaecati.', 'Est culpa libero id.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1980-05-18', 'Molestias fugiat.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(110, 5415028268597936, 'Surat Kelahiran', 'Ratione.', 'Sint ut a corporis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-01-06', 'Consequatur veniam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(111, 5276638314180780, 'Surat Pindah', 'Tempora quasi magni.', 'Nobis et voluptas.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-12-14', 'Quis illo cumque.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(112, 4716226036973665, 'KK', 'Voluptatibus rem.', 'Non illum illum.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2018-06-05', 'Voluptatem at.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(113, 377255077060528, 'Surat Keterangan', 'Omnis autem eveniet.', 'Consectetur iste in.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1980-08-06', 'Modi a cum quis.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(114, 371632313695315, 'KTP', 'Ad fugiat molestiae.', 'Aut voluptatum.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1982-03-01', 'Quos ut voluptas.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(115, 5392055901930973, 'KK', 'Libero dolor enim.', 'Aut quia explicabo.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2004-09-30', 'Sed quisquam beatae.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(116, 6011888609033651, 'Surat Kematian', 'Earum velit illo.', 'Eveniet quis ullam.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1988-03-24', 'Mollitia quis.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(117, 5428348628803559, 'Surat Kematian', 'Laboriosam expedita.', 'Nesciunt vel rerum.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1995-03-23', 'Soluta velit qui.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(118, 6011570871614646, 'Surat Kelahiran', 'Ut provident minima.', 'Numquam voluptas.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1988-01-18', 'Quas quasi quisquam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(119, 4556541197364782, 'KTP', 'Nisi voluptas.', 'Voluptate quam iste.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1981-10-19', 'Ad quae et.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(120, 5163291082861771, 'Surat Keterangan', 'Accusantium officia.', 'Corporis suscipit.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2019-06-16', 'Cum asperiores et.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
-(121, 5239349562977002, 'Surat Keterangan', 'Inventore magni.', 'Sapiente temporibus.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2015-06-15', 'Qui consequatur.', '2023-07-19 21:00:19', '2023-07-19 21:00:19', NULL),
-(122, 4024007177104, 'Surat Kelahiran', 'Et dolore omnis et.', 'Et quam et rem id.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1978-06-30', 'Eius minima quis.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
-(123, 5228858183584073, 'KTP', 'Voluptatem.', 'Doloribus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2018-11-23', 'Ut eum corporis.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
-(124, 370934251958189, 'Surat Kelahiran', 'Corporis.', 'Fugit omnis error.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2000-02-18', 'Ut error labore.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
-(125, 5488933597626029, 'KTP', 'Quo natus.', 'Quod voluptatibus.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2004-07-15', 'Sunt qui.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
-(126, 5149790131606797, 'KTP', 'Dolorum amet.', 'Ut quo rerum aut.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1977-08-29', 'Dolores minus quas.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(127, 4532953845398014, 'KK', 'Adipisci et.', 'Et cum corrupti eos.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2007-11-10', 'Magni rerum.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(128, 4532776938601295, 'Surat Keterangan', 'Facere consequatur.', 'Ipsa hic excepturi.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-25', 'Tempore nihil.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(129, 4716198647344695, 'Surat Keterangan', 'Inventore quod illo.', 'Deleniti sint ab.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1982-04-01', 'Quo accusamus aut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(130, 4539281000331916, 'Surat Kelahiran', 'Qui ad id error.', 'Sint dolore commodi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2013-05-11', 'Dolorem labore.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(131, 4532628626098427, 'Surat Kelahiran', 'Alias molestiae.', 'Minus qui.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-11-09', 'Et commodi ut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(132, 5274546049146160, 'Surat Keterangan', 'Hic suscipit.', 'Dicta dolor nihil.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2001-07-01', 'Dolorem ea sed.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(133, 5296896167411530, 'Surat Keterangan', 'Cumque dolorem.', 'Deleniti.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2023-05-29', 'In odio dolores.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(134, 5385294576988011, 'Surat Kelahiran', 'Ea id voluptatibus.', 'Ipsam voluptatem ut.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1976-06-19', 'Qui sit ea quia.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(135, 4539358002702532, 'Surat Kelahiran', 'Consequatur nobis.', 'Facilis voluptatem.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2019-04-12', 'Beatae tenetur qui.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(136, 6011534609274990, 'Surat Pindah', 'Velit accusamus.', 'Quaerat consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2018-11-14', 'Doloremque at ut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(137, 5419959722521557, 'KTP', 'Rerum enim sed quo.', 'Dolores odio.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1986-09-03', 'Accusamus quod aut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(138, 6011178002339529, 'Surat Kematian', 'Sit sit quis veniam.', 'Beatae non quisquam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1987-11-30', 'Sunt doloremque.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(139, 370865048194441, 'Surat Pindah', 'Non sit autem quia.', 'Ea sapiente fugit.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1994-06-30', 'Modi voluptatum.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(140, 5494274883024005, 'Surat Keterangan', 'Ex illo laudantium.', 'Molestias accusamus.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2008-06-21', 'Consequatur.', '2023-07-19 21:00:52', '2023-07-19 21:00:52', NULL),
-(141, 5281226408281202, 'Surat Keterangan', 'Magnam quaerat.', 'Consectetur quis.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2009-05-30', 'Pariatur provident.', '2023-07-19 21:00:52', '2023-07-19 21:00:52', NULL),
-(142, 4539773460395068, 'KK', 'Praesentium ut.', 'Sit officiis ab.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2008-08-27', 'Officiis sequi.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(143, 5539141455796574, 'KK', 'Ea voluptas.', 'Esse temporibus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1983-12-23', 'Consequatur libero.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(144, 4532617648913689, 'Surat Kematian', 'Similique aperiam.', 'Accusamus ullam.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2001-09-28', 'Cum velit ea omnis.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(145, 6011109492140614, 'Surat Kematian', 'Corrupti.', 'Velit amet.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2000-11-06', 'Odit maiores.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(146, 5371214204422924, 'Surat Pindah', 'Unde officia a.', 'Impedit ipsum quae.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-10-29', 'Quo aut mollitia.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(147, 4302450574955, 'Surat Pindah', 'Velit sint sunt.', 'Est nihil et sint.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2018-08-24', 'Neque expedita nam.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(148, 5398259118614396, 'KTP', 'Beatae doloremque.', 'Dolor error atque.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1972-06-11', 'Quibusdam pariatur.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(149, 4485425690195891, 'KK', 'Non enim quos.', 'Blanditiis incidunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1992-08-06', 'Pariatur aliquam id.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(150, 4532216326304, 'Surat Kelahiran', 'Maiores minima ut.', 'Ut quia ipsum quasi.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2003-06-05', 'Reiciendis.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(151, 5140434750655335, 'Surat Kelahiran', 'Ut dolorem fuga qui.', 'Corporis voluptate.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2018-09-30', 'Quis beatae dolore.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(152, 4485809172694, 'Surat Kematian', 'Excepturi qui at et.', 'Nesciunt asperiores.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1988-03-10', 'Quod quo blanditiis.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(153, 5402289136546340, 'Surat Keterangan', 'Voluptas omnis est.', 'Et iste ex omnis.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1996-10-30', 'Asperiores mollitia.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(154, 4485756027046005, 'KTP', 'Impedit voluptatum.', 'Quas deleniti ut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1976-12-22', 'Odit ullam eum.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(155, 4929422918934, 'Surat Kematian', 'Vel quidem aut.', 'Exercitationem sit.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1985-02-01', 'Et fuga fugiat.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(156, 5298073299076502, 'Surat Kematian', 'Voluptas ratione.', 'Ut sit ut velit.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1989-06-19', 'Officia molestias.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(157, 5309088045370147, 'Surat Pindah', 'Exercitationem.', 'Quisquam soluta est.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1980-09-20', 'Quos magnam aliquam.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(158, 5395470562733938, 'Surat Kematian', 'Nobis et quo quae.', 'Ratione excepturi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2003-02-21', 'Quo quia suscipit.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(159, 6011602995386924, 'Surat Kematian', 'Voluptas est.', 'Animi.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-12-19', 'Quidem nisi dolorem.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(160, 349887613753664, 'Surat Kematian', 'Corporis nesciunt.', 'Expedita ut beatae.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1998-02-24', 'Aliquam temporibus.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(161, 4485439309609, 'Surat Kelahiran', 'Nesciunt autem.', 'Ullam quasi sed.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2015-12-01', 'Sed omnis ipsum.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(162, 5479238552421999, 'Surat Keterangan', 'Veniam consectetur.', 'Quia eos quibusdam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2023-04-07', 'Consequuntur.', '2023-07-19 21:00:55', '2023-07-19 21:00:55', NULL),
-(163, 5188556655492746, 'Surat Kematian', 'Repudiandae et.', 'Aperiam consequatur.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2002-01-14', 'Tempora est.', '2023-07-19 21:00:55', '2023-07-19 21:00:55', NULL),
-(164, 347538557310829, 'Surat Pindah', 'Sint tempora id.', 'A voluptas officiis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2009-08-02', 'Numquam ut veniam.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(165, 348764598251512, 'KK', 'Dolores debitis.', 'Iure voluptates.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-09-23', 'Totam commodi.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(166, 5560098321531845, 'KK', 'Libero corporis.', 'Modi laudantium.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2020-01-14', 'Ut similique.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(167, 5336414080031351, 'Surat Kelahiran', 'Labore temporibus.', 'Ipsum ducimus.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1972-04-16', 'Culpa dolore.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(168, 345614270604616, 'Surat Kelahiran', 'Deleniti natus.', 'Nobis deserunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2009-07-27', 'Eligendi magni.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(169, 5119358280258889, 'Surat Pindah', 'In eaque impedit.', 'Iusto ducimus et.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2010-04-23', 'Officiis eligendi.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(170, 4929780230464726, 'Surat Kelahiran', 'Ut vitae.', 'Pariatur quam sunt.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2007-08-06', 'Et eos voluptatum.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(171, 4556706561887813, 'Surat Kematian', 'Consectetur totam.', 'Odio velit nostrum.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2022-09-14', 'Sed ab similique.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(172, 344212209136981, 'Surat Kelahiran', 'Voluptas.', 'Qui rem perferendis.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1974-10-15', 'Provident eveniet.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(173, 4907790984217, 'KTP', 'Fugit dolor nulla.', 'Voluptatem.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1985-07-07', 'Aperiam nihil.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(174, 5490177444467528, 'Surat Kematian', 'Adipisci in at.', 'Et voluptatem.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2000-01-03', 'Consequuntur.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(175, 5259374304298421, 'Surat Kematian', 'Eum asperiores quis.', 'Et repellat.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-08-19', 'Ullam inventore quo.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(176, 5122367213686244, 'Surat Kematian', 'Ut in quia.', 'Aut voluptates iste.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1983-05-16', 'Sit dolore et et.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(177, 4989054276464, 'Surat Kelahiran', 'Voluptates fugit.', 'Ut ipsum aperiam.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1982-01-03', 'Fugit ut sequi non.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(178, 349970664270232, 'Surat Keterangan', 'Et totam sed sint.', 'Deleniti nihil.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1995-10-04', 'Dolores et et aut.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
-(179, 374935801440319, 'Surat Keterangan', 'In ea quaerat.', 'Quo laboriosam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1971-01-25', 'Nulla fugiat.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
-(180, 4024007109297, 'Surat Pindah', 'Culpa officiis.', 'Sed repellendus.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1999-06-11', 'Eum earum dolor.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
-(181, 5561386423195448, 'Surat Pindah', 'Omnis atque.', 'Ipsa consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2008-01-17', 'Ut tempora eos.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
-(182, 5289900585965991, 'Surat Kematian', 'Quis nostrum vitae.', 'Debitis eos tempora.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1999-08-31', 'Odio voluptatem.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(183, 4539021447050, 'KK', 'Alias quos qui.', 'Vel dolorem natus.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2011-05-01', 'Dolores recusandae.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(184, 5319695330298458, 'KTP', 'Aut quis qui fuga.', 'Aut rerum quia nisi.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1977-07-19', 'Consequatur rem.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(185, 5263795061282865, 'Surat Keterangan', 'Omnis est repellat.', 'Libero inventore.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1987-02-10', 'Et a assumenda.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(186, 5563599415602761, 'KK', 'Veniam aliquid.', 'Sed corrupti.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1986-11-06', 'Fugit voluptatibus.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(187, 4556941832450, 'Surat Keterangan', 'Architecto est.', 'Autem explicabo aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1981-08-13', 'At qui et deleniti.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(188, 4716266233870, 'Surat Keterangan', 'Eligendi enim.', 'Porro nesciunt amet.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1999-05-06', 'Nemo enim illo.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(189, 4539470567237174, 'Surat Keterangan', 'A fugiat vero quia.', 'Quo aspernatur aut.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1980-05-02', 'Sed modi.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
-(190, 4539123274329, 'Surat Keterangan', 'Laboriosam.', 'Sit voluptatem quos.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2018-04-06', 'Ut quis dolorem.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(191, 5166431996824203, 'KK', 'Assumenda tenetur.', 'Sed repudiandae in.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2015-04-25', 'Et quibusdam.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(192, 5344483478148531, 'Surat Kelahiran', 'Ipsa numquam libero.', 'Tempore hic.', '0000/0000/0000/0000', 'Selesai', 'default.png', '1978-06-02', 'Nemo voluptatem.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(193, 5440570372343250, 'Surat Keterangan', 'Cum tempore est.', 'Aliquid esse aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1986-03-07', 'Maiores rerum.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(194, 5198629439424612, 'KTP', 'Aut ut voluptatem.', 'Ipsam nesciunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1992-05-08', 'Doloremque impedit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(195, 5167693966639171, 'Surat Pindah', 'Culpa dolorem quia.', 'Dicta recusandae.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2015-04-17', 'Neque consequatur.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(196, 5498966344632310, 'KTP', 'Atque velit quis at.', 'Cum rerum.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1978-05-01', 'Ut exercitationem.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(197, 4929393893175256, 'Surat Kematian', 'Dolores occaecati.', 'Consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1989-07-16', 'Minus fuga numquam.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(198, 4716811988996184, 'KK', 'Rem ex similique.', 'Possimus aliquid.', '0000/0000/0000/0000', 'Selesai', 'default.png', '2012-11-06', 'Aperiam possimus.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(199, 347058185440633, 'Surat Kematian', 'Animi ut vero velit.', 'Voluptatum iure qui.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1998-03-29', 'Non facilis ab sit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(200, 5459254538411982, 'Surat Kelahiran', 'Id harum soluta est.', 'Rerum dolor dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1973-07-27', 'Facere et sit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(201, 5183277333653998, 'KK', 'Similique cumque.', 'Perferendis vero.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1978-09-13', 'Nesciunt mollitia.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL);
+(82, 5406052909061905, 'Surat Pindah', 'Ut maiores rem id.', 'Dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-02-11 00:00:00', 'Officiis aperiam ut.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(83, 4716454593739, 'Surat Kematian', 'Quis consequatur.', 'Minus tempore.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1995-01-19 00:00:00', 'Numquam quis.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(84, 370865048194441, 'KK', 'Eligendi neque.', 'Sit eum sapiente.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1977-01-04 00:00:00', 'Voluptas modi ut.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(85, 348657749568547, 'Surat Kelahiran', 'Ut est.', 'Quibusdam magni aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1977-10-05 00:00:00', 'Nulla et quidem.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(86, 343475351188255, 'Surat Kematian', 'Est cumque facilis.', 'Dicta quos deleniti.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2017-03-22 00:00:00', 'Molestiae ut nam.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(87, 4024007168228, 'Surat Keterangan', 'Dolorem veritatis.', 'Et et ipsa error.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1983-02-20 00:00:00', 'Quae praesentium.', '2023-07-13 03:39:51', '2023-08-09 21:31:29', '2023-08-09 21:31:29'),
+(88, 5301037777747541, 'KTP', 'Atque neque enim.', 'Dolor culpa iusto.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1980-05-09 00:00:00', 'Fugiat nisi nostrum.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(89, 5232738574820498, 'Surat Kelahiran', 'Eaque sequi.', 'Illum ut quae.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-06 00:00:00', 'Voluptatem.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(90, 4556371261014, 'Surat Keterangan', 'Aut pariatur.', 'Quo explicabo.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1990-12-09 00:00:00', 'Aut deserunt minima.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(91, 6011931144354909, 'Surat Pindah', 'Minus quisquam id.', 'Excepturi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2023-06-14 00:00:00', 'Qui magnam ex ut.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(92, 5333757021114170, 'Surat Kematian', 'Optio minima magnam.', 'Et sit occaecati.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2012-10-05 00:00:00', 'Illo accusantium.', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
+(93, 4763636283797, 'Surat Keterangan', 'Aut sed qui.', 'Nesciunt laborum.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2018-02-09 00:00:00', 'Aut quia non.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(94, 5117574838856170, 'Surat Keterangan', 'In molestiae vel.', 'Autem cupiditate.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1998-01-16 00:00:00', 'Omnis est assumenda.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(95, 4485369111653429, 'Surat Keterangan', 'Esse aperiam et.', 'Delectus occaecati.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1986-10-05 00:00:00', 'Eligendi repellat a.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(96, 5399809122101654, 'Surat Kelahiran', 'Aut esse cum saepe.', 'Nesciunt reiciendis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1981-02-16 00:00:00', 'Consequatur eveniet.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(97, 4716165457094751, 'KK', 'Tenetur optio quam.', 'Repellendus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1973-01-09 00:00:00', 'Sit velit atque.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(98, 4929028086482, 'Surat Kematian', 'Ex voluptatem est.', 'Accusamus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1975-01-18 00:00:00', 'Qui id quos esse.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(99, 5307909511625684, 'Surat Kematian', 'Sequi aliquam.', 'Sint exercitationem.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1981-11-12 00:00:00', 'At nobis ea nihil.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(100, 5282976529788142, 'Surat Keterangan', 'Eligendi rerum eos.', 'Totam et debitis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2007-06-23 00:00:00', 'Illo at tempore ex.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(101, 372316786874214, 'Surat Pindah', 'Delectus et quaerat.', 'Aut fugiat ex.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2010-10-21 00:00:00', 'Libero quaerat.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(102, 5404020245429872, 'Surat Kelahiran', 'Aliquid autem.', 'Provident nobis sit.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1972-05-12 00:00:00', 'Recusandae vero.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
+(103, 4716584060670569, 'KK', 'In ea pariatur.', 'Possimus tenetur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2013-07-31 00:00:00', 'Architecto harum.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
+(104, 4024007168228, 'Surat Keterangan', 'Sed sit eveniet a.', 'Doloribus modi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1994-12-17 00:00:00', 'Dolor a dolor.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
+(105, 4916917114418, 'KTP', 'Aut et eum dolorem.', 'Totam odio expedita.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2012-08-01 00:00:00', 'Excepturi ipsa.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
+(106, 5419079758561912, 'Surat Kelahiran', 'Non et sit.', 'Et eius dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2019-11-15 00:00:00', 'Impedit delectus.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
+(107, 5244129854302314, 'Surat Kematian', 'Quia quae natus.', 'Aperiam temporibus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-03-11 00:00:00', 'Fugit voluptas.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(108, 6011945130164650, 'KK', 'Dolor enim.', 'Sapiente veniam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-01 00:00:00', 'Et voluptas totam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(109, 4532493442956, 'Surat Kematian', 'Dolor occaecati.', 'Est culpa libero id.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1980-05-18 00:00:00', 'Molestias fugiat.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(110, 5415028268597936, 'Surat Kelahiran', 'Ratione.', 'Sint ut a corporis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-01-06 00:00:00', 'Consequatur veniam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(111, 5276638314180780, 'Surat Pindah', 'Tempora quasi magni.', 'Nobis et voluptas.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-12-14 00:00:00', 'Quis illo cumque.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(112, 4716226036973665, 'KK', 'Voluptatibus rem.', 'Non illum illum.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2018-06-05 00:00:00', 'Voluptatem at.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(113, 377255077060528, 'Surat Keterangan', 'Omnis autem eveniet.', 'Consectetur iste in.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1980-08-06 00:00:00', 'Modi a cum quis.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(114, 371632313695315, 'KTP', 'Ad fugiat molestiae.', 'Aut voluptatum.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1982-03-01 00:00:00', 'Quos ut voluptas.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(115, 5392055901930973, 'KK', 'Libero dolor enim.', 'Aut quia explicabo.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2004-09-30 00:00:00', 'Sed quisquam beatae.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(116, 6011888609033651, 'Surat Kematian', 'Earum velit illo.', 'Eveniet quis ullam.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1988-03-24 00:00:00', 'Mollitia quis.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(117, 5428348628803559, 'Surat Kematian', 'Laboriosam expedita.', 'Nesciunt vel rerum.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1995-03-23 00:00:00', 'Soluta velit qui.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(118, 6011570871614646, 'Surat Kelahiran', 'Ut provident minima.', 'Numquam voluptas.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1988-01-18 00:00:00', 'Quas quasi quisquam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(119, 4556541197364782, 'KTP', 'Nisi voluptas.', 'Voluptate quam iste.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1981-10-19 00:00:00', 'Ad quae et.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(120, 5163291082861771, 'Surat Keterangan', 'Accusantium officia.', 'Corporis suscipit.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2019-06-16 00:00:00', 'Cum asperiores et.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(121, 5239349562977002, 'Surat Keterangan', 'Inventore magni.', 'Sapiente temporibus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2015-06-15 00:00:00', 'Qui consequatur.', '2023-07-19 21:00:19', '2023-07-19 21:00:19', NULL),
+(122, 4024007177104, 'Surat Kelahiran', 'Et dolore omnis et.', 'Et quam et rem id.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1978-06-30 00:00:00', 'Eius minima quis.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
+(123, 5228858183584073, 'KTP', 'Voluptatem.', 'Doloribus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2018-11-23 00:00:00', 'Ut eum corporis.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
+(124, 370934251958189, 'Surat Kelahiran', 'Corporis.', 'Fugit omnis error.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2000-02-18 00:00:00', 'Ut error labore.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
+(125, 5488933597626029, 'KTP', 'Quo natus.', 'Quod voluptatibus.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2004-07-15 00:00:00', 'Sunt qui.', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
+(126, 5149790131606797, 'KTP', 'Dolorum amet.', 'Ut quo rerum aut.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1977-08-29 00:00:00', 'Dolores minus quas.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(127, 4532953845398014, 'KK', 'Adipisci et.', 'Et cum corrupti eos.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2007-11-10 00:00:00', 'Magni rerum.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(128, 4532776938601295, 'Surat Keterangan', 'Facere consequatur.', 'Ipsa hic excepturi.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-25 00:00:00', 'Tempore nihil.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(129, 4716198647344695, 'Surat Keterangan', 'Inventore quod illo.', 'Deleniti sint ab.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1982-04-01 00:00:00', 'Quo accusamus aut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(130, 4539281000331916, 'Surat Kelahiran', 'Qui ad id error.', 'Sint dolore commodi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2013-05-11 00:00:00', 'Dolorem labore.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(131, 4532628626098427, 'Surat Kelahiran', 'Alias molestiae.', 'Minus qui.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-11-09 00:00:00', 'Et commodi ut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(132, 5274546049146160, 'Surat Keterangan', 'Hic suscipit.', 'Dicta dolor nihil.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2001-07-01 00:00:00', 'Dolorem ea sed.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(133, 5296896167411530, 'Surat Keterangan', 'Cumque dolorem.', 'Deleniti.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2023-05-29 00:00:00', 'In odio dolores.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(134, 5385294576988011, 'Surat Kelahiran', 'Ea id voluptatibus.', 'Ipsam voluptatem ut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1976-06-19 00:00:00', 'Qui sit ea quia.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(135, 4539358002702532, 'Surat Kelahiran', 'Consequatur nobis.', 'Facilis voluptatem.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2019-04-12 00:00:00', 'Beatae tenetur qui.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(136, 6011534609274990, 'Surat Pindah', 'Velit accusamus.', 'Quaerat consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2018-11-14 00:00:00', 'Doloremque at ut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(137, 5419959722521557, 'KTP', 'Rerum enim sed quo.', 'Dolores odio.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1986-09-03 00:00:00', 'Accusamus quod aut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(138, 6011178002339529, 'Surat Kematian', 'Sit sit quis veniam.', 'Beatae non quisquam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1987-11-30 00:00:00', 'Sunt doloremque.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(139, 370865048194441, 'Surat Pindah', 'Non sit autem quia.', 'Ea sapiente fugit.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1994-06-30 00:00:00', 'Modi voluptatum.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(140, 5494274883024005, 'Surat Keterangan', 'Ex illo laudantium.', 'Molestias accusamus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2008-06-21 00:00:00', 'Consequatur.', '2023-07-19 21:00:52', '2023-07-19 21:00:52', NULL),
+(141, 5281226408281202, 'Surat Keterangan', 'Magnam quaerat.', 'Consectetur quis.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2009-05-30 00:00:00', 'Pariatur provident.', '2023-07-19 21:00:52', '2023-07-19 21:00:52', NULL),
+(142, 4539773460395068, 'KK', 'Praesentium ut.', 'Sit officiis ab.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2008-08-27 00:00:00', 'Officiis sequi.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(143, 5539141455796574, 'KK', 'Ea voluptas.', 'Esse temporibus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1983-12-23 00:00:00', 'Consequatur libero.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(144, 4532617648913689, 'Surat Kematian', 'Similique aperiam.', 'Accusamus ullam.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2001-09-28 00:00:00', 'Cum velit ea omnis.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(145, 6011109492140614, 'Surat Kematian', 'Corrupti.', 'Velit amet.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2000-11-06 00:00:00', 'Odit maiores.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(146, 5371214204422924, 'Surat Pindah', 'Unde officia a.', 'Impedit ipsum quae.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-10-29 00:00:00', 'Quo aut mollitia.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(147, 4302450574955, 'Surat Pindah', 'Velit sint sunt.', 'Est nihil et sint.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2018-08-24 00:00:00', 'Neque expedita nam.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(148, 5398259118614396, 'KTP', 'Beatae doloremque.', 'Dolor error atque.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1972-06-11 00:00:00', 'Quibusdam pariatur.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(149, 4485425690195891, 'KK', 'Non enim quos.', 'Blanditiis incidunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1992-08-06 00:00:00', 'Pariatur aliquam id.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(150, 4532216326304, 'Surat Kelahiran', 'Maiores minima ut.', 'Ut quia ipsum quasi.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2003-06-05 00:00:00', 'Reiciendis.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(151, 5140434750655335, 'Surat Kelahiran', 'Ut dolorem fuga qui.', 'Corporis voluptate.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2018-09-30 00:00:00', 'Quis beatae dolore.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(152, 4485809172694, 'Surat Kematian', 'test', 'Nesciunt asperiores.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', '1691567325_2a41651c37c6d271dd9a.pdf', '1988-03-10 00:00:00', 'Quod quo blanditiis.', '2023-07-19 21:00:54', '2023-08-09 21:35:57', '2023-08-09 21:35:57'),
+(153, 5402289136546340, 'Surat Keterangan', 'Voluptas omnis est.', 'Et iste ex omnis.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1996-10-30 00:00:00', 'Asperiores mollitia.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(154, 4485756027046005, 'KTP', 'Impedit voluptatum.', 'Quas deleniti ut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1976-12-22 00:00:00', 'Odit ullam eum.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(155, 4929422918934, 'Surat Kematian', 'Vel quidem aut.', 'Exercitationem sit.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1985-02-01 00:00:00', 'Et fuga fugiat.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(156, 5298073299076502, 'Surat Kematian', 'Voluptas ratione.', 'Ut sit ut velit.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1989-06-19 00:00:00', 'Officia molestias.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(157, 5309088045370147, 'Surat Pindah', 'Exercitationem.', 'Quisquam soluta est.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1980-09-20 00:00:00', 'Quos magnam aliquam.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(158, 5395470562733938, 'Surat Kematian', 'Nobis et quo quae.', 'Ratione excepturi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2003-02-21 00:00:00', 'Quo quia suscipit.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(159, 6011602995386924, 'Surat Kematian', 'Voluptas est.', 'Animi.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-12-19 00:00:00', 'Quidem nisi dolorem.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(160, 349887613753664, 'Surat Kematian', 'Corporis nesciunt.', 'Expedita ut beatae.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1998-02-24 00:00:00', 'Aliquam temporibus.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(161, 4485439309609, 'Surat Kelahiran', 'Nesciunt autem.', 'Ullam quasi sed.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2015-12-01 00:00:00', 'Sed omnis ipsum.', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(162, 5479238552421999, 'Surat Keterangan', 'Veniam consectetur.', 'Quia eos quibusdam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2023-04-07 00:00:00', 'Consequuntur.', '2023-07-19 21:00:55', '2023-07-19 21:00:55', NULL),
+(163, 5188556655492746, 'Surat Kematian', 'Repudiandae et.', 'Aperiam consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-01-14 00:00:00', 'Tempora est.', '2023-07-19 21:00:55', '2023-07-19 21:00:55', NULL),
+(164, 347538557310829, 'Surat Pindah', 'Sint tempora id.', 'A voluptas officiis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2009-08-02 00:00:00', 'Numquam ut veniam.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(165, 348764598251512, 'KK', 'Dolores debitis.', 'Iure voluptates.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-09-23 00:00:00', 'Totam commodi.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(166, 5560098321531845, 'KK', 'Libero corporis.', 'Modi laudantium.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2020-01-14 00:00:00', 'Ut similique.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(167, 5336414080031351, 'Surat Kelahiran', 'Labore temporibus.', 'Ipsum ducimus.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1972-04-16 00:00:00', 'Culpa dolore.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(168, 345614270604616, 'Surat Kelahiran', 'Deleniti natus.', 'Nobis deserunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2009-07-27 00:00:00', 'Eligendi magni.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(169, 5119358280258889, 'Surat Pindah', 'In eaque impedit.', 'Iusto ducimus et.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2010-04-23 00:00:00', 'Officiis eligendi.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(170, 4929780230464726, 'Surat Kelahiran', 'Ut vitae.', 'Pariatur quam sunt.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2007-08-06 00:00:00', 'Et eos voluptatum.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(171, 4556706561887813, 'Surat Kematian', 'Consectetur totam.', 'Odio velit nostrum.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2022-09-14 00:00:00', 'Sed ab similique.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(172, 344212209136981, 'Surat Kelahiran', 'Voluptas.', 'Qui rem perferendis.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1974-10-15 00:00:00', 'Provident eveniet.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(173, 4907790984217, 'KTP', 'Fugit dolor nulla.', 'Voluptatem.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1985-07-07 00:00:00', 'Aperiam nihil.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(174, 5490177444467528, 'Surat Kematian', 'Adipisci in at.', 'Et voluptatem.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2000-01-03 00:00:00', 'Consequuntur.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(175, 5259374304298421, 'Surat Kematian', 'Eum asperiores quis.', 'Et repellat.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-08-19 00:00:00', 'Ullam inventore quo.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(176, 5122367213686244, 'Surat Kematian', 'Ut in quia.', 'Aut voluptates iste.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1983-05-16 00:00:00', 'Sit dolore et et.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(177, 4989054276464, 'Surat Kelahiran', 'Voluptates fugit.', 'Ut ipsum aperiam.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1982-01-03 00:00:00', 'Fugit ut sequi non.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(178, 349970664270232, 'Surat Keterangan', 'Et totam sed sint.', 'Deleniti nihil.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1995-10-04 00:00:00', 'Dolores et et aut.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
+(179, 374935801440319, 'Surat Keterangan', 'In ea quaerat.', 'Quo laboriosam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1971-01-25 00:00:00', 'Nulla fugiat.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
+(180, 4024007109297, 'Surat Pindah', 'Culpa officiis.', 'Sed repellendus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', '1691567050_451386e677b97a8fc766.pdf', '1999-06-11 00:00:00', 'Eum earum dolor.', '2023-07-19 21:00:57', '2023-08-09 21:32:22', '2023-08-09 21:32:22'),
+(181, 5561386423195448, 'Surat Pindah', 'Omnis atque.', 'Ipsa consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2008-01-17 00:00:00', 'Ut tempora eos.', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
+(182, 5289900585965991, 'Surat Kematian', 'Quis nostrum vitae.', 'Debitis eos tempora.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1999-08-31 00:00:00', 'Odio voluptatem.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(183, 4539021447050, 'KK', 'Alias quos qui.', 'Vel dolorem natus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2011-05-01 00:00:00', 'Dolores recusandae.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(184, 5319695330298458, 'KTP', 'Aut quis qui fuga.', 'Aut rerum quia nisi.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1977-07-19 00:00:00', 'Consequatur rem.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(185, 5263795061282865, 'Surat Keterangan', 'Omnis est repellat.', 'Libero inventore.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1987-02-10 00:00:00', 'Et a assumenda.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(186, 5563599415602761, 'KK', 'Veniam aliquid.', 'Sed corrupti.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1986-11-06 00:00:00', 'Fugit voluptatibus.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(187, 4556941832450, 'Surat Keterangan', 'Architecto est.', 'Autem explicabo aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1981-08-13 00:00:00', 'At qui et deleniti.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(188, 4716266233870, 'Surat Keterangan', 'Eligendi enim.', 'Porro nesciunt amet.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1999-05-06 00:00:00', 'Nemo enim illo.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(189, 4539470567237174, 'Surat Keterangan', 'A fugiat vero quia.', 'Quo aspernatur aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1980-05-02 00:00:00', 'Sed modi.', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
+(190, 4539123274329, 'Surat Keterangan', 'Laboriosam.', 'Sit voluptatem quos.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2018-04-06 00:00:00', 'Ut quis dolorem.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(191, 5166431996824203, 'KK', 'Assumenda tenetur.', 'Sed repudiandae in.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2015-04-25 00:00:00', 'Et quibusdam.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(192, 5344483478148531, 'Surat Kelahiran', 'Ipsa numquam libero.', 'Tempore hic.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1978-06-02 00:00:00', 'Nemo voluptatem.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(193, 5440570372343250, 'Surat Keterangan', 'Cum tempore est.', 'Aliquid esse aut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1986-03-07 00:00:00', 'Maiores rerum.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(194, 5198629439424612, 'KTP', 'Aut ut voluptatem.', 'Ipsam nesciunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1992-05-08 00:00:00', 'Doloremque impedit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(195, 5167693966639171, 'Surat Pindah', 'Culpa dolorem quia.', 'Dicta recusandae.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2015-04-17 00:00:00', 'Neque consequatur.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(196, 5498966344632310, 'KTP', 'Atque velit quis at.', 'Cum rerum.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1978-05-01 00:00:00', 'Ut exercitationem.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(197, 4929393893175256, 'Surat Kematian', 'Dolores occaecati.', 'Consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1989-07-16 00:00:00', 'Minus fuga numquam.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(198, 4716811988996184, 'KK', 'Rem ex similique.', 'Possimus aliquid.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2012-11-06 00:00:00', 'Aperiam possimus.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(199, 347058185440633, 'Surat Kematian', 'Animi ut vero velit.', 'Voluptatum iure qui.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1998-03-29 00:00:00', 'Non facilis ab sit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(200, 5459254538411982, 'Surat Kelahiran', 'Id harum soluta est.', 'Rerum dolor dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1973-07-27 00:00:00', 'Facere et sit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(201, 5183277333653998, 'KK', 'Similique cumque.', 'Perferendis vero.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1978-09-13 00:00:00', 'Nesciunt mollitia.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
+(202, 4485809172694, 'Lainnya', 'test', 'test', NULL, 'Menunggu Konfirmasi', '1691579019_4e024477487d14cd28fe.pdf', NULL, NULL, '2023-08-09 18:03:39', '2023-08-09 21:31:21', '2023-08-09 21:31:21');
 
 -- --------------------------------------------------------
 
@@ -253,7 +254,7 @@ CREATE TABLE `keluarga` (
   `alamat_asal` varchar(255) DEFAULT NULL,
   `foto_rumah` varchar(255) NOT NULL DEFAULT 'default.png',
   `tgl_pindah` date DEFAULT NULL,
-  `status` varchar(15) NOT NULL,
+  `status` varchar(15) DEFAULT NULL,
   `isExist` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -317,6 +318,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (4556455636401222, 'Puti Kuswandari', 'Jr. Panjaitan No. 969, Bengkulu 95956, KalTim', 'Ki. Surapati No. 690, Pasuruan 27596, SulUt', 'default.png', '2007-03-16', 'Pindah', 0, '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (4556721302180360, 'Oskar Oskar Saragih', 'Ds. Arifin No. 166, Makassar 11970, DIY', 'Gg. Wahid Hasyim No. 39, Padangpanjang 58326, KalTeng', 'default.png', '1971-01-24', 'Pindah', 1, '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4716280266615751, 'Malika Suryatmi', 'Dk. Supomo No. 531, Prabumulih 51775, PapBar', 'Gg. Lumban Tobing No. 849, Administrasi Jakarta Utara 87853, SulTeng', 'default.png', '2022-05-19', 'Tetap', 0, '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
+(4716454593723433, 'Iwan Suryaningrat', NULL, NULL, 'default.png', NULL, NULL, 1, '2023-08-09 23:31:52', '2023-08-09 23:31:52', NULL),
 (4778023352204667, 'Qori Gasti Mardhiyah', 'Ds. Pacuan Kuda No. 856, Mojokerto 99031, PapBar', 'Kpg. Sukajadi No. 31, Tarakan 85995, Maluku', 'default.png', '2003-12-26', 'Tetap', 0, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (4916456916349425, 'Malika Nurul Yolanda', 'Gg. Padang No. 358, Kupang 26482, NTB', 'Dk. Perintis Kemerdekaan No. 981, Bitung 67278, KalTim', 'default.png', '2017-11-27', 'Pindah', 1, '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (4916994347219577, 'Eka Wahyuni', 'Ki. Yosodipuro No. 827, Binjai 48076, Lampung', 'Psr. Baja Raya No. 811, Blitar 32092, BaBel', 'default.png', '1990-01-07', 'Pindah', 1, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
@@ -383,7 +385,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (6011551604100004, 'Maida Novitasari M.TI.', 'Psr. Basudewo No. 377, Lhokseumawe 27543, Bali', 'Dk. Rajawali No. 59, Lhokseumawe 79739, Bengkulu', 'default.png', '2021-02-27', 'Tetap', 0, '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (6011585140756325, 'Damar Cengkir Ardianto', 'Jr. Tentara Pelajar No. 315, Pematangsiantar 53561, Aceh', 'Gg. Laksamana No. 512, Tanjungbalai 95983, JaTim', 'default.png', '1999-11-10', 'Pindah', 0, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (6011603519412592, 'Restu Qori Agustina', 'Kpg. Supomo No. 880, Kediri 52285, JaBar', 'Kpg. Sunaryo No. 407, Parepare 83404, KalTim', 'default.png', '1984-10-31', 'Pindah', 0, '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
-(6011619156208978, 'Hamima Kusmawati', 'Jl. Ki. Ronggowarsito No. 4160, Tembalang, Semarang, ,, ,, ,', 'Ki. Pattimura No. 970, Bukittinggi 93680, DIY', 'default.png', '1977-01-11', 'Pindah', 1, '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
+(6011619156208978, 'Hamima Kusmawati', 'Jl. Ki. Ronggowarsito No. 4160, Tembalang, Semarang', 'Ki. Pattimura No. 970, Bukittinggi 93680, DIY', 'default.png', '1977-01-11', 'Pindah', 1, '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
 (6011672862016987, 'Wirda Pertiwi', 'Psr. Baung No. 914, Bukittinggi 39122, SulBar', 'Ds. Veteran No. 662, Serang 20519, MalUt', 'default.png', '1979-08-15', 'Tetap', 1, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (6011742897660735, 'Dalima Purwanti', 'Kpg. Tambak No. 785, Ambon 33520, DIY', 'Ds. Ters. Pasir Koja No. 578, Kendari 93683, SumSel', 'default.png', '2015-04-14', 'Tetap', 1, '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
 (6011785081052946, 'Gasti Rahayu M.Pd', 'Gg. Banceng Pondok No. 249, Pontianak 44979, NTT', 'Ki. Kalimalang No. 960, Pariaman 53366, MalUt', 'default.png', '1996-01-02', 'Tetap', 0, '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
@@ -408,6 +410,14 @@ CREATE TABLE `pelaporan` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pelaporan`
+--
+
+INSERT INTO `pelaporan` (`pelaporan_id`, `nik_pelapor`, `nik_terlapor`, `kategori`, `laporan`, `deskripsi_pelaporan`, `status_pelaporan`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(6, 4485809172694, 4539123274329, 'Lingkungan', 'Test Lagi', 'TESTTTTT', 'Menunggu Konfirmasi', '2023-08-09 20:46:13', '2023-08-09 20:46:13', NULL),
+(7, 4485809172694, 5459254538411982, 'Lainnya', 'Test Lagi', 'fjkghdjfhgdfjkhgj', 'Menunggu Konfirmasi', '2023-08-09 21:14:07', '2023-08-09 21:14:07', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -428,6 +438,13 @@ CREATE TABLE `pengumuman` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengumuman`
+--
+
+INSERT INTO `pengumuman` (`pengumuman_id`, `kategori`, `judul_pengumuman`, `deskripsi`, `tanggal`, `jam`, `tempat`, `status`, `created_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Kesehatan', 'Ayok Ngumpul', 'ngumpul heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy', '2023-08-23', '08:12:16', 'Balai Desa', 'Akan Berlangsung', 22222222222222222, '2023-08-09 17:12:16', '2023-08-09 17:12:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -493,12 +510,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tgl_lahir`, `usia`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `email`, `no_hp`, `password`, `role`, `foto`, `status_kependudukan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4024007109297, 6011619156208978, 'Emin Prasetya', 'Anak', 'Laki-laki', 'Islam', 'Bau-Bau', '2000-12-14', 23, 'Kawin', 'S1', 'Wiraswasta', 'emin@gmail.com', '088765432190', '$2y$10$uVROR7WKHlhjc/0UZQotsezLq.DE.HT4AJPZwshPZ4snkNzIir8M.', 'User', '1691522455_76b1b0ea0ae0dda1e3d0.png', 'Tetap', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
+(4024007109297, 6011619156208978, 'Emin Prasetya', 'Anak', 'Laki-laki', 'Islam', 'Bau-Bau', '2000-12-14', 23, 'Kawin', 'S1', 'Wiraswasta', 'emin@gmail.com', '088765432190', '$2y$10$uVROR7WKHlhjc/0UZQotsezLq.DE.HT4AJPZwshPZ4snkNzIir8M.', 'User', '1691521439_7d19d8f3730629a4c920.png', 'Tetap', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
 (4024007168228, 6011619156208978, 'Virman Wibisono', 'Anak', 'Laki-laki', 'Islam', 'Yogyakarta', '2003-06-08', 20, 'Kawin', 'SMP', 'Wiraswasta', 'virman@gmail.com', '088888888888', '$2y$10$hLKct2C/NRJ4C1BI7XgdfejGndG2se7boFzPKOSlUvLK8iaCYb4Je', 'User', '1691521439_7d19d8f3730629a4c920.png', 'Pendatang', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4024007177104, 5233227255122035, 'Ellis Widya Usamah', 'Anak', 'Perempuan', 'Islam', 'Tarakan', '2007-06-13', 35, 'Cerai Mati', 'SMA', 'Wiraswasta', 'mitra77@yulianti.ac.id', NULL, '$2y$10$J.XF8o2h51sJfExBoDPFI.j7CPZOJ3Ug/gTxflimP/6vhLjDKSRRe', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
 (4302450574955, 5201913757893631, 'Agus', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Malang', '1986-06-14', 37, 'Kawin', 'D3', 'Wiraswasta', 'surya@gmail.com', '082345678912', '$2y$10$RoZgDflAr5S5Ta9mZ31A/ujncy/Or.xYD0YML/oeOpcnA7qokQBYm', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (4485439309609, 5489558019884408, 'Ida Yuliarti', 'Istri', 'Laki-laki', 'Islam', 'Malang', '2011-06-25', 11, 'Cerai Hidup', 'D3', 'Wiraswasta', 'xanana.oktaviani@puspasari.net', NULL, '$2y$10$a/YrX9ZicEThFkOPBP1BQ.hekOzPDUg0Vv8UXsinrHzmDveSzdt.O', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
-(4485809172694, 6011619156208978, 'Bambang Nyoman Zulkarnain M.Farm', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Manado', '1985-07-11', 38, 'Cerai Hidup', 'S2', 'Wiraswasta', 'surya@gmail.com', '08888888883', '$2y$10$HAfYa89XM/a7La6ARVnJ3e2dB7X41wymQLyNb4JLN58/sif3VEyJ2', 'User', '1691521439_7d19d8f3730629a4c920.png', 'Tetap', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
+(4485809172694, 6011619156208978, 'Bambang Nyoman Zulkarnain M.Farm', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Manado', '1985-07-11', 38, 'Cerai Hidup', 'S2', 'Wiraswasta', 'surya@gmail.com', '08888888883', '$2y$10$HAfYa89XM/a7La6ARVnJ3e2dB7X41wymQLyNb4JLN58/sif3VEyJ2', 'User', '1691586899_3d2eeabfa84c26f044cc.png', 'Tetap', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
 (4532216326304, 5394358651956976, 'Tri Kayun Pradipta S.IP', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Palangka Raya', '1973-09-28', 30, 'Belum Kawin', 'S1', 'Wiraswasta', 'yuniar.kenzie@gmail.com', NULL, '$2y$10$Z5h7rX9AzuC8HxDFqqovOO5GbBIjfPSJ39SpZVmKTieOlh/rNCnqS', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (4532493442956, 5412275983958470, 'Farhunnisa Ida Nasyidah S.Ked', 'Anak', 'Laki-laki', 'Islam', 'Sorong', '2010-11-08', 83, 'Cerai Hidup', 'D3', 'Wiraswasta', 'nasyiah.vivi@gmail.co.id', NULL, '$2y$10$C5rbbivDkRhdzg7i2f6Z6OWTlHqIcfu8AX5ufSB7PHQ5iZ0eQubZm', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (4539021447050, 5261712617668168, 'Eman Sitorus S.Gz', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Semarang', '1990-08-22', 15, 'Belum Kawin', 'SMA', 'Wiraswasta', 'ganda.wulandari@gmail.com', NULL, '$2y$10$.Ya67LZxAVuXNjNUJ5Vl5.kmVkSxz0m.6zBXJ5U5yH/xSuEXNw/gq', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:58', '2023-07-19 21:00:58', NULL),
@@ -549,6 +566,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (4716165457094751, 5152545553366278, 'Maimunah Palastri', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Surabaya', '2020-09-13', 23, 'Cerai Hidup', 'D1', 'Wiraswasta', 'luwar43@yahoo.com', NULL, '$2y$10$a1/JyOc7Ba74K1/46eVHMei3lLMQh9MBab4/Uun18CTjs8OP4kkdW', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (4716198647344695, 5352394835500364, 'Danang Widodo S.H.', 'Anak', 'Perempuan', 'Islam', 'Administrasi Jakarta Selatan', '1982-02-08', 58, 'Belum Kawin', 'D3', 'Wiraswasta', 'laila45@nashiruddin.co', NULL, '$2y$10$3cJmBlb6W6M.VlYi2OIfdutVxXpMWUh2FJWa50eXSrzWDHTTP4LdW', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (4716226036973665, 4532453265330, 'Vivi Diah Pudjiastuti', 'Anak', 'Perempuan', 'Islam', 'Dumai', '1992-08-20', 45, 'Belum Kawin', 'D1', 'Wiraswasta', 'rosman.yolanda@haryanti.tv', NULL, '$2y$10$bAXKrvzoJQrk7h6/lgrRbO1fe./jaazGJgrw2iq3jWG9tRHBvrB/W', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(4716454593729233, 4716454593723433, 'Iwan Suryaningrat', 'Kepala Keluarga', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'virman@gmail.com', '088888888888', '$2y$10$Aa/biOZQQ2E8cwFRYKqC0.d0.3BMtsFNnZFRjlugFI5KWiQJ3dBqa', 'User', 'default.png', 'Tetap', '2023-08-09 23:31:53', '2023-08-09 23:31:53', NULL),
 (4716454599739233, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2010-10-10', 13, 'Belum Kawin', 'SD', 'Programmer', 'emin@gmail.com', '088765432190', '$2y$10$a92u0Ri296ZevoLCNqe9XOuXSFxBaOy2HRMU7WktPoAJNY7sRBp7m', 'User', 'default.png', 'Tetap', '2023-08-08 01:34:28', '2023-08-08 01:34:28', NULL),
 (4716584060670569, 5529607779838435, 'Jaka Galiono Widodo S.Ked', 'Anak', 'Perempuan', 'Islam', 'Mataram', '1971-11-15', 26, 'Cerai Mati', 'SMA', 'Wiraswasta', 'palastri.marsudi@permadi.name', NULL, '$2y$10$8PNAZ62Xae7Llt6bgUC0MOYIqvuBKA1neOSOHLtj8mOBWEpVZFXku', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4716811988996184, 5143303810938196, 'Eva Cornelia Purwanti S.Ked', 'Anak', 'Laki-laki', 'Islam', 'Sibolga', '2010-08-21', 99, 'Cerai Hidup', 'D3', 'Wiraswasta', 'safina32@pranowo.ac.id', NULL, '$2y$10$uKOrQgLxALLNcFseafvEteIhr3Nh.2hsMZ.jFVs/6oLu4mCqGnt8u', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
@@ -697,7 +715,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `administrasi`
 --
 ALTER TABLE `administrasi`
-  MODIFY `administrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+  MODIFY `administrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 
 --
 -- AUTO_INCREMENT for table `foto`
@@ -721,13 +739,13 @@ ALTER TABLE `kategori_galeri`
 -- AUTO_INCREMENT for table `pelaporan`
 --
 ALTER TABLE `pelaporan`
-  MODIFY `pelaporan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pelaporan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pesan`
@@ -757,13 +775,6 @@ ALTER TABLE `foto`
 ALTER TABLE `galeri`
   ADD CONSTRAINT `kategori_galeri` FOREIGN KEY (`kategori`) REFERENCES `kategori_galeri` (`kategori_galeri_id`),
   ADD CONSTRAINT `uploader` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`);
-
---
--- Constraints for table `pelaporan`
---
-ALTER TABLE `pelaporan`
-  ADD CONSTRAINT `nik_fk` FOREIGN KEY (`nik_pelapor`) REFERENCES `users` (`nik`),
-  ADD CONSTRAINT `terlapor_fk` FOREIGN KEY (`nik_terlapor`) REFERENCES `users` (`nik`);
 
 --
 -- Constraints for table `pengumuman`

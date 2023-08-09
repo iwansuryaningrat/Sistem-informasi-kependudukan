@@ -180,6 +180,17 @@ class Users extends BaseController
 
         return view('/users/news/announcement', $data);
     }
+
+    public function detailpengumuman()
+    {
+        $data = [
+            'title' => 'Portal Pengumuman | Warga Site',
+            'navbar' => 'pengumuman',
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/news/read-announcement', $data);
+    }
     // End of Pengumuman Method
 
     // Keluarga Method (Done)
