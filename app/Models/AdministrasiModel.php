@@ -25,14 +25,14 @@ class AdministrasiModel extends Model
     public function getAdministrasi($administrasi_id = null)
     {
         if ($administrasi_id == null) {
-            return $this->select('administrasi.*, users.nama')
+            return $this->select('administrasi.*, users.nama, users.no_kk')
                 ->join('users', 'users.nik = administrasi.pemohon')
                 ->orderBy('administrasi.created_at', 'DESC')
                 ->orderBy('administrasi.administrasi_status', 'ASC')
                 ->findAll();
         }
 
-        return $this->select('administrasi.*, users.nama')
+        return $this->select('administrasi.*, users.nama, users.no_kk')
             ->join('users', 'users.nik = administrasi.pemohon')
             ->where(['administrasi_id' => $administrasi_id])
             ->first();

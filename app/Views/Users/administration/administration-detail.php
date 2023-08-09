@@ -96,7 +96,7 @@
             <div class="col-md-10">
               <div class="input-group">
                 <input type="text" class="form-control input-control" id="berkas" name="berkas" disabled value="<?= $dataAdministrasi['berkas'] ?>" />
-                <?php if ($dataAdministrasi['created_at']) : ?>
+                <?php if ($dataAdministrasi['administrasi_status'] == 'Selesai') : ?>
                   <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>">
                     <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
                       <i class="fa-solid fa-download me-2"></i>Download
@@ -105,6 +105,16 @@
                 <?php endif; ?>
               </div>
             </div>
+          </div>
+          <!-- Hapus -->
+          <div class="card-footer card-form-footer">
+            <a href="/administrasicontroller/hapus/<?= $dataAdministrasi['administrasi_id'] ?>">
+              <div class="w-100 d-flex justify-content-end">
+                <button type="submit" form="reportFormEdit" class="btn btn-logout-sm btn-submit px-4" id="reportFormEditButton">
+                  Hapus Administrasi
+                </button>
+              </div>
+            </a>
           </div>
         </div>
       </div>

@@ -225,4 +225,28 @@ class AdministrasiController extends BaseController
             return redirect()->to('/users/formTambahAdministrasi');
         }
     }
+
+    // Hapus administrasi
+    public function hapus($id)
+    {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+
+        if ($dataAdministrasi['no_kk'] != $this->user_data['no_kk']) {
+            session()->setFlashdata('error', 'Anda tidak dapat menghapus data administrasi ini');
+            return redirect()->to('/users/administrasi');
+        }
+
+        // delete file
+        if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+
+        $result = $this->administrasiModel->delete($id);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Berhasil menghapus data administrasi');
+            return redirect()->to('/users/administrasi');
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus data administrasi');
+            return redirect()->to('/users/administrasi');
+        }
+    }
 }
