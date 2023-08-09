@@ -20,7 +20,7 @@
   <section class="container container-space">
     <div class="news-container">
       <?php foreach ($dataGaleri as $galeri) : ?>
-        <a href="/<?= (session()->get('isLoggedIn')) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
+        <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
           <figure class="news-image__wrap h-13">
             <img src="/upload/photos/<?= $galeri['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
           </figure>
@@ -45,7 +45,7 @@
 </main>
 <!-- end of main -->
 
-<?php if (session()->get('isLoggedIn')) : ?>
+<?php if ($isLoggedin) : ?>
   <!-- button add gallery -->
   <div id="add-gallery-fixed">
     <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
@@ -80,7 +80,7 @@
           <label for="kategori" class="form-label forms-label">Kategori</label>
           <select class="form-select select-control" id="kategori" name="kategori">
             <option selected value="">Pilih Kategori Galeri</option>
-            <?php if ($kategoriGaleri) :
+            <?php if ($isLoggedin && $kategoriGaleri) :
               foreach ($kategoriGaleri as $kategori) : ?>
                 <option value="<?= $kategori['kategori_galeri_id'] ?>"><?= $kategori['nama_kategori'] ?></option>
             <?php endforeach;

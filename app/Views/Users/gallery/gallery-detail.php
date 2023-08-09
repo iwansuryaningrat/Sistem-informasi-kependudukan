@@ -201,7 +201,7 @@
 </main>
 <!-- end of main -->
 
-<?php if (session()->get('isLoggedIn')) : ?>
+<?php if ($isLoggedin) : ?>
     <!-- button add gallery -->
     <div id="add-gallery-fixed">
         <div class="btn btn-main shadow" data-bs-toggle="modal" data-bs-target="#modalAddPhoto">

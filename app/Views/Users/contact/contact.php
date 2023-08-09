@@ -25,12 +25,12 @@
                         <!-- fullname -->
                         <div class="mb-3">
                             <label for="namaLengkap" class="form-label forms-label">Nama Lengkap</label>
-                            <input type="text" class="form-control input-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan Nama Lengkap" value='<?= (session()->get('isLoggedIn')) ? $user['nama'] : '' ?>' />
+                            <input type="text" class="form-control input-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan Nama Lengkap" value='<?= ($isLoggedin) ? $user['nama'] : '' ?>' />
                         </div>
                         <!-- email -->
                         <div class="mb-3">
                             <label for="email" class="form-label forms-label">Email</label>
-                            <input type="email" class="form-control input-control" id="email" name="email" placeholder="username@email.com" value='<?= (session()->get('isLoggedIn')) ? $user['email'] : '' ?>' />
+                            <input type="email" class="form-control input-control" id="email" name="email" placeholder="username@email.com" value='<?= ($isLoggedin) ? $user['email'] : '' ?>' />
                         </div>
                         <!-- subject -->
                         <div class="mb-3">

@@ -63,4 +63,21 @@ class Home extends BaseController
 
         return view('/users/contact/contact', $data);
     }
+
+    public function detailGaleri($id)
+    {
+        $dataGaleri = $this->galeriModel->getGaleri($id);
+        $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
+        // dd($dataFoto, $dataGaleri);
+
+        $data = [
+            'title' => 'Detail Galeri | Warga Site',
+            'navbar' => 'galeri',
+            'dataGaleri' => $dataGaleri,
+            'dataFoto' => $dataFoto,
+            'isLoggedin' => false
+        ];
+
+        return view('/users/gallery/gallery-detail', $data);
+    }
 }
