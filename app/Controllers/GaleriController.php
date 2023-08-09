@@ -92,8 +92,14 @@ class GaleriController extends BaseController
             'isThumbnail' => true,
         ];
 
-        session()->setFlashdata('success', 'Galeri berhasil ditambahkan');
+        $result = $this->fotoModel->save($foto);
 
-        return redirect()->to('/users/galeri');
+        if (!$result) {
+            session()->setFlashdata('error', 'Galeri gagal ditambahkan');
+            return redirect()->to('/users/galeri');
+        } else {
+            session()->setFlashdata('success', 'Galeri berhasil ditambahkan');
+            return redirect()->to('/users/galeri');
+        }
     }
 }
