@@ -25,7 +25,7 @@ class PelaporanModel extends Model
     public function getPelaporan($pelaporan_id = null)
     {
         if ($pelaporan_id == null) {
-            return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, terlapor.nama as nama_terlapor')
+            return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, pelapor.no_kk as no_kk, terlapor.nama as nama_terlapor')
                 ->join('users as pelapor', 'pelapor.nik = pelaporan.nik_pelapor')
                 ->join('users as terlapor', "terlapor.nik = pelaporan.nik_terlapor")
                 ->orderBy('pelaporan.created_at', 'DESC')
@@ -33,7 +33,7 @@ class PelaporanModel extends Model
                 ->findAll();
         }
 
-        return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, terlapor.nama as nama_terlapor')
+        return $this->select('pelaporan.*, pelapor.nama as nama_pelapor, pelapor.no_kk as no_kk, terlapor.nama as nama_terlapor')
             ->join('users as pelapor', 'pelapor.nik = pelaporan.nik_pelapor')
             ->join('users as terlapor', "terlapor.nik = pelaporan.nik_terlapor")
             ->where(['pelaporan_id' => $pelaporan_id])

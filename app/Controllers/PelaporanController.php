@@ -113,6 +113,13 @@ class PelaporanController extends BaseController
 
     public function hapuslaporan($id)
     {
+        $pelaporan = $this->pelaporanModel->getPelaporan($id);
+
+        if ($pelaporan['no_kk'] != $this->user_data['no_kk']) {
+            session()->setFlashdata('error', 'Anda tidak memiliki akses untuk menghapus laporan ini');
+            return redirect()->to('/users/pelaporan');
+        }
+
         $result = $this->pelaporanModel->deletePelaporan($id);
 
         if ($result) {

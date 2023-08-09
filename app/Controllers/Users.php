@@ -110,6 +110,7 @@ class Users extends BaseController
     public function detailPelaporan($id)
     {
         $dataLaporan = $this->pelaporanModel->getPelaporan($id);
+        // dd($dataLaporan);
 
         $data = [
             'title' => 'Detail Pelaporan | Warga Site',

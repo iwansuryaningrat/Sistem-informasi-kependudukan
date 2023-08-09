@@ -28,84 +28,78 @@
         <div>
           <!-- nama pelapor -->
           <div class="row mb-3">
-            <label for="nama_pelapor" class="col-md-2 form-label forms-label mt-md-2">Nama Pelapor <span class="text-important">*</span></label>
+            <label for="nama_pelapor" class="col-md-2 form-label forms-label mt-md-2">Nama Pelapor </label>
             <div class="col-md-10">
               <input type="text" class="form-control input-control" id="nama_pelapor" name="nama_pelapor" value="Nama Pelapor" disabled />
             </div>
           </div>
           <!-- nik pelapor -->
           <div class="row mb-3">
-            <label for="nik_pelapor" class="col-md-2 form-label forms-label mt-md-2">NIK Pelapor <span class="text-important">*</span></label>
+            <label for="nik_pelapor" class="col-md-2 form-label forms-label mt-md-2">NIK Pelapor </label>
             <div class="col-md-10">
               <input type="text" class="form-control input-control" id="nik_pelapor" name="nik_pelapor" value="1234567890123456" disabled />
             </div>
           </div>
           <!-- nama terlapor -->
           <div class="row mb-3">
-            <label for="nama_terlapor" class="col-md-2 form-label forms-label mt-md-2">Nama Terlapor <span class="text-important">*</span></label>
+            <label for="nama_terlapor" class="col-md-2 form-label forms-label mt-md-2">Nama Terlapor </label>
             <div class="col-md-10">
-              <select id="nama_terlapor" name="nama_terlapor" required class="form-select select-control" disabled>
-                <option value="">Pilih Nama Terlapor</option>
-                <option value="1">Nama Terlapor 1</option>
-                <option value="2" selected>Nama Terlapor 2</option>
-                <option value="3">Nama Terlapor 3</option>
-              </select>
+              <input type="text" id="nama_terlapor" name="nama_terlapor" class="form-control input-control" value="2021-08-01" disabled />
             </div>
           </div>
           <!-- nik terlapor -->
           <div class="row mb-3">
-            <label for="nik_terlapor" class="col-md-2 form-label forms-label mt-md-2">NIK Terlapor <span class="text-important">*</span></label>
+            <label for="nik_terlapor" class="col-md-2 form-label forms-label mt-md-2">NIK Terlapor </label>
             <div class="col-md-10">
               <input type="text" class="form-control input-control" id="nik_terlapor" name="nik_terlapor" value="1234567890123456" disabled />
             </div>
           </div>
           <!-- kategori -->
           <div class="row mb-3">
-            <label for="kategori" class="col-md-2 form-label forms-label mt-md-2">Kategori <span class="text-important">*</span></label>
+            <label for="kategori" class="col-md-2 form-label forms-label mt-md-2">Kategori </label>
             <div class="col-md-10">
-              <select id="kategori" name="kategori" class="form-select select-control" required disabled>
-                <option value="">Pilih Kategori</option>
-                <option value="1">Kategori 1</option>
-                <option value="2">Kategori 2</option>
-                <option value="3" selected>Kategori 3</option>
-              </select>
+              <input type="text" id="kategori" name="kategori" class="form-control input-control" value="2021-08-01" disabled />
             </div>
           </div>
           <!-- laporan -->
           <div class="row mb-3">
-            <label for="laporan" class="col-md-2 form-label forms-label mt-md-2">Laporan <span class="text-important">*</span></label>
+            <label for="laporan" class="col-md-2 form-label forms-label mt-md-2">Laporan </label>
             <div class="col-md-10">
-              <input type="text" id="laporan" name="laporan" class="form-control input-control" placeholder="Masukkan Laporan" required value="Laporan Bersama" disabled />
+              <input type="text" id="laporan" name="laporan" class="form-control input-control" placeholder="Masukkan Laporan" value="Laporan Bersama" disabled />
             </div>
           </div>
           <!-- tanggal pelaporan -->
           <div class="row mb-3">
             <label for="tanggal_pelaporan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pelaporan
-              <span class="text-important">*</span></label>
+            </label>
             <div class="col-md-10">
-              <input type="date" id="tanggal_pelaporan" name="tanggal_pelaporan" class="form-control input-control" required value="2021-08-01" disabled />
+              <input type="text" id="tanggal_pelaporan" name="tanggal_pelaporan" class="form-control input-control" value="2021-08-01" disabled />
             </div>
           </div>
           <!-- status -->
           <div class="row mb-3">
-            <label for="status" class="col-md-2 form-label forms-label mt-md-2">Status <span class="text-important">*</span></label>
+            <label for="status" class="col-md-2 form-label forms-label mt-md-2">Status </label>
             <div class="col-md-10">
-              <select id="status" name="status" class="form-select select-control" required disabled>
-                <option value="">Pilih Status</option>
-                <option value="1">Status 1</option>
-                <option value="2">Status 2</option>
-                <option value="3" selected>Status 3</option>
-              </select>
+              <input type="text" id="status" name="status" class="form-control input-control" value="2021-08-01" disabled />
             </div>
           </div>
           <!-- deskripsi laporan -->
           <div class="row mb-3">
             <label for="deskripsi_laporan" class="col-md-2 form-label forms-label mt-md-2">Deskripsi Laporan
-              <span class="text-important">*</span></label>
+            </label>
             <div class="col-md-10">
-              <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" required rows="4" disabled>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis itaque odit omnis dolorum voluptates necessitatibus, velit est. Voluptatibus, doloremque molestias ducimus qui, est aliquam aspernatur doloribus iure eveniet facilis repudiandae!</textarea>
+              <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" rows="4" disabled></textarea>
             </div>
+          </div>
+          <!-- Hapus -->
+          <div class="card-footer card-form-footer">
+            <a href="/pelaporancontroller/hapuslaporan/<?= $dataLaporan['pelaporan_id'] ?>">
+              <div class="w-100 d-flex justify-content-end">
+                <button type="submit" form="reportFormEdit" class="btn btn-logout-sm btn-submit px-4" id="reportFormEditButton">
+                  Hapus Laporan
+                </button>
+              </div>
+            </a>
           </div>
         </div>
       </div>
