@@ -54,7 +54,7 @@ class DummySeeder extends Seeder
 
             $dataAdministrasi = [
                 'pemohon' => $dataUser['nik'],
-                'kategori' => $faker->randomElement(['KTP', 'KK', 'Surat Pindah', 'Surat Kematian', 'Surat Kelahiran', 'Surat Keterangan']),
+                'kategori' => $faker->randomElement(['KTP', 'KK', 'Surat Pindah', 'Surat Kematian', 'Surat Kelahiran', 'Surat Keterangan', 'Surat Pengantar']),
                 'keperluan' => $faker->text($maxNbChars = 20),
                 'deskripsi' => $faker->text($maxNbChars = 20),
                 'no_surat' => '0000/0000/0000/0000',

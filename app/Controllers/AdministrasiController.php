@@ -144,4 +144,45 @@ class AdministrasiController extends BaseController
 
         return $this->response->download('upload/files/' . $file, null)->setFileName($data['nama'] . '_' . $data['no_surat'] . '.' . $file_extension);
     }
+
+    public function edit($id)
+    {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+
+        $file = $this->request->getFile('berkas');
+        if (!$file->getError() == 4) {
+            // generate new file name
+            $newFileName = $file->getRandomName();
+
+            // move file to folder
+            $file->move('upload/files', $newFileName);
+
+            // delete old file
+            if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+        } else {
+            $newFileName = $dataAdministrasi['berkas'];
+        }
+
+        $kategori = $this->request->getVar('kategori');
+        $keperluan = $this->request->getVar('keperluan');
+        $deskripsi = $this->request->getVar('deskripsi');
+
+        $data = [
+            'kategori' => $kategori,
+            'keperluan' => $keperluan,
+            'deskripsi' => $deskripsi,
+            'berkas' => $newFileName,
+            'administrasi_status' => 'Menunggu Konfirmasi',
+        ];
+
+        $result = $this->administrasiModel->update($id, $data);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Berhasil mengubah data administrasi');
+            return redirect()->to('/users/administrasi');
+        } else {
+            session()->setFlashdata('error', 'Gagal mengubah data administrasi');
+            return redirect()->to('/users/formEditAdministrasi/' . $id);
+        }
+    }
 }

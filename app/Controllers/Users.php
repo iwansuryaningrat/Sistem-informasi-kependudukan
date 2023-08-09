@@ -228,6 +228,7 @@ class Users extends BaseController
             'title' => 'Form Edit Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'dataAdministrasi' => $dataAdministrasi,
         ];
 
         return view('/users/administration/administration-form-edit', $data);

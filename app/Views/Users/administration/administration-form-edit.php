@@ -17,21 +17,33 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-3">
-    <form class="card-form-container card shadow" id="adminFormEdit" action="#" enctype="multipart/form-data" method="POST">
+    <form class="card-form-container card shadow" id="adminFormEdit" action="/administrasicontroller/edit/<?= $dataAdministrasi['administrasi_id'] ?>" enctype="multipart/form-data" method="POST">
       <div class="card-header">
         <p class="mb-0">Form Edit Pengajuan Permohonan Administrasi</p>
       </div>
       <div class="card-form-container card-body">
         <div>
+          <!-- nama -->
+          <div class="row mb-3">
+            <label for="nama" class="col-sm-2 col-form-label forms-label">Nama Pemohon</label>
+            <div class="col-sm-10">
+              <input type="text" id="nama" name="nama" class="form-control input-control" placeholder="Masukkan Nama" disabled value="<?= $dataAdministrasi['nama'] ?>" />
+            </div>
+          </div>
           <!-- kategori -->
           <div class="row mb-3">
             <label for="kategori" class="col-sm-2 col-form-label forms-label">Kategori</label>
             <div class="col-sm-10">
               <select id="kategori" name="kategori" required class="form-select select-control">
-                <option value="">Pilih Kategori</option>
-                <option value="1">Kategori 1</option>
-                <option value="2" selected>Kategori 2</option>
-                <option value="3">Kategori 3</option>
+                <option value="" disabled>Pilih Kategori</option>
+                <option value="KTP" <?= ($dataAdministrasi['kategori'] == 'KTP') ? 'selected' : '' ?>>KTP</option>
+                <option value="KK" <?= ($dataAdministrasi['kategori'] == 'KK') ? 'selected' : '' ?>>KK</option>
+                <option value="Surat Pindah" <?= ($dataAdministrasi['kategori'] == 'Surat Pindah') ? 'selected' : '' ?>>Surat Pindah</option>
+                <option value="Surat Kematian" <?= ($dataAdministrasi['kategori'] == 'Surat Kematian') ? 'selected' : '' ?>>Surat Kematian</option>
+                <option value="Surat Kelahiran" <?= ($dataAdministrasi['kategori'] == 'Surat Kelahiran') ? 'selected' : '' ?>>Surat Kelahiran</option>
+                <option value="Surat Keterangan" <?= ($dataAdministrasi['kategori'] == 'Surat Keterangan') ? 'selected' : '' ?>>Surat Keterangan</option>
+                <option value="Surat Pengantar" <?= ($dataAdministrasi['kategori'] == 'Surat Pengantar') ? 'selected' : '' ?>>Surat Pengantar</option>
+                <option value="Lainnya" <?= ($dataAdministrasi['kategori'] == 'Lainnya') ? 'selected' : '' ?>>Lainnya</option>
               </select>
             </div>
           </div>
@@ -39,30 +51,49 @@
           <div class="row mb-3">
             <label for="keperluan" class="col-sm-2 col-form-label forms-label">Keperluan</label>
             <div class="col-sm-10">
-              <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" required value="Keperluan Berencana" />
+              <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" required value="<?= $dataAdministrasi['keperluan'] ?>" />
             </div>
           </div>
           <!-- deskripsi -->
           <div class="row mb-3">
             <label for="deskripsi" class="col-sm-2 col-form-label forms-label">Deskripsi</label>
             <div class="col-sm-10">
-              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum deserunt ut molestias maiores similique ex maxime itaque officiis. Tenetur, temporibus atque eum pariatur doloribus quasi. Perferendis sed fugiat veritatis nesciunt.</textarea>
+              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required><?= $dataAdministrasi['deskripsi'] ?></textarea>
             </div>
           </div>
-
+          <!-- no_surat -->
+          <div class="row mb-3">
+            <label for="no_surat" class="col-sm-2 col-form-label forms-label">Nomor Surat</label>
+            <div class="col-sm-10">
+              <input type="text" id="no_surat" name="no_surat" class="form-control input-control" placeholder="Nomor Surat" disabled value="<?= ($dataAdministrasi['no_surat']) ? $dataAdministrasi['no_surat'] : '-' ?>" />
+            </div>
+          </div>
+          <!-- catatan -->
+          <div class="row mb-3">
+            <label for="catatan" class="col-sm-2 col-form-label forms-label">Catatan</label>
+            <div class="col-sm-10">
+              <textarea id="catatan" name="catatan" class="form-control input-control" placeholder="Masukkan Catatan" disabled><?= ($dataAdministrasi['catatan']) ? $dataAdministrasi['catatan'] : '-' ?></textarea>
+            </div>
+          </div>
+          <!-- status -->
+          <div class="row mb-3">
+            <label for="status" class="col-sm-2 col-form-label forms-label">Status</label>
+            <div class="col-sm-10">
+              <input type="text" id="status" name="status" class="form-control input-control" placeholder="Nomor Surat" disabled value="<?= $dataAdministrasi['administrasi_status'] ?>" />
+            </div>
+          </div>
           <!-- berkas -->
           <div class="row mb-3">
             <label for="berkas" class="col-sm-2 col-form-label forms-label">Berkas</label>
             <div class="col-sm-10">
-              <input type="file" id="berkas" name="berkas" class="form-control input-control" required />
+              <input type="file" id="berkas" name="berkas" class="form-control input-control" accept="application/pdf" />
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer">
         <div class="w-100 d-flex justify-content-end">
-          <button type="submit" form="adminFormEdit" class="btn btn-main btn-submit" id="adminFormEditButton">
+          <button type="submit" form="adminFormEdit" class="btn btn-main btn-submit" id="adminFormEditButton" <?= ($dataAdministrasi['administrasi_status'] == 'Selesai') ? 'disabled' : '' ?>>
             Perbarui
           </button>
         </div>
@@ -93,9 +124,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum deserunt ut mole
           required: true,
         },
         deskripsi: {
-          required: true,
-        },
-        berkas: {
           required: true,
         },
       },

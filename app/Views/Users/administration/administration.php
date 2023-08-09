@@ -61,7 +61,7 @@
                       </button>
                       <ul class="dropdown-menu dropdown-menu-table shadow">
                         <li>
-                          <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                          <a class="dropdown-item dropdown-table-item" href="/users/formEditAdministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                         </li>
                         <li>
                           <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
