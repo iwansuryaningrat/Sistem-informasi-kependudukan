@@ -164,7 +164,6 @@ class Users extends BaseController
             'dataFoto' => $dataFoto,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
-        dd($dataGaleri, $dataFoto);
 
         return view('/users/gallery/gallery-detail', $data);
     }

@@ -10,15 +10,10 @@
     </div>
     <div class="header-container-mini mt-5 pt-0">
         <p class="mb-3">
-            <span class="badge badge-done">Kategori 1</span>
+            <span class="badge badge-done"><?= $dataGaleri['kategori'] ?></span>
         </p>
-        <h1 class="mb-3 text-center">Galeri Kegiatan Warga 1</h1>
-        <p class="text-basic text-center mb-0 max-w-80">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-            iusto architecto sint ipsam, labore quo dolore quis voluptate id
-            alias, impedit quia! Illum, consequatur quae quo at dolore
-            repellendus ipsa.
-        </p>
+        <h1 class="mb-3 text-center"><?= $dataGaleri['judul'] ?></h1>
+        <p class="text-basic text-center mb-0 max-w-80"><?= $dataGaleri['deskripsi'] ?></p>
     </div>
 </header>
 <!-- end of header -->
@@ -28,174 +23,17 @@
     <section class="container container-space">
         <!-- only large view -->
         <div class="gallery-view-container-lg">
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-1.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-1.jpg" alt="gallery-view-1" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-11.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-11.jpg" alt="gallery-view-11" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-2.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-2.jpg" alt="gallery-view-2" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-3.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-3.jpg" alt="gallery-view-3" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-5.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-5.jpg" alt="gallery-view-5" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-13.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-13.jpg" alt="gallery-view-13" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-14.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-14.jpg" alt="gallery-view-14" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-8.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-8.jpg" alt="gallery-view-8" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-15.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-15.jpg" alt="gallery-view-15" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-9.png" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-9.png" alt="gallery-view-9" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-16.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-16.jpg" alt="gallery-view-16" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-10.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-10.jpg" alt="gallery-view-10" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-12.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-12.jpg" alt="gallery-view-12" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
-            <figure data-fancybox="gallery-large" data-src="/homepage/assets/img/image-4.jpg" class="gallery-view-item__warp">
-                <img src="/homepage/assets/img/image-4.jpg" alt="gallery-view-4" class="gallery-view-item" />
-                <figcaption class="d-none">
-                    <p class="mb-2 text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                        pariatur officiis consequatur et odio quas laborum.
-                    </p>
-                    <p class="text-xs mb-2 fst-italic text-gray-200">
-                        Iwan Suryaningrat - 13 Januari 2023
-                    </p>
-                </figcaption>
-            </figure>
+            <?php foreach ($dataFoto as $foto) : ?>
+                <figure data-fancybox="gallery-large" data-src="/upload/photos/<?= $foto['foto'] ?>" class="gallery-view-item__warp">
+                    <img src="/upload/photos/<?= $foto['foto'] ?>" alt="gallery-view-1" class="gallery-view-item" />
+                    <figcaption class="d-none">
+                        <p class="mb-2 text-sm"><?= $foto['caption'] ?></p>
+                        <p class="text-xs mb-2 fst-italic text-gray-200">
+                            <?= $foto['nama'] ?> - <?= $foto['created_at'] ?>
+                        </p>
+                    </figcaption>
+                </figure>
+            <?php endforeach ?>
         </div>
     </section>
 </main>
@@ -218,7 +56,7 @@
 <!-- modal add gallery -->
 <div class="modal fade" id="modalAddPhoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddPhotoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form id="formAddPhoto" class="modal-content" enctype="multipart/form-data" action="/fotocontroller/upload">
+        <form id="formAddPhoto" class="modal-content" enctype="multipart/form-data" action="/fotocontroller/upload/<?= $dataGaleri['galeri_id'] ?>" method="POST">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalAddPhotoLabel">
                     Form Tambah Foto Galeri
@@ -229,19 +67,18 @@
                 <!-- judul galeri -->
                 <div class="mb-3">
                     <label for="judul" class="form-label forms-label">Judul</label>
-                    <input type="text" class="form-control input-control" id="judul" name="judul" placeholder="Masukkan Judul Galeri" />
+                    <input type="text" class="form-control input-control" id="judul" name="judul" disabled placeholder="Masukkan Judul Galeri" value="<?= $dataGaleri['judul'] ?>" />
                 </div>
-
-                <!-- deskripsi galeri -->
+                <!-- Caption -->
                 <div class="mb-3">
-                    <label for="deskripsi" class="form-label forms-label">Deskripsi</label>
-                    <textarea class="form-control input-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi Galeri"></textarea>
+                    <label for="caption" class="form-label forms-label">Caption</label>
+                    <textarea class="form-control input-control" id="caption" name="caption" rows="3" placeholder="Masukkan Caption Foto"></textarea>
                 </div>
-                <!-- thumbnail galeri -->
+                <!-- Foto -->
                 <div class="mb-3">
-                    <label for="thumbnail" class="form-label forms-label">Thumbnail</label>
+                    <label for="foto" class="form-label forms-label">Foto</label>
                     <div class="input-group">
-                        <input type="file" class="form-control input-control" id="thumbnail" name="thumbnail" required accept="image/*" />
+                        <input type="file" class="form-control input-control" id="foto" name="foto[]" multiple accept="image/*" />
                         <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
                             <i class="fa-solid fa-upload me-2"></i>Unggah
                         </button>

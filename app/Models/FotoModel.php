@@ -12,7 +12,7 @@ class FotoModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['galeri_id', 'foto', 'isThumbnail', 'caption', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['galeri_id', 'foto', 'isThumbnail', 'caption', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -25,14 +25,16 @@ class FotoModel extends Model
     public function getFoto($foto_id = null)
     {
         if ($foto_id == null) {
-            return $this->select('foto.*, galeri.nama_galeri')
+            return $this->select('foto.*, galeri.nama_galeri, galeri.created_by, users.nama')
                 ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
+                ->join('users', 'users.nik = galeri.created_by')
                 ->orderBy('foto.created_at', 'DESC')
                 ->findAll();
         }
 
-        return $this->select('foto.*, galeri.nama_galeri')
+        return $this->select('foto.*, galeri.nama_galeri, galeri.created_by, users.nama')
             ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
+            ->join('users', 'users.nik = galeri.created_by')
             ->where(['foto_id' => $foto_id])
             ->first();
     }
@@ -40,8 +42,9 @@ class FotoModel extends Model
     // Get Foto data by galeri_id
     public function getFotoByGaleriId($galeri_id)
     {
-        return $this->select('foto.*, galeri.judul')
+        return $this->select('foto.*, galeri.judul, users.nama')
             ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
+            ->join('users', 'users.nik = galeri.created_by')
             ->where(['galeri.galeri_id' => $galeri_id])
             ->orderBy('foto.created_at', 'DESC')
             ->findAll();

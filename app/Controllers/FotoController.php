@@ -63,18 +63,24 @@ class FotoController extends BaseController
         ];
     }
 
-    public function upload()
+    public function upload($galeri_id)
     {
-        // $foto = $this->request->getFile('foto');
-        // $nama_foto = $foto->getRandomName();
-        // dd($nama_foto);
-        // $foto->move('upload/photos/', $nama_foto);
-        $req = $this->request->getVar();
-        dd($req);
+        if ($files = $this->request->getFiles()) {
+            foreach ($files['foto'] as $file) {
+                $name = $file->getName();
+                $file->move('upload/photos', $name);
 
-        // $data = [
-        //     'foto' => $nama_foto,
-        //     'users_id' => $this->user_data['nik'],
-        // ];
+                $data = [
+                    'galeri_id' => $galeri_id,
+                    'foto' => $name,
+                    'caption' => $this->request->getVar('caption'),
+                ];
+
+                $this->fotoModel->save($data);
+            }
+        }
+
+        session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
+        return redirect()->to('/users/detailGaleri/' . $galeri_id);
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 09:27 PM
+-- Generation Time: Aug 09, 2023 at 10:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -192,7 +192,17 @@ CREATE TABLE `foto` (
 --
 
 INSERT INTO `foto` (`foto_id`, `galeri_id`, `foto`, `isThumbnail`, `caption`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(5, 13, '1691608833_28bd84babb176884559d.png', 1, NULL, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL);
+(5, 13, '1691608833_28bd84babb176884559d.png', 1, NULL, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL),
+(6, 14, '1691609432_3e0a41eb2420b26a6e62.png', 1, NULL, '2023-08-10 02:30:32', '2023-08-10 02:30:32', NULL),
+(7, 14, 'expect.png', 0, 'retert', '2023-08-10 03:16:55', '2023-08-10 03:16:55', NULL),
+(8, 14, 'highlight.png', 0, 'retert', '2023-08-10 03:16:55', '2023-08-10 03:16:55', NULL),
+(9, 14, 'includ.png', 0, 'retert', '2023-08-10 03:16:55', '2023-08-10 03:16:55', NULL),
+(10, 14, 'expect.png', 0, 'retert', '2023-08-10 03:17:16', '2023-08-10 03:17:16', NULL),
+(11, 14, 'highlight.png', 0, 'retert', '2023-08-10 03:17:16', '2023-08-10 03:17:16', NULL),
+(12, 14, 'includ.png', 0, 'retert', '2023-08-10 03:17:16', '2023-08-10 03:17:16', NULL),
+(13, 14, 'expect.png', 0, 'retert', '2023-08-10 03:17:56', '2023-08-10 03:17:56', NULL),
+(14, 14, 'highlight.png', 0, 'retert', '2023-08-10 03:17:56', '2023-08-10 03:17:56', NULL),
+(15, 14, 'includ.png', 0, 'retert', '2023-08-10 03:17:56', '2023-08-10 03:17:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -230,7 +240,8 @@ INSERT INTO `galeri` (`galeri_id`, `judul`, `deskripsi`, `thumbnail`, `created_b
 (10, 'Test23', 'srfwerwer', '1691608489_3c508c4d09af800747a4.png', 4716455593739233, 2, 0, '2023-08-10 02:14:49', '2023-08-10 02:14:49', NULL),
 (11, 'Test23', 'srfwerwer', '1691608617_0de4871b6c567dc61ef2.png', 4716455593739233, 2, 0, '2023-08-10 02:16:57', '2023-08-10 02:16:57', NULL),
 (12, 'Test23', 'srfwerwer', '1691608657_e286d69b274308165b8c.png', 4716455593739233, 2, 0, '2023-08-10 02:17:37', '2023-08-10 02:17:37', NULL),
-(13, 'Test23', 'srfwerwer', '1691608833_28bd84babb176884559d.png', 4716455593739233, 2, 0, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL);
+(13, 'Test23', 'srfwerwer', '1691608833_28bd84babb176884559d.png', 4716455593739233, 2, 0, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL),
+(14, 'Test2ss', 'sdsdw', '1691609432_3e0a41eb2420b26a6e62.png', 4716455593739233, 1, 0, '2023-08-10 02:30:32', '2023-08-10 02:30:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -334,7 +345,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (4556721302180360, 'Oskar Oskar Saragih', 'Ds. Arifin No. 166, Makassar 11970, DIY', 'Gg. Wahid Hasyim No. 39, Padangpanjang 58326, KalTeng', 'default.png', '1971-01-24', 'Pindah', 1, '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4716280266615751, 'Malika Suryatmi', 'Dk. Supomo No. 531, Prabumulih 51775, PapBar', 'Gg. Lumban Tobing No. 849, Administrasi Jakarta Utara 87853, SulTeng', 'default.png', '2022-05-19', 'Tetap', 0, '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
 (4716454593723433, 'Iwan Suryaningrat', NULL, NULL, 'default.png', NULL, NULL, 1, '2023-08-09 23:31:52', '2023-08-09 23:31:52', NULL),
-(4716455663739233, 'iwan', 'Jl. Ki. Ronggowarsito No. 4160,Papua 58153,Jawa Barat', NULL, 'default.png', NULL, NULL, 1, '2023-08-09 23:45:52', '2023-08-09 23:45:52', NULL),
+(4716455663739233, 'iwan', 'Jl. Ki. Ronggowarsito No. 4160,Papua 58153,Jawa Barat', 'Tembalang, Semarang 58394, Jawa Tengah', '1691610509_5cf0e1a68406fedbb73c.png', '2023-08-07', 'Pindah', 1, '2023-08-09 23:45:52', '2023-08-10 02:48:29', NULL),
 (4778023352204667, 'Qori Gasti Mardhiyah', 'Ds. Pacuan Kuda No. 856, Mojokerto 99031, PapBar', 'Kpg. Sukajadi No. 31, Tarakan 85995, Maluku', 'default.png', '2003-12-26', 'Tetap', 0, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (4916456916349425, 'Malika Nurul Yolanda', 'Gg. Padang No. 358, Kupang 26482, NTB', 'Dk. Perintis Kemerdekaan No. 981, Bitung 67278, KalTim', 'default.png', '2017-11-27', 'Pindah', 1, '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (4916994347219577, 'Eka Wahyuni', 'Ki. Yosodipuro No. 827, Binjai 48076, Lampung', 'Psr. Baja Raya No. 811, Blitar 32092, BaBel', 'default.png', '1990-01-07', 'Pindah', 1, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
@@ -739,13 +750,13 @@ ALTER TABLE `administrasi`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `foto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `foto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `kategori_galeri`
