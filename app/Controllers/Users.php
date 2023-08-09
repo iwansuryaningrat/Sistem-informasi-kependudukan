@@ -348,11 +348,13 @@ class Users extends BaseController
         $statusPerkawinan = $this->usersModel->getStatusPerkawinanUsers();
         $pendidikan = $this->usersModel->getPendidikanUsers();
 
+        $user = $this->usersModel->getUsers($this->user_data['nik']);
+
         $data = [
             'title' => 'Profile | Warga Site',
             'navbar' => 'profile',
             'isLoggedin' => $this->user_data['isLoggedIn'],
-            'user' => $this->user_data,
+            'user' => $user,
             'statusKeluarga' => $statusKeluarga,
             'listAgama' => $listAgama,
             'statusKependudukan' => $statusKependudukan,
