@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 08:56 PM
+-- Generation Time: Aug 09, 2023 at 09:27 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administrasi` (
   `administrasi_id` int(11) NOT NULL,
-  `pemohon` bigint(17) NOT NULL,
+  `pemohon` bigint(20) NOT NULL,
   `kategori` varchar(30) NOT NULL,
   `keperluan` varchar(100) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
@@ -182,11 +182,17 @@ CREATE TABLE `foto` (
   `foto` varchar(255) NOT NULL,
   `isThumbnail` tinyint(1) NOT NULL DEFAULT 0,
   `caption` varchar(255) DEFAULT NULL,
-  `uploaded_by` bigint(17) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `foto`
+--
+
+INSERT INTO `foto` (`foto_id`, `galeri_id`, `foto`, `isThumbnail`, `caption`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(5, 13, '1691608833_28bd84babb176884559d.png', 1, NULL, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -199,7 +205,7 @@ CREATE TABLE `galeri` (
   `judul` varchar(50) NOT NULL,
   `deskripsi` varchar(255) DEFAULT NULL,
   `thumbnail` varchar(255) NOT NULL,
-  `created_by` bigint(17) NOT NULL,
+  `created_by` bigint(20) NOT NULL,
   `kategori` int(11) DEFAULT NULL,
   `total_foto` int(11) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
@@ -218,7 +224,13 @@ INSERT INTO `galeri` (`galeri_id`, `judul`, `deskripsi`, `thumbnail`, `created_b
 (4, 'Test2', 'ererer', '1691522500_25d2feeff96f864ba612.png', 4485809172694, 1, 0, '2023-08-09 02:21:40', '2023-08-09 02:21:40', NULL),
 (5, 'ertert', 'erter', '1691604111_76e29fdd0c78d24bdc69.png', 4716455593739233, 2, 0, '2023-08-10 01:01:51', '2023-08-10 01:01:51', NULL),
 (6, 'ertert', 'erter', '1691604228_5984393e9903c2688d67.png', 4716455593739233, 2, 0, '2023-08-10 01:03:48', '2023-08-10 01:03:48', NULL),
-(7, 'ertert', 'erter', '1691604239_3b62a2d29b5a5a0bb70e.png', 4716455593739233, 2, 0, '2023-08-10 01:03:59', '2023-08-10 01:03:59', NULL);
+(7, 'ertert', 'erter', '1691604239_3b62a2d29b5a5a0bb70e.png', 4716455593739233, 2, 0, '2023-08-10 01:03:59', '2023-08-10 01:03:59', NULL),
+(8, 'Test2', 'fgfgfg', '1691608375_9a0af71a5fd3b4591396.png', 4716455593739233, 3, 0, '2023-08-10 02:12:55', '2023-08-10 02:12:55', NULL),
+(9, 'Test23', 'srfwerwer', '1691608452_3867fc7f36028ff9408b.png', 4716455593739233, 2, 0, '2023-08-10 02:14:12', '2023-08-10 02:14:12', NULL),
+(10, 'Test23', 'srfwerwer', '1691608489_3c508c4d09af800747a4.png', 4716455593739233, 2, 0, '2023-08-10 02:14:49', '2023-08-10 02:14:49', NULL),
+(11, 'Test23', 'srfwerwer', '1691608617_0de4871b6c567dc61ef2.png', 4716455593739233, 2, 0, '2023-08-10 02:16:57', '2023-08-10 02:16:57', NULL),
+(12, 'Test23', 'srfwerwer', '1691608657_e286d69b274308165b8c.png', 4716455593739233, 2, 0, '2023-08-10 02:17:37', '2023-08-10 02:17:37', NULL),
+(13, 'Test23', 'srfwerwer', '1691608833_28bd84babb176884559d.png', 4716455593739233, 2, 0, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -403,8 +415,8 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 
 CREATE TABLE `pelaporan` (
   `pelaporan_id` int(11) NOT NULL,
-  `nik_pelapor` bigint(17) NOT NULL,
-  `nik_terlapor` bigint(17) NOT NULL,
+  `nik_pelapor` bigint(20) NOT NULL,
+  `nik_terlapor` bigint(20) NOT NULL,
   `kategori` varchar(50) DEFAULT NULL,
   `laporan` varchar(255) NOT NULL,
   `deskripsi_pelaporan` varchar(255) DEFAULT NULL,
@@ -438,7 +450,7 @@ CREATE TABLE `pengumuman` (
   `tempat` varchar(255) NOT NULL,
   `thumbnail` varchar(255) NOT NULL DEFAULT 'default.png',
   `status` varchar(20) NOT NULL,
-  `created_by` bigint(17) NOT NULL,
+  `created_by` bigint(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -488,7 +500,7 @@ INSERT INTO `pesan` (`id`, `nama_pengirim`, `email`, `kategori`, `pesan`, `statu
 
 CREATE TABLE `users` (
   `nik` bigint(17) NOT NULL,
-  `no_kk` bigint(17) NOT NULL,
+  `no_kk` bigint(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `status` varchar(15) DEFAULT NULL COMMENT '[Kepala Keluarga, Istri, Anak]',
   `jenis_kelamin` varchar(20) DEFAULT NULL,
@@ -662,8 +674,7 @@ ALTER TABLE `administrasi`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`foto_id`),
-  ADD KEY `galeri` (`galeri_id`),
-  ADD KEY `uploader` (`uploaded_by`);
+  ADD KEY `galeri` (`galeri_id`);
 
 --
 -- Indexes for table `galeri`
@@ -728,13 +739,13 @@ ALTER TABLE `administrasi`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `foto_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `foto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kategori_galeri`
@@ -774,8 +785,7 @@ ALTER TABLE `administrasi`
 -- Constraints for table `foto`
 --
 ALTER TABLE `foto`
-  ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `uploader` FOREIGN KEY (`uploaded_by`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengumuman`
