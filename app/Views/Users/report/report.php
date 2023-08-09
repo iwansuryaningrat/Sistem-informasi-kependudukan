@@ -33,134 +33,50 @@
               </tr>
             </thead>
             <tbody class="body-table">
-              <tr>
-                <td>1</td>
-                <td>Khoeru Roziqin</td>
-                <td>3325060204010001</td>
-                <td>Bambang Sujatmiko</td>
-                <td>3325010203005</td>
-                <td>Kategori 3</td>
-                <td>Laporan 1</td>
-                <td>10 Maret 2023</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-accepted">
-                      <i class="fa-solid fa-circle"></i>Diterima
+              <?php $i = 1;
+              foreach ($dataLaporan as $data) : ?>
+                <tr>
+                  <td><?= $i ?></td>
+                  <td><?= $data['nama_pelapor'] ?></td>
+                  <td><?= $data['nik_pelapor'] ?></td>
+                  <td><?= $data['nama_terlapor'] ?></td>
+                  <td><?= $data['nik_terlapor'] ?></td>
+                  <td><?= $data['kategori'] ?></td>
+                  <td><?= $data['laporan'] ?></td>
+                  <td><?= $data['created_at'] ?></td>
+                  <td>
+                    <div class="d-flex justify-content-start">
+                      <div class="status-badge  <?php if ($data['status_pelaporan'] == 'Dalam Proses') {
+                                                  echo 'badge-onproccess';
+                                                } else if ($data['status_pelaporan'] == 'Menunggu Konfirmasi') {
+                                                  echo 'badge-accepted';
+                                                } else if ($data['status_pelaporan'] == 'Ditolak') {
+                                                  echo 'badge-rejected';
+                                                } else if ($data['status_pelaporan'] == 'Selesai') {
+                                                  echo 'badge-done';
+                                                } else echo '' ?>">
+                        <i class="fa-solid fa-circle"></i><?= $data['status_pelaporan'] ?>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Other Option">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Iwan Suryaningrat</td>
-                <td>3325060204010006</td>
-                <td>Ronaldo Syyui</td>
-                <td>3325010203002</td>
-                <td>Kategori 2</td>
-                <td>Laporan 2</td>
-                <td>14 Maret 2023</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-onproccess">
-                      <i class="fa-solid fa-circle"></i>Dalam Proses
+                  </td>
+                  <td>
+                    <div class="dropdown dropdown-table pe-3">
+                      <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Other Option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-table shadow">
+                        <li>
+                          <a class="dropdown-item dropdown-table-item" href="/users/editpelaporan/<?= $data['pelaporan_id'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item dropdown-table-item" href="/users/detailpelaporan/<?= $data['pelaporan_id'] ?>"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Rafli Ferdian Ramadhan</td>
-                <td>3325060204010004</td>
-                <td>Maman Abdurrahman</td>
-                <td>3325010203001</td>
-                <td>Kategori 1</td>
-                <td>Laporan 3</td>
-                <td>20 Maret 2023</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-done">
-                      <i class="fa-solid fa-circle"></i>Selesai
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Lathifa Inayah Sari</td>
-                <td>3325060204010005</td>
-                <td>Mumun Murdiyanti</td>
-                <td>3325010203012</td>
-                <td>Kategori 1</td>
-                <td>Laporan 1</td>
-                <td>25 Juni 2023</td>
-                <td>
-                  <div class="d-flex justify-content-start">
-                    <div class="status-badge badge-rejected">
-                      <i class="fa-solid fa-circle"></i>Ditolak
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="dropdown dropdown-table pe-3">
-                    <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-table shadow">
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-form-edit.html"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item dropdown-table-item" href="./report-detail.html"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              <?php $i++;
+              endforeach ?>
             </tbody>
           </table>
         </div>
@@ -206,7 +122,7 @@
 
     // add button create report
     $("#tableReport_wrapper .row:first-child").append(
-      '<div class="col-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="./report-form-add.html" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;"><i class="fa-solid fa-plus me-2"></i>Buat Laporan</a></div></div>'
+      '<div class="col-6 col-md-5"><div class="d-flex justify-content-end pe-2"><a href="/users/formTambahPelaporan" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;"><i class="fa-solid fa-plus me-2"></i>Buat Laporan</a></div></div>'
     );
 
     // change class of datatable reportTable
