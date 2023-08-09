@@ -102,7 +102,6 @@ class Users extends BaseController
     {
         $dataGaleri = $this->galeriModel->getGaleri($id);
         $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
-        // dd($dataFoto, $dataGaleri);
 
         $data = [
             'title' => 'Detail Galeri | Warga Site',

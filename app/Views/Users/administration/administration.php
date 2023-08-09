@@ -21,9 +21,9 @@
               <tr>
                 <th>No</th>
                 <th class="filter-none">Nama Pemohon</th>
-                <th class="filter-none">Kategori</th>
-                <th class="filter-none">Nomor Surat</th>
-                <th class="filter-none">Status</th>
+                <th class="">Kategori</th>
+                <th class="">Nomor Surat</th>
+                <th class="">Status</th>
                 <th class="">Tangal Pengajuan</th>
                 <th class="">Tanggal Penerimaan</th>
                 <th class="filter-none"></th>
@@ -39,8 +39,16 @@
                   <td><?= $data['no_surat'] ?></td>
                   <td>
                     <div class="d-flex justify-content-start">
-                      <div class="status-badge badge-accepted">
-                        <i class="fa-solid fa-circle"></i>Diterima
+                      <div class="status-badge <?php if ($data['administrasi_status'] == 'Dalam Proses') {
+                                                  echo 'badge-onproccess';
+                                                } else if ($data['administrasi_status'] == 'Menunggu Konfirmasi') {
+                                                  echo 'badge-accepted';
+                                                } else if ($data['administrasi_status'] == 'Ditolak') {
+                                                  echo 'badge-rejected';
+                                                } else if ($data['administrasi_status'] == 'Selesai') {
+                                                  echo 'badge-done';
+                                                } else echo '' ?>">
+                        <i class="fa-solid fa-circle"></i><?= $data['administrasi_status'] ?>
                       </div>
                     </div>
                   </td>
@@ -109,7 +117,7 @@
 
     // add button create report
     $("#tableAdmin_wrapper .row:first-child").append(
-      '<div class="col-6 col-md-5 ps-2 ps-sm-3"><div class="d-flex justify-content-end pe-2"><a href="./administration-form-add.html" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;"><i class="fa-solid fa-plus me-2"></i>Buat Pengajuan</a></div></div>'
+      '<div class="col-6 col-md-5 ps-2 ps-sm-3"><div class="d-flex justify-content-end pe-2"><a href="/users/formTambahAdministrasi" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;"><i class="fa-solid fa-plus me-2"></i>Buat Pengajuan</a></div></div>'
     );
 
     // change class of datatable adminTable
