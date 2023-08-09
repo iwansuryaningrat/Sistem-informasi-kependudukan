@@ -74,17 +74,67 @@ class Users extends BaseController
         return view('/users/index', $data);
     }
 
+    // Pelaporan Method 
     public function pelaporan()
     {
+        $dataLaporan = $this->pelaporanModel->getPelaporanByPelapor($this->user_data['no_kk']);
+
         $data = [
             'title' => 'Menu Pelaporan | Warga Site',
             'navbar' => 'pelaporan',
+            'dataLaporan' => $dataLaporan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
         return view('/users/report/report', $data);
     }
 
+    public function editPelaporan($id)
+    {
+        $dataLaporan = $this->pelaporanModel->getPelaporan($id);
+
+        $data = [
+            'title' => 'Menu Pelaporan | Warga Site',
+            'navbar' => 'pelaporan',
+            'dataLaporan' => $dataLaporan,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/report/report-form-edit', $data);
+    }
+
+    public function detailPelaporan($id)
+    {
+        $dataLaporan = $this->pelaporanModel->getPelaporan($id);
+
+        $data = [
+            'title' => 'Detail Pelaporan | Warga Site',
+            'navbar' => 'pelaporan',
+            'dataLaporan' => $dataLaporan,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/report/report-detail', $data);
+    }
+
+    public function formTambahPelaporan()
+    {
+        $users = $this->usersModel->getUsers();
+        $pelaporanKategori = $this->pelaporanModel->getPelaporanKategori();
+
+        $data = [
+            'title' => 'Form Tambah Pelaporan | Warga Site',
+            'navbar' => 'pelaporan',
+            'users' => $users,
+            'pelaporanKategori' => $pelaporanKategori,
+            'isLoggedin' => $this->user_data['isLoggedIn'],
+        ];
+
+        return view('/users/report/report-form-add', $data);
+    }
+    // End of Pelaporan Method
+
+    // Galeri Method 
     public function galeri()
     {
         $data = [
@@ -113,7 +163,9 @@ class Users extends BaseController
 
         return view('/users/gallery/gallery-detail', $data);
     }
+    // End of Galeri Method
 
+    // Pengumuman Method 
     public function pengumuman()
     {
         $data = [
@@ -124,8 +176,9 @@ class Users extends BaseController
 
         return view('/users/news/announcement', $data);
     }
+    // End of Pengumuman Method
 
-    // Keluarga Method
+    // Keluarga Method (Done)
     public function keluarga()
     {
         $anggotaKeluarga = $this->usersModel->getUsersByKK($this->user_data['no_kk']);
@@ -156,9 +209,20 @@ class Users extends BaseController
 
     public function formTambahKeluarga()
     {
+        $statusKeluarga = $this->usersModel->getStatusUsers();
+        $listAgama = $this->usersModel->getAgamaUsers();
+        $statusKependudukan = $this->usersModel->getStatusKependudukanUsers();
+        $statusPerkawinan = $this->usersModel->getStatusPerkawinanUsers();
+        $pendidikan = $this->usersModel->getPendidikanUsers();
+
         $data = [
             'title' => 'Form Tambah Keluarga | Warga Site',
             'navbar' => 'keluarga',
+            'statusKeluarga' => $statusKeluarga,
+            'listAgama' => $listAgama,
+            'statusKependudukan' => $statusKependudukan,
+            'statusPerkawinan' => $statusPerkawinan,
+            'pendidikan' => $pendidikan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
@@ -167,12 +231,23 @@ class Users extends BaseController
 
     public function formEditKeluarga($nik)
     {
+        $statusKeluarga = $this->usersModel->getStatusUsers();
+        $listAgama = $this->usersModel->getAgamaUsers();
+        $statusKependudukan = $this->usersModel->getStatusKependudukanUsers();
+        $statusPerkawinan = $this->usersModel->getStatusPerkawinanUsers();
+        $pendidikan = $this->usersModel->getPendidikanUsers();
+
         $dataKeluarga = $this->usersModel->getUsers($nik);
 
         $data = [
             'title' => 'Form Edit Keluarga | Warga Site',
             'navbar' => 'keluarga',
             'dataKeluarga' => $dataKeluarga,
+            'statusKeluarga' => $statusKeluarga,
+            'listAgama' => $listAgama,
+            'statusKependudukan' => $statusKependudukan,
+            'statusPerkawinan' => $statusPerkawinan,
+            'pendidikan' => $pendidikan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 
@@ -180,7 +255,7 @@ class Users extends BaseController
     }
     // End of Keluarga Method
 
-    // Administrasi Method
+    // Administrasi Method (Done)
     public function administrasi()
     {
         $administrasiData = $this->administrasiModel->getAdministrasiByPemohon($this->user_data['no_kk']);
@@ -235,7 +310,7 @@ class Users extends BaseController
     }
     // End of Administrasi Method
 
-    // Contact Method
+    // Contact Method (Done)
     public function contact()
     {
         $data = [
@@ -249,14 +324,25 @@ class Users extends BaseController
     }
     // End of Contact Method
 
-    // Profile Method
+    // Profile Method (Done)
     public function profile()
     {
+        $statusKeluarga = $this->usersModel->getStatusUsers();
+        $listAgama = $this->usersModel->getAgamaUsers();
+        $statusKependudukan = $this->usersModel->getStatusKependudukanUsers();
+        $statusPerkawinan = $this->usersModel->getStatusPerkawinanUsers();
+        $pendidikan = $this->usersModel->getPendidikanUsers();
+
         $data = [
             'title' => 'Profile | Warga Site',
             'navbar' => 'profile',
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'user' => $this->user_data,
+            'statusKeluarga' => $statusKeluarga,
+            'listAgama' => $listAgama,
+            'statusKependudukan' => $statusKependudukan,
+            'statusPerkawinan' => $statusPerkawinan,
+            'pendidikan' => $pendidikan,
         ];
 
         return view('/users/dashboard/profile', $data);

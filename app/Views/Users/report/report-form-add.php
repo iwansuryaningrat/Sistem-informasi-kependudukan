@@ -20,7 +20,7 @@
   <section class="container container-space pt-0">
     <div class="row">
       <div class="col-12 col-lg-8 mb-5 mb-lg-0">
-        <form class="card-form-container card" id="reportFormAdd" action="#" enctype="multipart/form-data" method="POST">
+        <form class="card-form-container card" id="reportFormAdd" action="/pelaporancontroller/lapor" enctype="multipart/form-data" method="POST">
           <!-- header -->
           <div class="card-header card-form-header">
             <p class="mb-0 fw-semibold">Form Pelaporan</p>
@@ -30,14 +30,14 @@
             <div>
               <!-- nama terlapor -->
               <div class="mb-3">
-                <label for="nama_terlapor" class="form-label forms-label">Nama Terlapor
+                <label for="nik_terlapor" class="form-label forms-label">Nama Terlapor
                   <span class="text-important">*</span></label>
 
-                <select id="nama_terlapor" name="nama_terlapor" required class="form-select select-control">
+                <select id="nik_terlapor" name="nik_terlapor" required class="form-select select-control">
                   <option value="">Pilih Nama Terlapor</option>
-                  <option value="1">Nama Terlapor 1</option>
-                  <option value="2">Nama Terlapor 2</option>
-                  <option value="3">Nama Terlapor 3</option>
+                  <?php foreach ($users as $user) : ?>
+                    <option value="<?= $user['nik'] ?>"><?= $user['nama'] ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
               <!-- kategori -->
@@ -46,9 +46,9 @@
 
                 <select id="kategori" name="kategori" class="form-select select-control" required>
                   <option value="">Pilih Kategori</option>
-                  <option value="1">Kategori 1</option>
-                  <option value="2">Kategori 2</option>
-                  <option value="3">Kategori 3</option>
+                  <?php foreach ($pelaporanKategori as $kategori) : ?>
+                    <option value="<?= $kategori ?>"><?= $kategori ?></option>
+                  <?php endforeach ?>
                 </select>
               </div>
               <!-- laporan -->

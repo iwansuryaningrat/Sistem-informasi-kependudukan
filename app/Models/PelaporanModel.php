@@ -125,4 +125,9 @@ class PelaporanModel extends Model
     {
         return ['Kesehatan', 'Pendidikan', 'Sosial', 'Ekonomi', 'Lingkungan', 'Lainnya'];
     }
+
+    public function getStatus()
+    {
+        return ['Menunggu Konfirmasi', 'Dalam Proses', 'Selesai', 'Ditolak'];
+    }
 }

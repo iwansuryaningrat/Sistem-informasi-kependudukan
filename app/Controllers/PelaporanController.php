@@ -62,4 +62,30 @@ class PelaporanController extends BaseController
             'isLoggedIn' => session()->get('isLoggedIn'),
         ];
     }
+
+    public function lapor()
+    {
+        $nik = $this->user_data['nik'];
+        $nik_terlapor = $this->request->getVar('nik_terlapor');
+        $kategori = $this->request->getVar('kategori');
+        $laporan = $this->request->getVar('laporan');
+        $deskripsi_laporan = $this->request->getVar('deskripsi_laporan');
+
+        $result = $this->pelaporanModel->save([
+            'nik_pelapor' => $nik,
+            'nik_terlapor' => $nik_terlapor,
+            'kategori' => $kategori,
+            'laporan' => $laporan,
+            'deskripsi_pelaporan' => $deskripsi_laporan,
+            'status_pelaporan' => 'Menunggu Konfirmasi',
+        ]);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Laporan berhasil dikirim');
+            return redirect()->to('/users/pelaporan');
+        } else {
+            session()->setFlashdata('error', 'Laporan gagal dikirim');
+            return redirect()->to('/users/formTambahPelaporan');
+        }
+    }
 }
