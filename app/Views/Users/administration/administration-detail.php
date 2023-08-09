@@ -27,81 +27,82 @@
         <div>
           <!-- no surat -->
           <div class="row mb-3">
-            <label for="no_surat" class="col-md-2 form-label forms-label mt-md-2">No Surat <span class="text-important">*</span></label>
+            <label for="no_surat" class="col-md-2 form-label forms-label mt-md-2">No Surat</label>
             <div class="col-md-10">
-              <input type="text" id="no_surat" name="no_surat" class="form-control input-control" placeholder="Masukkan No Surat" required value="0712032023/UNDIP/FSM/IF/RPL" disabled />
+              <input type="text" id="no_surat" name="no_surat" class="form-control input-control" placeholder="Masukkan No Surat" value="<?= ($dataAdministrasi['no_surat']) ? $dataAdministrasi['no_surat'] : '-' ?>" disabled />
             </div>
           </div>
           <!-- nama pemohon -->
           <div class="row mb-3">
-            <label for="nama_pemohon" class="col-md-2 form-label forms-label mt-md-2">Nama Pemohon <span class="text-important">*</span></label>
+            <label for="nama_pemohon" class="col-md-2 form-label forms-label mt-md-2">Nama Pemohon</label>
             <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="nama_pemohon" name="nama_pemohon" value="Nama Pemohon" disabled />
+              <input type="text" class="form-control input-control" id="nama_pemohon" name="nama_pemohon" value="<?= $dataAdministrasi['nama']  ?>" disabled />
             </div>
           </div>
           <!-- kategori -->
           <div class="row mb-3">
-            <label for="kategori" class="col-md-2 form-label forms-label mt-md-2">Kategori <span class="text-important">*</span></label>
+            <label for="kategori" class="col-md-2 form-label forms-label mt-md-2">Kategori</label>
             <div class="col-md-10">
-              <select id="kategori" name="kategori" required class="form-select select-control" disabled>
-                <option value="">Pilih Kategori</option>
-                <option value="1">Kategori 1</option>
-                <option value="2">Kategori 2</option>
-                <option value="3">Kategori 3</option>
-              </select>
+              <input type="text" class="form-control input-control" id="kategori" name="kategori" value="<?= $dataAdministrasi['kategori']  ?>" disabled />
             </div>
           </div>
           <!-- keperluan -->
           <div class="row mb-3">
-            <label for="keperluan" class="col-md-2 form-label forms-label mt-md-2">Keperluan <span class="text-important">*</span></label>
+            <label for="keperluan" class="col-md-2 form-label forms-label mt-md-2">Keperluan</label>
             <div class="col-md-10">
-              <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" required disabled value="Keperluan Bersama" />
+              <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" disabled value="<?= $dataAdministrasi['keperluan']  ?>" />
             </div>
           </div>
           <!-- deskripsi -->
           <div class="row mb-3">
-            <label for="deskripsi" class="col-md-2 form-label forms-label mt-md-2">Deskripsi <span class="text-important">*</span></label>
+            <label for="deskripsi" class="col-md-2 form-label forms-label mt-md-2">Deskripsi</label>
             <div class="col-md-10">
-              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required disabled rows="3">
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem et assumenda corporis veritatis? Necessitatibus ullam commodi, iusto nostrum esse numquam officia consectetur, dolor sed, dolore voluptate atque nemo adipisci blanditiis?</textarea>
+              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" disabled rows="3"><?= $dataAdministrasi['deskripsi'] ?></textarea>
+            </div>
+          </div>
+          <!-- catatan -->
+          <div class="row mb-3">
+            <label for="catatan" class="col-md-2 form-label forms-label mt-md-2">Catatan</label>
+            <div class="col-md-10">
+              <textarea id="catatan" name="catatan" class="form-control input-control" placeholder="Masukkan Catatan" disabled rows="3"><?= ($dataAdministrasi['catatan']) ? $dataAdministrasi['catatan'] : '-' ?></textarea>
             </div>
           </div>
           <!-- status -->
           <div class="row mb-3">
-            <label for="status" class="col-md-2 form-label forms-label mt-md-2">Status <span class="text-important">*</span></label>
+            <label for="status" class="col-md-2 form-label forms-label mt-md-2"><?= $dataAdministrasi['administrasi_status'] ?></label>
             <div class="col-md-10">
-              <select id="status" name="status" required class="form-select select-control" disabled>
-                <option value="">Pilih Status</option>
-                <option value="1" selected>Diterima</option>
-                <option value="2">Ditolak</option>
-              </select>
+              <input type="text" class="form-control input-control" id="status" name="status" value="Diterima" disabled />
             </div>
           </div>
           <!-- tanggal pengajuan -->
           <div class="row mb-3">
             <label for="tanggal_pengajuan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pengajuan
-              <span class="text-important">*</span></label>
+            </label>
             <div class="col-md-10">
-              <input type="date" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" required disabled value="2021-09-01" />
+              <input type="date" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= $dataAdministrasi['created_at'] ?>" />
             </div>
           </div>
           <!-- tanggal penerimaan -->
           <div class="row mb-3">
             <label for="tanggal_penerimaan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Penerimaan
-              <span class="text-important">*</span></label>
+            </label>
             <div class="col-md-10">
-              <input type="date" id="tanggal_penerimaan" name="tanggal_penerimaan" class="form-control input-control" required disabled value="2021-09-01" />
+              <input type="date" id="tanggal_penerimaan" name="tanggal_penerimaan" class="form-control input-control" disabled value="<?= $dataAdministrasi['tgl_penerimaan'] ?>" />
             </div>
           </div>
           <!-- berkas -->
           <div class="row mb-3">
-            <label for="berkas" class="col-md-2 form-label forms-label mt-md-2">Berkas <span class="text-important">*</span></label>
+            <label for="berkas" class="col-md-2 form-label forms-label mt-md-2">Berkas</label>
             <div class="col-md-10">
               <div class="input-group">
-                <input type="file" class="form-control input-control" id="berkas" name="berkas" required accept="image/*" />
-                <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-                  <i class="fa-solid fa-upload me-2"></i>Unggah
-                </button>
+                <input type="text" class="form-control input-control" id="berkas" name="berkas" disabled value="<?= $dataAdministrasi['berkas'] ?>" />
+                <?php if ($dataAdministrasi['created_at']) : ?>
+                  <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>">
+                    <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
+                      <i class="fa-solid fa-download me-2"></i>Download
+                    </button>
+                  </a>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -122,6 +123,10 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem et assumenda c
   function goBack() {
     window.history.back();
   }
+</script>
+
+<script>
+  document.foo.submit();
 </script>
 
 <?= $this->endSection(); ?>

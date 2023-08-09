@@ -205,6 +205,7 @@ class Users extends BaseController
             'dataAdministrasi' => $dataAdministrasi,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
+        // dd($dataAdministrasi);
 
         return view('/users/administration/administration-detail', $data);
     }

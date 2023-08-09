@@ -132,4 +132,16 @@ class AdministrasiController extends BaseController
                 break;
         }
     }
+
+    public function download($id)
+    {
+        $data = $this->administrasiModel->getAdministrasi($id);
+        $file = $data['berkas'];
+
+        // get file extension
+        $file_extension = explode('.', $file);
+        $file_extension = end($file_extension);
+
+        return $this->response->download('upload/files/' . $file, null)->setFileName($data['nama'] . '_' . $data['no_surat'] . '.' . $file_extension);
+    }
 }
