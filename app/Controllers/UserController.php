@@ -213,7 +213,7 @@ class UserController extends BaseController
     public function editdatakeluarga($nik)
     {
         $no_kk = $this->user_data['no_kk'];
-        $alamat = $this->request->getVar('alamat') . ',' . $this->request->getVar('kota_kabupaten') . ' ' . $this->request->getVar('kodepos') . ',' . $this->request->getVar('provinsi');
+        $alamat = $this->request->getVar('alamat');
         $jenis_kelamin = ($this->request->getVar('pria') == 'on') ? 'Laki-laki' : 'Perempuan';
 
         // calculate age

@@ -123,9 +123,9 @@
 
                       <select id="status" name="status" required class="form-select select-control">
                         <option value="">Pilih Status</option>
-                        <option value="Kepala Keluarga" <?= ($user['status'] == 'kepala_keluarga' || $user['status'] == 'Kepala Keluarga') ? 'selected' : '' ?>>Kepala Keluarga</option>
-                        <option value="Istri" <?= ($user['status'] == 'istri' || $user['status'] == 'Istri') ? 'selected' : '' ?>>Istri</option>
-                        <option value="Anak" <?= ($user['status'] == 'anak' || $user['status'] == 'Anak') ? 'selected' : '' ?>>Anak</option>
+                        <?php foreach ($statusKeluarga as $status) : ?>
+                          <option value="<?= $status ?>" <?= ($user['status'] == $status) ? 'selected' : '' ?>><?= $status ?></option>
+                        <?php endforeach ?>
                       </select>
                     </div>
 
@@ -136,10 +136,9 @@
 
                       <select id="status_perkawinan" name="status_perkawinan" required class="form-select select-control">
                         <option value="">Pilih Status Perkawinan</option>
-                        <option value="Belum Kawin" <?= ($user['status_perkawinan'] == 'belum_kawin' || $user['status_perkawinan'] == 'Belum Kawin') ? 'selected' : '' ?>>Belum Kawin</option>
-                        <option value="Kawin" <?= ($user['status_perkawinan'] == 'kawin' || $user['status_perkawinan'] == 'Kawin') ? 'selected' : '' ?>>Kawin</option>
-                        <option value="Cerai Hidup" <?= ($user['status_perkawinan'] == 'cerai_hidup' || $user['status_perkawinan'] == 'Cerai Hidup') ? 'selected' : '' ?>>Cerai Hidup</option>
-                        <option value="erai Mati" <?= ($user['status_perkawinan'] == 'cerai_mati' || $user['status_perkawinan'] == 'Cerai Mati') ? 'selected' : '' ?>>Cerai Mati</option>
+                        <?php foreach ($statusPerkawinan as $perkawinan) : ?>
+                          <option value="<?= $perkawinan ?>" <?= ($user['status_perkawinan'] == $perkawinan) ? 'selected' : '' ?>><?= $perkawinan ?></option>
+                        <?php endforeach ?>
                       </select>
                     </div>
                   </div>
@@ -152,12 +151,9 @@
 
                       <select id="agama" name="agama" required class="form-select select-control">
                         <option value="">Pilih Agama</option>
-                        <option value="Islam" <?= $user['agama'] === 'Islam' ? 'selected' : '' ?>>Islam</option>
-                        <option value="Khatolik" <?= $user['agama'] === 'Khatolik' ? 'selected' : '' ?>>Khatolik</option>
-                        <option value="Kristen" <?= $user['agama'] === 'Kristen' ? 'selected' : '' ?>>Kristen</option>
-                        <option value="Hindu" <?= $user['agama'] === 'Hindu' ? 'selected' : '' ?>>Hindu</option>
-                        <option value="Budha" <?= $user['agama'] === 'Budha' ? 'selected' : '' ?>>Budha</option>
-                        <option value="Konghucu" <?= $user['agama'] === 'Konghucu' ? 'selected' : '' ?>>Konghucu</option>
+                        <?php foreach ($listAgama as $agama) : ?>
+                          <option value="<?= $agama ?>" <?= $user['agama'] === $agama ? 'selected' : '' ?>><?= $agama ?></option>
+                        <?php endforeach ?>
                       </select>
                     </div>
 
@@ -249,17 +245,9 @@
 
                       <select id="pendidikan" name="pendidikan" required class="form-select select-control">
                         <option value="">Pilih Pendidikan</option>
-                        <option value="Tidak Sekolah" <?= $user['pendidikan'] === "Tidak Sekolah" ? 'selected' : '' ?>>Tidak Sekolah</option>
-                        <option value="SD" <?= $user['pendidikan'] === "SD" ? 'selected' : '' ?>>SD</option>
-                        <option value="SMP" <?= $user['pendidikan'] === "SMP" ? 'selected' : '' ?>>SMP</option>
-                        <option value="SMA" <?= $user['pendidikan'] === "SMA" ? 'selected' : '' ?>>SMA</option>
-                        <option value="D1" <?= $user['pendidikan'] === "D1" ? 'selected' : '' ?>>D1</option>
-                        <option value="D2" <?= $user['pendidikan'] === "D2" ? 'selected' : '' ?>>D2</option>
-                        <option value="D3" <?= $user['pendidikan'] === "D3" ? 'selected' : '' ?>>D3</option>
-                        <option value="D4" <?= $user['pendidikan'] === "D4" ? 'selected' : '' ?>>D4</option>
-                        <option value="S1" <?= $user['pendidikan'] === "S1" ? 'selected' : '' ?>>S1</option>
-                        <option value="S2" <?= $user['pendidikan'] === "S2" ? 'selected' : '' ?>>S2</option>
-                        <option value="S3" <?= $user['pendidikan'] === "S3" ? 'selected' : '' ?>>S3</option>
+                        <?php foreach ($pendidikan as $pendidikanList) : ?>
+                          <option value="<?= $pendidikanList ?>" <?= $user['pendidikan'] === $pendidikanList ? 'selected' : '' ?>><?= $pendidikanList ?></option>
+                        <?php endforeach ?>
                       </select>
                     </div>
 
@@ -269,10 +257,9 @@
                         <span class="text-important">*</span></label>
                       <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
                         <option value="">Pilih Status Kependudukan</option>
-                        <option value="Tetap" <?= $user['status_kependudukan'] === 'Tetap' ? 'selected' : '' ?>>Penduduk Tetap</option>
-                        <option value="Sementara" <?= $user['status_kependudukan'] === 'Sementara' ? 'selected' : '' ?>>Penduduk Sementara</option>
-                        <option value="Pendatang" <?= $user['status_kependudukan'] === 'Pendatang' ? 'selected' : '' ?>>Penduduk Pendatang</option>
-                        <option value="Pindahan" <?= $user['status_kependudukan'] === 'Pindahan' ? 'selected' : '' ?>>Penduduk Pindahan</option>
+                        <?php foreach ($statusKependudukan as $statusPenduduk) : ?>
+                          <option value="<?= $statusPenduduk ?>" <?= $user['status_kependudukan'] === $statusPenduduk ? 'selected' : '' ?>>Penduduk <?= $statusPenduduk ?></option>
+                        <?php endforeach ?>
                       </select>
                     </div>
                   </div>
