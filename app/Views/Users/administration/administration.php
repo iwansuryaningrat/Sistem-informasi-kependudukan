@@ -36,7 +36,7 @@
                   <td><?= $i ?></td>
                   <td><?= $data['nama'] ?></td>
                   <td><?= $data['kategori'] ?></td>
-                  <td><?= $data['no_surat'] ?></td>
+                  <td><?= ($data['no_surat']) ? $data['no_surat'] : '-' ?></td>
                   <td>
                     <div class="d-flex justify-content-start">
                       <div class="status-badge <?php if ($data['administrasi_status'] == 'Dalam Proses') {
@@ -53,7 +53,7 @@
                     </div>
                   </td>
                   <td><?= $data['created_at'] ?></td>
-                  <td><?= $data['tgl_penerimaan'] ?></td>
+                  <td><?= ($data['tgl_penerimaan']) ? $data['tgl_penerimaan'] : '-' ?></td>
                   <td>
                     <div class="dropdown dropdown-table pe-3">
                       <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Other Option">

@@ -185,4 +185,44 @@ class AdministrasiController extends BaseController
             return redirect()->to('/users/formEditAdministrasi/' . $id);
         }
     }
+
+    public function ajukan()
+    {
+        $pemohon = $this->user_data['nik'];
+
+        $file = $this->request->getFile('berkas');
+        if (!$file->getError() == 4) {
+            // generate new file name
+            $newFileName = $file->getRandomName();
+
+            // move file to folder
+            $file->move('upload/files', $newFileName);
+        } else {
+            session()->setFlashdata('error', 'Gagal mengajukan permohonan administrasi');
+            return redirect()->to('/users/formTambahAdministrasi');
+        }
+
+        $kategori = $this->request->getVar('kategori');
+        $keperluan = $this->request->getVar('keperluan');
+        $deskripsi = $this->request->getVar('deskripsi');
+
+        $data = [
+            'pemohon' => $pemohon,
+            'kategori' => $kategori,
+            'keperluan' => $keperluan,
+            'deskripsi' => $deskripsi,
+            'berkas' => $newFileName,
+            'administrasi_status' => 'Menunggu Konfirmasi',
+        ];
+
+        $result = $this->administrasiModel->insert($data);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Berhasil mengajukan permohonan administrasi');
+            return redirect()->to('/users/administrasi');
+        } else {
+            session()->setFlashdata('error', 'Gagal mengajukan permohonan administrasi');
+            return redirect()->to('/users/formTambahAdministrasi');
+        }
+    }
 }

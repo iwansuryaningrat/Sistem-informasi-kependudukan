@@ -19,7 +19,7 @@
   <section class="container container-space pt-0">
     <div class="row">
       <div class="col-12 col-lg-8 mb-5 mb-lg-0">
-        <form class="card-form-container card" id="adminFormAdd" action="#" enctype="multipart/form-data" method="POST">
+        <form class="card-form-container card" id="adminFormAdd" action="/administrasicontroller/ajukan" enctype="multipart/form-data" method="POST">
           <div class="card-header card-form-header">
             <p class="mb-0 fw-semibold">
               Form Pengajuan Permohonan Administrasi
@@ -38,16 +38,21 @@
                   <label for="kategori" class="form-label forms-label">Kategori <span class="text-important">*</span></label>
                   <select id="kategori" name="kategori" required class="form-select select-control">
                     <option value="">Pilih Kategori</option>
-                    <option value="1">Kategori 1</option>
-                    <option value="2">Kategori 2</option>
-                    <option value="3">Kategori 3</option>
+                    <option value="KTP">KTP</option>
+                    <option value="KK">KK</option>
+                    <option value="Surat Pindah">Surat Pindah</option>
+                    <option value="Surat Kematian">Surat Kematian</option>
+                    <option value="Surat Kelahiran">Surat Kelahiran</option>
+                    <option value="Surat Keterangan">Surat Keterangan</option>
+                    <option value="Surat Pengantar">Surat Pengantar</option>
+                    <option value="Lainnya">Lainnya</option>
                   </select>
                 </div>
                 <!-- berkas -->
                 <div class="col-12 col-md-6">
                   <label for="berkas" class="form-label forms-label">Berkas <span class="text-important">*</span></label>
                   <div class="input-group">
-                    <input type="file" class="form-control input-control" id="berkas" name="berkas" required accept="image/*" />
+                    <input type="file" class="form-control input-control" id="berkas" name="berkas" required accept="application/pdf" />
                     <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
                       <i class="fa-solid fa-upload me-2"></i>Unggah
                     </button>
