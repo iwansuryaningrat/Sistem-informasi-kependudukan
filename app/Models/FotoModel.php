@@ -12,7 +12,7 @@ class FotoModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'isThumbnail', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['galeri_id', 'nama_foto', 'foto_path', 'isThumbnail', 'caption', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;

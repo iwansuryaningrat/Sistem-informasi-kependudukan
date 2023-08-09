@@ -12,7 +12,7 @@ class GaleriModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['judul', 'deskripsi', 'uploaded_by', 'thumbnail', 'kategori', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['judul', 'deskripsi', 'created_by', 'thumbnail', 'kategori', 'total_foto', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -26,14 +26,14 @@ class GaleriModel extends Model
     {
         if ($galeri_id == null) {
             return $this->select('galeri.*, users.nama, kategori_galeri.nama_kategori')
-                ->join('users', 'users.nik = galeri.uploaded_by')
+                ->join('users', 'users.nik = galeri.created_by')
                 ->join('kategori_galeri', 'kategori_galeri.kategori_galeri_id = galeri.kategori')
                 ->orderBy('galeri.created_at', 'DESC')
                 ->findAll();
         }
 
         return $this->select('galeri.*, users.nama')
-            ->join('users', 'users.nik = galeri.uploaded_by')
+            ->join('users', 'users.nik = galeri.created_by')
             ->where(['galeri_id' => $galeri_id])
             ->first();
     }

@@ -74,7 +74,7 @@ class GaleriController extends BaseController
         $data = [
             'judul' => $this->request->getVar('judul'),
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'uploaded_by' => $this->user_data['nik'],
+            'created_by' => $this->user_data['nik'],
             'thumbnail' => $fileName,
             'kategori' => $this->request->getVar('kategori'),
         ];
