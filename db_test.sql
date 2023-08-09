@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 06:36 PM
+-- Generation Time: Aug 09, 2023 at 08:19 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test_db`
+-- Database: `db_test`
 --
 
 -- --------------------------------------------------------
@@ -179,10 +179,10 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 CREATE TABLE `foto` (
   `foto_id` int(11) NOT NULL,
   `galeri_id` int(11) NOT NULL,
-  `nama_foto` varchar(255) DEFAULT NULL,
-  `foto_path` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `isThumbnail` tinyint(1) NOT NULL DEFAULT 0,
-  `caption` varchar(255) NOT NULL,
+  `caption` varchar(255) DEFAULT NULL,
+  `uploaded_by` bigint(17) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -215,7 +215,10 @@ INSERT INTO `galeri` (`galeri_id`, `judul`, `deskripsi`, `thumbnail`, `created_b
 (1, 'Test', 'test', '1691435504_61b04f5535f48c7adea9.png', 343475351188255, 2, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
 (2, 'Test', 'test', '1691435533_b942a10441f15ec306a8.png', 343475351188255, 2, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
 (3, 'Test2', 'ffefef', '1691437804_7cb25618720bdc100cc4.png', 343475351188255, 1, 0, '2023-08-08 02:50:04', '2023-08-08 02:50:04', NULL),
-(4, 'Test2', 'ererer', '1691522500_25d2feeff96f864ba612.png', 4485809172694, 1, 0, '2023-08-09 02:21:40', '2023-08-09 02:21:40', NULL);
+(4, 'Test2', 'ererer', '1691522500_25d2feeff96f864ba612.png', 4485809172694, 1, 0, '2023-08-09 02:21:40', '2023-08-09 02:21:40', NULL),
+(5, 'ertert', 'erter', '1691604111_76e29fdd0c78d24bdc69.png', 4716455593739233, 2, 0, '2023-08-10 01:01:51', '2023-08-10 01:01:51', NULL),
+(6, 'ertert', 'erter', '1691604228_5984393e9903c2688d67.png', 4716455593739233, 2, 0, '2023-08-10 01:03:48', '2023-08-10 01:03:48', NULL),
+(7, 'ertert', 'erter', '1691604239_3b62a2d29b5a5a0bb70e.png', 4716455593739233, 2, 0, '2023-08-10 01:03:59', '2023-08-10 01:03:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -319,6 +322,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (4556721302180360, 'Oskar Oskar Saragih', 'Ds. Arifin No. 166, Makassar 11970, DIY', 'Gg. Wahid Hasyim No. 39, Padangpanjang 58326, KalTeng', 'default.png', '1971-01-24', 'Pindah', 1, '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4716280266615751, 'Malika Suryatmi', 'Dk. Supomo No. 531, Prabumulih 51775, PapBar', 'Gg. Lumban Tobing No. 849, Administrasi Jakarta Utara 87853, SulTeng', 'default.png', '2022-05-19', 'Tetap', 0, '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
 (4716454593723433, 'Iwan Suryaningrat', NULL, NULL, 'default.png', NULL, NULL, 1, '2023-08-09 23:31:52', '2023-08-09 23:31:52', NULL),
+(4716455663739233, 'iwan', 'Jl. Ki. Ronggowarsito No. 4160,Papua 58153,Jawa Barat', NULL, 'default.png', NULL, NULL, 1, '2023-08-09 23:45:52', '2023-08-09 23:45:52', NULL),
 (4778023352204667, 'Qori Gasti Mardhiyah', 'Ds. Pacuan Kuda No. 856, Mojokerto 99031, PapBar', 'Kpg. Sukajadi No. 31, Tarakan 85995, Maluku', 'default.png', '2003-12-26', 'Tetap', 0, '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (4916456916349425, 'Malika Nurul Yolanda', 'Gg. Padang No. 358, Kupang 26482, NTB', 'Dk. Perintis Kemerdekaan No. 981, Bitung 67278, KalTim', 'default.png', '2017-11-27', 'Pindah', 1, '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (4916994347219577, 'Eka Wahyuni', 'Ki. Yosodipuro No. 827, Binjai 48076, Lampung', 'Psr. Baja Raya No. 811, Blitar 32092, BaBel', 'default.png', '1990-01-07', 'Pindah', 1, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
@@ -568,6 +572,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (4716226036973665, 4532453265330, 'Vivi Diah Pudjiastuti', 'Anak', 'Perempuan', 'Islam', 'Dumai', '1992-08-20', 45, 'Belum Kawin', 'D1', 'Wiraswasta', 'rosman.yolanda@haryanti.tv', NULL, '$2y$10$bAXKrvzoJQrk7h6/lgrRbO1fe./jaazGJgrw2iq3jWG9tRHBvrB/W', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (4716454593729233, 4716454593723433, 'Iwan Suryaningrat', 'Kepala Keluarga', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'virman@gmail.com', '088888888888', '$2y$10$Aa/biOZQQ2E8cwFRYKqC0.d0.3BMtsFNnZFRjlugFI5KWiQJ3dBqa', 'User', 'default.png', 'Tetap', '2023-08-09 23:31:53', '2023-08-09 23:31:53', NULL),
 (4716454599739233, 5566468947251405, 'Surya', '', 'Laki-laki', 'Islam', 'Grobogan', '2010-10-10', 13, 'Belum Kawin', 'SD', 'Programmer', 'emin@gmail.com', '088765432190', '$2y$10$a92u0Ri296ZevoLCNqe9XOuXSFxBaOy2HRMU7WktPoAJNY7sRBp7m', 'User', 'default.png', 'Tetap', '2023-08-08 01:34:28', '2023-08-08 01:34:28', NULL),
+(4716455593739233, 4716455663739233, 'iwan', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Grobogan', '2023-08-09', 0, 'Belum Kawin', 'S1', 'Programmer', 'iwansuryaningrat@gmail.com', '088802851811', '$2y$10$/YKiumn64wBapc4Qj0LIZ.CfzPXWzHOXv36jq1GfG1sUh4SVpr2LG', 'User', 'default.png', 'Tetap', '2023-08-09 23:45:52', '2023-08-09 23:45:52', NULL),
 (4716584060670569, 5529607779838435, 'Jaka Galiono Widodo S.Ked', 'Anak', 'Perempuan', 'Islam', 'Mataram', '1971-11-15', 26, 'Cerai Mati', 'SMA', 'Wiraswasta', 'palastri.marsudi@permadi.name', NULL, '$2y$10$8PNAZ62Xae7Llt6bgUC0MOYIqvuBKA1neOSOHLtj8mOBWEpVZFXku', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4716811988996184, 5143303810938196, 'Eva Cornelia Purwanti S.Ked', 'Anak', 'Laki-laki', 'Islam', 'Sibolga', '2010-08-21', 99, 'Cerai Hidup', 'D3', 'Wiraswasta', 'safina32@pranowo.ac.id', NULL, '$2y$10$uKOrQgLxALLNcFseafvEteIhr3Nh.2hsMZ.jFVs/6oLu4mCqGnt8u', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
 (4929393893175256, 343237716884964, 'Lalita Susanti S.IP', 'Anak', 'Laki-laki', 'Islam', 'Jayapura', '2020-11-14', 43, 'Cerai Hidup', 'SMA', 'Wiraswasta', 'xfirmansyah@yahoo.co.id', NULL, '$2y$10$f0GZbD.T448fpiC3xsfm0ebKZ90aw2SF81dEDzd8EIhcbpy.wxrbK', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
@@ -656,7 +661,8 @@ ALTER TABLE `administrasi`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`foto_id`),
-  ADD KEY `galeri` (`galeri_id`);
+  ADD KEY `galeri` (`galeri_id`),
+  ADD KEY `uploader` (`uploaded_by`);
 
 --
 -- Indexes for table `galeri`
@@ -727,7 +733,7 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kategori_galeri`
@@ -767,14 +773,8 @@ ALTER TABLE `administrasi`
 -- Constraints for table `foto`
 --
 ALTER TABLE `foto`
-  ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `galeri`
---
-ALTER TABLE `galeri`
-  ADD CONSTRAINT `kategori_galeri` FOREIGN KEY (`kategori`) REFERENCES `kategori_galeri` (`kategori_galeri_id`),
-  ADD CONSTRAINT `uploader` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `uploader` FOREIGN KEY (`uploaded_by`) REFERENCES `users` (`nik`);
 
 --
 -- Constraints for table `pengumuman`
