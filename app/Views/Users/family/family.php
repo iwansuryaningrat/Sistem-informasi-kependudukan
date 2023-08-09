@@ -111,12 +111,12 @@
         <div class="d-flex align-items-center justify-content-end">
           <div class="d-flex justify-content-end pe-3">
             <a href="/users/formTambahKeluarga" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;">
-              <i class="fa-solid fa-plus me-sm-2"></i><span class="d-none d-sm-inline-block">Tambah </span><span class="d-none d-xl-inline-block">Keluarga</span>
+              <i class="fa-solid fa-plus me-sm-2"></i><span class="d-none d-sm-inline-block me-1">Tambah</span><span class="d-none d-xl-inline-block">Keluarga</span>
             </a>
           </div>
           <div class="d-flex justify-content-end pe-2">
-            <a href="/users/edit-keluarga" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;">
-              <i class="fa-solid fa-pen-to-square me-sm-2"></i><span class="d-none d-sm-inline-block">Edit </span><span class="d-none d-xl-inline-block">Keluarga</span>
+            <a href="/users/editKeluarga/<?= $kk ?>" class="btn btn-main-xs w-full-md" role="button" style="height: 36px;">
+              <i class="fa-solid fa-pen-to-square me-sm-2"></i><span class="d-none d-sm-inline-block me-1">Edit</span><span class="d-none d-xl-inline-block">Keluarga</span>
             </a>
           </div>
         </div>
