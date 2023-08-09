@@ -91,12 +91,16 @@ class Users extends BaseController
 
     public function editPelaporan($id)
     {
+        $users = $this->usersModel->getUsers();
+        $pelaporanKategori = $this->pelaporanModel->getPelaporanKategori();
         $dataLaporan = $this->pelaporanModel->getPelaporan($id);
 
         $data = [
             'title' => 'Menu Pelaporan | Warga Site',
             'navbar' => 'pelaporan',
             'dataLaporan' => $dataLaporan,
+            'users' => $users,
+            'pelaporanKategori' => $pelaporanKategori,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
 

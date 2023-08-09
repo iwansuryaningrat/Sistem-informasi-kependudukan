@@ -19,7 +19,7 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-0">
-    <form class="card-form-container card" id="reportFormEdit" action="#" enctype="multipart/form-data" method="POST">
+    <form class="card-form-container card" id="reportFormEdit" action="/pelaporancontroller/editlaporan/<?= $dataLaporan['pelaporan_id'] ?>" enctype="multipart/form-data" method="POST">
       <!-- header -->
       <div class="card-header card-form-header">
         <p class="mb-0 fw-semibold">Form Edit Pelaporan</p>
@@ -31,11 +31,11 @@
           <div class="row mb-3">
             <label for="nama_terlapor" class="col-md-2 form-label forms-label mt-md-2">Nama Terlapor <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <select id="nama_terlapor" name="nama_terlapor" required class="form-select select-control">
+              <select id="nama_terlapor" name="nama_terlapor" disabled class="form-select select-control">
                 <option value="">Pilih Nama Terlapor</option>
-                <option value="1">Nama Terlapor 1</option>
-                <option value="2" selected>Nama Terlapor 2</option>
-                <option value="3">Nama Terlapor 3</option>
+                <?php foreach ($users as $user) : ?>
+                  <option value="<?= $user['nik'] ?>" <?= ($dataLaporan['nik_terlapor'] == $user['nik']) ? 'selected' : '' ?>><?= $user['nama'] ?></option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>
@@ -45,9 +45,9 @@
             <div class="col-md-10">
               <select id="kategori" name="kategori" class="form-select select-control" required>
                 <option value="">Pilih Kategori</option>
-                <option value="1">Kategori 1</option>
-                <option value="2">Kategori 2</option>
-                <option value="3" selected>Kategori 3</option>
+                <?php foreach ($pelaporanKategori as $kategori) : ?>
+                  <option value="<?= $kategori ?>" <?= ($dataLaporan['kategori'] == $kategori) ? 'selected' : '' ?>><?= $kategori ?></option>
+                <?php endforeach ?>
               </select>
             </div>
           </div>
@@ -55,7 +55,7 @@
           <div class="row mb-3">
             <label for="laporan" class="col-md-2 form-label forms-label mt-md-2">Laporan <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <input type="text" id="laporan" name="laporan" class="form-control input-control" placeholder="Masukkan Laporan" required value="Laporan Bersama" />
+              <input type="text" id="laporan" name="laporan" class="form-control input-control" placeholder="Masukkan Laporan" required value="<?= $dataLaporan['laporan'] ?>" />
             </div>
           </div>
           <!-- deskripsi laporan -->
@@ -63,8 +63,7 @@
             <label for="deskripsi_laporan" class="col-md-2 form-label forms-label mt-md-2">Deskripsi Laporan
               <span class="text-important">*</span></label>
             <div class="col-md-10">
-              <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" required rows="3">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis itaque odit omnis dolorum voluptates necessitatibus, velit est. Voluptatibus, doloremque molestias ducimus qui, est aliquam aspernatur doloribus iure eveniet facilis repudiandae!</textarea>
+              <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" required rows="3"><?= $dataLaporan['deskripsi_pelaporan'] ?></textarea>
             </div>
           </div>
         </div>

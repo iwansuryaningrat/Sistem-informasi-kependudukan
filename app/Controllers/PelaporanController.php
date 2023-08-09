@@ -88,4 +88,26 @@ class PelaporanController extends BaseController
             return redirect()->to('/users/formTambahPelaporan');
         }
     }
+
+    public function editLaporan($id)
+    {
+        $kategori = $this->request->getVar('kategori');
+        $laporan = $this->request->getVar('laporan');
+        $deskripsi_laporan = $this->request->getVar('deskripsi_laporan');
+
+        $result = $this->pelaporanModel->editPelaporan([
+            'kategori' => $kategori,
+            'laporan' => $laporan,
+            'deskripsi_pelaporan' => $deskripsi_laporan,
+            'status_pelaporan' => 'Menunggu Konfirmasi',
+        ], $id);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Laporan berhasil diubah');
+            return redirect()->to('/users/pelaporan');
+        } else {
+            session()->setFlashdata('error', 'Laporan gagal diubah');
+            return redirect()->to('/users/formEditPelaporan' . $id);
+        }
+    }
 }
