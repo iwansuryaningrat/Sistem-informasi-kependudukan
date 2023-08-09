@@ -138,7 +138,7 @@ class UsersModel extends Model
     // Get status users
     public function getStatusUsers()
     {
-        return ['Kepala keluarga', 'Istri', 'Anak', 'Anak Kos', 'Pembantu', 'Lainnya'];
+        return ['Kepala Keluarga', 'Istri', 'Anak', 'Anak Kos', 'Pembantu', 'Lainnya'];
     }
 
     // Get status perkawinan users
