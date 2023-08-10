@@ -2,29 +2,23 @@
 <footer class="big-footer">
     <section class="container">
         <div class="row footer-container-top">
-
             <!-- left -->
             <div class="col-md-4">
                 <div class="footer-top__left">
-                    <a href="/home" class="footer-logo-link">
+                    <a href="<?= $isLoggedin ? '/users' : '/home'; ?>" class="footer-logo-link">
                         <figure class="footer-logo-wrapper">
                             <img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" />
                         </figure>
                     </a>
                     <p class="text-basic">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-                        assumenda.<br />
-                        Jl. Raya Kebayoran Lama Bl A-5/194, DKI Jakarta, Kota Jakarta
-                        12240
+                        Selamat datang di Website Warga! Kami adalah platform pengelolaan data keluarga untuk desa.<br />
+                        Jl. Raya Kebayoran Lama Bl A-5/194, DKI Jakarta, Kota Jakarta 12240
                     </p>
                     <a class="btn btn-main" role="button" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
-                        <button class="btn btn-main" type="button">
-                            Kontak Kami
-                        </button>
+                        Kontak Kami
                     </a>
                 </div>
             </div>
-
             <!-- right -->
             <div class="col-md-8">
                 <div class="footer-menu-link">
@@ -53,13 +47,13 @@
         <hr class="" />
         <div class="footer-floor">
             <p>
-                @<span id="yearNow"></span> Warga | Warga neque consequatur nemo
-                fugit voluptatem mollitia minima tempore.
+                @<span id="yearNow"></span> Warga | Platform Pengelolaan Data Keluarga untuk Desa
+                Memudahkan pencatatan dan pengelolaan informasi keluarga desa secara efisien.
             </p>
             <div class="footer-social-media">
-                <a title="Facebook" href="#"><i class="fab fa-facebook"></i></a>
-                <a title="Instagram" href="#"><i class="fab fa-instagram"></i></a>
-                <a title="Twitter" href="#"><i class="fab fa-twitter"></i></a>
+                <a title="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a title="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a title="Twitter" href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </section>
