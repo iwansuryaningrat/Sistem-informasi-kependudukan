@@ -237,7 +237,7 @@ class AdministrasiController extends BaseController
         }
 
         // delete file
-        if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
 
         $result = $this->administrasiModel->delete($id);
 
@@ -247,6 +247,25 @@ class AdministrasiController extends BaseController
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data administrasi');
             return redirect()->to('/users/administrasi');
+        }
+    }
+
+    // Hapus administrasi dari admin
+    public function hapusAdmin($id)
+    {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+
+        // delete file
+        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+
+        $result = $this->administrasiModel->delete($id);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Berhasil menghapus data administrasi');
+            return redirect()->to('/admin/administrasi');
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus data administrasi');
+            return redirect()->to('/admin/administrasi');
         }
     }
 }
