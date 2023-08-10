@@ -125,7 +125,7 @@
               perferendis ex temporibus voluptatum enim alias laudantium
               illum quo doloribus!
             </p>
-            <button class="btn btn-secondaries shadow" type="button">
+            <button class="btn btn-secondaries shadow" type="button" onclick="location.href='/users/keluarga'">
               Lebih Banyak
             </button>
           </div>
@@ -156,108 +156,23 @@
 
     <!-- content -->
     <div class="gallery-container mb-5">
-      <div class="gallery-warp">
-        <figure class="gallery-item__warp">
-          <img src="/homepage/assets/img/image-1.jpg" alt="documentation-1" class="gallery-item__photo" />
-          <div class="gallery-item__desc">
-            <div class="scroll">
-              <p class="mb-2 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quam pariatur officiis consequatur et odio quas laborum.
-              </p>
-              <p class="text-xs mb-2 fst-italic text-gray-200">
-                Iwan Suryaningrat - 13 Januari 2023
-              </p>
+      <?php $i = 1;
+      foreach ($newestGaleri as $galeri) : ?>
+        <div class="gallery-warp">
+          <figure class="gallery-item__warp">
+            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="documentation-<?= $i ?>" class="gallery-item__photo" />
+            <div class="gallery-item__desc">
+              <div class="scroll">
+                <p class="mb-2 text-sm"><?= $galeri['judul'] ?></p>
+                <p class="text-xs mb-2 fst-italic text-gray-200">
+                  <?= $galeri['nama'] ?> - <?= $galeri['created_at'] ?>
+                </p>
+              </div>
             </div>
-          </div>
-        </figure>
-      </div>
-      <div class="gallery-warp">
-        <figure class="gallery-item__warp">
-          <img src="/homepage/assets/img/image-2.jpg" alt="documentation-2" class="gallery-item__photo" />
-          <div class="gallery-item__desc">
-            <div class="scroll">
-              <p class="mb-2 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quam pariatur officiis consequatur et odio quas laborum.
-                Laborum quaerat laboriosam aspernatur quo voluptatibus
-                aut! Inventore corrupti architecto provident tempore ad
-                velit!
-              </p>
-              <p class="text-xs mb-2 fst-italic text-gray-200">
-                Iwan Suryaningrat - 13 Januari 2023
-              </p>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div class="gallery-warp">
-        <figure class="gallery-item__warp">
-          <img src="/homepage/assets/img/image-3.jpg" alt="documentation-3" class="gallery-item__photo" />
-          <div class="gallery-item__desc">
-            <div class="scroll">
-              <p class="mb-2 text-sm">
-                Consequatur et odio quas laborum. Laborum quaerat
-                laboriosam aspernatur quo voluptatibus aut! Inventore
-                corrupti architecto provident tempore ad velit!
-              </p>
-              <p class="text-xs mb-2 fst-italic text-gray-200">
-                Iwan Suryaningrat - 13 Januari 2023
-              </p>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div class="gallery-warp">
-        <figure class="gallery-item__warp">
-          <img src="/homepage/assets/img/image-4.jpg" alt="documentation-4" class="gallery-item__photo" />
-          <div class="gallery-item__desc">
-            <div class="scroll">
-              <p class="mb-2 text-sm">
-                Laboriosam aspernatur quo voluptatibus aut! Inventore
-                corrupti architecto provident tempore ad velit!
-              </p>
-              <p class="text-xs mb-2 fst-italic text-gray-200">
-                Iwan Suryaningrat - 13 Januari 2023
-              </p>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div class="gallery-warp">
-        <figure class="gallery-item__warp">
-          <img src="/homepage/assets/img/image-5.jpg" alt="documentation-5" class="gallery-item__photo" />
-          <div class="gallery-item__desc">
-            <div class="scroll">
-              <p class="mb-2 text-sm">
-                Pariatur officiis consequatur et odio quas laborum.
-                Laborum quaerat laboriosam aspernatur quo voluptatibus
-                aut! Inventore corrupti architecto provident tempore ad
-                velit!
-              </p>
-              <p class="text-xs mb-2 fst-italic text-gray-200">
-                Suryaningrat - 13 Januari 2023
-              </p>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div class="gallery-warp">
-        <figure class="gallery-item__warp">
-          <img src="/homepage/assets/img/image-6.jpg" alt="documentation-6" class="gallery-item__photo" />
-          <div class="gallery-item__desc">
-            <div class="scroll">
-              <p class="mb-2 text-sm">
-                Quaerat laboriosam aspernatur quo voluptatibus aut!
-                Inventore corrupti architecto provident tempore ad velit!
-              </p>
-              <p class="text-xs mb-2 fst-italic text-gray-200">
-                Iwan - 13 Januari 2023
-              </p>
-            </div>
-          </div>
-        </figure>
-      </div>
+          </figure>
+        </div>
+      <?php $i++;
+      endforeach; ?>
     </div>
     <div class="d-flex justify-content-center pt-1 pt-sm-3">
       <a href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
@@ -278,90 +193,28 @@
 
       <!-- content -->
       <div class="news-container mb-5">
-        <div class="news-card">
-          <figure class="news-image__wrap">
-            <img src="/homepage/assets/img/image-7.jpg" alt="news-1" class="news-image__photo" />
-          </figure>
-          <p class="news-title mb-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Deserunt nostrum alias fugit. Vel nulla quaerat, nisi, facere
-            minima impedit culpa iure cumque ratione dolorum debitis
-            dolores, modi quia quis iste?
-          </p>
-          <p class="text-basic news-desc mb-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Deserunt nostrum alias fugit. Vel nulla quaerat, nisi, facere
-            minima impedit culpa iure cumque ratione dolorum debitis
-            dolores, modi quia quis iste?
-          </p>
-          <div class="d-flex align-items-center mb-3">
-            <p class="d-flex align-items-center me-3 mb-0">
-              <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">Abimanyu</span>
-            </p>
-            <p class="d-flex align-items-center mb-0">
-              <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">50 menit</span>
-            </p>
+        <?php $i = 1;
+        foreach ($newestPengumuman as $pengumuman) : ?>
+          <div class="news-card">
+            <figure class="news-image__wrap">
+              <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="news-<?= $i ?>hpp" class="news-image__photo" />
+            </figure>
+            <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
+            <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>
+            <div class="d-flex align-items-center mb-3">
+              <p class="d-flex align-items-center me-3 mb-0">
+                <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['nama'] ?></span>
+              </p>
+              <p class="d-flex align-items-center mb-0">
+                <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['created_at'] ?></span>
+              </p>
+            </div>
+            <a href="<?= ($isLoggedin) ? '/users/detailpengumuman/' . $pengumuman['pengumuman_id'] : '/home/detailpengumuman/' . $pengumuman['pengumuman_id'] ?>" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
+              Kunjungi Detail Pengumuman
+            </a>
           </div>
-          <a href="./pages/news/read-news.html" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
-            Kunjungi Berita
-          </a>
-        </div>
-        <div class="news-card">
-          <figure class="news-image__wrap">
-            <img src="/homepage/assets/img/image-8.jpg" alt="news-1" class="news-image__photo" />
-          </figure>
-          <p class="news-title mb-2">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est
-            error aut enim placeat eius a ratione, asperiores fugit
-            maiores laborum atque. Doloremque facilis magni, perspiciatis
-            maiores ullam nam labore dolores?
-          </p>
-          <p class="text-basic news-desc mb-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Deserunt nostrum alias fugit. Vel nulla quaerat, nisi, facere
-            minima impedit culpa iure cumque ratione dolorum debitis
-            dolores, modi quia quis iste?
-          </p>
-          <div class="d-flex align-items-center mb-3">
-            <p class="d-flex align-items-center me-3 mb-0">
-              <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">Abimanyu</span>
-            </p>
-            <p class="d-flex align-items-center mb-0">
-              <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">15 jam</span>
-            </p>
-          </div>
-          <a href="./pages/news/read-news.html" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
-            Kunjungi Berita
-          </a>
-        </div>
-        <div class="news-card">
-          <figure class="news-image__wrap">
-            <img src="/homepage/assets/img/image-9.png" alt="news-1" class="news-image__photo" />
-          </figure>
-          <p class="news-title mb-2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-            sequi quasi vel debitis quo. Modi commodi facere, quia
-            explicabo obcaecati veniam recusandae consequatur, placeat
-            repellat provident fugiat officiis optio repudiandae!
-          </p>
-          <p class="text-basic news-desc mb-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Deserunt nostrum alias fugit. Vel nulla quaerat, nisi, facere
-            minima impedit culpa iure cumque ratione dolorum debitis
-            dolores, modi quia quis iste?
-          </p>
-          <div class="d-flex align-items-center mb-3">
-            <p class="d-flex align-items-center me-3 mb-0">
-              <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">Abimanyu</span>
-            </p>
-            <p class="d-flex align-items-center mb-0">
-              <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray">10 Feb 2023</span>
-            </p>
-          </div>
-          <a href="./pages/news/read-news.html" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
-            Kunjungi Berita
-          </a>
-        </div>
+        <?php $i++;
+        endforeach; ?>
       </div>
       <div class="d-flex justify-content-center pt-1 pt-sm-3">
         <a href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>

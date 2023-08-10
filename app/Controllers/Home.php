@@ -21,10 +21,14 @@ class Home extends BaseController
 
     public function index()
     {
+        $getNewestPengumuman = $this->pengumumanModel->getPengumumanTerbaru();
+        $getNewestGaleri = $this->galeriModel->getGaleriTerbaru();
         $data = [
             'title' => 'Warga Site | Home',
             'navbar' => 'home',
             'isLoggedin' => false,
+            'newestPengumuman' => $getNewestPengumuman,
+            'newestGaleri' => $getNewestGaleri
         ];
 
         return view('/users/index', $data);
@@ -42,6 +46,22 @@ class Home extends BaseController
         return view('/users/gallery/gallery', $data);
     }
 
+    public function detailGaleri($id)
+    {
+        $dataGaleri = $this->galeriModel->getGaleri($id);
+        $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
+
+        $data = [
+            'title' => 'Detail Galeri | Warga Site',
+            'navbar' => 'galeri',
+            'dataGaleri' => $dataGaleri,
+            'dataFoto' => $dataFoto,
+            'isLoggedin' => false
+        ];
+
+        return view('/users/gallery/gallery-detail', $data);
+    }
+
     public function pengumuman()
     {
         $data = [
@@ -53,6 +73,22 @@ class Home extends BaseController
         return view('/users/news/announcement', $data);
     }
 
+    public function detailpengumuman($id)
+    {
+        $pengumuman = $this->pengumumanModel->getPengumuman($id);
+        $pengumumanTerbaru = $this->pengumumanModel->getPengumumanTerbaru();
+
+        $data = [
+            'title' => 'Portal Pengumuman | Warga Site',
+            'navbar' => 'pengumuman',
+            'isLoggedin' => false,
+            'pengumuman' => $pengumuman,
+            'pengumumanTerbaru' => $pengumumanTerbaru,
+        ];
+
+        return view('/users/news/read-announcement', $data);
+    }
+
     public function contact()
     {
         $data = [
@@ -62,22 +98,5 @@ class Home extends BaseController
         ];
 
         return view('/users/contact/contact', $data);
-    }
-
-    public function detailGaleri($id)
-    {
-        $dataGaleri = $this->galeriModel->getGaleri($id);
-        $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
-        // dd($dataFoto, $dataGaleri);
-
-        $data = [
-            'title' => 'Detail Galeri | Warga Site',
-            'navbar' => 'galeri',
-            'dataGaleri' => $dataGaleri,
-            'dataFoto' => $dataFoto,
-            'isLoggedin' => false
-        ];
-
-        return view('/users/gallery/gallery-detail', $data);
     }
 }

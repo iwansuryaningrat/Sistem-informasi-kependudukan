@@ -65,11 +65,16 @@ class Users extends BaseController
 
     public function index()
     {
+        $getNewestPengumuman = $this->pengumumanModel->getPengumumanTerbaru();
+        $getNewestGaleri = $this->galeriModel->getGaleriTerbaru();
         $data = [
             'title' => 'Warga Site | Home',
             'navbar' => 'home',
+            'newestPengumuman' => $getNewestPengumuman,
+            'newestGaleri' => $getNewestGaleri,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
+        // dd($data);
 
         return view('/users/index', $data);
     }
