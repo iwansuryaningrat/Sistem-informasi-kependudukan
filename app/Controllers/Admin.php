@@ -61,6 +61,7 @@ class Admin extends BaseController
         return $reqPesan;
     }
 
+    // Dashboard (Done)
     public function index()
     {
         $dataStatusKependudukan = [
@@ -130,6 +131,7 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
+    // Keluarga
     public function families()
     {
         $dataKeluarga = $this->keluargaModel->getKeluarga();
@@ -147,23 +149,6 @@ class Admin extends BaseController
         return view('admin/daftarkeluarga', $data);
     }
 
-    public function people()
-    {
-        $dataPenduduk = $this->usersModel->getUsers();
-
-        $data = [
-            'title' => 'Data Penduduk',
-            'active' => 'penduduk',
-            'reqAdministrasi' => $this->getReqAdministrasi(),
-            'reqLaporan' => $this->getReqLaporan(),
-            'reqPesan' => $this->getReqPesan(),
-            'dataPenduduk' => $dataPenduduk,
-            'session' => $this->session->get(),
-        ];
-
-        return view('admin/daftarpenduduk', $data);
-    }
-
     public function addFamily()
     {
         $data = [
@@ -176,20 +161,6 @@ class Admin extends BaseController
         ];
 
         return view('admin/add/addkeluarga', $data);
-    }
-
-    public function addPeople()
-    {
-        $data = [
-            'title' => 'Tambah Penduduk',
-            'active' => 'penduduk',
-            'reqAdministrasi' => $this->getReqAdministrasi(),
-            'reqLaporan' => $this->getReqLaporan(),
-            'reqPesan' => $this->getReqPesan(),
-            'session' => $this->session->get(),
-        ];
-
-        return view('admin/add/addpenduduk', $data);
     }
 
     public function editKeluarga($id)
@@ -230,6 +201,38 @@ class Admin extends BaseController
         return view('admin/edit/editkeluarga', $data);
     }
 
+    // Penduduk
+    public function people()
+    {
+        $dataPenduduk = $this->usersModel->getUsers();
+
+        $data = [
+            'title' => 'Data Penduduk',
+            'active' => 'penduduk',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'dataPenduduk' => $dataPenduduk,
+            'session' => $this->session->get(),
+        ];
+
+        return view('admin/daftarpenduduk', $data);
+    }
+
+    public function addPeople()
+    {
+        $data = [
+            'title' => 'Tambah Penduduk',
+            'active' => 'penduduk',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+        ];
+
+        return view('admin/add/addpenduduk', $data);
+    }
+
     public function editPenduduk($id)
     {
         $data = [
@@ -243,6 +246,7 @@ class Admin extends BaseController
         return view('admin/edit/editpenduduk', $data);
     }
 
+    // Administrasi 
     public function administrasi()
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi();
@@ -313,6 +317,7 @@ class Admin extends BaseController
         return view('admin/detail/editadministrasi', $data);
     }
 
+    // Laporan
     public function pelaporan()
     {
         $laporan = $this->pelaporanModel->getPelaporan();
@@ -338,6 +343,7 @@ class Admin extends BaseController
             $this->pelaporanModel->update($id, [
                 'status_pelaporan' => 'Dalam Proses',
             ]);
+            $laporan['status_pelaporan'] = 'Dalam Proses';
         }
 
         $data = [
@@ -367,9 +373,10 @@ class Admin extends BaseController
             'laporan' => $laporan,
         ];
 
-        return view('admin/detail/editlaporan', $data);
+        return view('admin/detail/detaillaporan', $data);
     }
 
+    // Galeri
     public function galeri()
     {
         $data = [
@@ -410,6 +417,7 @@ class Admin extends BaseController
         return view('admin/edit/editgaleri', $data);
     }
 
+    // Foto
     public function foto()
     {
         $data = [
@@ -452,6 +460,7 @@ class Admin extends BaseController
         return view('admin/edit/editfoto', $data);
     }
 
+    // Pengumuman
     public function pengumuman()
     {
         $data = [
@@ -494,7 +503,7 @@ class Admin extends BaseController
         return view('admin/edit/editpengumuman', $data);
     }
 
-    // Contact
+    // Contact (Done)
     public function pesan()
     {
         $this->pesanModel->set('status', 'Sudah Dibaca');

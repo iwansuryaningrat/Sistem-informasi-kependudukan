@@ -63,9 +63,9 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="deskripsi_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi <span class="required-label">*</span></label>
+                                <label for="deskripsi_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="deskripsi_pelaporan" name="deskripsi_pelaporan" rows="5"><?= $laporan['deskripsi_pelaporan'] ?></textarea>
+                                    <textarea class="form-control" id="deskripsi_pelaporan" name="deskripsi_pelaporan" rows="5" disabled><?= $laporan['deskripsi_pelaporan'] ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -75,16 +75,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                    </form>
+                    <div class="card-action">
+                        <div class="row">
+                            <div class="col-md-10"></div>
+                            <div class="col-md-2">
+                                <a href="/admin/pelaporan">
                                     <button class="btn btn-danger">Batal</button>
-                                    <input class="btn btn-success" type="submit" value="Submit">
-                                </div>
+                                </a>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
