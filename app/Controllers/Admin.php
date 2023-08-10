@@ -186,6 +186,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
         ];
 
         return view('admin/add/addpenduduk', $data);
@@ -193,12 +194,19 @@ class Admin extends BaseController
 
     public function editKeluarga($id)
     {
+        $keluarga = $this->keluargaModel->getKeluarga($id);
+        $anggotaKeluarga = $this->usersModel->getUsersByKK($id);
+        // dd($keluarga, $anggotaKeluarga);
+
         $data = [
             'title' => 'Edit Keluarga',
             'active' => 'penduduk',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'keluarga' => $keluarga,
+            'anggotaKeluarga' => $anggotaKeluarga,
         ];
 
         return view('admin/edit/editkeluarga', $data);
@@ -263,7 +271,7 @@ class Admin extends BaseController
     public function pelaporan()
     {
         $laporan = $this->pelaporanModel->getPelaporan();
-        // dd($laporan);
+
         $data = [
             'title' => 'Pelaporan',
             'active' => 'pelaporan',

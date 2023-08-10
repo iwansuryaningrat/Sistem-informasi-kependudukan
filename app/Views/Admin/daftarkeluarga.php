@@ -76,14 +76,9 @@
                                                             <i class="fa fa-eye"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="http://">
+                                                    <a href="/admin/editkeluarga/<?= $data['no_kk'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
                                                             <i class="fa fa-edit"></i>
-                                                        </button>
-                                                    </a>
-                                                    <a href="/keluargacontroller/delete/<?= $data['no_kk'] ?>">
-                                                        <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
                                                         </button>
                                                     </a>
                                                 </div>

@@ -122,7 +122,6 @@ class KeluargaController extends BaseController
     public function update($id)
     {
         $keluarga = $this->keluargaModel->getKeluarga($id);
-        // dd($keluarga);
 
         if (!$keluarga) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Keluarga tidak ditemukan');

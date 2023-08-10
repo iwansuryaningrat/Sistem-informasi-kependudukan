@@ -34,32 +34,38 @@
                         <div class="card-category">Tambahkan data keluarga berdasarkan kartu keluarga</a></div>
                     </div>
 
-                    <form id="exampleValidation" action="" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/keluargacontroller/save" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
-                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga </label>
+                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="no_kk" aria-describedby="username-addon" id="no_kk" name="no_kk" value="<?= $keluarga['no_kk'] ?>" disabled>
+                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="no_kk" aria-describedby="username-addon" id="no_kk" name="no_kk" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga</label>
+                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" value="<?= $keluarga['nama_kepala_keluarga'] ?>" disabled>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK Kepala Keluarga <span class="required-label">*</span></label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK Kepala Keluarga" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" value="<?= $keluarga['alamat'] ?>" required>
+                                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $keluarga['alamat_asal'] ?>">
+                                    <input type="text" class="form-control" id="alamat_asal" placeholder="Masukkan Alamat Asal">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -81,8 +87,19 @@
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
-                                        <input type="file" class="form-control form-control-file" id="fotoRumah" name="fotoRumah" accept="image/*">
-                                        <label for="fotoRumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
+                                        <input type="file" class="form-control form-control-file" id="foto_rumah" name="foto_rumah" accept="image/*">
+                                        <label for="foto_rumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <div class="row">
+                                    <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Konfirmasi <span class="required-label">*</span></label>
+                                    <div class="col-lg-4 col-md-9 col-sm-8 d-flex align-items-center">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="agree" name="agree" required>
+                                            <label class="custom-control-label" for="agree">Pastikan data yang Anda masukkan telah benar, Anda tidak dapat mengganti <br> nomor kartu keluarga setelah menyimpannya</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -124,6 +141,11 @@
         $(this).valid();
     })
 
+    // validation when inputfile change
+    $("#fotoRumah").on("change", function() {
+        $(this).parent('form').validate();
+    })
+
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
@@ -135,9 +157,6 @@
             },
             birth: {
                 date: true
-            },
-            fotoRumah: {
-                required: true,
             },
         },
         highlight: function(element) {
