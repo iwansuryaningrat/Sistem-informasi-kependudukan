@@ -78,7 +78,7 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/', $namaFoto);
+            $foto->move('upload/photos/profile/', $namaFoto);
         }
 
         // calculate age
@@ -131,11 +131,11 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/', $namaFoto);
+            $foto->move('upload/photos/profile/', $namaFoto);
 
             // Delete old foto
             if ($this->user_data['foto'] != 'default.png') {
-                unlink('upload/photos/' . $this->user_data['foto']);
+                unlink('upload/photos/profile/' . $this->user_data['foto']);
             }
         }
 
@@ -233,11 +233,11 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/', $namaFoto);
+            $foto->move('upload/photos/profile/', $namaFoto);
 
             // Delete old foto
             if ($this->user_data['foto'] != 'default.png') {
-                unlink('upload/photos/' . $this->user_data['foto']);
+                unlink('upload/photos/profile/' . $this->user_data['foto']);
             }
         }
 
@@ -290,11 +290,11 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/', $namaFoto);
+            $foto->move('upload/photos/profile/', $namaFoto);
 
             // Delete old foto
             if ($this->user_data['foto'] != 'default.png') {
-                unlink('upload/photos/' . $this->user_data['foto']);
+                unlink('upload/photos/profile/' . $this->user_data['foto']);
             }
         }
 

@@ -54,7 +54,7 @@
                   </p>
                   <div class="d-flex align-items-center flex-column flex-sm-row mb-2">
                     <figure class="profile-image-wrapper mb-2 mb-sm-0">
-                      <img src="/upload/photos/<?= $user['foto'] ?>" alt="photo-profile" class="profile-image" />
+                      <img src="/upload/photos/profile/<?= $user['foto'] ?>" alt="photo-profile" class="profile-image" />
                     </figure>
                     <label for="foto_profil" class="btn btn-dark ms-sm-4 text-sm fw-semibold px-3 py-2">Unggah Foto</label>
                     <input type="file" class="form-control-image" id="foto_profil" name="foto_profil" required accept="image/*" />

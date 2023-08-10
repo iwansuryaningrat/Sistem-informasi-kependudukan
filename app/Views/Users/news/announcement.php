@@ -22,7 +22,7 @@
       <?php foreach ($pengumuman as $data) : ?>
         <a href="/users/detailpengumuman/<?= $data['pengumuman_id'] ?>" class="news-card">
           <figure class="news-image__wrap">
-            <img src="/upload/photos/<?= $data['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
+            <img src="/upload/photos/pengumuman/<?= $data['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
           </figure>
           <p class="news-title-card mb-2"><?= $data['judul_pengumuman'] ?></p>
           <p class="text-basic news-desc mb-2"><?= $data['deskripsi'] ?></p>

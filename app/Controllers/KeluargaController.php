@@ -90,7 +90,7 @@ class KeluargaController extends BaseController
             $namaFoto = 'default.png';
         } else {
             $namaFoto = $foto->getRandomName();
-            $foto->move('upload/photos', $namaFoto);
+            $foto->move('upload/photos/profile/', $namaFoto);
         }
 
         $result = $this->keluargaModel->save([
@@ -133,8 +133,8 @@ class KeluargaController extends BaseController
             $namaFoto = $keluarga['foto_rumah'];
         } else {
             $namaFoto = $foto->getRandomName();
-            $foto->move('upload/photos', $namaFoto);
-            if ($keluarga['foto_rumah'] != 'default.png') unlink('upload/photos/' . $keluarga['foto_rumah']);
+            $foto->move('upload/photos/profile/', $namaFoto);
+            if ($keluarga['foto_rumah'] != 'default.png') unlink('upload/photos/profile/' . $keluarga['foto_rumah']);
         }
 
         $result = $this->keluargaModel->update(["no_kk" => $id], [

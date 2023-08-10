@@ -68,7 +68,7 @@ class FotoController extends BaseController
         if ($files = $this->request->getFiles()) {
             foreach ($files['foto'] as $file) {
                 $name = $file->getRandomName();
-                $file->move('upload/photos', $name);
+                $file->move('upload/photos/galeri/', $name);
 
                 $data = [
                     'galeri_id' => $galeri_id,

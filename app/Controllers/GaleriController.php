@@ -69,7 +69,7 @@ class GaleriController extends BaseController
         // handle thumbnail upload
         $fileThumbnail = $this->request->getFile('thumbnail');
         $fileName = $fileThumbnail->getRandomName();
-        $fileThumbnail->move('upload/photos/', $fileName);
+        $fileThumbnail->move('upload/photos/galeri/', $fileName);
 
         $data = [
             'judul' => $this->request->getVar('judul'),

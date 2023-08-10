@@ -24,8 +24,8 @@
         <!-- only large view -->
         <div class="gallery-view-container-lg">
             <?php foreach ($dataFoto as $foto) : ?>
-                <figure data-fancybox="gallery-large" data-src="/upload/photos/<?= $foto['foto'] ?>" class="gallery-view-item__warp">
-                    <img src="/upload/photos/<?= $foto['foto'] ?>" alt="gallery-view-1" class="gallery-view-item" />
+                <figure data-fancybox="gallery-large" data-src="/upload/photos/galeri/<?= $foto['foto'] ?>" class="gallery-view-item__warp">
+                    <img src="/upload/photos/galeri/<?= $foto['foto'] ?>" alt="gallery-view-1" class="gallery-view-item" />
                     <figcaption class="d-none">
                         <p class="mb-2 text-sm"><?= $foto['caption'] ?></p>
                         <p class="text-xs mb-2 fst-italic text-gray-200">
