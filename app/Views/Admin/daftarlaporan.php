@@ -78,7 +78,7 @@
                                                             <i class="fa fa-edit"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href="/pelaporancontroller/hapuslaporanadmin/<?= $data['pelaporan_id'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
                                                             <i class="fa fa-times"></i>
                                                         </button>

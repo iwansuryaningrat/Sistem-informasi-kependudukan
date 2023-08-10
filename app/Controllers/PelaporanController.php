@@ -130,4 +130,17 @@ class PelaporanController extends BaseController
             return redirect()->to('/users/pelaporan');
         }
     }
+
+    public function hapuslaporanadmin($id)
+    {
+        $result = $this->pelaporanModel->deletePelaporan($id);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Laporan berhasil dihapus');
+            return redirect()->to('/admin/pelaporan');
+        } else {
+            session()->setFlashdata('error', 'Laporan gagal dihapus');
+            return redirect()->to('/admin/pelaporan');
+        }
+    }
 }
