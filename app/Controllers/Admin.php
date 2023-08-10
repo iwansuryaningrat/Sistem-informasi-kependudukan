@@ -196,7 +196,6 @@ class Admin extends BaseController
     {
         $keluarga = $this->keluargaModel->getKeluarga($id);
         $anggotaKeluarga = $this->usersModel->getUsersByKK($id);
-        // dd($keluarga, $anggotaKeluarga);
 
         $data = [
             'title' => 'Edit Keluarga',
@@ -216,7 +215,6 @@ class Admin extends BaseController
     {
         $keluarga = $this->keluargaModel->getKeluarga($id);
         $anggotaKeluarga = $this->usersModel->getUsersByKK($id);
-        // dd($keluarga, $anggotaKeluarga);
 
         $data = [
             'title' => 'Edit Keluarga',
