@@ -71,7 +71,7 @@
                                             <td><?= $data['status'] ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="http://">
+                                                    <a href="/admin/detailkeluarga/<?= $data['no_kk'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
                                                             <i class="fa fa-eye"></i>
                                                         </button>

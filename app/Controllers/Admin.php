@@ -212,6 +212,26 @@ class Admin extends BaseController
         return view('admin/edit/editkeluarga', $data);
     }
 
+    public function detailKeluarga($id)
+    {
+        $keluarga = $this->keluargaModel->getKeluarga($id);
+        $anggotaKeluarga = $this->usersModel->getUsersByKK($id);
+        // dd($keluarga, $anggotaKeluarga);
+
+        $data = [
+            'title' => 'Edit Keluarga',
+            'active' => 'penduduk',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'keluarga' => $keluarga,
+            'anggotaKeluarga' => $anggotaKeluarga,
+        ];
+
+        return view('admin/edit/editkeluarga', $data);
+    }
+
     public function editPenduduk($id)
     {
         $data = [
