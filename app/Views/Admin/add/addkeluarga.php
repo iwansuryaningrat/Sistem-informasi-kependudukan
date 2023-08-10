@@ -34,7 +34,7 @@
                         <div class="card-category">Tambahkan data keluarga berdasarkan kartu keluarga</a></div>
                     </div>
 
-                    <form id="exampleValidation" action="" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/keluargacontroller/save" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
                                 <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga <span class="required-label">*</span></label>
@@ -48,6 +48,12 @@
                                 <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK Kepala Keluarga <span class="required-label">*</span></label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK Kepala Keluarga" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -77,12 +83,12 @@
                             </div>
                             <div class="separator-solid"></div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah <span class="required-label">*</span></label>
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
-                                        <input type="file" class="form-control form-control-file" id="fotoRumah" name="fotoRumah" accept="image/*" required>
-                                        <label for="fotoRumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
+                                        <input type="file" class="form-control form-control-file" id="foto_rumah" name="foto_rumah" accept="image/*">
+                                        <label for="foto_rumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
                                 </div>
                             </div>
@@ -151,9 +157,6 @@
             },
             birth: {
                 date: true
-            },
-            fotoRumah: {
-                required: true,
             },
         },
         highlight: function(element) {

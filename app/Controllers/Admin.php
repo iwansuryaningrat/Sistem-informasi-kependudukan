@@ -263,6 +263,7 @@ class Admin extends BaseController
     public function pelaporan()
     {
         $laporan = $this->pelaporanModel->getPelaporan();
+        // dd($laporan);
         $data = [
             'title' => 'Pelaporan',
             'active' => 'pelaporan',
@@ -270,7 +271,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
-            'dataLaporan' => $laporan,
+            'laporan' => $laporan,
         ];
 
         return view('admin/daftarlaporan', $data);

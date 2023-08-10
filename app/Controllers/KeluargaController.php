@@ -84,31 +84,39 @@ class KeluargaController extends BaseController
 
     public function save()
     {
-        // validasi input
-        if (!$this->validate([
-            'nama' => [
-                'rules' => 'required|is_unique[keluarga.nama]',
-                'errors' => [
-                    'required' => '{field} keluarga harus diisi.',
-                    'is_unique' => '{field} keluarga sudah terdaftar.'
-                ]
-            ]
-        ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/keluarga/create')->withInput()->with('validation', $validation);
+        $foto = $this->request->getFile('foto_rumah');
+
+        if ($foto->getError() == 4) {
+            $namaFoto = 'default.png';
+        } else {
+            $namaFoto = $foto->getRandomName();
+            $foto->move('upload/photos', $namaFoto);
         }
 
-        $this->keluargaModel->save([
-            'nama' => $this->request->getVar('nama'),
+        $result = $this->keluargaModel->save([
+            'no_kk' => $this->request->getVar('no_kk'),
+            'nama_kepala_keluarga' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
-            'no_telp' => $this->request->getVar('no_telp'),
-            'email' => $this->request->getVar('email'),
-            'created_at' => date('Y-m-d H:i:s')
+            'alamat_asal' => $this->request->getVar('alamat_asal'),
+            'tgl_pindah' => $this->request->getVar('tgl_pindah'),
+            'status' => $this->request->getVar('status'),
+            'foto_rumah' => $namaFoto,
         ]);
 
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+        if ($result) $result = $this->usersModel->save([
+            'no_kk' => $this->request->getVar('no_kk'),
+            'nik' => $this->request->getVar('nik'),
+            'nama' => $this->request->getVar('name'),
+            'status' => 'Kepala Keluarga',
+        ]);
 
-        return redirect()->to('/keluarga');
+        if ($result) {
+            session()->setFlashdata('success', 'Berhasil menambahkan keluarga');
+            return redirect()->to('/admin/families');
+        } else {
+            session()->setFlashdata('error', 'Gagal menambahkan keluarga');
+            return redirect()->to('/admin/addfamily');
+        }
     }
 
     public function update($id)

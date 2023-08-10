@@ -58,32 +58,36 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>
-                                            <div class="form-button-action">
-                                                <a href="http://">
-                                                    <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
-                                                        <i class="fa fa-eye"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="http://">
-                                                    <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="">
-                                                    <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php $i = 1;
+                                    foreach ($laporan as $data) : ?>
+                                        <tr>
+                                            <td><?= $i ?></td>
+                                            <td><?= $data['nama_pelapor'] ?></td>
+                                            <td><?= $data['nama_terlapor'] ?></td>
+                                            <td><?= $data['kategori'] ?></td>
+                                            <td><?= $data['status_pelaporan'] ?></td>
+                                            <td>
+                                                <div class="form-button-action">
+                                                    <a href="http://">
+                                                        <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
+                                                            <i class="fa fa-eye"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="http://">
+                                                        <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php $i++;
+                                    endforeach ?>
                                 </tbody>
                             </table>
                         </div>
