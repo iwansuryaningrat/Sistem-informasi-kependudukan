@@ -91,4 +91,18 @@ class PesanController extends BaseController
 
         return redirect()->to('/admin/pesan');
     }
+
+    public function read($id)
+    {
+        $data = [
+            'status' => 'Sudah Dibaca',
+            'updated_by' => $this->user_data['nik'],
+        ];
+
+        $this->pesanModel->update($id, $data);
+
+        session()->setFlashdata('success', 'Pesan berhasil dibaca!');
+
+        return redirect()->to('/admin/detailpesan/' . $id);
+    }
 }

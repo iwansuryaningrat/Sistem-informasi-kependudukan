@@ -527,7 +527,8 @@ class Admin extends BaseController
             'session' => $this->session->get(),
             'dataPesan' => $this->pesanModel->getPesan($id),
         ];
+        // dd($data);
 
-        return view('admin/detailpesan', $data);
+        return view('admin/detail/detailpesan', $data);
     }
 }
