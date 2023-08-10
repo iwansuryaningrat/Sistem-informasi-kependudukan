@@ -5,7 +5,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Edit Data Laporan</h4>
+            <h4 class="page-title">Data Laporan</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/admin">
@@ -22,7 +22,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/addfamily">Edit Data Laporan</a>
+                    <a href="/admin/addfamily">Data Laporan</a>
                 </li>
             </ul>
         </div>

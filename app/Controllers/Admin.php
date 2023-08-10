@@ -275,15 +275,42 @@ class Admin extends BaseController
 
     public function editAdministrasi($id)
     {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+        // dd($dataAdministrasi);
+        if ($dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') {
+            $this->administrasiModel->update($id, [
+                'administrasi_status' => 'Dalam Proses',
+            ]);
+        }
+
         $data = [
             'title' => 'Edit Administrasi',
             'active' => 'administrasi',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'dataAdministrasi' => $dataAdministrasi,
+            'session' => $this->session->get(),
         ];
 
         return view('admin/edit/editadministrasi', $data);
+    }
+
+    public function detailAdministrasi($id)
+    {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+
+        $data = [
+            'title' => 'Detail Administrasi',
+            'active' => 'administrasi',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'dataAdministrasi' => $dataAdministrasi,
+            'session' => $this->session->get(),
+        ];
+
+        return view('admin/detail/editadministrasi', $data);
     }
 
     public function pelaporan()

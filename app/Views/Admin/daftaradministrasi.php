@@ -67,12 +67,12 @@
                                             <td><?= $data['administrasi_status'] ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="http://">
+                                                    <a href="/admin/detailAdministrasi/<?= $data['administrasi_id'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
                                                             <i class="fa fa-eye"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="http://">
+                                                    <a href="/admin/editAdministrasi/<?= $data['administrasi_id'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
                                                             <i class="fa fa-edit"></i>
                                                         </button>

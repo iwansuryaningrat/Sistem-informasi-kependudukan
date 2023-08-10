@@ -138,6 +138,12 @@ class AdministrasiController extends BaseController
         $data = $this->administrasiModel->getAdministrasi($id);
         $file = $data['berkas'];
 
+        if ($file == 'default.pdf' || $file == 'default.png') {
+            session()->setFlashdata('error', 'File tidak ditemukan');
+            if ($this->user_data['role'] == 'Admin') return redirect()->to('/admin/administrasi');
+            else return redirect()->to('/users/administrasi');
+        }
+
         // get file extension
         $file_extension = explode('.', $file);
         $file_extension = end($file_extension);
