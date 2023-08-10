@@ -32,8 +32,9 @@ class GaleriModel extends Model
                 ->findAll();
         }
 
-        return $this->select('galeri.*, users.nama')
+        return $this->select('galeri.*, users.nama, kategori_galeri.nama_kategori')
             ->join('users', 'users.nik = galeri.created_by')
+            ->join('kategori_galeri', 'kategori_galeri.kategori_galeri_id = galeri.kategori')
             ->where(['galeri_id' => $galeri_id])
             ->first();
     }

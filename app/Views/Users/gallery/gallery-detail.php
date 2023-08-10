@@ -10,7 +10,7 @@
     </div>
     <div class="header-container-mini mt-5 pt-0">
         <p class="mb-3">
-            <span class="badge badge-done"><?= $dataGaleri['kategori'] ?></span>
+            <span class="badge badge-done"><?= $dataGaleri['nama_kategori'] ?></span>
         </p>
         <h1 class="mb-3 text-center"><?= $dataGaleri['judul'] ?></h1>
         <p class="text-basic text-center mb-0 max-w-80"><?= $dataGaleri['deskripsi'] ?></p>

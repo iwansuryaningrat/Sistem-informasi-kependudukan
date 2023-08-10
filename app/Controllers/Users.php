@@ -74,7 +74,6 @@ class Users extends BaseController
             'newestGaleri' => $getNewestGaleri,
             'isLoggedin' => $this->user_data['isLoggedIn'],
         ];
-        // dd($data);
 
         return view('/users/index', $data);
     }
