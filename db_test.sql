@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 10:18 PM
+-- Generation Time: Aug 10, 2023 at 06:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -66,14 +66,14 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 (97, 4716165457094751, 'KK', 'Tenetur optio quam.', 'Repellendus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1973-01-09 00:00:00', 'Sit velit atque.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (98, 4929028086482, 'Surat Kematian', 'Ex voluptatem est.', 'Accusamus.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1975-01-18 00:00:00', 'Qui id quos esse.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (99, 5307909511625684, 'Surat Kematian', 'Sequi aliquam.', 'Sint exercitationem.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1981-11-12 00:00:00', 'At nobis ea nihil.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
-(100, 5282976529788142, 'Surat Keterangan', 'Eligendi rerum eos.', 'Totam et debitis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2007-06-23 00:00:00', 'Illo at tempore ex.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
+(100, 5282976529788142, 'Surat Keterangan', 'Eligendi rerum eos.', 'Totam et debitis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2007-06-23 00:00:00', 'Illo at tempore ex.', '2023-07-13 03:39:52', '2023-08-10 08:25:35', '2023-08-10 08:25:35'),
 (101, 372316786874214, 'Surat Pindah', 'Delectus et quaerat.', 'Aut fugiat ex.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2010-10-21 00:00:00', 'Libero quaerat.', '2023-07-13 03:39:52', '2023-07-13 03:39:52', NULL),
 (102, 5404020245429872, 'Surat Kelahiran', 'Aliquid autem.', 'Provident nobis sit.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1972-05-12 00:00:00', 'Recusandae vero.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (103, 4716584060670569, 'KK', 'In ea pariatur.', 'Possimus tenetur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2013-07-31 00:00:00', 'Architecto harum.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (104, 4024007168228, 'Surat Keterangan', 'Sed sit eveniet a.', 'Doloribus modi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1994-12-17 00:00:00', 'Dolor a dolor.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (105, 4916917114418, 'KTP', 'Aut et eum dolorem.', 'Totam odio expedita.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2012-08-01 00:00:00', 'Excepturi ipsa.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (106, 5419079758561912, 'Surat Kelahiran', 'Non et sit.', 'Et eius dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2019-11-15 00:00:00', 'Impedit delectus.', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
-(107, 5244129854302314, 'Surat Kematian', 'Quia quae natus.', 'Aperiam temporibus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-03-11 00:00:00', 'Fugit voluptas.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(107, 5244129854302314, 'Surat Kematian', 'Quia quae natus.', 'Aperiam temporibus.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-03-11 00:00:00', 'Fugit voluptas.', '2023-07-19 21:00:18', '2023-08-10 08:25:39', '2023-08-10 08:25:39'),
 (108, 6011945130164650, 'KK', 'Dolor enim.', 'Sapiente veniam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-01 00:00:00', 'Et voluptas totam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (109, 4532493442956, 'Surat Kematian', 'Dolor occaecati.', 'Est culpa libero id.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1980-05-18 00:00:00', 'Molestias fugiat.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (110, 5415028268597936, 'Surat Kelahiran', 'Ratione.', 'Sint ut a corporis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1976-01-06 00:00:00', 'Consequatur veniam.', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
@@ -97,7 +97,7 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 (128, 4532776938601295, 'Surat Keterangan', 'Facere consequatur.', 'Ipsa hic excepturi.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2009-03-25 00:00:00', 'Tempore nihil.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (129, 4716198647344695, 'Surat Keterangan', 'Inventore quod illo.', 'Deleniti sint ab.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1982-04-01 00:00:00', 'Quo accusamus aut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (130, 4539281000331916, 'Surat Kelahiran', 'Qui ad id error.', 'Sint dolore commodi.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2013-05-11 00:00:00', 'Dolorem labore.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
-(131, 4532628626098427, 'Surat Kelahiran', 'Alias molestiae.', 'Minus qui.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-11-09 00:00:00', 'Et commodi ut.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
+(131, 4532628626098427, 'Surat Kelahiran', 'Alias molestiae.', 'Minus qui.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2002-11-09 00:00:00', 'Et commodi ut.', '2023-07-19 21:00:51', '2023-08-10 09:08:48', NULL),
 (132, 5274546049146160, 'Surat Keterangan', 'Hic suscipit.', 'Dicta dolor nihil.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2001-07-01 00:00:00', 'Dolorem ea sed.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (133, 5296896167411530, 'Surat Keterangan', 'Cumque dolorem.', 'Deleniti.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2023-05-29 00:00:00', 'In odio dolores.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (134, 5385294576988011, 'Surat Kelahiran', 'Ea id voluptatibus.', 'Ipsam voluptatem ut.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1976-06-19 00:00:00', 'Qui sit ea quia.', '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
@@ -113,7 +113,7 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 (144, 4532617648913689, 'Surat Kematian', 'Similique aperiam.', 'Accusamus ullam.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2001-09-28 00:00:00', 'Cum velit ea omnis.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (145, 6011109492140614, 'Surat Kematian', 'Corrupti.', 'Velit amet.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2000-11-06 00:00:00', 'Odit maiores.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (146, 5371214204422924, 'Surat Pindah', 'Unde officia a.', 'Impedit ipsum quae.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-10-29 00:00:00', 'Quo aut mollitia.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
-(147, 4302450574955, 'Surat Pindah', 'Velit sint sunt.', 'Est nihil et sint.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2018-08-24 00:00:00', 'Neque expedita nam.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
+(147, 4302450574955, 'Surat Pindah', 'Velit sint sunt.', 'Est nihil et sint.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2018-08-24 00:00:00', 'Neque expedita nam.', '2023-07-19 21:00:53', '2023-08-10 08:23:24', '2023-08-10 08:23:24'),
 (148, 5398259118614396, 'KTP', 'Beatae doloremque.', 'Dolor error atque.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '1972-06-11 00:00:00', 'Quibusdam pariatur.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (149, 4485425690195891, 'KK', 'Non enim quos.', 'Blanditiis incidunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1992-08-06 00:00:00', 'Pariatur aliquam id.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (150, 4532216326304, 'Surat Kelahiran', 'Maiores minima ut.', 'Ut quia ipsum quasi.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2003-06-05 00:00:00', 'Reiciendis.', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
@@ -131,7 +131,7 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 (162, 5479238552421999, 'Surat Keterangan', 'Veniam consectetur.', 'Quia eos quibusdam.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2023-04-07 00:00:00', 'Consequuntur.', '2023-07-19 21:00:55', '2023-07-19 21:00:55', NULL),
 (163, 5188556655492746, 'Surat Kematian', 'Repudiandae et.', 'Aperiam consequatur.', '0000/0000/0000/0000', 'Menunggu Konfirmasi', 'default.png', '2002-01-14 00:00:00', 'Tempora est.', '2023-07-19 21:00:55', '2023-07-19 21:00:55', NULL),
 (164, 347538557310829, 'Surat Pindah', 'Sint tempora id.', 'A voluptas officiis.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2009-08-02 00:00:00', 'Numquam ut veniam.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
-(165, 348764598251512, 'KK', 'Dolores debitis.', 'Iure voluptates.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-09-23 00:00:00', 'Totam commodi.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
+(165, 348764598251512, 'KK', 'Dolores debitis.', 'Iure voluptates.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1997-09-23 00:00:00', 'Totam commodi.', '2023-07-19 21:00:56', '2023-08-10 08:25:27', '2023-08-10 08:25:27'),
 (166, 5560098321531845, 'KK', 'Libero corporis.', 'Modi laudantium.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '2020-01-14 00:00:00', 'Ut similique.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (167, 5336414080031351, 'Surat Kelahiran', 'Labore temporibus.', 'Ipsum ducimus.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1972-04-16 00:00:00', 'Culpa dolore.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
 (168, 345614270604616, 'Surat Kelahiran', 'Deleniti natus.', 'Nobis deserunt.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '2009-07-27 00:00:00', 'Eligendi magni.', '2023-07-19 21:00:56', '2023-07-19 21:00:56', NULL),
@@ -168,7 +168,8 @@ INSERT INTO `administrasi` (`administrasi_id`, `pemohon`, `kategori`, `keperluan
 (199, 347058185440633, 'Surat Kematian', 'Animi ut vero velit.', 'Voluptatum iure qui.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1998-03-29 00:00:00', 'Non facilis ab sit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
 (200, 5459254538411982, 'Surat Kelahiran', 'Id harum soluta est.', 'Rerum dolor dolorem.', '0000/0000/0000/0000', 'Ditolak', 'default.png', '1973-07-27 00:00:00', 'Facere et sit.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
 (201, 5183277333653998, 'KK', 'Similique cumque.', 'Perferendis vero.', '0000/0000/0000/0000', 'Dalam Proses', 'default.png', '1978-09-13 00:00:00', 'Nesciunt mollitia.', '2023-07-19 21:00:59', '2023-07-19 21:00:59', NULL),
-(202, 4485809172694, 'Lainnya', 'test', 'test', NULL, 'Menunggu Konfirmasi', '1691579019_4e024477487d14cd28fe.pdf', NULL, NULL, '2023-08-09 18:03:39', '2023-08-09 21:31:21', '2023-08-09 21:31:21');
+(202, 4485809172694, 'Lainnya', 'test', 'test', NULL, 'Menunggu Konfirmasi', '1691579019_4e024477487d14cd28fe.pdf', NULL, NULL, '2023-08-09 18:03:39', '2023-08-09 21:31:21', '2023-08-09 21:31:21'),
+(203, 4024007168228, 'Surat Pindah', 'Keperluan1', 'Ini deskripsi ya pak', NULL, 'Menunggu Konfirmasi', '1691684005_480085f4442985f46e10.pdf', NULL, NULL, '2023-08-10 23:13:25', '2023-08-10 23:13:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -241,7 +242,10 @@ INSERT INTO `galeri` (`galeri_id`, `judul`, `deskripsi`, `thumbnail`, `created_b
 (11, 'Test23', 'srfwerwer', '1691608617_0de4871b6c567dc61ef2.png', 4716455593739233, 2, 0, '2023-08-10 02:16:57', '2023-08-10 02:16:57', NULL),
 (12, 'Test23', 'srfwerwer', '1691608657_e286d69b274308165b8c.png', 4716455593739233, 2, 0, '2023-08-10 02:17:37', '2023-08-10 02:17:37', NULL),
 (13, 'Test23', 'srfwerwer', '1691608833_28bd84babb176884559d.png', 4716455593739233, 2, 0, '2023-08-10 02:20:33', '2023-08-10 02:20:33', NULL),
-(14, 'Test2ss', 'sdsdw', '1691609432_3e0a41eb2420b26a6e62.png', 4716455593739233, 1, 0, '2023-08-10 02:30:32', '2023-08-10 02:30:32', NULL);
+(14, 'Test2ss', 'sdsdw', '1691609432_3e0a41eb2420b26a6e62.png', 4716455593739233, 1, 0, '2023-08-10 02:30:32', '2023-08-10 02:30:32', NULL),
+(15, 'Lorem ipsum dolor sit amet consectetur adipisicing', 'Quam pariatur officiis consequatur et odio quas laborum.', 'image-1.jpg', 22222222222222222, 1, 1, '2023-08-10 18:31:46', '2023-08-10 18:31:46', NULL),
+(16, 'Lorem ipsum dolor sit amet consectetur adipisicing', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam pariatur officiis consequatur et odio quas laborum. Laborum quaerat laboriosam aspernatur quo voluptatibus aut! Inventore corrupti architecto provident tempore ad velit!', 'image-2.jpg', 22222222222222222, 1, 0, '2023-08-10 18:31:46', '2023-08-10 18:31:46', NULL),
+(17, 'Consequatur et odio quas laborum.', 'Consequatur et odio quas laborum. Laborum quaerat laboriosam aspernatur quo voluptatibus aut! Inventore corrupti architecto provident tempore ad velit!', 'image-3.jpg', 4907790984217, 2, 0, '2023-08-10 18:40:12', '2023-08-10 18:40:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -331,6 +335,7 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 (379035151679296, 'Zulaikha Putri Laksita', 'Jln. Ir. H. Juanda No. 895, Bima 64378, SulSel', 'Dk. Pelajar Pejuang 45 No. 289, Singkawang 81354, SulSel', 'default.png', '1988-07-22', 'Tetap', 0, '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
 (1212121212121212, 'Admin', '-', '-', 'default.png', NULL, 'Tetap', 1, '2023-08-07 21:09:20', '2023-08-07 21:09:20', NULL),
 (1234567890987654, 'Admin', '-', NULL, '-', NULL, 'Tetap', 1, '2023-08-07 15:52:43', '2023-08-07 15:52:43', NULL),
+(2354234567453455, 'bowo', NULL, NULL, 'default.png', '0000-00-00', NULL, 1, '2023-08-10 07:40:13', '2023-08-10 07:40:13', NULL),
 (4084766711975935, 'Hasna Yulianti', 'Jln. Bagas Pati No. 465, Kotamobagu 49442, KalBar', 'Jr. Abdullah No. 336, Cilegon 90568, Bali', 'default.png', '2022-06-25', 'Tetap', 1, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (4485169946270070, 'Puti Nurdiyanti', 'Kpg. Rajawali Barat No. 935, Tidore Kepulauan 51083, KalSel', 'Dk. Suharso No. 567, Pekalongan 92322, Bengkulu', 'default.png', '1987-09-04', 'Tetap', 0, '2023-07-19 21:00:51', '2023-07-19 21:00:51', NULL),
 (4485670841667112, 'Jarwa Hutagalung', 'Ds. Bakti No. 302, Tomohon 51768, DIY', 'Psr. Katamso No. 470, Binjai 76134, NTT', 'default.png', '2006-06-29', 'Pindah', 0, '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
@@ -442,8 +447,7 @@ CREATE TABLE `pelaporan` (
 --
 
 INSERT INTO `pelaporan` (`pelaporan_id`, `nik_pelapor`, `nik_terlapor`, `kategori`, `laporan`, `deskripsi_pelaporan`, `status_pelaporan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(6, 4485809172694, 4539123274329, 'Lingkungan', 'Test Lagi', 'TESTTTTT', 'Menunggu Konfirmasi', '2023-08-09 20:46:13', '2023-08-09 20:46:13', NULL),
-(7, 4485809172694, 5459254538411982, 'Lainnya', 'Test Lagi', 'fjkghdjfhgdfjkhgj', 'Menunggu Konfirmasi', '2023-08-09 21:14:07', '2023-08-09 21:14:07', NULL);
+(7, 4485809172694, 5459254538411982, 'Lainnya', 'Test Lagi', 'fjkghdjfhgdfjkhgj', 'Dalam Proses', '2023-08-09 21:14:07', '2023-08-10 08:52:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -453,8 +457,8 @@ INSERT INTO `pelaporan` (`pelaporan_id`, `nik_pelapor`, `nik_terlapor`, `kategor
 
 CREATE TABLE `pengumuman` (
   `pengumuman_id` int(11) NOT NULL,
-  `kategori` varchar(255) NOT NULL,
-  `judul_pengumuman` varchar(30) NOT NULL,
+  `kategori` varchar(30) NOT NULL,
+  `judul_pengumuman` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
   `jam` time NOT NULL,
@@ -472,7 +476,9 @@ CREATE TABLE `pengumuman` (
 --
 
 INSERT INTO `pengumuman` (`pengumuman_id`, `kategori`, `judul_pengumuman`, `deskripsi`, `tanggal`, `jam`, `tempat`, `thumbnail`, `status`, `created_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Kesehatan', 'Ayok Ngumpul', 'ngumpul heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy', '2023-08-23', '08:12:16', 'Balai Desa', 'default.png', 'Akan Berlangsung', 22222222222222222, '2023-08-09 17:12:16', '2023-08-09 17:12:16', NULL);
+(3, 'Kesehatan', 'Lorem ipsum, dolor sit amet co', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam pariatur officiis consequatur et odio quas laborum. Laborum quaerat laboriosam aspernatur quo voluptatibus aut! Inventore corrupti architecto provident tempore ad velit!', '2023-08-01', '08:00:00', 'Lapangan', 'image-7.jpg', 'Sedang Berlangsung', 22222222222222222, '2023-08-10 18:42:06', '2023-08-10 18:42:06', NULL),
+(5, 'Ekonomi', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est error aut enim placeat eius a ratione, asperiores fugit maiores laborum atque. Doloremque facilis magni, perspiciatis maiores ullam nam labore dolores?', 'Consequatur et odio quas laborum. Laborum quaerat laboriosam aspernatur quo voluptatibus aut! Inventore corrupti architecto provident tempore ad velit!', '2023-08-23', '08:00:00', 'Lapangan', 'image-8.jpg', 'Akan Berlangsung', 22222222222222222, '2023-08-10 18:46:49', '2023-08-10 18:46:49', NULL),
+(6, 'Ekonomi', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit', 'Consequatur et odio quas laborum. Laborum quaerat laboriosam aspernatur quo voluptatibus aut! Inventore corrupti architecto provident tempore ad velit!', '2023-08-31', '09:00:03', 'Lapangan', 'image-9.png', 'Akan Berlangsung', 22222222222222222, '2023-08-10 18:46:49', '2023-08-10 18:46:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -539,7 +545,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tgl_lahir`, `usia`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `email`, `no_hp`, `password`, `role`, `foto`, `status_kependudukan`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (4024007109297, 6011619156208978, 'Emin Prasetya', 'Anak', 'Laki-laki', 'Islam', 'Bau-Bau', '2000-12-14', 23, 'Kawin', 'S1', 'Wiraswasta', 'emin@gmail.com', '088765432190', '$2y$10$uVROR7WKHlhjc/0UZQotsezLq.DE.HT4AJPZwshPZ4snkNzIir8M.', 'User', '1691521439_7d19d8f3730629a4c920.png', 'Tetap', '2023-07-19 21:00:57', '2023-07-19 21:00:57', NULL),
-(4024007168228, 6011619156208978, 'Virman Wibisono', 'Anak', 'Laki-laki', 'Islam', 'Yogyakarta', '2003-06-08', 20, 'Kawin', 'SMP', 'Wiraswasta', 'virman@gmail.com', '088888888888', '$2y$10$hLKct2C/NRJ4C1BI7XgdfejGndG2se7boFzPKOSlUvLK8iaCYb4Je', 'User', '1691521439_7d19d8f3730629a4c920.png', 'Pendatang', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
+(4024007168228, 6011619156208978, 'Virman Wibisono', 'Anak', 'Laki-laki', 'Islam', 'Yogyakarta', '2003-06-08', 20, 'Kawin', 'SMP', 'Wiraswasta', 'virman@gmail.com', '088888888888', '$2y$10$hLKct2C/NRJ4C1BI7XgdfejGndG2se7boFzPKOSlUvLK8iaCYb4Je', 'User', '1691683972_244cdbee9c4d9e0719d8.png', 'Pendatang', '2023-07-19 21:00:17', '2023-07-19 21:00:17', NULL),
 (4024007177104, 5233227255122035, 'Ellis Widya Usamah', 'Anak', 'Perempuan', 'Islam', 'Tarakan', '2007-06-13', 35, 'Cerai Mati', 'SMA', 'Wiraswasta', 'mitra77@yulianti.ac.id', NULL, '$2y$10$J.XF8o2h51sJfExBoDPFI.j7CPZOJ3Ug/gTxflimP/6vhLjDKSRRe', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:50', '2023-07-19 21:00:50', NULL),
 (4302450574955, 5201913757893631, 'Agus', 'Kepala Keluarga', 'Laki-laki', 'Islam', 'Malang', '1986-06-14', 37, 'Kawin', 'D3', 'Wiraswasta', 'surya@gmail.com', '082345678912', '$2y$10$RoZgDflAr5S5Ta9mZ31A/ujncy/Or.xYD0YML/oeOpcnA7qokQBYm', 'User', 'default.png', 'Tetap', '2023-07-19 21:00:53', '2023-07-19 21:00:53', NULL),
 (4485439309609, 5489558019884408, 'Ida Yuliarti', 'Istri', 'Laki-laki', 'Islam', 'Malang', '2011-06-25', 11, 'Cerai Hidup', 'D3', 'Wiraswasta', 'xanana.oktaviani@puspasari.net', NULL, '$2y$10$a/YrX9ZicEThFkOPBP1BQ.hekOzPDUg0Vv8UXsinrHzmDveSzdt.O', 'User', 'default.png', 'Pindahan', '2023-07-19 21:00:54', '2023-07-19 21:00:54', NULL),
@@ -666,6 +672,7 @@ INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`,
 (6011888609033651, 5406976581877958, 'Jaga Halim', 'Anak', 'Perempuan', 'Islam', 'Surakarta', '2010-07-01', 80, 'Kawin', 'Tidak Sekolah', 'Wiraswasta', 'nasrullah.widodo@yahoo.com', NULL, '$2y$10$JGJzX.0VpKIXD4ubxRmSMe6e0HnxUze50SlQRrTYpitfqBAswCFr2', 'User', 'default.png', 'Pendatang', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
 (6011931144354909, 341874321581023, 'Rafid Nardi Thamrin M.Pd', 'Istri', 'Laki-laki', 'Islam', 'Balikpapan', '1970-04-03', 79, 'Belum Kawin', 'SD', 'Wiraswasta', 'titin71@gmail.com', NULL, '$2y$10$qp6rw2N3xOnYCET3feNhZOB5OiBeNRzDLTJnk9h9EIJNOQ/d/HTBG', 'User', 'default.png', 'Tetap', '2023-07-13 03:39:51', '2023-07-13 03:39:51', NULL),
 (6011945130164650, 5518264477344515, 'Tina Halimah', 'Kepala Keluarga', 'Perempuan', 'Islam', 'Administrasi Jakarta Selatan', '1982-10-09', 50, 'Cerai Mati', 'D1', 'Wiraswasta', 'hafshah.widodo@pertiwi.info', NULL, '$2y$10$zTu3RKMi9FWBde8eRoOt8OFKBLUty0blJsPEH9kkdoTYZ.XsR614m', 'User', 'default.png', 'Sementara', '2023-07-19 21:00:18', '2023-07-19 21:00:18', NULL),
+(8573826587561234, 2354234567453455, 'bowo', 'Kepala Keluarga', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'User', 'default.png', NULL, '2023-08-10 07:40:13', '2023-08-10 07:40:13', NULL),
 (8764783762849373, 5201913757893631, 'Susi', 'Istri', 'Laki-laki', 'Islam', 'Grobogan', '1997-07-09', 26, 'Kawin', 'S1', 'Ibu Rumah Tangga', 'emin@gmail.com', '088765432190', '$2y$10$R6qTlX33/HG2aaPoOs.Zt.5DFhBu6jb9FyQg/DIhslXCQOE6DC0fW', 'User', '1691516090_1975c740ec9353b40015.png', 'Tetap', '2023-08-09 00:34:50', '2023-08-09 00:34:50', NULL),
 (22222222222222222, 1212121212121212, 'Admin', 'Kepala Keluarga', 'Laki-laki', '', '-', '2023-08-07', 0, 'Kawin', 'S3', NULL, 'admin@gmail.com', NULL, '$2y$10$E0KoAXJwg5ksyzopq7H0xue8ZY6a0JQLSX48X610xdV6vfxu4Bn/m', 'Admin', 'default.png', 'Tetap', '2023-08-07 21:09:20', '2023-08-07 21:09:20', NULL);
 
@@ -744,7 +751,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `administrasi`
 --
 ALTER TABLE `administrasi`
-  MODIFY `administrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `administrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- AUTO_INCREMENT for table `foto`
@@ -756,7 +763,7 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `kategori_galeri`
@@ -774,7 +781,7 @@ ALTER TABLE `pelaporan`
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pesan`
@@ -797,6 +804,20 @@ ALTER TABLE `administrasi`
 --
 ALTER TABLE `foto`
   ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `galeri`
+--
+ALTER TABLE `galeri`
+  ADD CONSTRAINT `kategori` FOREIGN KEY (`kategori`) REFERENCES `kategori_galeri` (`kategori_galeri_id`),
+  ADD CONSTRAINT `uploader` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`);
+
+--
+-- Constraints for table `pelaporan`
+--
+ALTER TABLE `pelaporan`
+  ADD CONSTRAINT `pelapor` FOREIGN KEY (`nik_pelapor`) REFERENCES `users` (`nik`),
+  ADD CONSTRAINT `terlapor` FOREIGN KEY (`nik_terlapor`) REFERENCES `users` (`nik`);
 
 --
 -- Constraints for table `pengumuman`
