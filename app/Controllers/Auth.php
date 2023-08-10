@@ -43,14 +43,18 @@ class Auth extends BaseController
 
         // Check if user exists
         if (!$user) {
-            session()->setFlashdata('error', 'NIK tidak terdaftar');
-            return redirect()->to('/auth/login');
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'NIK tidak terdaftar'
+            ]);
         }
 
         // Check if password is correct
         if (!password_verify($password, $user['password'])) {
-            session()->setFlashdata('error', 'Password yang Anda masukkan salah');
-            return redirect()->to('/auth/login');
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Password yang Anda masukkan salah'
+            ]);
         }
 
         // Set session
@@ -78,17 +82,20 @@ class Auth extends BaseController
 
         session()->set($data);
 
-        // Check if user want to remember me
-        if ($rememberme == 'on') {
-            // set Session expiry for 1 day
-            $expired = 60 * 60 * 24;
-            $this->session->sess_expiration = $expired;
-        }
-
         if ($user['role'] == 'Admin' || $user['role'] == 'Ketua_rt') {
-            return redirect()->to('/admin');
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Anda berhasil login',
+                'role' => $user['role'],
+                'redirect' => '/admin'
+            ]);
         } elseif ($user['role'] == 'User') {
-            return redirect()->to('/users');
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Anda berhasil login',
+                'role' => $user['role'],
+                'redirect' => '/users'
+            ]);
         }
     }
 
@@ -139,14 +146,19 @@ class Auth extends BaseController
         ]);
 
         if ($result) {
-            session()->setFlashdata('success', 'Akun berhasil dibuat, silahkan login.');
-            return redirect()->to('/auth/login');
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Akun berhasil dibuat, silahkan login.',
+                'redirect' => '/auth/login'
+            ]);
         } else {
-            session()->setFlashdata('error', 'Akun gagal dibuat');
-            return redirect()->to('/auth/register');
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Akun gagal dibuat, silahkan coba lagi.',
+                'errors' => $this->validation->getErrors()
+            ]);
         }
     }
-
     public function ubahSandi()
     {
         $nik = session()->get('nik');
