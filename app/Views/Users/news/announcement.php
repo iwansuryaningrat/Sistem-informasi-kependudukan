@@ -31,7 +31,7 @@
               <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $data['nama'] ?></span>
             </p>
             <p class="d-flex align-items-center mb-0">
-              <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $data['created_at'] ?></span>
+              <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= date('j M Y H:m', strtotime($data['created_at'])) ?></span>
             </p>
           </div>
         </a>

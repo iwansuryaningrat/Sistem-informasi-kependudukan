@@ -79,7 +79,7 @@
             <label for="tanggal_pengajuan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pengajuan
             </label>
             <div class="col-md-10">
-              <input type="text" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= $dataAdministrasi['created_at'] ?>" />
+              <input type="text" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= date('j M Y H:m', strtotime($dataAdministrasi['created_at'])) ?>" />
             </div>
           </div>
           <!-- tanggal penerimaan -->

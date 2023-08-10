@@ -73,7 +73,7 @@
             <label for="tanggal_pelaporan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pelaporan
             </label>
             <div class="col-md-10">
-              <input type="text" id="tanggal_pelaporan" name="tanggal_pelaporan" class="form-control input-control" value="<?= $dataLaporan['created_at'] ?>" disabled />
+              <input type="text" id="tanggal_pelaporan" name="tanggal_pelaporan" class="form-control input-control" value="<?= date('j M Y H:m', strtotime($dataLaporan['created_at'])) ?>" disabled />
             </div>
           </div>
           <!-- status -->

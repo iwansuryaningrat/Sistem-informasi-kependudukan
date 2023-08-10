@@ -67,7 +67,7 @@
                                             <td><?= $data['nama_pengirim'] ?></td>
                                             <td><?= $data['email'] ?></td>
                                             <td><?= $data['kategori'] ?></td>
-                                            <td><?= date('j-M-Y H:m', strtotime($data['created_at'])); ?></td>
+                                            <td><?= date('j M Y H:m', strtotime($data['created_at'])); ?></td>
                                             <td>
                                                 <span class="badge <?php if ($data['status'] == 'Belum Dibaca') {
                                                                         echo 'badge-info';

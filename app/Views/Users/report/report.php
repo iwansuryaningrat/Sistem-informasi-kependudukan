@@ -43,7 +43,7 @@
                   <td><?= $data['nik_terlapor'] ?></td>
                   <td><?= $data['kategori'] ?></td>
                   <td><?= $data['laporan'] ?></td>
-                  <td><?= $data['created_at'] ?></td>
+                  <td><?= date('j M Y H:m', strtotime($data['created_at'])) ?></td>
                   <td>
                     <div class="d-flex justify-content-start">
                       <div class="status-badge  <?php if ($data['status_pelaporan'] == 'Dalam Proses') {

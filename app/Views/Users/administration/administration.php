@@ -52,7 +52,7 @@
                       </div>
                     </div>
                   </td>
-                  <td><?= $data['created_at'] ?></td>
+                  <td><?= date('j M Y H:m', strtotime($data['created_at'])) ?></td>
                   <td><?= ($data['tgl_penerimaan']) ? $data['tgl_penerimaan'] : '-' ?></td>
                   <td>
                     <div class="dropdown dropdown-table pe-3">

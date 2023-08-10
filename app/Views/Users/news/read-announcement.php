@@ -24,7 +24,7 @@
           <div class="">
             <h4 class="mb-3"><?= $pengumuman['judul_pengumuman'] ?></h4>
             <p class="mb-4 fst-italic text-basic">
-              <span><?= $pengumuman['nama'] ?></span> . <span><?= $pengumuman['created_at'] ?></span>
+              <span><?= $pengumuman['nama'] ?></span> . <span><?= date('j M Y H:m', strtotime($pengumuman['created_at'])) ?></span>
             </p>
           </div>
           <div class="">
@@ -60,7 +60,7 @@
                     <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['nama'] ?></span>
                   </p>
                   <p class="d-flex align-items-center mb-0">
-                    <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['created_at'] ?></span>
+                    <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= date('j M Y H:m', strtotime($pengumuman['created_at'])) ?></span>
                   </p>
                 </div>
               </a>

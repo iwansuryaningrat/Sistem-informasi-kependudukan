@@ -165,7 +165,7 @@
               <div class="scroll">
                 <p class="mb-2 text-sm"><?= $galeri['judul'] ?></p>
                 <p class="text-xs mb-2 fst-italic text-gray-200">
-                  <?= $galeri['nama'] ?> - <?= $galeri['created_at'] ?>
+                  <?= $galeri['nama'] ?> - <?= date('j M Y H:m', strtotime($galeri['created_at'])) ?>
                 </p>
               </div>
             </div>
@@ -206,7 +206,7 @@
                 <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['nama'] ?></span>
               </p>
               <p class="d-flex align-items-center mb-0">
-                <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['created_at'] ?></span>
+                <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= date('j M Y H:m', strtotime($pengumuman['created_at'])) ?></span>
               </p>
             </div>
             <a href="<?= ($isLoggedin) ? '/users/detailpengumuman/' . $pengumuman['pengumuman_id'] : '/home/detailpengumuman/' . $pengumuman['pengumuman_id'] ?>" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
