@@ -305,15 +305,42 @@ class Admin extends BaseController
 
     public function editPelaporan($id)
     {
+        $laporan = $this->pelaporanModel->getPelaporan($id);
+
+        if ($laporan['status_pelaporan'] == 'Menunggu Konfirmasi') {
+            $this->pelaporanModel->update($id, [
+                'status_pelaporan' => 'Dalam Proses',
+            ]);
+        }
+
         $data = [
             'title' => 'Edit Pelaporan',
             'active' => 'pelaporan',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'laporan' => $laporan,
         ];
 
         return view('admin/edit/editlaporan', $data);
+    }
+
+    public function detailPelaporan($id)
+    {
+        $laporan = $this->pelaporanModel->getPelaporan($id);
+
+        $data = [
+            'title' => 'Detail Pelaporan',
+            'active' => 'pelaporan',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'laporan' => $laporan,
+        ];
+
+        return view('admin/detail/editlaporan', $data);
     }
 
     public function galeri()
