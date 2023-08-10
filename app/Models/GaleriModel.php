@@ -38,6 +38,16 @@ class GaleriModel extends Model
             ->first();
     }
 
+    public function getGaleriTerbaru($limit = 3)
+    {
+        return $this->select('galeri.*, users.nama, kategori_galeri.nama_kategori')
+            ->join('users', 'users.nik = galeri.created_by')
+            ->join('kategori_galeri', 'kategori_galeri.kategori_galeri_id = galeri.kategori')
+            ->orderBy('galeri.created_at', 'DESC')
+            ->limit($limit)
+            ->find();
+    }
+
     // Edit Galeri data
     public function editGaleri($data, $galeri_id)
     {

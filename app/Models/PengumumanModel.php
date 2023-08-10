@@ -38,13 +38,13 @@ class PengumumanModel extends Model
     }
 
     // Get Pengumuman terbaru
-    public function getPengumumanTerbaru()
+    public function getPengumumanTerbaru($limit = 3)
     {
         return $this->select('pengumuman.*, users.nama')
             ->join('users', 'users.nik = pengumuman.created_by')
             ->orderBy('pengumuman.created_at', 'DESC')
-            ->limit(3)
-            ->findAll();
+            ->limit($limit)
+            ->find();
     }
 
     // Get Pengumuman data join with user by kategori
