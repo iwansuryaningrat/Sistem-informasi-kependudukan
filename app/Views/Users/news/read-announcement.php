@@ -1,6 +1,9 @@
 <!-- Barita 1 : Portal Berita | Warga Site -->
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <!-- header -->
 <header class="container ps-0">
@@ -24,20 +27,31 @@
           <div class="">
             <h4 class="mb-3"><?= $pengumuman['judul_pengumuman'] ?></h4>
             <p class="mb-4 fst-italic text-basic">
-              <span><?= $pengumuman['nama'] ?></span> . <span><?= date('j M Y H:m', strtotime($pengumuman['created_at'])) ?></span>
+              Editor: <?= $pengumuman['nama'] ?> . Rilis <?= DateHelper::formatCreatedAt($pengumuman['created_at']) ?>.
             </p>
           </div>
           <div class="">
             <p class="">
               <?= $pengumuman['deskripsi'] ?>
             </p>
-            <!-- <p class="">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Impedit dignissimos voluptatibus sapiente magni nobis
-              molestiae fugiat ducimus maxime sed error. Explicabo
-              voluptatum modi esse rem aspernatur, optio illo aperiam
-              nesciunt.
-            </p> -->
+            <p class="mb-2 fw-semibold">Rincian Kegiatan</p>
+            <table>
+              <tr>
+                <td class="pb-1">Tanggal Kegiatan</td>
+                <td class="pb-1 px-2">:</td>
+                <td class="pb-1"><?= DateHelper::formatIndonesianDate($pengumuman['tanggal']) ?></td>
+              </tr>
+              <tr>
+                <td class="pb-1">Waktu Kegiatan</td>
+                <td class="pb-1 px-2">:</td>
+                <td class="pb-1">Pukul <?= $pengumuman['jam'] ?> WIB</td>
+              </tr>
+              <tr>
+                <td class="pb-1">Tempat Kegiatan</td>
+                <td class="pb-1 px-2">:</td>
+                <td class="pb-1"><?= $pengumuman['tempat'] ?></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
@@ -56,11 +70,10 @@
                 </figure>
                 <p class="news-title-card mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
                 <div class="d-flex align-items-center">
-                  <p class="d-flex align-items-center me-3 mb-0">
-                    <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['nama'] ?></span>
-                  </p>
-                  <p class="d-flex align-items-center mb-0">
-                    <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= date('j M Y H:m', strtotime($pengumuman['created_at'])) ?></span>
+                  <p class="mb-0">
+                    <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $pengumuman['nama'] ?></span>
+                    <span class="me-2 text-gray"><i class="fa-solid fa-clock me-1 fill-gray"></i><?= DateHelper::formatIndonesianDate($pengumuman['tanggal']) ?></span>
+                    <span class="me-2 text-gray"><i class="fa-solid fa-location-dot me-1 fill-gray"></i><?= $pengumuman['tempat'] ?></span>
                   </p>
                 </div>
               </a>
