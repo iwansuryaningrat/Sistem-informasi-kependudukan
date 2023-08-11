@@ -168,13 +168,13 @@
                       <div id="radioFormGender">
                         <div class="d-flex align-items-center">
                           <div class="form-check me-4">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> value="pria" />
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> value="Laki-laki" />
                             <label class="form-check-label" for="jenis_kelamin_pria">
                               Laki-laki
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> value="wanita" />
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> value="Perempuan" />
                             <label class="form-check-label" for="jenis_kelamin_wanita">
                               Perempuan
                             </label>
