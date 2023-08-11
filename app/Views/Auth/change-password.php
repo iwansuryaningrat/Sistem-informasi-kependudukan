@@ -55,18 +55,15 @@
       },
       messages: {
         password: {
-          required: "Password tidak boleh kosong.",
-          minlength: "Password minimal 8 karakter.",
-          pattern: "Password harus mengandung huruf dan angka.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password tidak boleh kosong.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password minimal 8 karakter.',
+          pattern: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password harus mengandung huruf dan angka.',
         },
         confirmPassword: {
-          required: "Konfirmasi Password tidak boleh kosong.",
-          equalTo: "Konfirmasi Password harus sama dengan Password.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi Password tidak boleh kosong.',
+          equalTo: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi Password harus sama dengan Password.',
         },
       },
-    });
-    $("#changePasswordFormButton").on("click", () => {
-      console.log($("#changePasswordForm").valid());
     });
   });
 </script>
