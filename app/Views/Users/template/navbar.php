@@ -109,7 +109,7 @@ $user = [
             </li>
             <!-- logout -->
             <li class="list-nav-link-item">
-                <a href="/logout" class="logout-btn">Logout</a>
+                <button onclick="logout()" role="link" class="btn-anchor logout-btn">Logout</button>
             </li>
         </ul>
         <?php if ($isLoggedin == true && $isLoggedin) { ?>
