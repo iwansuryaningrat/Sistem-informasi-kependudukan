@@ -164,7 +164,7 @@ class UserController extends BaseController
         $nik = $this->user_data['nik'];
         $no_kk = $this->user_data['no_kk'];
         $alamat = $this->request->getVar('alamat') . ',' . $this->request->getVar('kota_kabupaten') . ' ' . $this->request->getVar('kodepos') . ',' . $this->request->getVar('provinsi');
-        $jenis_kelamin = ($this->request->getVar('pria') == 'on') ? 'Laki-laki' : 'Perempuan';
+        $jenis_kelamin = ($this->request->getVar('jenis_kelamin') == 'Laki-laki') ? 'Laki-laki' : 'Perempuan';
 
         // calculate age
         $tgl_lahir = $this->request->getVar('tanggal_lahir');
