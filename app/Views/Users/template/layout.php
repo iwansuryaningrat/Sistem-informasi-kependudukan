@@ -24,7 +24,7 @@
     <meta property="og:image" content="/homepage/public/apple-touch-icon-180x180.png">
     <meta property="og:url" content="https://www.warga.com">
 
-    {{-- apple touch icon --}}
+    <!-- apple touch icon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/homepage/public/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/homepage/public/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/homepage/public/apple-touch-icon-76x76.png">

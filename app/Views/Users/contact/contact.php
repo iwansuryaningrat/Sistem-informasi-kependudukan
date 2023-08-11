@@ -103,12 +103,17 @@
 
 <!-- script internal -->
 <script>
+    // add method validation only letters
+    $.validator.addMethod("alphabetOnly", function(value, element) {
+        return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
+    });
     // validate
     $(document).ready(function() {
         $(' #contactForm').validate({
             rules: {
                 namaLengkap: {
                     required: true,
+                    alphabetOnly: true,
                 },
                 email: {
                     required: true,
@@ -123,22 +128,20 @@
             },
             messages: {
                 namaLengkap: {
-                    required: 'Nama lengkap tidak boleh kosong.',
+                    required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama lengkap tidak boleh kosong.',
+                    alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama lengkap hanya boleh berisi huruf.',
                 },
                 email: {
-                    required: 'Email tidak boleh kosong.',
-                    email: 'Email tidak valid.',
+                    required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong.',
+                    email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid.',
                 },
                 subjek: {
-                    required: 'Subjek tidak boleh kosong.',
+                    required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Subjek tidak boleh kosong.',
                 },
                 pesan: {
-                    required: 'Pesan tidak boleh kosong.',
+                    required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pesan tidak boleh kosong.',
                 },
             },
-        });
-        $('#contactFormButton').on('click', () => {
-            console.log($('#contactForm').valid());
         });
     });
 </script>
