@@ -35,6 +35,10 @@
           <button class="nav-link piils-btn" id="ubah-kata-sandi-tab" data-bs-toggle="pill" data-bs-target="#ubah-kata-sandi-content" type="button" role="tab" aria-controls="ubah-kata-sandi-content" aria-selected="false">
             Ubah Kata Sandi
           </button>
+          <!-- button logout -->
+          <button class="nav-link piils-btn logout-btn" type="button" onclick="logout()">
+            Logout
+          </button>
         </div>
       </div>
       <div class="col-md-9">
@@ -54,7 +58,7 @@
                   </p>
                   <div class="d-flex align-items-center flex-column flex-sm-row mb-2">
                     <figure class="profile-image-wrapper mb-2 mb-sm-0">
-                      <img src="/upload/photos/profile/<?= $user['foto'] ?>" alt="photo-profile" class="profile-image" />
+                      <img src="/upload/photos/profile/<?= $user['foto'] ?>" alt="photo-profile" class="profile-image" id="profileImage" />
                     </figure>
                     <label for="foto_profil" class="btn btn-dark ms-sm-4 text-sm fw-semibold px-3 py-2">Unggah Foto</label>
                     <input type="file" class="form-control-image" id="foto_profil" name="foto_profil" required accept="image/*" />
@@ -65,13 +69,13 @@
                   </p>
                 </div>
                 <div class="row mb-3">
-                  <!-- nama depan -->
+                  <!-- nama -->
                   <div class="col-md-6 mb-3 mb-md-0">
                     <label for="nama" class="form-label forms-label">Nama Lengkap
                       <span class="text-important">*</span></label>
                     <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama Depan" value="<?= $user['nama'] ?>" />
                   </div>
-                  <!-- nama belakang -->
+                  <!-- no hp -->
                   <div class="col-md-6">
                     <label for="no_hp" class="form-label forms-label">Nomor HP
                       <span class="text-important">*</span></label>
@@ -164,14 +168,14 @@
                       <div id="radioFormGender">
                         <div class="d-flex align-items-center">
                           <div class="form-check me-4">
-                            <input class="form-check-input" type="radio" name="pria" id="pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> />
-                            <label class="form-check-label" for="pria">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> value="Laki-laki" />
+                            <label class="form-check-label" for="jenis_kelamin_pria">
                               Laki-laki
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="wanita" id="wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> />
-                            <label class="form-check-label" for="wanita">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> value="Perempuan" />
+                            <label class="form-check-label" for="jenis_kelamin_wanita">
                               Perempuan
                             </label>
                           </div>
@@ -258,7 +262,7 @@
                     </div>
 
                     <!-- Status Kependudukan -->
-                    <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="col-md-6">
                       <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan
                         <span class="text-important">*</span></label>
                       <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
@@ -341,6 +345,19 @@
 
 <!-- internal script -->
 <script>
+  $('#foto_profil').on('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        $('#profileImage').attr('src', event.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
   // add method validation only letters
   $.validator.addMethod('alphabetOnly', function(value, element) {
     return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
@@ -350,13 +367,25 @@
     // detail profile
     $('#detailProfileForm').validate({
       rules: {
-        nama_depan: {
+        nama: {
           required: true,
           alphabetOnly: true,
         },
-        nama_belakang: {
+        no_hp: {
           required: true,
-          alphabetOnly: true,
+          number: true,
+          minlength: 10,
+          maxlength: 13,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        no_kk: {
+          required: true,
+          number: true,
+          minlength: 16,
+          maxlength: 16,
         },
         nik: {
           required: true,
@@ -366,44 +395,51 @@
         },
       },
       messages: {
-        nama_depan: {
-          required: 'Nama depan tidak boleh kosong',
-          alphabetOnly: 'Nama depan hanya boleh berisi huruf',
+        nama: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong',
+          alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama hanya boleh berisi huruf',
         },
-        nama_belakang: {
-          required: 'Nama belakang tidak boleh kosong',
-          alphabetOnly: 'Nama belakang hanya boleh berisi huruf',
+        no_hp: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP minimal 10 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP maksimal 13 karakter',
+        },
+        email: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong',
+          email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid',
+        },
+        no_kk: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK minimal 16 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK maksimal 16 karakter',
         },
         nik: {
-          required: 'NIK tidak boleh kosong',
-          number: 'NIK hanya boleh berisi angka',
-          minlength: 'NIK harus berisi 16 angka',
-          maxlength: 'NIK harus berisi 16 angka',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK minimal 16 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK maksimal 16 karakter',
         },
       },
     });
-    $('#detailProfileFormButton').on('click', () => {
-      console.log($('#detailProfileForm').valid());
-    });
+
     // data pribadi
     $('#profileForm').validate({
       rules: {
-        no_hp: {
-          required: true,
-          number: true,
-          minlength: 10,
-          maxlength: 13,
-        },
-        jenis_kelamin: {
-          required: true,
-        },
         status: {
           required: true,
         },
         status_perkawinan: {
           required: true,
         },
-        tampat_lahir: {
+        agama: {
+          required: true,
+        },
+        jenis_kelamin: {
+          required: true,
+        },
+        tempat_lahir: {
           required: true,
           alphabetOnly: true,
         },
@@ -425,10 +461,10 @@
           minlength: 5,
           maxlength: 5,
         },
-        agama: {
+        pendidikan: {
           required: true,
         },
-        pendidikan: {
+        status_kependudukan: {
           required: true,
         },
         pekerjaan: {
@@ -436,50 +472,48 @@
         },
       },
       messages: {
-        no_hp: {
-          required: 'No. HP tidak boleh kosong.',
-          number: 'No. HP harus berupa angka.',
-          minlength: 'No. HP harus berjumlah 10-13 digit.',
-          maxlength: 'No. HP harus berjumlah 10-13 digit.',
-        },
-        jenis_kelamin: {
-          required: 'Jenis kelamin tidak boleh kosong.',
-        },
         status: {
-          required: 'Status tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status tidak boleh kosong',
         },
         status_perkawinan: {
-          required: 'Status perkawinan tidak boleh kosong.',
-        },
-        tempat_lahir: {
-          required: 'Tempat lahir tidak boleh kosong.',
-        },
-        tanggal_lahir: {
-          required: 'Tanggal lahir tidak boleh kosong.',
-        },
-        alamat: {
-          required: 'Alamat tidak boleh kosong.',
-        },
-        provinsi: {
-          required: 'Provinsi tidak boleh kosong.',
-        },
-        kota_kabupaten: {
-          required: 'Kota/Kabupaten tidak boleh kosong.',
-        },
-        kodepos: {
-          required: 'Kodepos tidak boleh kosong.',
-          number: 'Kodepos harus berupa angka.',
-          minlength: 'Kodepos harus berjumlah 5 digit.',
-          maxlength: 'Kodepos harus berjumlah 5 digit.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status perkawinan tidak boleh kosong',
         },
         agama: {
-          required: 'Agama tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Agama tidak boleh kosong',
+        },
+        jenis_kelamin: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jenis kelamin tidak boleh kosong',
+        },
+        tempat_lahir: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir tidak boleh kosong',
+          alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir hanya boleh berisi huruf',
+        },
+        tanggal_lahir: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal lahir tidak boleh kosong',
+        },
+        alamat: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat tidak boleh kosong',
+        },
+        provinsi: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Provinsi tidak boleh kosong',
+        },
+        kota_kabupaten: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kota/Kabupaten tidak boleh kosong',
+        },
+        kodepos: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos minimal 5 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos maksimal 5 karakter',
         },
         pendidikan: {
-          required: 'Pendidikan tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pendidikan tidak boleh kosong',
+        },
+        status_kependudukan: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status kependudukan tidak boleh kosong',
         },
         pekerjaan: {
-          required: 'Pekerjaan tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pekerjaan tidak boleh kosong',
         },
       },
       errorPlacement: function(error, element) {
@@ -490,9 +524,7 @@
         }
       },
     });
-    $('#profileFormButton').on('click', () => {
-      console.log($('#profileForm').valid());
-    });
+
     // ubah kata sandi
     $('#changePasswordForm').validate({
       rules: {
@@ -511,21 +543,18 @@
       },
       messages: {
         password_lama: {
-          required: 'Password lama tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password lama tidak boleh kosong.',
         },
         password_baru: {
-          required: 'Password baru tidak boleh kosong.',
-          minlength: 'Password baru harus berjumlah 8-16 karakter.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password baru tidak boleh kosong.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password baru harus berjumlah 8-16 karakter.',
         },
         konfirmasi_password_baru: {
-          required: 'Konfirmasi password baru tidak boleh kosong.',
-          minlength: 'Konfirmasi password baru harus berjumlah 8-16 karakter.',
-          equalTo: 'Konfirmasi password baru harus sama dengan password baru.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi password baru tidak boleh kosong.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi password baru harus berjumlah 8-16 karakter.',
+          equalTo: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi password baru harus sama dengan password baru.',
         },
       },
-    });
-    $('#changePasswordFormButton').on('click', () => {
-      console.log($('#changePasswordForm').valid());
     });
 
     // CHANGE PASSWORD TAB

@@ -7,17 +7,15 @@
     <!-- left -->
     <div class="col-12 col-md-6">
       <div class="d-flex">
-        <p class="head-badge">Warga prioritas #1</p>
+        <p class="head-badge">Solusi Utama bagi Warga</p>
       </div>
-      <h1 class="mb-3 me-4">We love helping you to safe the earth🍀</h1>
+      <h1 class="mb-3 me-4">Kami Peduli dalam Membantu Menjaga Bumi🍀</h1>
       <p class="text-basic mb-4 me-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-        suscipit mollitia quas eveniet sit, vitae repellendus deleniti,
-        placeat impedit doloribus magnam.
+        Warga adalah platform inovatif yang didedikasikan untuk mendukung keberlanjutan lingkungan dan kesejahteraan warga. Kami berkomitmen untuk menghubungkan masyarakat dengan sumber daya dan layanan yang diperlukan untuk menjaga bumi kita tetap hijau dan lestari.
       </p>
-      <button class="btn btn-main shadow" type="button">
-        Get in touch
-      </button>
+      <a class="btn btn-main shadow" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
+        Hubungi Kami
+      </a>
     </div>
     <!-- right -->
     <div class="col-12 col-md-6"></div>
@@ -27,6 +25,7 @@
     <img src="/homepage/assets/img/jumbotron-image.png" alt="jumbotron-farmer" class="jumbotron-image" />
   </figure>
 </header>
+
 <!-- end of header -->
 
 <!-- main -->
@@ -36,19 +35,17 @@
   <section class="container container-space">
     <!-- header -->
     <div class="d-flex">
-      <p class="head-badge">proyek</p>
+      <p class="head-badge">Proyek</p>
     </div>
     <div class="row align-items-center justify-content-between mb-5">
       <div class="d-flex flex-column align-items-start col-12 col-md-4">
         <h2 class="mb-3 mb-md-0">
-          Quibusdam cum cupiditate maxime eum accusamus.
+          Transformasi Dalam Pelayanan Publik
         </h2>
       </div>
       <div class="col-12 col-md-6">
         <p class="text-basic mb-0">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
-          iste facere reprehenderit eum illum quisquam temporibus culpa
-          minima ad deserunt.
+          Kami mempersembahkan sejumlah proyek inovatif untuk memajukan kualitas hidup dan pelayanan publik di komunitas kita. Temukan lebih banyak tentang proyek-proyek yang kami rancang untuk meningkatkan kesejahteraan warga.
         </p>
       </div>
     </div>
@@ -61,14 +58,13 @@
             <i class="fa-solid fa-rocket project-badge__icon"></i>
           </div>
         </div>
-        <h5>Administrasi</h5>
+        <h5>Administrasi Efisien</h5>
         <p class="text-basic mb-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          dolorem quasi quos repellendus exercitationem.
+          Kelola administrasi masyarakat dengan lebih efisien melalui platform kami. Sederhanakan proses pengelolaan data dan dokumentasi.
         </p>
-        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="administration" onclick="location.href='/users/administrasi'">
-          Lebih Banyak
-        </button>
+        <a class="btn btn-main-outline shadow w-full-sm" id="administration" href="/users/administrasi">
+          Kunjungi
+        </a>
       </div>
       <div class="project-card">
         <div class="d-flex mb-3">
@@ -76,14 +72,13 @@
             <i class="fa-solid fa-bullhorn project-badge__icon"></i>
           </div>
         </div>
-        <h5>Pelaporan amet officia ducimus temporibus</h5>
+        <h5>Pelaporan Terintegrasi</h5>
         <p class="text-basic mb-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          dolorem quasi quos repellendus exercitationem nobis.
+          Laporkan masalah dan permasalahan dengan mudah melalui sistem pelaporan kami. Segera tindak lanjuti dan pantau perkembangannya.
         </p>
-        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="report" onclick="location.href='/users/pelaporan'">
-          Lebih Banyak
-        </button>
+        <a class="btn btn-main-outline shadow w-full-sm" id="report" href="/users/pelaporan">
+          Kunjungi
+        </a>
       </div>
       <div class="project-card">
         <div class="d-flex mb-3">
@@ -91,47 +86,40 @@
             <i class="fa-solid fa-house-chimney-window project-badge__icon"></i>
           </div>
         </div>
-        <h5>Keluarga perspiciatis voluptate</h5>
+        <h5>Keluarga Sejahtera</h5>
         <p class="text-basic mb-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          dolorem quasi quos repellendus exercitationem nobis.
+          Fokus pada kesejahteraan keluarga dan individu dengan layanan dan program yang mendukung perkembangan dan kebahagiaan.
         </p>
-        <button class="btn btn-main-outline shadow w-full-sm" type="button" id="family" onclick="location.href='/users/keluarga'">
-          Lebih Banyak
-        </button>
+        <a class="btn btn-main-outline shadow w-full-sm" id="family" href="/users/keluarga">
+          Kunjungi
+        </a>
       </div>
     </div>
   </section>
+
 
   <!-- penjelasan umum -->
   <section class="w-100 bg-secondary-500__05">
     <div class="container container-space">
       <div class="row flex-column-reverse flex-md-row">
         <div class="col-12 col-md-5">
-
           <!-- header -->
           <div class="d-flex align-items-sm-start flex-column mt-3 mb-1 mb-sm-3">
             <div class="d-flex">
-              <p class="head-badge-secondaries">warga</p>
+              <p class="head-badge-secondaries">Warga dan Keluarga</p>
             </div>
             <h2 class="mb-3">
-              Consequuntur autem soluta sint expedita sint nulla veniam
-              enim optio.
+              Mempererat Hubungan dan Kesejahteraan Bersama
             </h2>
             <p class="text-basic mb-4">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Distinctio commodi, optio dolorum saepe, atque omnis
-              mollitia ratione accusamus, repudiandae repellendus
-              perferendis ex temporibus voluptatum enim alias laudantium
-              illum quo doloribus!
+              Warga adalah platform yang dirancang untuk memajukan interaksi dan kesejahteraan di lingkungan kita. Kami berkomitmen untuk menyediakan solusi yang menghubungkan warga dengan layanan, informasi, dan peluang untuk menciptakan komunitas yang lebih kuat dan harmonis.
             </p>
-            <button class="btn btn-secondaries shadow" type="button" onclick="location.href='/users/keluarga'">
-              Lebih Banyak
-            </button>
+            <a class="btn btn-secondaries shadow" href="/users/keluarga">
+              Pelajari Lebih Lanjut
+            </a>
           </div>
-
-          <!-- content -->
         </div>
+        <!-- content -->
         <div class="col-12 col-md-7">
           <div class="general-image-container">
             <figure class="general-image-wrapper">
@@ -142,6 +130,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- galery -->
   <section class="container container-space">
@@ -210,7 +199,7 @@
               </p>
             </div>
             <a href="<?= ($isLoggedin) ? '/users/detailpengumuman/' . $pengumuman['pengumuman_id'] : '/home/detailpengumuman/' . $pengumuman['pengumuman_id'] ?>" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
-              Kunjungi Detail Pengumuman
+              Kunjungi Detil Pengumuman
             </a>
           </div>
         <?php $i++;
@@ -228,12 +217,10 @@
       <div class="row flex-column-reverse flex-md-row">
         <div class="col-12 col-md-5 left-cta">
           <h3 class="mb-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Terhubung dengan kami
           </h3>
           <p class="mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Ducimus, nobis pariatur tempore labore deleniti beatae
-            architecto enim iusto.
+            Jika Anda memiliki pertanyaan, saran, atau ingin berhubungan dengan kami, silakan hubungi kami melalui formulir di bawah ini. Tim kami dengan senang hati akan meresponsnya segera.
           </p>
           <a class="btn btn-white shadow" role="button" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
             Kritik & Saran
@@ -242,13 +229,14 @@
         <div class="col-12 col-md-7">
           <div class="position-relative">
             <figure class="cta-image-wrapper">
-              <img src="/homepage/assets/img/phone-2.png" alt="cta-contat" class="cta-image" />
+              <img src="/homepage/assets/img/phone-2.png" alt="cta-contact" class="cta-image" />
             </figure>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 <!-- end of main -->
 

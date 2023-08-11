@@ -60,9 +60,9 @@ $user = [
             <?php if ($isLoggedin == true && $isLoggedin) { ?>
                 <!-- right -->
                 <a class="btn btn-main-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/users/profile"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
-                <a class="btn btn-logout-sm w-full-xl d-flex align-items-center justify-content-center" role="button" href="/logout" style="height: 41px; margin-left: 12px">
+                <button class="btn btn-logout-sm w-full-xl d-flex align-items-center justify-content-center" role="button" onclick="logout()" style="height: 41px; margin-left: 12px">
                     <i class="fa-solid fa-sign-out"></i>
-                </a>
+                </button>
             <?php } else { ?>
                 <!-- right -->
                 <a class="btn btn-main-outline-sm w-full-xl" role="button" href="/login">Masuk</a>
@@ -109,7 +109,7 @@ $user = [
             </li>
             <!-- logout -->
             <li class="list-nav-link-item">
-                <a href="/logout" class="logout-btn">Logout</a>
+                <button onclick="logout()" role="link" class="btn-anchor logout-btn">Logout</button>
             </li>
         </ul>
         <?php if ($isLoggedin == true && $isLoggedin) { ?>
@@ -119,3 +119,32 @@ $user = [
         <?php } ?>
     </div>
 </div>
+
+<script>
+    const logout = () => {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Anda akan keluar dari akun ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, Keluar!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setTimeout(function() {
+                    window.location.href = "/logout";
+                }, 3000);
+                Swal.fire(
+                    'Berhasil!',
+                    'Anda telah keluar dari akun ini.',
+                    'success'
+                ).then(function() {
+                    window.location.href = "/logout";
+                });
+            }
+        });
+
+    }
+</script>

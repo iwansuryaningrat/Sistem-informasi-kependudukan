@@ -21,9 +21,18 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Website Warga - Pengelolaan Data Keluarga untuk Desa">
     <meta property="og:description" content="Selamat datang di Website Warga! Kami adalah platform pengelolaan data keluarga untuk desa. Daftar, perbarui informasi, dan akses layanan komunitas kami di sini.">
-    <meta property="og:image" content="{{ asset('path_to_your_image.jpg') }}">
-    <meta property="og:url" content="URL_HALAMAN_UTAMA">
+    <meta property="og:image" content="/homepage/public/apple-touch-icon-180x180.png">
+    <meta property="og:url" content="https://www.warga.com">
 
+    {{-- apple touch icon --}}
+    <link rel="apple-touch-icon" sizes="57x57" href="/homepage/public/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/homepage/public/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/homepage/public/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/homepage/public/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/homepage/public/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/homepage/public/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/homepage/public/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/homepage/public/apple-touch-icon-180x180.png">
 
     <!-- Style -->
     <!-- font -->
@@ -36,6 +45,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- sweet alert 2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.min.css" integrity="sha512-yX1R8uWi11xPfY7HDg7rkLL/9F1jq8Hyiz8qF4DV2nedX4IVl7ruR2+h3TFceHIcT5Oq7ooKi09UZbI39B7ylw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- fancybox -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <!-- Filepond stylesheet -->
@@ -93,6 +104,8 @@
     <!-- datatables -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <!-- sweet alert 2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.min.js" integrity="sha512-2AOp8GEFv1X43dZpYqOp34WD+skmM18yOrCxS/S1Mh6VShz7uxlPhKmA98fsPrE7MMMtZgjshiMHKmzWtZR5uA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Load FilePond library -->
     <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>

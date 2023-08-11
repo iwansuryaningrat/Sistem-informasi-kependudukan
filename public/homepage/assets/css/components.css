@@ -141,6 +141,35 @@
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
+.btn-anchor.logout-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+  display: block;
+  width: 100%;
+  color: #3d3d3d;
+  font-weight: 500;
+  transition: transform 0.2s ease-in-out !important;
+  -webkit-transition: transform 0.2s ease-in-out !important;
+  -moz-transition: transform 0.2s ease-in-out !important;
+  -ms-transition: transform 0.2s ease-in-out !important;
+  -o-transition: transform 0.2s ease-in-out !important;
+}
+.btn-anchor.logout-btn:hover {
+  transform: translateX(0.5rem);
+  -webkit-transform: translateX(0.5rem);
+  -moz-transform: translateX(0.5rem);
+  -ms-transform: translateX(0.5rem);
+  -o-transform: translateX(0.5rem);
+  transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -ms-transition: transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
+  font-weight: 500;
+}
 .btn-main[disabled],
 .btn-main-sm[disabled],
 .btn-main-xs[disabled] {

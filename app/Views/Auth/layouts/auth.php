@@ -3,8 +3,36 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Selamat datang di Website Warga! Kami adalah platform pengelolaan data keluarga untuk desa. Daftar, perbarui informasi, dan akses layanan komunitas kami di sini." />
+    <meta name="keywords" content="website warga, data keluarga, layanan komunitas, pendaftaran penduduk, informasi desa" />
+    <meta name="author" content="Warga" />
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.warga.com" />
+    <meta name="revised" content="10 Agustus 2023" />
+    <meta name="language" content="Indonesia" />
+    <meta name="geo.region" content="ID" />
+    <meta name="geo.placename" content="Jakarta" />
+    <meta name="geo.position" content="-6.2088, 106.8456" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.warga.com/sitemap.xml" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Website Warga - Pengelolaan Data Keluarga untuk Desa">
+    <meta property="og:description" content="Selamat datang di Website Warga! Kami adalah platform pengelolaan data keluarga untuk desa. Daftar, perbarui informasi, dan akses layanan komunitas kami di sini.">
+    <meta property="og:image" content="/homepage/public/apple-touch-icon-180x180.png">
+    <meta property="og:url" content="https://www.warga.com">
+
+    {{-- apple touch icon --}}
+    <link rel="apple-touch-icon" sizes="57x57" href="/homepage/public/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/homepage/public/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/homepage/public/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/homepage/public/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/homepage/public/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/homepage/public/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/homepage/public/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/homepage/public/apple-touch-icon-180x180.png">
 
     <!-- Styles -->
     <!-- font -->
