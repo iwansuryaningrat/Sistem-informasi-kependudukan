@@ -543,21 +543,18 @@
       },
       messages: {
         password_lama: {
-          required: 'Password lama tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password lama tidak boleh kosong.',
         },
         password_baru: {
-          required: 'Password baru tidak boleh kosong.',
-          minlength: 'Password baru harus berjumlah 8-16 karakter.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password baru tidak boleh kosong.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Password baru harus berjumlah 8-16 karakter.',
         },
         konfirmasi_password_baru: {
-          required: 'Konfirmasi password baru tidak boleh kosong.',
-          minlength: 'Konfirmasi password baru harus berjumlah 8-16 karakter.',
-          equalTo: 'Konfirmasi password baru harus sama dengan password baru.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi password baru tidak boleh kosong.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi password baru harus berjumlah 8-16 karakter.',
+          equalTo: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Konfirmasi password baru harus sama dengan password baru.',
         },
       },
-    });
-    $('#changePasswordFormButton').on('click', () => {
-      console.log($('#changePasswordForm').valid());
     });
 
     // CHANGE PASSWORD TAB
