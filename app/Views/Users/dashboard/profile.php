@@ -35,6 +35,10 @@
           <button class="nav-link piils-btn" id="ubah-kata-sandi-tab" data-bs-toggle="pill" data-bs-target="#ubah-kata-sandi-content" type="button" role="tab" aria-controls="ubah-kata-sandi-content" aria-selected="false">
             Ubah Kata Sandi
           </button>
+          <!-- button logout -->
+          <button class="nav-link piils-btn logout-btn" type="button" onclick="logout()">
+            Logout
+          </button>
         </div>
       </div>
       <div class="col-md-9">
@@ -54,7 +58,7 @@
                   </p>
                   <div class="d-flex align-items-center flex-column flex-sm-row mb-2">
                     <figure class="profile-image-wrapper mb-2 mb-sm-0">
-                      <img src="/upload/photos/profile/<?= $user['foto'] ?>" alt="photo-profile" class="profile-image" />
+                      <img src="/upload/photos/profile/<?= $user['foto'] ?>" alt="photo-profile" class="profile-image" id="profileImage" />
                     </figure>
                     <label for="foto_profil" class="btn btn-dark ms-sm-4 text-sm fw-semibold px-3 py-2">Unggah Foto</label>
                     <input type="file" class="form-control-image" id="foto_profil" name="foto_profil" required accept="image/*" />
@@ -65,13 +69,13 @@
                   </p>
                 </div>
                 <div class="row mb-3">
-                  <!-- nama depan -->
+                  <!-- nama -->
                   <div class="col-md-6 mb-3 mb-md-0">
                     <label for="nama" class="form-label forms-label">Nama Lengkap
                       <span class="text-important">*</span></label>
                     <input type="text" class="form-control input-control" id="nama" name="nama" required placeholder="Masukkan Nama Depan" value="<?= $user['nama'] ?>" />
                   </div>
-                  <!-- nama belakang -->
+                  <!-- no hp -->
                   <div class="col-md-6">
                     <label for="no_hp" class="form-label forms-label">Nomor HP
                       <span class="text-important">*</span></label>
@@ -341,6 +345,19 @@
 
 <!-- internal script -->
 <script>
+  $('#foto_profil').on('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        $('#profileImage').attr('src', event.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
   // add method validation only letters
   $.validator.addMethod('alphabetOnly', function(value, element) {
     return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
@@ -350,13 +367,25 @@
     // detail profile
     $('#detailProfileForm').validate({
       rules: {
-        nama_depan: {
+        nama: {
           required: true,
           alphabetOnly: true,
         },
-        nama_belakang: {
+        no_hp: {
           required: true,
-          alphabetOnly: true,
+          number: true,
+          minlength: 10,
+          maxlength: 13,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        no_kk: {
+          required: true,
+          number: true,
+          minlength: 16,
+          maxlength: 16,
         },
         nik: {
           required: true,
@@ -366,24 +395,33 @@
         },
       },
       messages: {
-        nama_depan: {
-          required: 'Nama depan tidak boleh kosong',
-          alphabetOnly: 'Nama depan hanya boleh berisi huruf',
+        nama: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong',
+          alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama hanya boleh berisi huruf',
         },
-        nama_belakang: {
-          required: 'Nama belakang tidak boleh kosong',
-          alphabetOnly: 'Nama belakang hanya boleh berisi huruf',
+        no_hp: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP minimal 10 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP maksimal 13 karakter',
+        },
+        email: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong',
+          email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid',
+        },
+        no_kk: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK minimal 16 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK maksimal 16 karakter',
         },
         nik: {
-          required: 'NIK tidak boleh kosong',
-          number: 'NIK hanya boleh berisi angka',
-          minlength: 'NIK harus berisi 16 angka',
-          maxlength: 'NIK harus berisi 16 angka',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK minimal 16 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK maksimal 16 karakter',
         },
       },
-    });
-    $('#detailProfileFormButton').on('click', () => {
-      console.log($('#detailProfileForm').valid());
     });
     // data pribadi
     $('#profileForm').validate({
