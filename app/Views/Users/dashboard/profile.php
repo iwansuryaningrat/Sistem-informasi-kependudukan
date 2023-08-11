@@ -168,14 +168,14 @@
                       <div id="radioFormGender">
                         <div class="d-flex align-items-center">
                           <div class="form-check me-4">
-                            <input class="form-check-input" type="radio" name="pria" id="pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> />
-                            <label class="form-check-label" for="pria">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_pria" <?= $user['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> value="pria" />
+                            <label class="form-check-label" for="jenis_kelamin_pria">
                               Laki-laki
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="wanita" id="wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> />
-                            <label class="form-check-label" for="wanita">
+                            <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_wanita" <?= $user['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> value="wanita" />
+                            <label class="form-check-label" for="jenis_kelamin_wanita">
                               Perempuan
                             </label>
                           </div>
@@ -262,7 +262,7 @@
                     </div>
 
                     <!-- Status Kependudukan -->
-                    <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="col-md-6">
                       <label for="status_kependudukan" class="form-label forms-label">Status Kependudukan
                         <span class="text-important">*</span></label>
                       <select id="status_kependudukan" name="status_kependudukan" required class="form-select select-control">
@@ -423,25 +423,23 @@
         },
       },
     });
+
     // data pribadi
     $('#profileForm').validate({
       rules: {
-        no_hp: {
-          required: true,
-          number: true,
-          minlength: 10,
-          maxlength: 13,
-        },
-        jenis_kelamin: {
-          required: true,
-        },
         status: {
           required: true,
         },
         status_perkawinan: {
           required: true,
         },
-        tampat_lahir: {
+        agama: {
+          required: true,
+        },
+        jenis_kelamin: {
+          required: true,
+        },
+        tempat_lahir: {
           required: true,
           alphabetOnly: true,
         },
@@ -463,10 +461,10 @@
           minlength: 5,
           maxlength: 5,
         },
-        agama: {
+        pendidikan: {
           required: true,
         },
-        pendidikan: {
+        status_kependudukan: {
           required: true,
         },
         pekerjaan: {
@@ -474,50 +472,48 @@
         },
       },
       messages: {
-        no_hp: {
-          required: 'No. HP tidak boleh kosong.',
-          number: 'No. HP harus berupa angka.',
-          minlength: 'No. HP harus berjumlah 10-13 digit.',
-          maxlength: 'No. HP harus berjumlah 10-13 digit.',
-        },
-        jenis_kelamin: {
-          required: 'Jenis kelamin tidak boleh kosong.',
-        },
         status: {
-          required: 'Status tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status tidak boleh kosong',
         },
         status_perkawinan: {
-          required: 'Status perkawinan tidak boleh kosong.',
-        },
-        tempat_lahir: {
-          required: 'Tempat lahir tidak boleh kosong.',
-        },
-        tanggal_lahir: {
-          required: 'Tanggal lahir tidak boleh kosong.',
-        },
-        alamat: {
-          required: 'Alamat tidak boleh kosong.',
-        },
-        provinsi: {
-          required: 'Provinsi tidak boleh kosong.',
-        },
-        kota_kabupaten: {
-          required: 'Kota/Kabupaten tidak boleh kosong.',
-        },
-        kodepos: {
-          required: 'Kodepos tidak boleh kosong.',
-          number: 'Kodepos harus berupa angka.',
-          minlength: 'Kodepos harus berjumlah 5 digit.',
-          maxlength: 'Kodepos harus berjumlah 5 digit.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status perkawinan tidak boleh kosong',
         },
         agama: {
-          required: 'Agama tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Agama tidak boleh kosong',
+        },
+        jenis_kelamin: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jenis kelamin tidak boleh kosong',
+        },
+        tempat_lahir: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir tidak boleh kosong',
+          alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir hanya boleh berisi huruf',
+        },
+        tanggal_lahir: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal lahir tidak boleh kosong',
+        },
+        alamat: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat tidak boleh kosong',
+        },
+        provinsi: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Provinsi tidak boleh kosong',
+        },
+        kota_kabupaten: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kota/Kabupaten tidak boleh kosong',
+        },
+        kodepos: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos tidak boleh kosong',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos hanya boleh berisi angka',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos minimal 5 karakter',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kodepos maksimal 5 karakter',
         },
         pendidikan: {
-          required: 'Pendidikan tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pendidikan tidak boleh kosong',
+        },
+        status_kependudukan: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status kependudukan tidak boleh kosong',
         },
         pekerjaan: {
-          required: 'Pekerjaan tidak boleh kosong.',
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pekerjaan tidak boleh kosong',
         },
       },
       errorPlacement: function(error, element) {
@@ -528,9 +524,7 @@
         }
       },
     });
-    $('#profileFormButton').on('click', () => {
-      console.log($('#profileForm').valid());
-    });
+
     // ubah kata sandi
     $('#changePasswordForm').validate({
       rules: {
