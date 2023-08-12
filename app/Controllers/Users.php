@@ -13,6 +13,7 @@ use App\Models\PelaporanModel;
 use App\Models\PengumumanModel;
 use App\Models\PesanModel;
 use App\Models\UsersModel;
+use ZipArchive;
 
 class Users extends BaseController
 {
@@ -171,6 +172,44 @@ class Users extends BaseController
 
         return view('/users/gallery/gallery-detail', $data);
     }
+
+    public function downloadGalleryPhotos($id)
+    {
+        $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
+
+        $zipFileName = 'foto_galeri_' . $id . '.zip';
+        $zipFilePath = FCPATH . 'upload/photos/zip/' . $zipFileName; // Update with the appropriate path
+        // dd($zipFilePath);
+
+        $zip = new ZipArchive();
+        if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
+            foreach ($dataFoto as $foto) {
+                $photoPath = FCPATH . 'upload/photos/galeri/' . $foto['foto'];
+                if (file_exists($photoPath)) {
+                    $zip->addFile($photoPath, $foto['foto']);
+                }
+            }
+            $zip->close();
+
+            // Set appropriate headers for download
+            header('Content-Type: application/zip');
+            header('Content-Disposition: attachment; filename="' . $zipFileName . '"');
+            header('Content-Length: ' . filesize($zipFilePath));
+            header('Pragma: no-cache');
+
+            // Read and output the zip file
+            readfile($zipFilePath);
+
+            // Delete the zip file after sending
+            unlink($zipFilePath);
+
+            exit; // Stop further execution
+        } else {
+            // Handle zip creation error
+            return 'Error creating zip file';
+        }
+    }
+
     // End of Galeri Method
 
     // Pengumuman Method 
