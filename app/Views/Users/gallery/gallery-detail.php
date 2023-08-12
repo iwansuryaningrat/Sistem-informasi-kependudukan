@@ -27,8 +27,8 @@
                 <figure data-fancybox="gallery-large" data-src="/upload/photos/galeri/<?= $foto['foto'] ?>" class="gallery-view-item__warp">
                     <img src="/upload/photos/galeri/<?= $foto['foto'] ?>" alt="gallery-view-1" class="gallery-view-item" />
                     <figcaption class="d-none">
-                        <p class="mb-2 text-sm"><?= $foto['caption'] ?></p>
-                        <p class="text-xs mb-2 fst-italic text-gray-200">
+                        <p class="mb-2 text-sm text-center"><?= $foto['caption'] ?></p>
+                        <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
                             <?= $foto['nama'] ?> - <?= date('j M Y H:m', strtotime($foto['created_at'])) ?>
                         </p>
                     </figcaption>
@@ -77,12 +77,22 @@
                 <!-- Foto -->
                 <div class="mb-3">
                     <label for="foto" class="form-label forms-label">Foto</label>
-                    <div class="input-group">
-                        <input type="file" class="form-control input-control" id="foto" name="foto[]" multiple accept="image/*" />
-                        <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-                            <i class="fa-solid fa-upload me-2"></i>Unggah
-                        </button>
+                    <div class="mb-1">
+                        <div id="fotosContainer" class="row">
+                            <div class="col-6">
+                                <figure class="">
+                                    <img src="https://www.placehold.it/400x240" id="fotoImage" alt="placeholder" class="img-fluid img-thumbnail img-preview w-100" />
+                                </figure>
+                            </div>
+                        </div>
                     </div>
+                    <div class="mb-2">
+                        <input type="file" class="form-control-image" id="foto" name="foto[]" multiple required accept="image/*" />
+                        <label for="foto" class="btn btn-dark fw-semibold">Unggah Foto</label>
+                    </div>
+                    <p class="text-sm text-basic">
+                        *Foto dapat memiliki rasio horizontal maupun vertikal
+                    </p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -105,57 +115,45 @@
         window.history.back();
     }
 
-    // plugin for filepond
-    FilePond.registerPlugin(
-        FilePondPluginImagePreview,
-        FilePondPluginFileValidateSize
-    );
-    // filepond options
-    FilePond.setOptions({
-        server: {
-            url: '/fotocontroller/upload',
-            process: {
-                method: 'POST',
-                withCredentials: false,
-                headers: {},
-                timeout: 7000,
-                onload: null,
-                onerror: null,
-                ondata: null,
-            },
-        },
-        maxFileSize: '3MB',
-        required: true,
-        allowMultiple: true,
-        labelIdle: 'Drag & drop foto anda atau <span class="filepond--label-action">jelajahi</span>',
-        labelFileProcessing: 'Sedang diproses...',
-        labelFileProcessingComplete: 'Proses selesai',
-        labelFileProcessingAborted: 'Proses dibatalkan',
-        labelFileProcessingError: 'Kesalahan saat memproses',
-        labelTapToCancel: 'Ketuk untuk membatalkan',
-        labelTapToRetry: 'Ketuk untuk mencoba kembali',
-        labelTapToUndo: 'Ketuk untuk membatalkan',
-        labelButtonRemoveItem: 'Hapus',
-        labelButtonAbortItemLoad: 'Batal',
-        labelButtonRetryItemLoad: 'Coba Lagi',
-        labelButtonAbortItemProcessing: 'Batal',
-        labelButtonUndoItemProcessing: 'Kembali',
-        labelButtonRetryItemProcessing: 'Coba Lagi',
-        labelButtonProcessItem: 'Proses',
-        labelMaxFileSizeExceeded: 'Ukuran berkas melebihi batas maksimum',
-        labelMaxFileSize: 'Ukuran berkas maksimum',
-        labelMaxTotalFileSizeExceeded: 'Total ukuran berkas melebihi batas maksimum',
-        labelMaxTotalFileSize: 'Total ukuran berkas maksimum',
-        labelFileTypeNotAllowed: 'Jenis berkas tidak diizinkan',
-        labelFileCountSingular: 'berkas dalam daftar',
-        labelFileCountPlural: 'berkas dalam daftar',
-        labelUploadError: 'Kesalahan saat mengunggah',
-        labelUploadComplete: 'Pengunggahan selesai',
-        labelUploadRetry: 'Coba Lagi',
-        labelUploadUndo: 'Batalkan',
-        labelButtonProcess: 'Proses',
+    $('#foto').on('change', function() {
+        const files = this.files;
+
+        $('#fotosContainer').empty();
+
+        for (const file of files) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const imagePreview = $('<div class="col-6 px-1"><figure class="thumbnail-column mx-1"><img alt="placeholder" class="img-fluid img-thumbnail img-preview" /></figure></div>');
+                imagePreview.find('img').attr('src', event.target.result);
+                $('#fotosContainer').append(imagePreview);
+            };
+
+            reader.readAsDataURL(file);
+        }
     });
-    FilePond.parse(document.body);
+
+    // validate
+    $(document).ready(function() {
+        $("#formAddPhoto").validate({
+            rules: {
+                judul: {
+                    required: true,
+                },
+                caption: {
+                    required: true,
+                },
+            },
+            messages: {
+                judul: {
+                    required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Judul tidak boleh kosong',
+                },
+                caption: {
+                    required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Caption tidak boleh kosong',
+                },
+            },
+        });
+    });
 
     const options = {
         Thumbs: {
