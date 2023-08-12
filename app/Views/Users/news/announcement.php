@@ -26,6 +26,7 @@ use App\Helpers\DateHelper;
             <img src="/upload/photos/pengumuman/<?= $data['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
           </figure>
           <p class="news-title-card mb-2"><?= $data['judul_pengumuman'] ?></p>
+          <p class="text-basic news-desc mb-2"><?= $data['deskripsi'] ?></p>
           <div class="d-flex align-items-center">
             <p class="mb-0">
               <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $data['nama'] ?></span>
