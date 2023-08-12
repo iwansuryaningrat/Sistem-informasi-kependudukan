@@ -5,9 +5,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="location.href='/users/'">
+      <a class="btn btn-main-outline-xs" type="button" href="/users">
         <i class="fa-solid fa-house me-2"></i>Beranda
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Dashboard Profil</h3>
     <p class="text-basic mb-0">

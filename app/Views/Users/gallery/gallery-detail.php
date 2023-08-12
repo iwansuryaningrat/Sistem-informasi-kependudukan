@@ -4,9 +4,16 @@
 <!-- header -->
 <header class="container">
     <div class="header-container-back mb-0">
-        <a class="btn btn-main-outline-xs" href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>">
-            <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-        </a>
+        <div class="d-flex justify-content-between">
+            <!-- kembali -->
+            <a class="btn btn-main-outline-xs" href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>">
+                <i class="fa-solid fa-arrow-left me-2"></i>Kembali
+            </a>
+            <!-- download -->
+            <button class="btn btn-secondary-outline-xs" id="downloadButton">
+                <i class="fa-solid fa-download me-2"></i>Unduh
+            </button>
+        </div>
     </div>
     <div class="header-container-mini mt-5 pt-0">
         <p class="mb-3">
@@ -130,6 +137,23 @@
 
     // validate
     $(document).ready(function() {
+        $('#downloadButton').click(function() {
+            Swal.fire({
+                title: 'Konfirmasi Unduh',
+                text: 'Apakah Anda yakin ingin mengunduh semua foto?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, unduh',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Construct the download URL
+                    var downloadUrl = '<?= site_url("/users/downloadGalleryPhotos/{$dataGaleri['galeri_id']}") ?>';
+                    window.location.href = downloadUrl;
+                }
+            });
+        });
+
         $("#formAddPhoto").validate({
             rules: {
                 judul: {

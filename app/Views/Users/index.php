@@ -1,4 +1,8 @@
-<?php $this->extend('users/template/layout'); ?>
+<?php
+
+use App\Helpers\DateHelper;
+
+$this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
 
 <!-- header -->
@@ -191,11 +195,10 @@
             <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
             <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>
             <div class="d-flex align-items-center mb-3">
-              <p class="d-flex align-items-center me-3 mb-0">
-                <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $pengumuman['nama'] ?></span>
-              </p>
-              <p class="d-flex align-items-center mb-0">
-                <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= date('j M Y H:m', strtotime($pengumuman['created_at'])) ?></span>
+              <p class="mb-0">
+                <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $pengumuman['nama'] ?></span>
+                <span class="me-2 text-gray"><i class="fa-solid fa-clock me-1 fill-gray"></i><?= DateHelper::formatIndonesianDate($pengumuman['tanggal']) ?></span>
+                <span class="me-2 text-gray"><i class="fa-solid fa-location-dot me-1 fill-gray"></i><?= $pengumuman['tempat'] ?></span>
               </p>
             </div>
             <a href="<?= ($isLoggedin) ? '/users/detailpengumuman/' . $pengumuman['pengumuman_id'] : '/home/detailpengumuman/' . $pengumuman['pengumuman_id'] ?>" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
