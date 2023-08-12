@@ -4,16 +4,14 @@
 <!-- header -->
 <header class="container">
   <div class="header-container-mini">
-    <h1 class="mb-3">Galeri</h1>
+    <h1 class="mb-3">Galeri Warga</h1>
     <p class="text-basic text-center mb-0 max-w-80">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-      iusto architecto sint ipsam, labore quo dolore quis voluptate id
-      alias, impedit quia! Illum, consequatur quae quo at dolore
-      repellendus ipsa.
+      Jelajahi berbagai momen indah dan inspiratif dalam galeri kami. Di sini, Anda akan menemukan koleksi foto dan gambar yang menggambarkan kehidupan dan kegiatan di komunitas kita. Mari bersama-sama merayakan momen-momen berharga!
     </p>
   </div>
 </header>
 <!-- end of header -->
+
 
 <!-- main -->
 <main>
@@ -95,12 +93,18 @@
         <!-- thumbnail galeri -->
         <div class="mb-3">
           <label for="thumbnail" class="form-label forms-label">Thumbnail</label>
-          <div class="input-group">
-            <input type="file" class="form-control input-control" id="thumbnail" name="thumbnail" required accept="image/*" />
-            <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-              <i class="fa-solid fa-upload me-2"></i>Unggah
-            </button>
+          <div class="mb-3">
+            <figure class="">
+              <img src="https://www.placehold.it/400x150" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview w-100" />
+            </figure>
           </div>
+          <div class="mb-2">
+            <input type="file" class="form-control-image" id="thumbnail" name="thumbnail" required accept="image/*" />
+            <label for="thumbnail" class="btn btn-dark fw-semibold">Unggah Thumbnail</label>
+          </div>
+          <p class="text-sm text-basic">
+            *Thumbnail disarankan memiliki rasio horizontal
+          </p>
         </div>
       </div>
       <div class="modal-footer">
@@ -118,6 +122,18 @@
 
 <!-- script internal -->
 <script>
+  $('#thumbnail').on('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        $('#thumbnailImage').attr('src', event.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
   // validate
   $(document).ready(function() {
     $("#formAddGallery").validate({
@@ -137,21 +153,18 @@
       },
       messages: {
         judul: {
-          required: "Judul tidak boleh kosong",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Judul tidak boleh kosong',
         },
         kategori: {
-          required: "Kategori tidak boleh kosong",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kategori tidak boleh kosong',
         },
         deskripsi: {
-          required: "Deskripsi tidak boleh kosong",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Deskripsi tidak boleh kosong',
         },
         thumbnail: {
-          required: "Thumbnail tidak boleh kosong",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Thumbnail tidak boleh kosong',
         },
       },
-    });
-    $("#formAddGalleryButton").on("click", () => {
-      console.log($("#formAddGallery").valid());
     });
   });
 </script>
