@@ -4,9 +4,9 @@
 <!-- header -->
 <header class="container">
     <div class="header-container-back mb-0">
-        <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+        <a class="btn btn-main-outline-xs" href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>">
             <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-        </button>
+        </a>
     </div>
     <div class="header-container-mini mt-5 pt-0">
         <p class="mb-3">
@@ -110,11 +110,6 @@
 
 <!-- script internal -->
 <script>
-    //   onclick back to previous page
-    function goBack() {
-        window.history.back();
-    }
-
     $('#foto').on('change', function() {
         const files = this.files;
 

@@ -8,9 +8,9 @@ use App\Helpers\DateHelper; ?>
 <!-- header -->
 <header class="container ps-0">
   <div class="header-container-back">
-    <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+    <a class="btn btn-main-outline-xs" href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>">
       <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-    </button>
+    </a>
   </div>
 </header>
 <!-- end of header -->
@@ -91,10 +91,6 @@ use App\Helpers\DateHelper; ?>
 <?php $this->section('script'); ?>
 
 <script>
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
-  }
 </script>
 
 <?= $this->endSection(); ?>
