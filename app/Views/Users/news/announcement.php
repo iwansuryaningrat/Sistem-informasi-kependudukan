@@ -1,19 +1,20 @@
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
+<?php
 
+use App\Helpers\DateHelper;
+?>
 <!-- header -->
 <header class="container">
   <div class="header-container-mini">
-    <h1 class="mb-3">Berita Terkini</h1>
+    <h1 class="mb-3">Pengumuman Terkini</h1>
     <p class="text-basic text-center mb-0 max-w-80">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-      iusto architecto sint ipsam, labore quo dolore quis voluptate id
-      alias, impedit quia! Illum, consequatur quae quo at dolore
-      repellendus ipsa.
+      Di halaman ini, Anda akan menemukan berita terbaru dan pengumuman penting seputar komunitas kita. Kami berkomitmen untuk memberikan informasi yang relevan dan bermanfaat bagi semua warga.
     </p>
   </div>
 </header>
 <!-- end of header -->
+
 
 <!-- main -->
 <main>
@@ -21,17 +22,15 @@
     <div class="news-container">
       <?php foreach ($pengumuman as $data) : ?>
         <a href="/users/detailpengumuman/<?= $data['pengumuman_id'] ?>" class="news-card">
-          <figure class="news-image__wrap">
+          <figure class="news-image__wrap" style="margin-bottom: 14px;">
             <img src="/upload/photos/pengumuman/<?= $data['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
           </figure>
           <p class="news-title-card mb-2"><?= $data['judul_pengumuman'] ?></p>
-          <p class="text-basic news-desc mb-2"><?= $data['deskripsi'] ?></p>
           <div class="d-flex align-items-center">
-            <p class="d-flex align-items-center me-3 mb-0">
-              <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= $data['nama'] ?></span>
-            </p>
-            <p class="d-flex align-items-center mb-0">
-              <i class="fa-solid fa-clock me-1 d-block fill-gray"></i><span class="text-sm d-block text-gray"><?= date('j M Y H:m', strtotime($data['created_at'])) ?></span>
+            <p class="mb-0">
+              <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $data['nama'] ?></span>
+              <span class="me-2 text-gray"><i class="fa-solid fa-clock me-1 fill-gray"></i><?= DateHelper::formatIndonesianDate($data['tanggal']) ?></span>
+              <span class="me-2 text-gray"><i class="fa-solid fa-location-dot me-1 fill-gray"></i><?= $data['tempat'] ?></span>
             </p>
           </div>
         </a>

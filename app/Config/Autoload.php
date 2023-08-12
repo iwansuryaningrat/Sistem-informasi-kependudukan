@@ -12,7 +12,7 @@ use CodeIgniter\Config\AutoloadConfig;
  * This file defines the namespaces and class maps so the Autoloader
  * can find the files as needed.
  *
- * NOTE: If you use an identical key in $psr4 or $classmap, then
+ * NOTE: If you use an identic;al key in $psr4 or $classmap, then
  * the values in this file will overwrite the framework's values.
  */
 class Autoload extends AutoloadConfig
@@ -64,7 +64,9 @@ class Autoload extends AutoloadConfig
      *
      * @var array<string, string>
      */
-    public $classmap = [];
+    public $classmap = [
+        'App\Helpers\DateHelper' => APPPATH . 'Helpers/DateHelper.php',
+    ];
 
     /**
      * -------------------------------------------------------------------

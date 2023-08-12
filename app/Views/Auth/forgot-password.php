@@ -40,13 +40,10 @@
       },
       messages: {
         email: {
-          required: "Email tidak boleh kosong.",
-          email: "Email tidak valid.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong.',
+          email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid.',
         },
       },
-    });
-    $("#forgotPasswordFormButton").on("click", () => {
-      console.log($("#forgotPasswordForm").valid());
     });
   });
 </script>

@@ -64,10 +64,12 @@ class Home extends BaseController
 
     public function pengumuman()
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman();
         $data = [
             'title' => 'Portal Pengumuman | Warga Site',
             'navbar' => 'pengumuman',
             'isLoggedin' => false,
+            'pengumuman' => $pengumuman,
         ];
 
         return view('/users/news/announcement', $data);
