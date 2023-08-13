@@ -7,9 +7,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+      <a class="btn btn-main-outline-xs" href="/users/pelaporan">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Riwayat Pelaporan</h3>
   </div>
@@ -110,28 +110,20 @@
       },
       messages: {
         nama_terlapor: {
-          required: "Nama terlapor tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama terlapor tidak boleh kosong.',
         },
         kategori: {
-          required: "Kategori tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kategori tidak boleh kosong.',
         },
         laporan: {
-          required: "Laporan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Laporan tidak boleh kosong.',
         },
         deskripsi_laporan: {
-          required: "Deskripsi laporan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Deskripsi laporan tidak boleh kosong.',
         },
       },
     });
-    $("#reportFormEditButton").on("click", () => {
-      console.log($("#reportFormEdit").valid());
-    });
   });
-
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
-  }
 </script>
 
 <script>
