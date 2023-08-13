@@ -5,9 +5,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+      <a class="btn btn-main-outline-xs" href="/users/keluarga">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Anggota Keluarga</h3>
   </div>
@@ -39,16 +39,20 @@
           </div>
           <!-- jenis kelamin -->
           <div class="row mb-3">
-            <label class="col-md-2 form-label forms-label mt-md-2">Jenis Kelamin <span class="text-important">*</span></label>
+            <label for="jenis_kelamin" class="col-md-2 form-label forms-label mt-md-2">Jenis Kelamin <span class="text-important">*</span></label>
             <div class="col-sm-10" id="radioFormGender">
               <div class="d-flex align-items-center">
                 <div class="form-check me-4">
-                  <input class="form-check-input" type="radio" name="pria" id="pria" checked />
-                  <label class="form-check-label" for="pria">Laki-laki</label>
+                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_pria" <?= $dataKeluarga['jenis_kelamin'] === 'Laki-laki' ? 'checked ' : '' ?> value="Laki-laki" />
+                  <label class="form-check-label" for="jenis_kelamin_pria">
+                    Laki-laki
+                  </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="wanita" id="wanita" />
-                  <label class="form-check-label" for="wanita">Perempuan</label>
+                  <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_wanita" <?= $dataKeluarga['jenis_kelamin'] === 'Perempuan' ? 'checked ' : '' ?> value="Perempuan" />
+                  <label class="form-check-label" for="jenis_kelamin_wanita">
+                    Perempuan
+                  </label>
                 </div>
               </div>
             </div>
@@ -161,12 +165,18 @@
           <div class="row mb-3">
             <label for="foto" class="col-md-2 form-label forms-label mt-md-2">Foto</label>
             <div class="col-md-10">
-              <div class="input-group">
-                <input type="file" class="form-control input-control" id="foto" name="foto" accept="image/*" value="<?= $dataKeluarga['foto'] ?>" />
-                <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-                  <i class="fa-solid fa-upload me-2"></i>Unggah
-                </button>
+              <div class="mb-3">
+                <figure class="">
+                  <img src="/upload/photos/profile/<?= $dataKeluarga['foto'] ?>" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview pas-foto-form" />
+                </figure>
               </div>
+              <div class="mb-2">
+                <input type="file" class="form-control-image" id="foto" name="foto" required accept="image/*" />
+                <label for="foto" class="btn btn-dark fw-semibold">Unggah Foto</label>
+              </div>
+              <p class="text-sm text-basic">
+                *Foto disarankan berukuran 3x4
+              </p>
             </div>
           </div>
         </div>
@@ -189,6 +199,18 @@
 
 <!-- internal script -->
 <script>
+  $('#foto').on('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        $('#thumbnailImage').attr('src', event.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
   // add method validation only letters with symbol , and .
   $.validator.addMethod("alphabetOnly", function(value, element) {
     return this.optional(element) || /^[a-zA-Z\s\.\,]+$/i.test(value);
@@ -241,52 +263,70 @@
         foto: {
           extension: "jpg|jpeg|png",
         },
+        status: {
+          required: true,
+        },
+        status_kependudukan: {
+          required: true,
+        },
+        alamat: {
+          required: true,
+        },
       },
       messages: {
         nik: {
-          required: "NIK tidak boleh kosong.",
-          number: "NIK harus berupa angka.",
-          minlength: "NIK harus berjumlah 16 digit.",
-          maxlength: "NIK harus berjumlah 16 digit.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK tidak boleh kosong.',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK harus berupa angka.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK harus berjumlah 16 digit.',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK harus berjumlah 16 digit.',
         },
         nama: {
-          required: "Nama tidak boleh kosong.",
-          alphabetOnly: "Nama harus berupa huruf.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong.',
+          alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama harus berupa huruf.',
         },
         jenis_kelamin: {
-          required: "Jenis kelamin tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jenis kelamin tidak boleh kosong.',
         },
         tempat_lahir: {
-          required: "Tempat lahir tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir tidak boleh kosong.',
         },
         tanggal_lahir: {
-          required: "Tanggal lahir tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal lahir tidak boleh kosong.',
         },
         status_perkawinan: {
-          required: "Status perkawinan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status perkawinan tidak boleh kosong.',
         },
         agama: {
-          required: "Agama tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Agama tidak boleh kosong.',
         },
         pendidikan: {
-          required: "Pendidikan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pendidikan tidak boleh kosong.',
         },
         pekerjaan: {
-          required: "Pekerjaan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pekerjaan tidak boleh kosong.',
         },
         no_hp: {
-          required: "No. HP tidak boleh kosong.",
-          number: "No. HP harus berupa angka.",
-          minlength: "No. HP harus berjumlah 10-13 digit.",
-          maxlength: "No. HP harus berjumlah 10-13 digit.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP tidak boleh kosong.',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP harus berupa angka.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP harus berjumlah 10-13 digit.',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP harus berjumlah 10-13 digit.',
         },
         email: {
-          required: "Email tidak boleh kosong.",
-          email: "Email tidak valid.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong.',
+          email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid.',
         },
         foto: {
-          required: "Foto tidak boleh kosong.",
-          extension: "Foto harus berupa file gambar.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Foto tidak boleh kosong.',
+          extension: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Foto harus berupa file gambar.',
+        },
+        status: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status hubungan keluarga tidak boleh kosong.',
+        },
+        status_kependudukan: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status kependudukan tidak boleh kosong.',
+        },
+        alamat: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat tidak boleh kosong.',
         },
       },
       errorPlacement: function(error, element) {
@@ -297,15 +337,7 @@
         }
       },
     });
-    $("#familyFormEditButton").on("click", () => {
-      console.log($("#familyFormEdit").valid());
-    });
   });
-
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
-  }
 </script>
 
 <script>
