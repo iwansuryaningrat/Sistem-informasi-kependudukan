@@ -879,3 +879,11 @@
   text-align: center !important;
   margin-bottom: 20px !important;
 }
+
+/* FAMILY */
+.pas-foto-form {
+  height: 200px;
+  width: 150px;
+  object-fit: cover;
+  object-position: center;
+}
