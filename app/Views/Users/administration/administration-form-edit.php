@@ -99,7 +99,7 @@
                 </div>
               </div>
               <div class="mb-2">
-                <input type="file" class="form-control-image" id="berkas" name="berkas" required accept="application/pdf" required onchange="previewFile(event)" />
+                <input type="file" class="form-control-image" id="berkas" name="berkas" required required onchange="previewFile(event)" />
                 <label for="berkas" class="btn btn-dark fw-semibold">Unggah Berkas</label>
               </div>
               <p class="text-sm text-basic">
@@ -133,15 +133,38 @@
     const filePreview = document.getElementById("filePreview");
 
     if (file) {
+      let fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+
+      switch (file.type) {
+        case 'application/pdf':
+          fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+          break;
+        case 'application/msword':
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+          fileTypeImage = '/homepage/assets/img/decoration/word.png';
+          break;
+        case 'application/vnd.ms-excel':
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          fileTypeImage = '/homepage/assets/img/decoration/excel.png';
+          break;
+        case 'image/jpeg':
+          fileTypeImage = '/homepage/assets/img/decoration/jpg.png';
+          break;
+        case 'image/png':
+          fileTypeImage = '/homepage/assets/img/decoration/png.png';
+          break;
+      }
+
       filePreview.innerHTML = `
-                <div class="text-sm-center" style="margin: 12px 0 10px;">
-                    <figure class="file-pdf-info">
-                        <img src="/homepage/assets/img/decoration/pdf.png" alt="pdf-file-new">
-                    </figure>
-                    <p class="mb-0 line-clamp-max-w-320 text-sm">${file.name}</p>
-                </div>`;
+      <div class="text-sm-center" style="margin: 12px 0 10px;">
+        <figure class="file-pdf-info">
+          <img src="${fileTypeImage}" alt="file-type-image">
+        </figure>
+        <p class="mb-0 line-clamp-max-w-320 text-sm">${file.name}</p>
+      </div>`;
     }
   }
+
 
   function confirmSubmit() {
     Swal.fire({
