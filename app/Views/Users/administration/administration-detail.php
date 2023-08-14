@@ -5,9 +5,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+      <a class="btn btn-main-outline-xs" href="/users/administrasi">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Riwayat Pengajuan Administrasi</h3>
   </div>
@@ -17,11 +17,26 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-0">
-    <form class="card-form-container card" id="adminFormDetail" action="#" enctype="multipart/form-data" method="POST">
+    <div class="card-form-container card" id="adminFormDetail">
       <div class="card-header card-form-header">
-        <p class="mb-0 fw-semibold">
-          Detail Pengajuan Permohonan Administrasi
-        </p>
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0 fw-semibold">
+            Detail Pengajuan Permohonan Administrasi
+          </p>
+          <div class="text-base">
+            <div class="status-badge <?php if ($dataAdministrasi['administrasi_status'] == 'Dalam Proses') {
+                                        echo 'badge-onproccess';
+                                      } else if ($dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') {
+                                        echo 'badge-accepted';
+                                      } else if ($dataAdministrasi['administrasi_status'] == 'Ditolak') {
+                                        echo 'badge-rejected';
+                                      } else if ($dataAdministrasi['administrasi_status'] == 'Selesai') {
+                                        echo 'badge-done';
+                                      } else echo '' ?>">
+              <i class="fa-solid fa-circle"></i><?= $dataAdministrasi['administrasi_status'] ?>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-body card-form-body">
         <div>
@@ -67,13 +82,6 @@
               <textarea id="catatan" name="catatan" class="form-control input-control" placeholder="Masukkan Catatan" disabled rows="3"><?= ($dataAdministrasi['catatan']) ? $dataAdministrasi['catatan'] : '-' ?></textarea>
             </div>
           </div>
-          <!-- status -->
-          <div class="row mb-3">
-            <label for="status" class="col-md-2 form-label forms-label mt-md-2"><?= $dataAdministrasi['administrasi_status'] ?></label>
-            <div class="col-md-10">
-              <input type="text" class="form-control input-control" id="status" name="status" value="Diterima" disabled />
-            </div>
-          </div>
           <!-- tanggal pengajuan -->
           <div class="row mb-3">
             <label for="tanggal_pengajuan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pengajuan
@@ -94,31 +102,36 @@
           <div class="row mb-3">
             <label for="berkas" class="col-md-2 form-label forms-label mt-md-2">Berkas</label>
             <div class="col-md-10">
-              <div class="input-group">
-                <input type="text" class="form-control input-control" id="berkas" name="berkas" disabled value="<?= $dataAdministrasi['berkas'] ?>" />
-                <?php if ($dataAdministrasi['administrasi_status'] == 'Selesai') : ?>
-                  <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>">
-                    <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-                      <i class="fa-solid fa-download me-2"></i>Download
-                    </button>
-                  </a>
-                <?php endif; ?>
+              <div class="mb-2">
+                <div class="d-flex flex-column flex-sm-row">
+                  <div id="filePreview">
+                    <div class="text-sm-center" style="margin: 12px 0 10px;">
+                      <figure class="file-pdf-info">
+                        <img src="/homepage/assets/img/decoration/pdf.png" alt="pdf-file-new">
+                      </figure>
+                      <p class="mb-0 line-clamp-max-w-320 text-sm"><?= $dataAdministrasi['berkas'] ?></p>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <?php if ($dataAdministrasi['administrasi_status'] == 'Selesai') : ?>
+                <div class="mb-2">
+                  <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-dark fw-semibold">Unduh Berkas</a>
+                </div>
+              <?php endif; ?>
             </div>
-          </div>
-          <!-- Hapus -->
-          <div class="card-footer card-form-footer">
-            <a href="/administrasicontroller/hapus/<?= $dataAdministrasi['administrasi_id'] ?>">
-              <div class="w-100 d-flex justify-content-end">
-                <button type="submit" form="reportFormEdit" class="btn btn-logout-sm btn-submit px-4" id="reportFormEditButton">
-                  Hapus Administrasi
-                </button>
-              </div>
-            </a>
           </div>
         </div>
       </div>
-    </form>
+      <!-- Hapus -->
+      <div class="card-footer card-form-footer">
+        <div class="w-100 d-flex justify-content-end">
+          <button role="presentation" class="btn btn-logout-sm btn-submit px-4" onclick="deleteAdministration()">
+            Hapus Administrasi
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 <!-- end of main -->
@@ -129,14 +142,34 @@
 
 <!-- script internal -->
 <script>
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
+  const deleteAdministration = () => {
+    Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: "Anda akan menghapus permohonan Anda!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#6a6a6a',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(function() {
+          window.location.href = "/administrasicontroller/hapus/<?= $dataAdministrasi['administrasi_id'] ?>";
+        }, 3000);
+        Swal.fire(
+          'Berhasil!',
+          'Permohonan administrasi Anda telah dihapus.',
+          'success'
+        ).then(function() {
+          window.location.href = "/administrasicontroller/hapus/<?= $dataAdministrasi['administrasi_id'] ?>";
+        });
+      }
+    });
   }
 </script>
 
 <script>
-  document.foo.submit();
 </script>
 
 <?= $this->endSection(); ?>

@@ -6,9 +6,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+      <a class="btn btn-main-outline-xs" href="/users/pelaporan">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Riwayat Pelaporan</h3>
   </div>
@@ -18,7 +18,7 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-0">
-    <form class="card-form-container card" id="reportFormDetail" action="#" enctype="multipart/form-data" method="POST">
+    <div class="card-form-container card" id="reportFormDetail">
       <!-- header -->
       <div class="card-header card-form-header">
         <p class="mb-0 fw-semibold">Detail Pelaporan</p>
@@ -91,19 +91,17 @@
               <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" rows="4" disabled><?= $dataLaporan['deskripsi_pelaporan'] ?></textarea>
             </div>
           </div>
-          <!-- Hapus -->
-          <div class="card-footer card-form-footer">
-            <a href="/pelaporancontroller/hapuslaporan/<?= $dataLaporan['pelaporan_id'] ?>">
-              <div class="w-100 d-flex justify-content-end">
-                <button type="submit" form="reportFormEdit" class="btn btn-logout-sm btn-submit px-4" id="reportFormEditButton">
-                  Hapus Laporan
-                </button>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
-    </form>
+      <!-- Hapus -->
+      <div class="card-footer card-form-footer">
+        <div class="w-100 d-flex justify-content-end">
+          <button role="presentation" class="btn btn-logout-sm btn-submit px-4" onclick="deleteReport()">
+            Hapus Laporan
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 <!-- end of main -->
@@ -114,9 +112,30 @@
 
 <!-- script internal -->
 <script>
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
+  const deleteReport = () => {
+    Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: "Anda akan menghapus laporan Anda!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#6a6a6a',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(function() {
+          window.location.href = "/pelaporancontroller/hapuslaporan/<?= $dataLaporan['pelaporan_id'] ?>";
+        }, 3000);
+        Swal.fire(
+          'Berhasil!',
+          'Laporan Anda telah dihapus.',
+          'success'
+        ).then(function() {
+          window.location.href = "/pelaporancontroller/hapuslaporan/<?= $dataLaporan['pelaporan_id'] ?>";
+        });
+      }
+    });
   }
 </script>
 

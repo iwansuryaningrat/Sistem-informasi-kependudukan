@@ -5,9 +5,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+      <a class="btn btn-main-outline-xs" href="/users/keluarga">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Anggota Keluarga</h3>
   </div>
@@ -40,17 +40,17 @@
 
               <!-- jenis kelamin -->
               <div class="mb-3">
-                <label class="form-label forms-label">Jenis Kelamin
+                <label for="jenis_kelamin" class="form-label forms-label">Jenis Kelamin
                   <span class="text-important">*</span></label>
                 <div class="col-sm-10" id="radioFormGender">
                   <div class="d-flex align-items-center">
                     <div class="form-check me-4">
-                      <input class="form-check-input" type="radio" name="pria" id="pria" />
-                      <label class="form-check-label" for="pria">Laki-laki</label>
+                      <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_pria" value="Laki-laki" />
+                      <label class="form-check-label" for="jenis_kelamin_pria">Laki-laki</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="wanita" id="wanita" />
-                      <label class="form-check-label" for="wanita">Perempuan</label>
+                      <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_wanita" value="Perempuan" />
+                      <label class="form-check-label" for="jenis_kelamin_wanita">Perempuan</label>
                     </div>
                   </div>
                 </div>
@@ -160,14 +160,19 @@
 
               <!-- foto -->
               <div class="mb-3">
-                <label for="foto" class="form-label forms-label">Foto <span class="text-important">*</span></label>
-
-                <div class="input-group">
-                  <input type="file" class="form-control input-control" id="foto" name="foto" required accept="image/*" />
-                  <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-                    <i class="fa-solid fa-upload me-2"></i>Unggah
-                  </button>
+                <label for="foto" class="form-label forms-label">Pas Foto</label>
+                <div class="mb-3">
+                  <figure class="">
+                    <img src="https://www.placehold.it/300x400" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview pas-foto-form" />
+                  </figure>
                 </div>
+                <div class="mb-2">
+                  <input type="file" class="form-control-image" id="foto" name="foto" required accept="image/*" />
+                  <label for="foto" class="btn btn-dark fw-semibold">Unggah Foto</label>
+                </div>
+                <p class="text-sm text-basic">
+                  *Pas Foto disarankan memiliki rasio 3x4 atau 4x6
+                </p>
               </div>
             </div>
           </div>
@@ -184,36 +189,77 @@
         <h5 class="mb-2">FAQ</h5>
         <div class="accordion">
           <div class="accordion-item accordion-box">
-            <h2 class="accordion-header" id="panelsStayOpen-heading1">
-              <button class="accordion-button accordion-btn shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
+            <h2 class="accordion-header" id="faq-family1">
+              <button class="accordion-button accordion-btn shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq-family-collapse1" aria-expanded="true" aria-controls="faq-family-collapse1">
                 <span class="text-secondaries fw-semibold me-1">Q:</span>
-                <span class="fw-medium">Apa itu Lorem Ipsum?</span>
+                <span class="fw-medium">Apa itu Form Tambah Keluarga?</span>
               </button>
             </h2>
-            <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
+            <div id="faq-family-collapse1" class="accordion-collapse collapse show" aria-labelledby="faq-family1">
               <div class="accordion-body accordion-text">
                 <span class="text-secondaries fw-semibold me-1">A:</span>
                 <span class="text-gray">
-                  It is shown by default, until the collapse plugin adds
-                  the appropriate classes that we use to style each
-                  element.</span>
+                  Form Tambah Keluarga digunakan untuk memasukkan data anggota keluarga baru ke dalam sistem.</span>
               </div>
             </div>
           </div>
           <div class="accordion-item accordion-box">
-            <h2 class="accordion-header" id="panelsStayOpen-heading2">
-              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="false" aria-controls="panelsStayOpen-collapse2">
+            <h2 class="accordion-header" id="faq-family2">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-family-collapse2" aria-expanded="false" aria-controls="faq-family-collapse2">
                 <span class="text-secondaries fw-semibold me-1">Q:</span>
-                <span class="fw-medium">Mengapa kita menggunakan Lorem Ipsum?</span>
+                <span class="fw-medium">Bagaimana cara mengisi data di Form Tambah Keluarga?</span>
               </button>
             </h2>
-            <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading2">
+            <div id="faq-family-collapse2" class="accordion-collapse collapse" aria-labelledby="faq-family2">
               <div class="accordion-body accordion-text">
                 <span class="text-secondaries fw-semibold me-1">A:</span>
                 <span class="text-gray">
-                  It is shown by default, until the collapse plugin adds
-                  the appropriate classes that we use to style each
-                  element.</span>
+                  Anda perlu mengisi semua informasi yang diminta dengan benar sesuai dengan data anggota keluarga yang akan ditambahkan.</span>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="faq-family3">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-family-collapse3" aria-expanded="false" aria-controls="faq-family-collapse3">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Apakah saya bisa mengubah informasi tersebut nanti?</span>
+              </button>
+            </h2>
+            <div id="faq-family-collapse3" class="accordion-collapse collapse" aria-labelledby="faq-family3">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  Ya, Anda dapat mengedit dan memperbarui informasi anggota keluarga kapan saja dengan masuk ke akun Anda dan mengakses bagian profil atau bagian menu keluarga.</span>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="faq-family4">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-family-collapse4" aria-expanded="false" aria-controls="faq-family-collapse4">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Apakah ada batasan jumlah anggota keluarga yang dapat saya tambahkan?</span>
+              </button>
+            </h2>
+            <div id="faq-family-collapse4" class="accordion-collapse collapse" aria-labelledby="faq-family4">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  Tidak ada batasan tertentu. Anda dapat menambahkan semua anggota keluarga inti ke profil Anda menggunakan formulir ini.</span>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="faq-family5">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-family-collapse5" aria-expanded="false" aria-controls="faq-family-collapse5">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Apakah saya bisa menambahkan anggota keluarga yang lebih luas melalui formulir ini?</span>
+              </button>
+            </h2>
+            <div id="faq-family-collapse5" class="accordion-collapse collapse" aria-labelledby="faq-family5">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  Formulir ini terutama digunakan untuk menambahkan anggota keluarga inti (pasangan, anak, orangtua, saudara kandung). Untuk menambahkan anggota keluarga yang lebih luas, silakan hubungi tim dukungan kami.</span>
               </div>
             </div>
           </div>
@@ -230,6 +276,18 @@
 
 <!-- internal script -->
 <script>
+  $('#foto').on('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        $('#thumbnailImage').attr('src', event.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
   // add method validation only letters
   $.validator.addMethod("alphabetOnly", function(value, element) {
     return this.optional(element) || value == value.match(/^[A-Za-z\s']+$/);
@@ -238,17 +296,23 @@
   $(document).ready(function() {
     $("#familyFormAdd").validate({
       rules: {
+        nama: {
+          required: true,
+          alphabetOnly: true,
+        },
         nik: {
           required: true,
           number: true,
           minlength: 16,
           maxlength: 16,
         },
-        nama: {
-          required: true,
-          alphabetOnly: true,
-        },
         jenis_kelamin: {
+          required: true,
+        },
+        status: {
+          required: true,
+        },
+        agama: {
           required: true,
         },
         tampat_lahir: {
@@ -257,10 +321,10 @@
         tanggal_lahir: {
           required: true,
         },
-        status_perkawinan: {
+        status_kependudukan: {
           required: true,
         },
-        agama: {
+        status_perkawinan: {
           required: true,
         },
         pendidikan: {
@@ -285,50 +349,56 @@
         },
       },
       messages: {
-        nik: {
-          required: "NIK tidak boleh kosong.",
-          number: "NIK harus berupa angka.",
-          minlength: "NIK harus berjumlah 16 digit.",
-          maxlength: "NIK harus berjumlah 16 digit.",
-        },
         nama: {
-          required: "Nama tidak boleh kosong.",
-          alphabetOnly: "Nama harus berupa huruf.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong.',
+          alphabetOnly: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama harus berupa huruf.',
+        },
+        nik: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK tidak boleh kosong.',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK harus berupa angka.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK harus berjumlah 16 digit.',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK harus berjumlah 16 digit.',
         },
         jenis_kelamin: {
-          required: "Jenis kelamin tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jenis kelamin tidak boleh kosong.',
         },
-        tempat_lahir: {
-          required: "Tempat lahir tidak boleh kosong.",
-        },
-        tanggal_lahir: {
-          required: "Tanggal lahir tidak boleh kosong.",
-        },
-        status_perkawinan: {
-          required: "Status perkawinan tidak boleh kosong.",
+        status: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status tidak boleh kosong.',
         },
         agama: {
-          required: "Agama tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Agama tidak boleh kosong.',
+        },
+        tempat_lahir: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir tidak boleh kosong.',
+        },
+        tanggal_lahir: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal lahir tidak boleh kosong.',
+        },
+        status_kependudukan: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status kependudukan tidak boleh kosong.',
+        },
+        status_perkawinan: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status perkawinan tidak boleh kosong.',
         },
         pendidikan: {
-          required: "Pendidikan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pendidikan tidak boleh kosong.',
         },
         pekerjaan: {
-          required: "Pekerjaan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pekerjaan tidak boleh kosong.',
         },
         no_hp: {
-          required: "No. HP tidak boleh kosong.",
-          number: "No. HP harus berupa angka.",
-          minlength: "No. HP harus berjumlah 10-13 digit.",
-          maxlength: "No. HP harus berjumlah 10-13 digit.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP tidak boleh kosong.',
+          number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP harus berupa angka.',
+          minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP harus berjumlah 10-13 digit.',
+          maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>No. HP harus berjumlah 10-13 digit.',
         },
         email: {
-          required: "Email tidak boleh kosong.",
-          email: "Email tidak valid.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong.',
+          email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid.',
         },
         foto: {
-          required: "Foto tidak boleh kosong.",
-          extension: "Foto harus berupa file gambar.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Foto tidak boleh kosong.',
+          extension: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Foto harus berupa file gambar.',
         },
       },
       errorPlacement: function(error, element) {
@@ -339,15 +409,7 @@
         }
       },
     });
-    $("#familyFormAddButton").on("click", () => {
-      console.log($("#familyFormAdd").valid());
-    });
   });
-
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
-  }
 </script>
 
 <script>

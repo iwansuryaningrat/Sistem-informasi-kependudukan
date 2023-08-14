@@ -21,3 +21,4 @@ application/logs/*
 
 .env
 .env.example
+public/upload/

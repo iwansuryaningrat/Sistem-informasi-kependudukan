@@ -6,9 +6,9 @@
 <header class="container px-0">
   <div class="header-container-dashboard-form">
     <div class="mb-4">
-      <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+      <a class="btn btn-main-outline-xs" href="/users/pelaporan">
         <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-      </button>
+      </a>
     </div>
     <h3 class="mb-2">Riwayat Pelaporan</h3>
   </div>
@@ -80,36 +80,78 @@
         <h5 class="mb-2">FAQ</h5>
         <div class="accordion">
           <div class="accordion-item accordion-box">
-            <h2 class="accordion-header" id="panelsStayOpen-heading1">
-              <button class="accordion-button accordion-btn shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
+            <h2 class="accordion-header" id="faq-report1">
+              <button class="accordion-button accordion-btn shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq-report-collapse1" aria-expanded="true" aria-controls="faq-report-collapse1">
                 <span class="text-secondaries fw-semibold me-1">Q:</span>
-                <span class="fw-medium">Apa itu Lorem Ipsum?</span>
+                <span class="fw-medium">Apa tujuan dari <span class="fw-semibold">Form Pelaporan</span>?</span>
               </button>
             </h2>
-            <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
+            <div id="faq-report-collapse1" class="accordion-collapse collapse show" aria-labelledby="faq-report1">
               <div class="accordion-body accordion-text">
                 <span class="text-secondaries fw-semibold me-1">A:</span>
                 <span class="text-gray">
-                  It is shown by default, until the collapse plugin adds
-                  the appropriate classes that we use to style each
-                  element.</span>
+                  <span class="fw-semibold">Form Pelaporan</span> digunakan untuk mengirimkan laporan terkait kejadian atau masalah tertentu kepada pihak yang berwenang.
+                </span>
               </div>
             </div>
           </div>
           <div class="accordion-item accordion-box">
-            <h2 class="accordion-header" id="panelsStayOpen-heading2">
-              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="false" aria-controls="panelsStayOpen-collapse2">
+            <h2 class="accordion-header" id="faq-report2">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-report-collapse2" aria-expanded="false" aria-controls="faq-report-collapse2">
                 <span class="text-secondaries fw-semibold me-1">Q:</span>
-                <span class="fw-medium">Mengapa kita menggunakan Lorem Ipsum?</span>
+                <span class="fw-medium">Siapa yang dapat menggunakan <span class="fw-semibold">Form Pelaporan</span>?</span>
               </button>
             </h2>
-            <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading2">
+            <div id="faq-report-collapse2" class="accordion-collapse collapse" aria-labelledby="faq-report2">
               <div class="accordion-body accordion-text">
                 <span class="text-secondaries fw-semibold me-1">A:</span>
                 <span class="text-gray">
-                  It is shown by default, until the collapse plugin adds
-                  the appropriate classes that we use to style each
-                  element.</span>
+                  Semua anggota komunitas dapat menggunakan formulir ini untuk mengajukan laporan terkait kejadian atau masalah yang membutuhkan perhatian.</span>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="faq-report3">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-report-collapse3" aria-expanded="false" aria-controls="faq-report-collapse3">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Apakah saya harus melampirkan bukti terkait laporan?</span>
+              </button>
+            </h2>
+            <div id="faq-report-collapse3" class="accordion-collapse collapse" aria-labelledby="faq-report3">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  Saat mengirimkan laporan, Anda dapat melampirkan bukti berupa gambar atau file yang mendukung laporan Anda.</span>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="faq-report4">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-report-collapse4" aria-expanded="false" aria-controls="faq-report-collapse4">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Apakah laporan saya akan tetap rahasia?</span>
+              </button>
+            </h2>
+            <div id="faq-report-collapse4" class="accordion-collapse collapse" aria-labelledby="faq-report4">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  Ya, semua laporan yang Anda kirimkan akan diperlakukan secara rahasia dan hanya diakses oleh pihak yang berwenang.</span>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item accordion-box">
+            <h2 class="accordion-header" id="faq-report5">
+              <button class="accordion-button accordion-btn shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-report-collapse5" aria-expanded="false" aria-controls="faq-report-collapse5">
+                <span class="text-secondaries fw-semibold me-1">Q:</span>
+                <span class="fw-medium">Bagaimana cara mengetahui perkembangan dari laporan yang saya kirimkan?</span>
+              </button>
+            </h2>
+            <div id="faq-report-collapse5" class="accordion-collapse collapse" aria-labelledby="faq-report5">
+              <div class="accordion-body accordion-text">
+                <span class="text-secondaries fw-semibold me-1">A:</span>
+                <span class="text-gray">
+                  Anda akan menerima pembaruan melalui email atau platform lainnya tentang perkembangan laporan Anda.</span>
               </div>
             </div>
           </div>
@@ -134,7 +176,7 @@
   $(document).ready(function() {
     $("#reportFormAdd").validate({
       rules: {
-        nama_terlapor: {
+        nik_terlapor: {
           required: true,
         },
         kategori: {
@@ -148,29 +190,21 @@
         },
       },
       messages: {
-        nama_terlapor: {
-          required: "Nama terlapor tidak boleh kosong.",
+        nik_terlapor: {
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama terlapor tidak boleh kosong.',
         },
         kategori: {
-          required: "Kategori tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kategori tidak boleh kosong.',
         },
         laporan: {
-          required: "Laporan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Laporan tidak boleh kosong.',
         },
         deskripsi_laporan: {
-          required: "Deskripsi laporan tidak boleh kosong.",
+          required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Deskripsi laporan tidak boleh kosong.',
         },
       },
     });
-    $("#reportFormAddButton").on("click", () => {
-      console.log($("#reportFormAdd").valid());
-    });
   });
-
-  //   onclick back to previous page
-  function goBack() {
-    window.history.back();
-  }
 </script>
 
 <script>

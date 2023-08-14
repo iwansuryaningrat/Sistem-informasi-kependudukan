@@ -5,9 +5,9 @@
 <header class="container px-0">
     <div class="header-container-dashboard-form">
         <div class="mb-4">
-            <button class="btn btn-main-outline-xs" type="button" onclick="goBack()">
+            <a class="btn btn-main-outline-xs" href="/users/keluarga">
                 <i class="fa-solid fa-arrow-left me-2"></i>Kembali
-            </button>
+            </a>
         </div>
         <h3 class="mb-2">Data Keluarga <?= $dataKeluarga['nama_kepala_keluarga'] ?></h3>
     </div>
@@ -78,12 +78,18 @@
                     <div class="row mb-3">
                         <label for="foto_rumah" class="col-md-2 form-label forms-label mt-md-2">Foto Rumah</label>
                         <div class="col-md-10">
-                            <div class="input-group">
-                                <input type="file" class="form-control input-control" id="foto_rumah" name="foto_rumah" accept="image/*" value="<?= $dataKeluarga['foto_rumah'] ?>" />
-                                <button class="btn btn-main-outline-sm" type="button" id="button-foto-profil">
-                                    <i class="fa-solid fa-upload me-2"></i>Unggah
-                                </button>
+                            <div class="mb-3">
+                                <figure class="">
+                                    <img src="/upload/photos/profile/<?= $dataKeluarga['foto_rumah'] ?>" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview foto-rumah-form" />
+                                </figure>
                             </div>
+                            <div class="mb-2">
+                                <input type="file" class="form-control-image" id="foto_rumah" name="foto_rumah" required accept="image/*" />
+                                <label for="foto_rumah" class="btn btn-dark fw-semibold">Unggah Foto</label>
+                            </div>
+                            <p class="text-sm text-basic">
+                                *Foto rumah disarankan memiliki rasio horizontal
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -106,6 +112,18 @@
 
 <!-- internal script -->
 <script>
+    $('#foto_rumah').on('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                $('#thumbnailImage').attr('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
     // add method validation only letters with symbol , and .
     $.validator.addMethod("alphabetOnly", function(value, element) {
         return this.optional(element) || /^[a-zA-Z\s\.\,]+$/i.test(value);
@@ -168,15 +186,7 @@
                 },
             },
         });
-        $("#familyFormEditButton").on("click", () => {
-            console.log($("#familyFormEdit").valid());
-        });
     });
-
-    //   onclick back to previous page
-    function goBack() {
-        window.history.back();
-    }
 </script>
 
 <script>

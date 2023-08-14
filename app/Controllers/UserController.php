@@ -94,7 +94,7 @@ class UserController extends BaseController
             'no_kk' => $no_kk,
             'nama' => $this->request->getVar('nama'),
             'status' => $this->request->getVar('status'),
-            'jenis_kelamin' => ($this->request->getVar('pria') == 'on') ? 'Laki-laki' : 'Perempuan',
+            'jenis_kelamin' => ($this->request->getVar('jenis_kelamin') == 'Laki-laki') ? 'Laki-laki' : 'Perempuan',
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tgl_lahir' => $this->request->getVar('tgl_lahir'),
             'usia' => $usia,
