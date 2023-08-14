@@ -893,3 +893,19 @@
   object-fit: cover;
   object-position: center;
 }
+
+/* ADMINISTRASI */
+.file-pdf-info {
+  margin-bottom: 12px;
+}
+.file-pdf-info img {
+  height: 64px;
+}
+.line-clamp-max-w-320 {
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
