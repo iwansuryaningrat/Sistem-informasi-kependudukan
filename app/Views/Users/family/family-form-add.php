@@ -283,6 +283,7 @@
 
       reader.onload = function(event) {
         $('#thumbnailImage').attr('src', event.target.result);
+        $('#thumbnailImage').attr('alt', file.name);
       };
 
       reader.readAsDataURL(file);

@@ -352,6 +352,7 @@
 
       reader.onload = function(event) {
         $('#profileImage').attr('src', event.target.result);
+        $('#profileImage').attr('alt', file.name);
       };
 
       reader.readAsDataURL(file);
