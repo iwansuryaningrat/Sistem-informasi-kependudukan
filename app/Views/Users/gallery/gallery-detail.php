@@ -28,11 +28,10 @@
 <!-- main -->
 <main>
     <section class="container container-space">
-        <!-- only large view -->
         <div class="gallery-view-container-lg">
             <?php foreach ($dataFoto as $foto) : ?>
                 <figure data-fancybox="gallery-large" data-src="/upload/photos/galeri/<?= $foto['foto'] ?>" class="gallery-view-item__warp">
-                    <img src="/upload/photos/galeri/<?= $foto['foto'] ?>" alt="gallery-view-1" class="gallery-view-item" />
+                    <img src="/upload/photos/galeri/<?= $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
                     <figcaption class="d-none">
                         <p class="mb-2 text-sm text-center"><?= $foto['caption'] ?></p>
                         <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
@@ -88,7 +87,7 @@
                         <div id="fotosContainer" class="row">
                             <div class="col-6">
                                 <figure class="">
-                                    <img src="https://www.placehold.it/400x240" id="fotoImage" alt="placeholder" class="img-fluid img-thumbnail img-preview w-100" />
+                                    <img src="https://www.placehold.it/400x240" id="fotoImage" alt="Placeholder 400x240" class="img-fluid img-thumbnail img-preview w-100" />
                                 </figure>
                             </div>
                         </div>
@@ -126,14 +125,24 @@
             const reader = new FileReader();
 
             reader.onload = function(event) {
-                const imagePreview = $('<div class="col-6 px-1"><figure class="thumbnail-column mx-1"><img alt="placeholder" class="img-fluid img-thumbnail img-preview" /></figure></div>');
+                const imagePreview = $('<div class="col-6 px-1"><figure class="thumbnail-column mx-1"><img alt="placeholder" class="img-fluid img-thumbnail img-preview" /><figcaption class="mt-2"></figcaption></figure></div>');
+
+                const fileName = $('<span />', {
+                    text: file.name,
+                    class: 'filename-placeholder text-xs line-clamp-1'
+                });
+
                 imagePreview.find('img').attr('src', event.target.result);
+                imagePreview.find('img').attr('alt', file.name);
+                imagePreview.find('figcaption').append(fileName);
+
                 $('#fotosContainer').append(imagePreview);
             };
 
             reader.readAsDataURL(file);
         }
     });
+
 
     // validate
     $(document).ready(function() {

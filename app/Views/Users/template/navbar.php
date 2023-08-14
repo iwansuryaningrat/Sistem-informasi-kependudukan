@@ -11,13 +11,13 @@ $user = [
     <div class="container-fluid flex-nowrap">
         <!-- brand -->
         <a class="navbar-brand fw-bold" href="<?= $isLoggedin ? '/users' : '/home'; ?>">
-            <img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" />
+            <img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga letter icon" />
         </a>
 
         <!-- toggle mobile navbar -->
         <div class="toggle-nav-mobile">
             <a class="nav-mobile-profile" href="/users/profile">
-                <img src="/upload/photos/profile/<?= ($user['foto']) ? $user['foto'] : 'default.png' ?>" alt="profile-photo-<?= $user['nama'] ?>" class="nav-mobile-profile-img" />
+                <img src="/upload/photos/profile/<?= ($user['foto']) ? $user['foto'] : 'default.png' ?>" alt="Profile <?= $user['nama'] ?>" class="nav-mobile-profile-img" />
             </a>
             <button class="btn-nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" title="Menu">
                 <i class="fa-solid fa-bars" style="font-size: 1.25rem"></i>
@@ -75,7 +75,7 @@ $user = [
 <!-- offcanvas navbar mobile -->
 <div class="offcanvas offcanvas-top offcanvas-custom" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
     <div class="offcanvas-header">
-        <a id="offcanvasTopLabel" class="navbar-brand-mobile" href="<?= $isLoggedin ? '/users' : '/home'; ?>"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" class="h-100" /></a>
+        <a id="offcanvasTopLabel" class="navbar-brand-mobile" href="<?= $isLoggedin ? '/users' : '/home'; ?>"><img src="/homepage/assets/svg/warga-letter-logo.svg" alt="warga letter icon" class="h-100" /></a>
         <button type="button" class="btn-close text-sm" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">

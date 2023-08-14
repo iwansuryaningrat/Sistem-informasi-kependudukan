@@ -115,7 +115,7 @@
             <div class="col-md-10">
               <div class="mb-3">
                 <figure class="">
-                  <img src="/upload/photos/profile/<?= $dataKeluarga['foto'] ?>" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview pas-foto-form" />
+                  <img src="/upload/photos/profile/<?= $dataKeluarga['foto'] ?>" id="thumbnailImage" alt="Pas Foto <?= $dataKeluarga['nama'] ?>" class="img-fluid img-thumbnail img-preview pas-foto-form" />
                 </figure>
               </div>
             </div>

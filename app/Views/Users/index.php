@@ -24,9 +24,9 @@ $this->extend('users/template/layout'); ?>
     <!-- right -->
     <div class="col-12 col-md-6"></div>
   </div>
-  <img src="/homepage/assets/svg/blue-shape.svg" alt="blue-shape" class="header-blue-shape" /><img src="/homepage/assets/svg/green-shape.svg" alt="green-shape" class="header-green-shape" />
+  <img src="/homepage/assets/svg/blue-shape.svg" alt="Blue Shape" class="header-blue-shape" /><img src="/homepage/assets/svg/green-shape.svg" alt="Green Shape" class="header-green-shape" />
   <figure class="jumbotron-image-wrapper">
-    <img src="/homepage/assets/img/jumbotron-image.png" alt="jumbotron-farmer" class="jumbotron-image" />
+    <img src="/homepage/assets/img/jumbotron-image.png" alt="Jumbotron Farmer" class="jumbotron-image" />
   </figure>
 </header>
 
@@ -127,7 +127,7 @@ $this->extend('users/template/layout'); ?>
         <div class="col-12 col-md-7">
           <div class="general-image-container">
             <figure class="general-image-wrapper">
-              <img src="/homepage/assets/img/image-17.jpg" alt="general-village-image" class="general-image" />
+              <img src="/homepage/assets/img/image-17.jpg" alt="General Village" class="general-image" />
             </figure>
           </div>
         </div>
@@ -153,7 +153,7 @@ $this->extend('users/template/layout'); ?>
       foreach ($newestGaleri as $galeri) : ?>
         <div class="gallery-warp">
           <figure class="gallery-item__warp">
-            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="documentation-<?= $i ?>" class="gallery-item__photo" />
+            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['judul'] ?>" class="gallery-item__photo" />
             <div class="gallery-item__desc">
               <div class="scroll">
                 <p class="mb-2 text-sm"><?= $galeri['judul'] ?></p>
@@ -190,7 +190,7 @@ $this->extend('users/template/layout'); ?>
         foreach ($newestPengumuman as $pengumuman) : ?>
           <div class="news-card">
             <figure class="news-image__wrap">
-              <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="news-<?= $i ?>hpp" class="news-image__photo" />
+              <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="Pengumuman -<?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
             </figure>
             <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
             <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>
@@ -232,7 +232,7 @@ $this->extend('users/template/layout'); ?>
         <div class="col-12 col-md-7">
           <div class="position-relative">
             <figure class="cta-image-wrapper">
-              <img src="/homepage/assets/img/phone-2.png" alt="cta-contact" class="cta-image" />
+              <img src="/homepage/assets/img/phone-2.png" alt="CTA Contact" class="cta-image" />
             </figure>
           </div>
         </div>
