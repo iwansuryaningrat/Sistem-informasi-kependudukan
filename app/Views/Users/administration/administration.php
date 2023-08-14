@@ -60,12 +60,17 @@
                         <i class="fa-solid fa-ellipsis"></i>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-table shadow">
-                        <li>
-                          <a class="dropdown-item dropdown-table-item" href="/users/formEditAdministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
-                        </li>
+                        <?php if ($data['administrasi_status'] == 'Ditolak') : ?>
+                          <li><a class="dropdown-item dropdown-table-item" href="/users/formEditAdministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a></li>
+                        <?php endif; ?>
                         <li>
                           <a class="dropdown-item dropdown-table-item" href="/users/detailadministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                         </li>
+                        <?php if ($data['administrasi_status'] == 'Selesai') : ?>
+                          <li>
+                            <a class="dropdown-item dropdown-table-item" href="/administrasicontroller/download/<?= $data['administrasi_id'] ?>"><i class="fa-solid fa-download me-2"></i>Unduh Berkas</a>
+                          </li>
+                        <?php endif; ?>
                       </ul>
                     </div>
                   </td>
