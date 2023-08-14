@@ -20,7 +20,7 @@
       <?php foreach ($dataGaleri as $galeri) : ?>
         <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
           <figure class="news-image__wrap h-13">
-            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="news-1" class="news-image__photo" />
+            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
           </figure>
           <div class="d-flex align-items-center mb-2">
             <p class="mb-0">
@@ -95,7 +95,7 @@
           <label for="thumbnail" class="form-label forms-label">Thumbnail</label>
           <div class="mb-3">
             <figure class="">
-              <img src="https://www.placehold.it/400x150" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview w-100" />
+              <img src="https://www.placehold.it/400x150" id="thumbnailImage" alt="Placeholder 400x150" class="img-fluid img-thumbnail img-preview w-100" />
             </figure>
           </div>
           <div class="mb-2">
@@ -129,6 +129,7 @@
 
       reader.onload = function(event) {
         $('#thumbnailImage').attr('src', event.target.result);
+        $('#thumbnailImage').attr('alt', file.name);
       };
 
       reader.readAsDataURL(file);

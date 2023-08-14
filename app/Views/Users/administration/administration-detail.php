@@ -107,7 +107,7 @@
                   <div id="filePreview">
                     <div class="text-sm-center" style="margin: 12px 0 10px;">
                       <figure class="file-pdf-info">
-                        <img src="/homepage/assets/img/decoration/pdf.png" alt="pdf-file-new">
+                        <img src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
                       </figure>
                       <p class="mb-0 line-clamp-max-w-320 text-sm"><?= $dataAdministrasi['berkas'] ?></p>
                     </div>

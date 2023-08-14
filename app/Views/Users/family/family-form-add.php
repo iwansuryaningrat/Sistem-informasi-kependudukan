@@ -163,7 +163,7 @@
                 <label for="foto" class="form-label forms-label">Pas Foto</label>
                 <div class="mb-3">
                   <figure class="">
-                    <img src="https://www.placehold.it/300x400" id="thumbnailImage" alt="placeholder" class="img-fluid img-thumbnail img-preview pas-foto-form" />
+                    <img src="https://www.placehold.it/300x400" id="thumbnailImage" alt="Placeholder 300x400" class="img-fluid img-thumbnail img-preview pas-foto-form" />
                   </figure>
                 </div>
                 <div class="mb-2">

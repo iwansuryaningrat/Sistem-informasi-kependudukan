@@ -35,7 +35,7 @@
     <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-container navbar-shadow">
       <div class="container-fluid">
         <!-- brand -->
-        <a class="navbar-brand fw-bold" href="./index.html"><img src="./assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" /></a>
+        <a class="navbar-brand fw-bold" href="./index.html"><img src="./assets/svg/warga-letter-logo.svg" alt="warga letter icon" /></a>
         <!-- toggle mobile navbar -->
         <button class="navbar-toggler navbar-toggling shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -93,7 +93,7 @@
             <div class="footer-top__left">
               <a href="./index.html" class="footer-logo-link">
                 <figure class="footer-logo-wrapper">
-                  <img src="./assets/svg/warga-letter-logo.svg" alt="warga-letter-icon" />
+                  <img src="./assets/svg/warga-letter-logo.svg" alt="warga letter icon" />
                 </figure>
               </a>
               <p class="text-basic">
