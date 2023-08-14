@@ -186,9 +186,6 @@
                 },
             },
         });
-        $("#familyFormEditButton").on("click", () => {
-            console.log($("#familyFormEdit").valid());
-        });
     });
 </script>
 
