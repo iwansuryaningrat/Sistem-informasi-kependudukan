@@ -190,11 +190,6 @@
             console.log($("#familyFormEdit").valid());
         });
     });
-
-    //   onclick back to previous page
-    function goBack() {
-        window.history.back();
-    }
 </script>
 
 <script>
