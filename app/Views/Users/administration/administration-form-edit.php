@@ -19,22 +19,22 @@
   <section class="container container-space pt-0">
     <form class="card-form-container card" id="adminFormEdit" action="/administrasicontroller/edit/<?= $dataAdministrasi['administrasi_id'] ?>" enctype="multipart/form-data" method="POST">
       <div class="card-header card-form-header">
-        <p class="mb-0">Form Edit Pengajuan Permohonan Administrasi</p>
+        <p class="mb-0 fw-semibold">Form Edit Pengajuan Permohonan Administrasi</p>
       </div>
       <div class="card-body card-form-body">
         <div>
           <!-- nama -->
           <div class="row mb-3">
-            <label for="nama" class="col-sm-2 col-form-label forms-label">Nama Pemohon <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
+            <label for="nama" class="col-md-2 form-label forms-label mt-md-2">Nama Pemohon <span class="text-important">*</span></label></label>
+            <div class="col-md-10">
               <input type="text" id="nama" name="nama" class="form-control input-control" placeholder="Masukkan Nama" disabled value="<?= $dataAdministrasi['nama'] ?>" />
             </div>
           </div>
           <!-- kategori -->
           <div class="row mb-3">
-            <label for="kategori" class="col-sm-2 col-form-label forms-label">Kategori <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
-              <select id="kategori" name="kategori" required class="form-select select-control">
+            <label for="kategori" class="col-md-2 form-label forms-label mt-md-2">Kategori <span class="text-important">*</span></label></label>
+            <div class="col-md-10">
+              <select id="kategori" name="kategori" required class="form-select select-control" <?= ($dataAdministrasi['administrasi_status'] == 'Ditolak') ? 'disabled' : '' ?>>
                 <option value="" disabled>Pilih Kategori</option>
                 <option value="KTP" <?= ($dataAdministrasi['kategori'] == 'KTP') ? 'selected' : '' ?>>KTP</option>
                 <option value="KK" <?= ($dataAdministrasi['kategori'] == 'KK') ? 'selected' : '' ?>>KK</option>
@@ -49,43 +49,22 @@
           </div>
           <!-- keperluan -->
           <div class="row mb-3">
-            <label for="keperluan" class="col-sm-2 col-form-label forms-label">Keperluan <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
-              <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" required value="<?= $dataAdministrasi['keperluan'] ?>" />
+            <label for="keperluan" class="col-md-2 form-label forms-label mt-md-2">Keperluan <span class="text-important">*</span></label></label>
+            <div class="col-md-10">
+              <input type="text" id="keperluan" name="keperluan" class="form-control input-control" placeholder="Masukkan Keperluan" required value="<?= $dataAdministrasi['keperluan'] ?>" <?= ($dataAdministrasi['administrasi_status'] == 'Ditolak') ? 'disabled' : '' ?> />
             </div>
           </div>
           <!-- deskripsi -->
           <div class="row mb-3">
-            <label for="deskripsi" class="col-sm-2 col-form-label forms-label">Deskripsi <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
-              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required><?= $dataAdministrasi['deskripsi'] ?></textarea>
-            </div>
-          </div>
-          <!-- no_surat -->
-          <div class="row mb-3">
-            <label for="no_surat" class="col-sm-2 col-form-label forms-label">Nomor Surat <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
-              <input type="text" id="no_surat" name="no_surat" class="form-control input-control" placeholder="Nomor Surat" disabled value="<?= ($dataAdministrasi['no_surat']) ? $dataAdministrasi['no_surat'] : '-' ?>" />
-            </div>
-          </div>
-          <!-- catatan -->
-          <div class="row mb-3">
-            <label for="catatan" class="col-sm-2 col-form-label forms-label">Catatan <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
-              <textarea id="catatan" name="catatan" class="form-control input-control" placeholder="Masukkan Catatan" disabled><?= ($dataAdministrasi['catatan']) ? $dataAdministrasi['catatan'] : '-' ?></textarea>
-            </div>
-          </div>
-          <!-- status -->
-          <div class="row mb-3">
-            <label for="status" class="col-sm-2 col-form-label forms-label">Status <span class="text-important">*</span></label></label>
-            <div class="col-sm-10">
-              <input type="text" id="status" name="status" class="form-control input-control" placeholder="Nomor Surat" disabled value="<?= $dataAdministrasi['administrasi_status'] ?>" />
+            <label for="deskripsi" class="col-md-2 form-label forms-label mt-md-2">Deskripsi <span class="text-important">*</span></label></label>
+            <div class="col-md-10">
+              <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" required <?= ($dataAdministrasi['administrasi_status'] == 'Ditolak') ? 'disabled' : '' ?> rows="3"><?= $dataAdministrasi['deskripsi'] ?></textarea>
             </div>
           </div>
           <!-- berkas -->
           <div class="row mb-3">
-            <label for="berkas" class="col-sm-2 col-form-label forms-label">Berkas</label>
-            <div class="col-sm-10">
+            <label for="berkas" class="col-md-2 form-label forms-label mt-md-2">Berkas</label>
+            <div class="col-md-10">
               <div class="mb-2">
                 <div class="d-flex flex-column flex-sm-row">
                   <div id="filePreview">

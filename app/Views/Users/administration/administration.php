@@ -60,7 +60,7 @@
                         <i class="fa-solid fa-ellipsis"></i>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-table shadow">
-                        <?php if ($data['administrasi_status'] == 'Ditolak') : ?>
+                        <?php if ($data['administrasi_status'] == 'Ditolak' || $data['administrasi_status'] == 'Menunggu Konfirmasi') : ?>
                           <li><a class="dropdown-item dropdown-table-item" href="/users/formEditAdministrasi/<?= $data['administrasi_id'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a></li>
                         <?php endif; ?>
                         <li>
