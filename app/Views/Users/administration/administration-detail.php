@@ -17,10 +17,10 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-0">
-    <div class="card-form-container card" id="adminFormDetail">
+    <div class="card-form-container card mb-5" id="adminFormDetail">
       <div class="card-header card-form-header">
-        <div class="d-flex align-items-center justify-content-between">
-          <p class="mb-0 fw-semibold">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-y-2">
+          <p class="mb-0 fw-semibold me-2">
             Detail Pengajuan Permohonan Administrasi
           </p>
           <div class="text-base">
@@ -75,29 +75,6 @@
               <textarea id="deskripsi" name="deskripsi" class="form-control input-control" placeholder="Masukkan Deskripsi" disabled rows="3"><?= $dataAdministrasi['deskripsi'] ?></textarea>
             </div>
           </div>
-          <!-- catatan -->
-          <div class="row mb-3">
-            <label for="catatan" class="col-md-2 form-label forms-label mt-md-2">Catatan</label>
-            <div class="col-md-10">
-              <textarea id="catatan" name="catatan" class="form-control input-control" placeholder="Masukkan Catatan" disabled rows="3"><?= ($dataAdministrasi['catatan']) ? $dataAdministrasi['catatan'] : '-' ?></textarea>
-            </div>
-          </div>
-          <!-- tanggal pengajuan -->
-          <div class="row mb-3">
-            <label for="tanggal_pengajuan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pengajuan
-            </label>
-            <div class="col-md-10">
-              <input type="text" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= date('j M Y H:m', strtotime($dataAdministrasi['created_at'])) ?>" />
-            </div>
-          </div>
-          <!-- tanggal penerimaan -->
-          <div class="row mb-3">
-            <label for="tanggal_penerimaan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Penerimaan
-            </label>
-            <div class="col-md-10">
-              <input type="text" id="tanggal_penerimaan" name="tanggal_penerimaan" class="form-control input-control" disabled value="<?= $dataAdministrasi['tgl_penerimaan'] ?>" />
-            </div>
-          </div>
           <!-- berkas -->
           <div class="row mb-3">
             <label for="berkas" class="col-md-2 form-label forms-label mt-md-2">Berkas</label>
@@ -123,14 +100,75 @@
           </div>
         </div>
       </div>
+      <?php if ($dataAdministrasi['administrasi_status'] == 'Ditolak' || $dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') : ?>
+        <div class="card-footer card-form-footer">
+          <div class="w-100 d-flex justify-content-end">
+            <a class="btn btn-main-sm btn-submit px-4" href="/users/formEditAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>">
+              <?= ($dataAdministrasi['administrasi_status'] == 'Ditolak') ? 'Perbaiki' : 'Edit' ?> Permohonan
+            </a>
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
+    <div class="card-form-container card" id="adminResultFormDetail">
+      <div class="card-header card-form-header">
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0 fw-semibold">
+            Proses Pengajuan Administrasi
+          </p>
+        </div>
+      </div>
+      <div class="card-body card-form-body">
+        <div>
+          <?php if (($dataAdministrasi['catatan'] && $dataAdministrasi['tgl_penerimaan']) && ($dataAdministrasi['administrasi_status'] == 'Selesai' || $dataAdministrasi['administrasi_status'] == 'Ditolak')) : ?>
+            <!-- tanggal pengajuan -->
+            <div class="row mb-3">
+              <label for="tanggal_pengajuan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Pengajuan</label>
+              <div class="col-md-10">
+                <input type="text" id="tanggal_pengajuan" name="tanggal_pengajuan" class="form-control input-control" disabled value="<?= date('j M Y H:i', strtotime($dataAdministrasi['created_at'])) ?>" />
+              </div>
+            </div>
+            <!-- tanggal penerimaan -->
+            <div class="row mb-3">
+              <label for="tanggal_penerimaan" class="col-md-2 form-label forms-label mt-md-2">Tanggal Penerimaan</label>
+              <div class="col-md-10">
+                <input type="text" id="tanggal_penerimaan" name="tanggal_penerimaan" class="form-control input-control" disabled value="<?= $dataAdministrasi['tgl_penerimaan'] ?>" />
+              </div>
+            </div>
+            <!-- catatan -->
+            <div class="row mb-3">
+              <label for="catatan" class="col-md-2 form-label forms-label mt-md-2">Catatan</label>
+              <div class="col-md-10">
+                <textarea id="catatan" name="catatan" class="form-control input-control" placeholder="Masukkan Catatan" disabled rows="3"><?= ($dataAdministrasi['catatan']) ? $dataAdministrasi['catatan'] : '-' ?></textarea>
+              </div>
+            </div>
+          <?php else : ?>
+            <p class="">Saat ini status permohonan administrasi Anda masih berada dalam tahap
+              <span class="status-badge d-inline-block <?php if ($dataAdministrasi['administrasi_status'] == 'Dalam Proses') {
+                                                          echo 'badge-onproccess';
+                                                        } else if ($dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') {
+                                                          echo 'badge-accepted';
+                                                        } else if ($dataAdministrasi['administrasi_status'] == 'Ditolak') {
+                                                          echo 'badge-rejected';
+                                                        } else if ($dataAdministrasi['administrasi_status'] == 'Selesai') {
+                                                          echo 'badge-done';
+                                                        } else echo '' ?>">
+                <i class="fa-solid fa-circle"></i><?= $dataAdministrasi['administrasi_status'] ?>
+              </span>. Kami berupaya untuk segera memberikan informasi lebih lanjut mengenai perkembangan permohonan ini. Terima kasih atas kesabaran dan pengertian Anda.
+            </p>
+          <?php endif; ?>
+        </div>
+      </div>
       <!-- Hapus -->
-      <div class="card-footer card-form-footer">
+      <?php if ($dataAdministrasi['administrasi_status'] == 'Ditolak' || $dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') : ?>
+        <div class="card-footer card-form-footer">
         <div class="w-100 d-flex justify-content-end">
           <button role="presentation" class="btn btn-logout-sm btn-submit px-4" onclick="deleteAdministration()">
-            Hapus Administrasi
+            Hapus Permohonan
           </button>
         </div>
       </div>
+      <?php endif; ?>
     </div>
   </section>
 </main>
