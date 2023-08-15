@@ -88,7 +88,7 @@
             <label for="deskripsi_laporan" class="col-md-2 form-label forms-label mt-md-2">Deskripsi Laporan
             </label>
             <div class="col-md-10">
-              <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" rows="4" disabled><?= $dataLaporan['deskripsi_pelaporan'] ?></textarea>
+              <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" rows="3" disabled><?= $dataLaporan['deskripsi_pelaporan'] ?></textarea>
             </div>
           </div>
         </div>
