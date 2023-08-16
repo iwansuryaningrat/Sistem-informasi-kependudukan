@@ -13,7 +13,7 @@ class Auth extends BaseController
     protected $usersModel;
     protected $validation;
     protected $session;
-    protected $user_data;
+    protected $userData;
 
     public function __construct()
     {
@@ -80,7 +80,12 @@ class Auth extends BaseController
             'isLoggedIn' => true
         ];
 
-        session()->set($data);
+        // if $rememberme is checked then set session to 1 day, else set to 1 hour
+        if ($rememberme) {
+            $this->session->set($data, 86400);
+        } else {
+            $this->session->set($data, 3600);
+        }
 
         if ($user['role'] == 'Admin' || $user['role'] == 'Ketua_rt') {
             return $this->response->setJSON([
@@ -118,25 +123,25 @@ class Auth extends BaseController
     public function regist()
     {
         $nik = $this->request->getVar('nik');
-        $no_kk = $this->request->getVar('no_kk');
+        $noKk = $this->request->getVar('no_kk');
         $nama = $this->request->getVar('nama');
-        $no_hp = $this->request->getVar('no_hp');
+        $noHp = $this->request->getVar('no_hp');
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
-        $keluarga = $this->keluargaModel->getKeluarga($no_kk);
+        $keluarga = $this->keluargaModel->getKeluarga($noKk);
         if (!$keluarga) {
-            $keluarga = $this->keluargaModel->save([
-                'no_kk' => $no_kk,
+            $this->keluargaModel->save([
+                'no_kk' => $noKk,
                 'nama_kepala_keluarga' => $nama,
             ]);
         }
 
         $result = $this->usersModel->save([
             'nik' => $nik,
-            'no_kk' => $no_kk,
+            'no_kk' => $noKk,
             'nama' => $nama,
-            'no_hp' => $no_hp,
+            'no_hp' => $noHp,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'role' => 'User',

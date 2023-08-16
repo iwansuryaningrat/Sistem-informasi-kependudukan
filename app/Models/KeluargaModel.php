@@ -12,7 +12,19 @@ class KeluargaModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['no_kk', 'nama_kepala_keluarga', 'alamat', 'alamat_asal', 'foto_rumah', 'tgl_pindah', 'status', 'isExist', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = [
+        'no_kk',
+        'nama_kepala_keluarga',
+        'alamat',
+        'alamat_asal',
+        'foto_rumah',
+        'tgl_pindah',
+        'status',
+        'isExist',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     // Dates
     protected $useTimestamps = true;
@@ -22,28 +34,28 @@ class KeluargaModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Get Keluarga data join with penduduk and sort by created_at desc
-    public function getKeluarga($no_kk = null)
+    public function getKeluarga($noKk = null)
     {
-        if ($no_kk == null) {
+        if ($noKk == null) {
             return $this->select('*')
                 ->orderBy('status', 'DESC')
                 ->orderBy('created_at', 'DESC')
                 ->findAll();
         }
 
-        return $this->where(['no_kk' => $no_kk])->first();
+        return $this->where(['no_kk' => $noKk])->first();
     }
 
     // Edit Keluarga data
-    public function editKeluarga($data, $no_kk)
+    public function editKeluarga($data, $noKk)
     {
-        return $this->db->table($this->table)->update($data, ['no_kk' => $no_kk]);
+        return $this->db->table($this->table)->update($data, ['no_kk' => $noKk]);
     }
 
     // Delete Keluarga data
-    public function deleteKeluarga($no_kk)
+    public function deleteKeluarga($noKk)
     {
-        return $this->db->table($this->table)->delete(['no_kk' => $no_kk]);
+        return $this->db->table($this->table)->delete(['no_kk' => $noKk]);
     }
 
     // Save Keluarga data

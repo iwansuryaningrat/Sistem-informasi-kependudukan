@@ -45,20 +45,17 @@ class Admin extends BaseController
 
     private function getReqAdministrasi()
     {
-        $reqAdministrasi = $this->administrasiModel->getAdministrasiCount() ?? 0;
-        return $reqAdministrasi;
+        return $this->administrasiModel->getAdministrasiCount() ?? 0;
     }
 
     private function getReqLaporan()
     {
-        $reqLaporan = $this->pelaporanModel->getPelaporanCount() ?? 0;
-        return $reqLaporan;
+        return $this->pelaporanModel->getPelaporanCount() ?? 0;
     }
 
     private function getReqPesan()
     {
-        $reqPesan = $this->pesanModel->countPesan() ?? 0;
-        return $reqPesan;
+        return $this->pesanModel->countPesan() ?? 0;
     }
 
     // Dashboard (Done)
@@ -246,7 +243,7 @@ class Admin extends BaseController
         return view('admin/edit/editpenduduk', $data);
     }
 
-    // Administrasi 
+    // Administrasi
     public function administrasi()
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi();
@@ -280,7 +277,7 @@ class Admin extends BaseController
     public function editAdministrasi($id)
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
-        // dd($dataAdministrasi);
+
         if ($dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') {
             $this->administrasiModel->update($id, [
                 'administrasi_status' => 'Dalam Proses',
@@ -536,7 +533,6 @@ class Admin extends BaseController
             'session' => $this->session->get(),
             'dataPesan' => $this->pesanModel->getPesan($id),
         ];
-        // dd($data);
 
         return view('admin/detail/detailpesan', $data);
     }

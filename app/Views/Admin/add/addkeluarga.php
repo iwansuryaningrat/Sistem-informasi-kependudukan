@@ -59,13 +59,13 @@
                             <div class="form-group form-show-validation row">
                                 <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" required>
+                                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat_asal" placeholder="Masukkan Alamat Asal">
+                                    <input type="text" class="form-control" id="alamat_asal" name="alamat_asal" placeholder="Masukkan Alamat Asal">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">

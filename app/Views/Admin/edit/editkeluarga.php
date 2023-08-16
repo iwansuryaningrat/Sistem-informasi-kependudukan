@@ -80,7 +80,7 @@
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview" width="150" src="http://placehold.it/150x150" alt="preview" />
+                                        <img class="img-upload-preview" width="150" src="<?= $keluarga['foto_rumah'] ? '/upload/photos/' . $keluarga['foto_rumah'] : 'http://placehold.it/150x150' ?>" alt="preview" />
                                         <input type="file" class="form-control form-control-file" id="fotoRumah" name="fotoRumah" accept="image/*">
                                         <label for="fotoRumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
@@ -123,30 +123,6 @@
     $("#state").change(function() {
         $(this).valid();
     })
-
-    $("#exampleValidation").validate({
-        validClass: "success",
-        rules: {
-            gender: {
-                required: true
-            },
-            confirmpassword: {
-                equalTo: "#password"
-            },
-            birth: {
-                date: true
-            },
-            fotoRumah: {
-                required: true,
-            },
-        },
-        highlight: function(element) {
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-        },
-        success: function(element) {
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-        },
-    });
 
     jQuery(document).ready(function() {
         SweetAlert2Demo.init();
@@ -196,5 +172,3 @@
         SweetAlert2Demo.init();
     });
 </script>
-
-<?= $this->endSection(); ?>

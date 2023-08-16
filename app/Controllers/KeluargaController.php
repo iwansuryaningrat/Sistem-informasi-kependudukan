@@ -26,7 +26,8 @@ class KeluargaController extends BaseController
     protected $pesanModel;
     protected $usersModel;
 
-    protected $user_data;
+    protected $userData;
+    protected $filePaths = 'upload/photos/';
 
     public function __construct()
     {
@@ -40,7 +41,7 @@ class KeluargaController extends BaseController
         $this->pesanModel = new PesanModel();
         $this->usersModel = new UsersModel();
 
-        $this->user_data = [
+        $this->userData = [
             'nik' => session()->get('nik'),
             'no_kk' => session()->get('no_kk'),
             'nama' => session()->get('nama'),
@@ -63,25 +64,6 @@ class KeluargaController extends BaseController
         ];
     }
 
-    public function allFamilies()
-    {
-        return $this->keluargaModel->findAll();
-    }
-
-    public function detailFamily($id)
-    {
-        $data = [
-            'title' => 'Detail Keluarga',
-            'family' => $this->keluargaModel->getFamily($id)
-        ];
-
-        if (empty($data['family'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Keluarga tidak ditemukan');
-        }
-
-        return view('keluarga/detail', $data);
-    }
-
     public function save()
     {
         $foto = $this->request->getFile('foto_rumah');
@@ -90,7 +72,18 @@ class KeluargaController extends BaseController
             $namaFoto = 'default.png';
         } else {
             $namaFoto = $foto->getRandomName();
-            $foto->move('upload/photos/profile/', $namaFoto);
+            $foto->move($this->filePaths, $namaFoto);
+        }
+
+        $noKK = $this->request->getVar('no_kk');
+        $keluarga = $this->keluargaModel->getKeluarga($noKK);
+
+        $nik = $this->request->getVar('nik');
+        $user = $this->usersModel->getUser($nik);
+
+        if ($keluarga || $user) {
+            session()->setFlashdata('error', 'No KK atau NIK sudah terdaftar');
+            return redirect()->to('/admin/addfamily');
         }
 
         $result = $this->keluargaModel->save([
@@ -103,12 +96,14 @@ class KeluargaController extends BaseController
             'foto_rumah' => $namaFoto,
         ]);
 
-        if ($result) $result = $this->usersModel->save([
-            'no_kk' => $this->request->getVar('no_kk'),
-            'nik' => $this->request->getVar('nik'),
-            'nama' => $this->request->getVar('name'),
-            'status' => 'Kepala Keluarga',
-        ]);
+        if ($result) {
+            $result = $this->usersModel->save([
+                'no_kk' => $this->request->getVar('no_kk'),
+                'nik' => $this->request->getVar('nik'),
+                'nama' => $this->request->getVar('name'),
+                'status' => 'Kepala Keluarga',
+            ]);
+        }
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil menambahkan keluarga');
@@ -133,8 +128,10 @@ class KeluargaController extends BaseController
             $namaFoto = $keluarga['foto_rumah'];
         } else {
             $namaFoto = $foto->getRandomName();
-            $foto->move('upload/photos/profile/', $namaFoto);
-            if ($keluarga['foto_rumah'] != 'default.png') unlink('upload/photos/profile/' . $keluarga['foto_rumah']);
+            $foto->move($this->filePaths, $namaFoto);
+            if ($keluarga['foto_rumah'] != 'default.png') {
+                unlink($this->filePaths . $keluarga['foto_rumah']);
+            }
         }
 
         $result = $this->keluargaModel->update(["no_kk" => $id], [
@@ -146,12 +143,14 @@ class KeluargaController extends BaseController
             'foto_rumah' => $namaFoto,
         ]);
 
-        if ($result) $result = $this->usersModel->update([
-            "no_kk" => $id,
-            'nama' => $this->request->getVar('nama_kepala_keluarga'),
-        ], [
-            'status' => 'Kepala Keluarga',
-        ]);
+        if ($result) {
+            $result = $this->usersModel->update([
+                "no_kk" => $id,
+                'nama' => $this->request->getVar('nama_kepala_keluarga'),
+            ], [
+                'status' => 'Kepala Keluarga',
+            ]);
+        }
 
         if ($result) {
             session()->setFlashdata('success', 'Data berhasil diubah.');

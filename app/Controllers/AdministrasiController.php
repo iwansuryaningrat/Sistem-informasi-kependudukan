@@ -26,7 +26,10 @@ class AdministrasiController extends BaseController
     protected $pesanModel;
     protected $usersModel;
 
-    protected $user_data;
+    protected $userData;
+    protected $filePaths = 'upload/files/';
+    protected $adminPage = '/admin/administrasi';
+    protected $userPage = '/users/administrasi';
 
     public function __construct()
     {
@@ -40,7 +43,7 @@ class AdministrasiController extends BaseController
         $this->pesanModel = new PesanModel();
         $this->usersModel = new UsersModel();
 
-        $this->user_data = [
+        $this->userData = [
             'nik' => session()->get('nik'),
             'no_kk' => session()->get('no_kk'),
             'nama' => session()->get('nama'),
@@ -63,76 +66,6 @@ class AdministrasiController extends BaseController
         ];
     }
 
-    public function index()
-    {
-        //
-        $no_surat = $this->generateNoSurat();
-        dd($no_surat);
-    }
-
-    private function generateNoSurat()
-    {
-        // get month in romawi format
-        $month = date('m');
-        $romawi = $this->getRomawi($month);
-
-        // get year
-        $year = date('Y');
-
-        // get total administrasi in this month
-        $total = $this->administrasiModel->countAdministrasiThisMonth();
-
-        // generate no surat
-        $no_surat = 'B/' . $total + 1 . '/ADM/' . $romawi . '/' . $year;
-
-        return $no_surat;
-    }
-
-    private function getRomawi($month)
-    {
-        switch ($month) {
-            case '01':
-                return 'I';
-                break;
-            case '02':
-                return 'II';
-                break;
-            case '03':
-                return 'III';
-                break;
-            case '04':
-                return 'IV';
-                break;
-            case '05':
-                return 'V';
-                break;
-            case '06':
-                return 'VI';
-                break;
-            case '07':
-                return 'VII';
-                break;
-            case '08':
-                return 'VIII';
-                break;
-            case '09':
-                return 'IX';
-                break;
-            case '10':
-                return 'X';
-                break;
-            case '11':
-                return 'XI';
-                break;
-            case '12':
-                return 'XII';
-                break;
-            default:
-                return 'XIII';
-                break;
-        }
-    }
-
     public function download($id)
     {
         $data = $this->administrasiModel->getAdministrasi($id);
@@ -140,15 +73,20 @@ class AdministrasiController extends BaseController
 
         if ($file == 'default.pdf' || $file == 'default.png') {
             session()->setFlashdata('error', 'File tidak ditemukan');
-            if ($this->user_data['role'] == 'Admin') return redirect()->to('/admin/administrasi');
-            else return redirect()->to('/users/administrasi');
+            if ($this->userData['role'] == 'Admin') {
+                return redirect()->to($this->adminPage);
+            } else {
+                return redirect()->to($this->userPage);
+            }
         }
 
         // get file extension
-        $file_extension = explode('.', $file);
-        $file_extension = end($file_extension);
+        $fileExtension = explode('.', $file);
+        $fileExtension = end($fileExtension);
 
-        return $this->response->download('upload/files/' . $file, null)->setFileName($data['nama'] . '_' . $data['no_surat'] . '.' . $file_extension);
+        return $this->response
+            ->download($this->filePaths . $file, null)
+            ->setFileName($data['nama'] . '_' . $data['no_surat'] . '.' . $fileExtension);
     }
 
     public function edit($id)
@@ -164,7 +102,9 @@ class AdministrasiController extends BaseController
             $file->move('upload/files', $newFileName);
 
             // delete old file
-            if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+            if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') {
+                unlink($this->filePaths . $dataAdministrasi['berkas']);
+            }
         } else {
             $newFileName = $dataAdministrasi['berkas'];
         }
@@ -185,7 +125,7 @@ class AdministrasiController extends BaseController
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil mengubah data administrasi');
-            return redirect()->to('/users/administrasi');
+            return redirect()->to($this->userPage);
         } else {
             session()->setFlashdata('error', 'Gagal mengubah data administrasi');
             return redirect()->to('/users/formEditAdministrasi/' . $id);
@@ -194,7 +134,7 @@ class AdministrasiController extends BaseController
 
     public function ajukan()
     {
-        $pemohon = $this->user_data['nik'];
+        $pemohon = $this->userData['nik'];
 
         $file = $this->request->getFile('berkas');
         if (!$file->getError() == 4) {
@@ -225,7 +165,7 @@ class AdministrasiController extends BaseController
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil mengajukan permohonan administrasi');
-            return redirect()->to('/users/administrasi');
+            return redirect()->to($this->userPage);
         } else {
             session()->setFlashdata('error', 'Gagal mengajukan permohonan administrasi');
             return redirect()->to('/users/formTambahAdministrasi');
@@ -237,22 +177,24 @@ class AdministrasiController extends BaseController
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
 
-        if ($dataAdministrasi['no_kk'] != $this->user_data['no_kk']) {
+        if ($dataAdministrasi['no_kk'] != $this->userData['no_kk']) {
             session()->setFlashdata('error', 'Anda tidak dapat menghapus data administrasi ini');
-            return redirect()->to('/users/administrasi');
+            return redirect()->to($this->userPage);
         }
 
         // delete file
-        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') {
+            unlink($this->filePaths . $dataAdministrasi['berkas']);
+        }
 
         $result = $this->administrasiModel->delete($id);
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil menghapus data administrasi');
-            return redirect()->to('/users/administrasi');
+            return redirect()->to($this->userPage);
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data administrasi');
-            return redirect()->to('/users/administrasi');
+            return redirect()->to($this->userPage);
         }
     }
 
@@ -262,16 +204,18 @@ class AdministrasiController extends BaseController
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
 
         // delete file
-        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') unlink('upload/files/' . $dataAdministrasi['berkas']);
+        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') {
+            unlink($this->filePaths . $dataAdministrasi['berkas']);
+        }
 
         $result = $this->administrasiModel->delete($id);
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil menghapus data administrasi');
-            return redirect()->to('/admin/administrasi');
+            return redirect()->to($this->adminPage);
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data administrasi');
-            return redirect()->to('/admin/administrasi');
+            return redirect()->to($this->adminPage);
         }
     }
 }
