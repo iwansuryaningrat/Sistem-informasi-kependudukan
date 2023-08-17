@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2023 at 07:30 PM
+-- Generation Time: Aug 17, 2023 at 07:32 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -92,16 +92,6 @@ CREATE TABLE `kategori_galeri` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kategori_galeri`
---
-
-INSERT INTO `kategori_galeri` (`kategori_galeri_id`, `nama_kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Rekreasi', '2023-08-07 20:54:05', '2023-08-07 20:54:05', NULL),
-(2, 'Dokumentasi', '2023-08-07 20:54:05', '2023-08-07 20:54:05', NULL),
-(3, 'Acara', '2023-08-07 20:54:35', '2023-08-07 20:54:35', NULL),
-(4, 'Kerja Bakti', '2023-08-07 20:54:35', '2023-08-07 20:54:35', NULL);
 
 -- --------------------------------------------------------
 
