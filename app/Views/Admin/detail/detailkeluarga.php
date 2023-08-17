@@ -86,7 +86,7 @@
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview img-circle" width="100" height="100" src="<?= ($keluarga['foto_rumah']) ? '/upload/photos/' . $keluarga['foto_rumah'] : 'http://placehold.it/100x100' ?>" alt="preview">
+                                        <img class="img-upload-preview" width="150" src="<?= ($keluarga['foto_rumah']) ? '/upload/photos/foto_rumah/' . $keluarga['foto_rumah'] : 'http://placehold.it/150x150' ?>" alt="preview" />
                                     </div>
                                 </div>
                             </div>

@@ -27,7 +27,7 @@ class KeluargaController extends BaseController
     protected $usersModel;
 
     protected $userData;
-    protected $filePaths = 'upload/photos/';
+    protected $filePaths = 'upload/photos/foto_rumah/';
 
     public function __construct()
     {
@@ -105,6 +105,7 @@ class KeluargaController extends BaseController
                 'no_kk' => $this->request->getVar('no_kk'),
                 'nik' => $this->request->getVar('nik'),
                 'nama' => $this->request->getVar('name'),
+                'password' => password_hash('user1234', PASSWORD_DEFAULT),
                 'status' => 'Kepala Keluarga',
             ]);
         }
