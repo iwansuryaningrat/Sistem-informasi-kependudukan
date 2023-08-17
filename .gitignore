@@ -21,4 +21,8 @@ application/logs/*
 
 .env
 .env.example
-# public/upload/
+public/upload/files/*
+public/upload/photos/foto_rumah/*
+public/upload/photos/galeri/*
+public/upload/photos/pengumuman/*
+public/upload/photos/profile/*
