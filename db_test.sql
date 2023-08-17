@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2023 at 10:29 PM
+-- Generation Time: Aug 17, 2023 at 10:31 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -93,17 +93,6 @@ CREATE TABLE `kategori_galeri` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `kategori_galeri`
---
-
-INSERT INTO `kategori_galeri` (`kategori_galeri_id`, `nama_kategori`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(20, 'Kegiatan', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL),
-(21, 'Lomba', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL),
-(22, 'Acara', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL),
-(23, 'Dokumentasi', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL),
-(24, 'Lainnya', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -123,14 +112,6 @@ CREATE TABLE `keluarga` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `keluarga`
---
-
-INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`, `foto_rumah`, `tgl_pindah`, `status`, `isExist`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1111111111111111, 'Admin', NULL, NULL, 'default.png', NULL, 'Tetap', 1, '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL),
-(2222222222222222, 'User', NULL, NULL, 'default.png', NULL, 'Tetap', 1, '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -221,14 +202,6 @@ CREATE TABLE `users` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tgl_lahir`, `usia`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `email`, `no_hp`, `password`, `role`, `foto`, `status_kependudukan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1111111111111111, 1111111111111111, 'Admin', 'Kepala Keluarga', 'Laki-laki', NULL, 'Semarang', '2023-08-18', 0, 'Kawin', 'S3', NULL, 'admin@gmail.com', NULL, '$2y$10$VYSX5Ih4o3I7pr6DgOPp2.Lw8FiuK79icydOokfIHGIx3p8533My.', 'Admin', 'default.png', 'Tetap', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL),
-(2222222222222222, 2222222222222222, 'User', 'Kepala Keluarga', 'Laki-laki', NULL, 'Semarang', '2023-08-18', 0, 'Kawin', 'S3', NULL, 'user@gmail.com', NULL, '$2y$10$nMXxIL3NLLzVtceC1ZBQfOdjHWue7Rvp.ZpTToCtN4U6HQu3Ivzfe', 'User', 'default.png', 'Tetap', '2023-08-18 03:29:28', '2023-08-18 03:29:28', NULL);
 
 --
 -- Indexes for dumped tables
