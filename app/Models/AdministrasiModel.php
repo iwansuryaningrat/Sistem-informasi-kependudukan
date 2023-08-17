@@ -134,4 +134,16 @@ class AdministrasiModel extends Model
     {
         return ['Menunggu Konfirmasi', 'Dalam Proses', 'Selesai', 'Ditolak'];
     }
+
+    // delete administrasi by pemohon
+    public function deleteAdministrasiByPemohon($pemohon)
+    {
+        return $this->db->table($this->table)->update(['pemohon' => null], ['pemohon' => $pemohon]);
+    }
+
+    // delete administrasi by administarsi_id
+    public function deleteAdministrasiByAdministrasiId($administrasi_id)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['administrasi_id' => $administrasi_id]);
+    }
 }

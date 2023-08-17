@@ -85,4 +85,10 @@ class PengumumanModel extends Model
     {
         return ['Akan Berlangsung', 'Sedang Berlangsung', 'Selesai'];
     }
+
+    // delete pengumuman by pengumuman_id
+    public function deletePengumumanByPengumumanId($pengumuman_id)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['pengumuman_id' => $pengumuman_id]);
+    }
 }

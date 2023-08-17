@@ -37,13 +37,17 @@ class KeluargaModel extends Model
     public function getKeluarga($noKk = null)
     {
         if ($noKk == null) {
-            return $this->select('*')
-                ->orderBy('status', 'DESC')
-                ->orderBy('created_at', 'DESC')
+            return $this->select('keluarga.*, users.nik as nik_kepala_keluarga')
+                ->join('users', 'users.nama = keluarga.nama_kepala_keluarga')
+                ->orderBy('keluarga.status', 'DESC')
+                ->orderBy('keluarga.created_at', 'DESC')
                 ->findAll();
         }
 
-        return $this->where(['no_kk' => $noKk])->first();
+        return $this->select('keluarga.*, users.nik as nik_kepala_keluarga')
+            ->join('users', 'users.nama = keluarga.nama_kepala_keluarga')
+            ->where(['keluarga.no_kk' => $noKk])
+            ->first();
     }
 
     // Edit Keluarga data
@@ -55,7 +59,7 @@ class KeluargaModel extends Model
     // Delete Keluarga data
     public function deleteKeluarga($noKk)
     {
-        return $this->db->table($this->table)->delete(['no_kk' => $noKk]);
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['no_kk' => $noKk]);
     }
 
     // Save Keluarga data

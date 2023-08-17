@@ -67,4 +67,16 @@ class FotoModel extends Model
     {
         return $this->db->table($this->table)->insert($data);
     }
+
+    // delete foto by galeri_id
+    public function deleteFotoByGaleriId($galeri_id)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['galeri_id' => $galeri_id]);
+    }
+
+    // delete foto by foto_id
+    public function deleteFotoByFotoId($foto_id)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['foto_id' => $foto_id]);
+    }
 }

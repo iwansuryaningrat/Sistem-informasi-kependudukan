@@ -51,4 +51,10 @@ class PesanModel extends Model
 
         $this->where(['id' => $id])->set($data)->update();
     }
+
+    // Delete Pesan
+    public function deletePesan($id)
+    {
+        $this->where(['id' => $id])->set(['deleted_at' => date('Y-m-d H:i:s')])->update();
+    }
 }

@@ -66,4 +66,16 @@ class GaleriModel extends Model
     {
         return $this->db->table($this->table)->insert($data);
     }
+
+    // delete galeri by created_by
+    public function deleteGaleriByCreatedBy($created_by)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['created_by' => $created_by]);
+    }
+
+    // delete galeri by galeri_id
+    public function deleteGaleriByGaleriId($galeri_id)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['galeri_id' => $galeri_id]);
+    }
 }

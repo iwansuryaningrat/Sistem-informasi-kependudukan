@@ -79,20 +79,24 @@ class KeluargaController extends BaseController
         $keluarga = $this->keluargaModel->getKeluarga($noKK);
 
         $nik = $this->request->getVar('nik');
-        $user = $this->usersModel->getUser($nik);
+        $user = $this->usersModel->getUsers($nik);
 
         if ($keluarga || $user) {
             session()->setFlashdata('error', 'No KK atau NIK sudah terdaftar');
             return redirect()->to('/admin/addfamily');
         }
 
+        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : $this->request->getVar('tgl_pindah');
+
+        ($tgl_pindah != null) ? $status = 'Pindah' : $status = 'Tetap';
+
         $result = $this->keluargaModel->save([
             'no_kk' => $this->request->getVar('no_kk'),
             'nama_kepala_keluarga' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
             'alamat_asal' => $this->request->getVar('alamat_asal'),
-            'tgl_pindah' => $this->request->getVar('tgl_pindah'),
-            'status' => $this->request->getVar('status'),
+            'tgl_pindah' =>  $tgl_pindah,
+            'status' => $status,
             'foto_rumah' => $namaFoto,
         ]);
 
@@ -122,6 +126,13 @@ class KeluargaController extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Keluarga tidak ditemukan');
         }
 
+        $anggotaKeluarga = $this->usersModel->getUsersByKKAndNik($id, $this->userData['nik']);
+
+        if (!$anggotaKeluarga) {
+            session()->setFlashdata('error', 'Anda tidak dapat merubah data keluarga.');
+            return redirect()->to('/users/keluarga');
+        }
+
         $foto = $this->request->getFile('foto_rumah');
 
         if ($foto && $foto->getError() == 4) {
@@ -135,7 +146,7 @@ class KeluargaController extends BaseController
         }
 
         $result = $this->keluargaModel->update(["no_kk" => $id], [
-            'nama_kepala_keluarga' => $this->request->getVar('nama_kepala_keluarga'),
+            "nama_kepala_keluarga" => $this->request->getVar('nama_kepala_keluarga'),
             'alamat' => $this->request->getVar('alamat'),
             'alamat_asal' => $this->request->getVar('alamat_asal'),
             'tgl_pindah' => $this->request->getVar('tgl_pindah'),
@@ -158,6 +169,54 @@ class KeluargaController extends BaseController
         } else {
             session()->setFlashdata('error', 'Data gagal diubah.');
             return redirect()->to('/users/editKeluarga/' . $id);
+        }
+    }
+
+    public function updateAdmin($id)
+    {
+        var_dump($this->request->getVar());
+        $keluarga = $this->keluargaModel->getKeluarga($id);
+
+        if (!$keluarga) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Keluarga tidak ditemukan');
+        }
+
+        $foto = $this->request->getFile('foto_rumah');
+
+        if ($foto && $foto->getError() == 4) {
+            $namaFoto = $keluarga['foto_rumah'];
+        } else {
+            $namaFoto = $foto->getRandomName();
+            $foto->move($this->filePaths, $namaFoto);
+            if ($keluarga['foto_rumah'] != 'default.png') {
+                unlink($this->filePaths . $keluarga['foto_rumah']);
+            }
+        }
+
+        $result = $this->keluargaModel->update(["no_kk" => $id], [
+            "nama_kepala_keluarga" => $this->request->getVar('nama_kepala_keluarga'),
+            'alamat' => $this->request->getVar('alamat'),
+            'alamat_asal' => $this->request->getVar('alamat_asal'),
+            'tgl_pindah' => $this->request->getVar('tgl_pindah'),
+            'status' => $this->request->getVar('status'),
+            'foto_rumah' => $namaFoto,
+        ]);
+
+        if ($result) {
+            $result = $this->usersModel->update([
+                "no_kk" => $id,
+                'nama' => $this->request->getVar('nama_kepala_keluarga'),
+            ], [
+                'status' => 'Kepala Keluarga',
+            ]);
+        }
+
+        if ($result) {
+            session()->setFlashdata('success', 'Data berhasil diubah.');
+            return redirect()->to('/admin/editkeluarga/' . $id);
+        } else {
+            session()->setFlashdata('error', 'Data gagal diubah.');
+            return redirect()->to('/admin/editkeluarga/' . $id);
         }
     }
 

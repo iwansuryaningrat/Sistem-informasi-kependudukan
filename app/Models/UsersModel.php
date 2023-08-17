@@ -68,6 +68,14 @@ class UsersModel extends Model
             ->findAll();
     }
 
+    // Get Users by no_kk and nik
+    public function getUsersByKKAndNik($no_kk, $nik)
+    {
+        return $this->select('*')
+            ->where(['users.no_kk' => $no_kk, 'users.nik' => $nik])
+            ->first();
+    }
+
     // Save Users data
     public function saveUsers($data)
     {
@@ -77,7 +85,13 @@ class UsersModel extends Model
     // Delete users by no_kk
     public function deleteUsersByKK($no_kk)
     {
-        return $this->db->table($this->table)->delete(['no_kk' => $no_kk]);
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['no_kk' => $no_kk]);
+    }
+
+    // Delete users by nik
+    public function deleteUsersByNik($nik)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['nik' => $nik]);
     }
 
     // Count Users by jenis_kelamin
