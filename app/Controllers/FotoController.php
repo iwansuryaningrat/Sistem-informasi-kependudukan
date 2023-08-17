@@ -27,6 +27,7 @@ class FotoController extends BaseController
     protected $usersModel;
 
     protected $user_data;
+    protected $filePaths = 'upload/photos/galeri/';
 
     public function __construct()
     {
@@ -68,7 +69,7 @@ class FotoController extends BaseController
         if ($files = $this->request->getFiles()) {
             foreach ($files['foto'] as $file) {
                 $name = $file->getRandomName();
-                $file->move('upload/photos/galeri/', $name);
+                $file->move($this->filePaths, $name);
 
                 $data = [
                     'galeri_id' => $galeri_id,

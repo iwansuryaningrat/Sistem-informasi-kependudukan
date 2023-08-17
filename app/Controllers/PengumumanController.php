@@ -25,6 +25,7 @@ class PengumumanController extends BaseController
     protected $usersModel;
 
     protected $user_data;
+    protected $filePaths = 'upload/photos/pengumuman/';
 
     public function __construct()
     {

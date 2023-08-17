@@ -27,6 +27,7 @@ class GaleriController extends BaseController
     protected $usersModel;
 
     protected $user_data;
+    protected $filePaths = 'upload/photos/galeri/';
 
     public function __construct()
     {
@@ -69,7 +70,7 @@ class GaleriController extends BaseController
         // handle thumbnail upload
         $fileThumbnail = $this->request->getFile('thumbnail');
         $fileName = $fileThumbnail->getRandomName();
-        $fileThumbnail->move('upload/photos/galeri/', $fileName);
+        $fileThumbnail->move($this->filePaths, $fileName);
 
         $data = [
             'judul' => $this->request->getVar('judul'),
