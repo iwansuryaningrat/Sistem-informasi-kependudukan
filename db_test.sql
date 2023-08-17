@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2023 at 07:32 PM
+-- Generation Time: Aug 17, 2023 at 08:09 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administrasi` (
   `administrasi_id` int(11) NOT NULL,
-  `pemohon` bigint(20) NOT NULL,
+  `pemohon` bigint(20) DEFAULT NULL,
   `kategori` varchar(30) NOT NULL,
   `keperluan` varchar(100) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `galeri` (
   `judul` varchar(50) NOT NULL,
   `deskripsi` varchar(255) DEFAULT NULL,
   `thumbnail` varchar(255) NOT NULL,
-  `created_by` bigint(20) NOT NULL,
+  `created_by` bigint(20) DEFAULT NULL,
   `kategori` int(11) DEFAULT NULL,
   `total_foto` int(11) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL,
@@ -113,13 +113,6 @@ CREATE TABLE `keluarga` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `keluarga`
---
-
-INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`, `foto_rumah`, `tgl_pindah`, `status`, `isExist`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1212121212121212, 'Admin', NULL, NULL, 'default.png', NULL, 'Tetap', 1, '2023-08-07 21:09:20', '2023-08-07 21:09:20', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -128,8 +121,8 @@ INSERT INTO `keluarga` (`no_kk`, `nama_kepala_keluarga`, `alamat`, `alamat_asal`
 
 CREATE TABLE `pelaporan` (
   `pelaporan_id` int(11) NOT NULL,
-  `nik_pelapor` bigint(20) NOT NULL,
-  `nik_terlapor` bigint(20) NOT NULL,
+  `nik_pelapor` bigint(20) DEFAULT NULL,
+  `nik_terlapor` bigint(20) DEFAULT NULL,
   `kategori` varchar(50) DEFAULT NULL,
   `laporan` varchar(255) NOT NULL,
   `deskripsi_pelaporan` varchar(255) DEFAULT NULL,
@@ -209,13 +202,6 @@ CREATE TABLE `users` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`nik`, `no_kk`, `nama`, `status`, `jenis_kelamin`, `agama`, `tempat_lahir`, `tgl_lahir`, `usia`, `status_perkawinan`, `pendidikan`, `pekerjaan`, `email`, `no_hp`, `password`, `role`, `foto`, `status_kependudukan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(22222222222222222, 1212121212121212, 'Admin', 'Kepala Keluarga', 'Laki-laki', '', '-', '2023-08-07', 0, 'Kawin', 'S3', NULL, 'admin@gmail.com', NULL, '$2y$10$E0KoAXJwg5ksyzopq7H0xue8ZY6a0JQLSX48X610xdV6vfxu4Bn/m', 'Admin', 'default.png', 'Tetap', '2023-08-07 21:09:20', '2023-08-07 21:09:20', NULL);
 
 --
 -- Indexes for dumped tables
@@ -310,7 +296,7 @@ ALTER TABLE `galeri`
 -- AUTO_INCREMENT for table `kategori_galeri`
 --
 ALTER TABLE `kategori_galeri`
-  MODIFY `kategori_galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kategori_galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pelaporan`
