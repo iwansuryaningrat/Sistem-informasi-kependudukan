@@ -129,6 +129,7 @@ class Admin extends BaseController
     }
 
     // Keluarga
+    // done
     public function families()
     {
         $dataKeluarga = $this->keluargaModel->getKeluarga();
@@ -146,6 +147,7 @@ class Admin extends BaseController
         return view('admin/daftarkeluarga', $data);
     }
 
+    // done
     public function addFamily()
     {
         $data = [
@@ -179,13 +181,14 @@ class Admin extends BaseController
         return view('admin/edit/editkeluarga', $data);
     }
 
+    // done
     public function detailKeluarga($id)
     {
         $keluarga = $this->keluargaModel->getKeluarga($id);
         $anggotaKeluarga = $this->usersModel->getUsersByKK($id);
 
         $data = [
-            'title' => 'Edit Keluarga',
+            'title' => 'Detail Keluarga',
             'active' => 'penduduk',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
@@ -195,7 +198,7 @@ class Admin extends BaseController
             'anggotaKeluarga' => $anggotaKeluarga,
         ];
 
-        return view('admin/edit/editkeluarga', $data);
+        return view('admin/detail/detailkeluarga', $data);
     }
 
     // Penduduk

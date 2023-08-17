@@ -145,19 +145,25 @@ class KeluargaController extends BaseController
             }
         }
 
+        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : $this->request->getVar('tgl_pindah');
+
+        ($tgl_pindah != null) ? $status = 'Pindah' : $status = 'Tetap';
+
+        $namaKepalaKeluarga = ($this->request->getVar('nama_kepala_keluarga')) ? $this->request->getVar('nama_kepala_keluarga') : $keluarga['nama_kepala_keluarga'];
+
         $result = $this->keluargaModel->update(["no_kk" => $id], [
-            "nama_kepala_keluarga" => $this->request->getVar('nama_kepala_keluarga'),
+            "nama_kepala_keluarga" => $namaKepalaKeluarga,
             'alamat' => $this->request->getVar('alamat'),
             'alamat_asal' => $this->request->getVar('alamat_asal'),
             'tgl_pindah' => $this->request->getVar('tgl_pindah'),
-            'status' => $this->request->getVar('status'),
+            'status' => $status,
             'foto_rumah' => $namaFoto,
         ]);
 
         if ($result) {
             $result = $this->usersModel->update([
                 "no_kk" => $id,
-                'nama' => $this->request->getVar('nama_kepala_keluarga'),
+                'nama' => $namaKepalaKeluarga,
             ], [
                 'status' => 'Kepala Keluarga',
             ]);
@@ -193,19 +199,25 @@ class KeluargaController extends BaseController
             }
         }
 
+        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : $this->request->getVar('tgl_pindah');
+
+        ($tgl_pindah != null) ? $status = 'Pindah' : $status = 'Tetap';
+
+        $namaKepalaKeluarga = ($this->request->getVar('nama_kepala_keluarga')) ? $this->request->getVar('nama_kepala_keluarga') : $keluarga['nama_kepala_keluarga'];
+
         $result = $this->keluargaModel->update(["no_kk" => $id], [
-            "nama_kepala_keluarga" => $this->request->getVar('nama_kepala_keluarga'),
+            "nama_kepala_keluarga" => $namaKepalaKeluarga,
             'alamat' => $this->request->getVar('alamat'),
             'alamat_asal' => $this->request->getVar('alamat_asal'),
             'tgl_pindah' => $this->request->getVar('tgl_pindah'),
-            'status' => $this->request->getVar('status'),
+            'status' => $status,
             'foto_rumah' => $namaFoto,
         ]);
 
         if ($result) {
             $result = $this->usersModel->update([
                 "no_kk" => $id,
-                'nama' => $this->request->getVar('nama_kepala_keluarga'),
+                'nama' => $namaKepalaKeluarga,
             ], [
                 'status' => 'Kepala Keluarga',
             ]);

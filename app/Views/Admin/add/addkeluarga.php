@@ -108,13 +108,12 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger">Batal</button>
+                                    <a href="/admin/families" class="btn btn-danger">Batal</a>
                                     <input class="btn btn-success" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -173,10 +172,8 @@
 </script>
 
 <script>
-    //== Class definition
     var SweetAlert2Demo = function() {
 
-        //== Demos
         var initDemos = function() {
 
             <?php if (session()->getFlashdata('error')) : ?>
@@ -203,14 +200,12 @@
         };
 
         return {
-            //== Init
             init: function() {
                 initDemos();
             },
         };
     }();
 
-    //== Class Initialization
     jQuery(document).ready(function() {
         SweetAlert2Demo.init();
     });
