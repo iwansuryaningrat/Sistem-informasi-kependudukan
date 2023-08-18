@@ -17,7 +17,7 @@
 <!-- main -->
 <main>
   <section class="container container-space pt-0">
-    <form class="card-form-container card" id="familyFormDetail" action="#" enctype="multipart/form-data" method="POST">
+    <div class="card-form-container card" id="familyFormDetail">
       <div class="card-header card-form-header">
         <p class="mb-0 fw-semibold">Detail Keluarga</p>
       </div>
@@ -122,7 +122,17 @@
           </div>
         </div>
       </div>
-    </form>
+      <!-- Hapus -->
+      <?php if ($isKepalaKeluarga && $dataKeluarga['status'] != 'Kepala Keluarga') : ?>
+        <div class="card-footer card-form-footer">
+          <div class="w-100 d-flex justify-content-end">
+            <button role="presentation" class="btn btn-logout-sm btn-submit px-4" onclick="deleteFam()">
+              Hapus Permohonan
+            </button>
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
   </section>
 </main>
 <!-- end of main -->
@@ -133,6 +143,21 @@
 
 <!-- internal script -->
 <script>
+  function deleteFam() {
+    Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: "Anda akan menghapus data ini!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "#";
+      }
+    });
+  }
 </script>
 
 <?= $this->endSection(); ?>

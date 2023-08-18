@@ -138,79 +138,111 @@ $this->extend('users/template/layout'); ?>
 
   <!-- galery -->
   <section class="container container-space">
-
     <!-- header -->
     <div class="d-flex align-items-center flex-column mb-4">
       <p class="head-badge">GALERI</p>
       <h2 class="text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit
+        Kegiatan dan Peristiwa Terbaru Kami
       </h2>
     </div>
 
     <!-- content -->
-    <div class="gallery-container mb-5">
-      <?php $i = 1;
-      foreach ($newestGaleri as $galeri) : ?>
-        <div class="gallery-warp">
-          <figure class="gallery-item__warp">
-            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['judul'] ?>" class="gallery-item__photo" />
-            <div class="gallery-item__desc">
-              <div class="scroll">
-                <p class="mb-2 text-sm"><?= $galeri['judul'] ?></p>
-                <p class="text-xs mb-2 fst-italic text-gray-200">
-                  <?= $galeri['nama'] ?> - <?= date('j M Y H:m', strtotime($galeri['created_at'])) ?>
-                </p>
-              </div>
-            </div>
-          </figure>
+    <div class="<?= (empty($newestGaleri)) ? 'w-100' : 'gallery-container' ?> mb-5">
+      <?php if (empty($newestGaleri)) : ?>
+        <div class="col-span-full text-center d-flex justify-content-center">
+          <div class="card-empty">
+            <img src="/homepage/assets/img/decoration/empty-folder.png" alt="empty pengumuman" class="img-empty-state mx-auto mb-1">
+            <p class="text-center mb-1 text-basic">
+              Maaf, tidak ada galeri yang ditemukan.
+            </p>
+            <a class="btn btn-secondaries shadow" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
+              Laporkan Kesalahan
+            </a>
+          </div>
         </div>
+        <?php else :
+        $i = 1;
+        foreach ($newestGaleri as $galeri) : ?>
+          <div class="gallery-warp">
+            <figure class="gallery-item__warp">
+              <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['judul'] ?>" class="gallery-item__photo" />
+              <div class="gallery-item__desc">
+                <div class="scroll">
+                  <p class="mb-3 text-sm"><?= $galeri['judul'] ?></p>
+                  <p class="text-xs mb-2 fst-italic text-gray-200">
+                    <?= $galeri['nama'] ?> - <?= date('j M Y H:m', strtotime($galeri['created_at'])) ?>
+                  </p>
+                </div>
+              </div>
+            </figure>
+          </div>
       <?php $i++;
-      endforeach; ?>
+        endforeach;
+      endif; ?>
     </div>
-    <div class="d-flex justify-content-center pt-1 pt-sm-3">
-      <a href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
-    </div>
+    <?php if (!empty($newestGaleri)) : ?>
+      <div class="d-flex justify-content-center pt-1 pt-sm-3">
+        <a href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+      </div>
+    <?php endif; ?>
   </section>
 
   <!-- pengumuman -->
   <section class="w-100 bg-main-500__05">
     <div class="container container-space">
-
       <!-- header -->
       <div class="d-flex align-items-center flex-column mb-4">
         <p class="head-badge">pengumuman</p>
         <h2 class="text-center">
-          Itaque nobis explicabo voluptas cum nulla.
+          Pengumuman dan Berita Terbaru Kami
         </h2>
       </div>
 
       <!-- content -->
       <div class="news-container mb-5">
-        <?php $i = 1;
-        foreach ($newestPengumuman as $pengumuman) : ?>
-          <div class="news-card">
-            <figure class="news-image__wrap">
-              <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="Pengumuman -<?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
-            </figure>
-            <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
-            <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>
-            <div class="d-flex align-items-center mb-3">
-              <p class="mb-0">
-                <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $pengumuman['nama'] ?></span>
-                <span class="me-2 text-gray"><i class="fa-solid fa-clock me-1 fill-gray"></i><?= DateHelper::formatIndonesianDate($pengumuman['tanggal']) ?></span>
-                <span class="me-2 text-gray"><i class="fa-solid fa-location-dot me-1 fill-gray"></i><?= $pengumuman['tempat'] ?></span>
-              </p>
+        <?php if (empty($newestPengumuman)) : ?>
+          <div class="col-span-full text-center">
+            <div class="d-flex justify-content-center">
+              <div class="card-empty">
+                <img src="/homepage/assets/img/decoration/empty-folder.png" alt="empty pengumuman" class="img-empty-state mx-auto mb-1">
+                <p class="text-center mb-1 text-basic">
+                  Maaf, tidak ada pengumuman yang ditemukan.
+                </p>
+                <a class="btn btn-secondaries shadow" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
+                  Laporkan Kesalahan
+                </a>
+              </div>
             </div>
-            <a href="<?= ($isLoggedin) ? '/users/detailpengumuman/' . $pengumuman['pengumuman_id'] : '/home/detailpengumuman/' . $pengumuman['pengumuman_id'] ?>" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
-              Kunjungi Detil Pengumuman
-            </a>
           </div>
+          <?php else :
+          $i = 1;
+          foreach ($newestPengumuman as $pengumuman) : ?>
+            <div class="news-card">
+              <figure class="news-image__wrap">
+                <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="Pengumuman -<?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
+              </figure>
+              <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
+              <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>
+              <div class="d-flex align-items-center mb-3">
+                <p class="mb-0">
+                  <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $pengumuman['nama'] ?></span>
+                  <span class="me-2 text-gray"><i class="fa-solid fa-clock me-1 fill-gray"></i><?= DateHelper::formatIndonesianDate($pengumuman['tanggal']) ?></span>
+                  <span class="me-2 text-gray"><i class="fa-solid fa-location-dot me-1 fill-gray"></i><?= $pengumuman['tempat'] ?></span>
+                </p>
+              </div>
+              <a href="<?= ($isLoggedin) ? '/users/detailpengumuman/' . $pengumuman['pengumuman_id'] : '/home/detailpengumuman/' . $pengumuman['pengumuman_id'] ?>" class="btn btn-main-outline shadow w-full-sm mb-2" role="button">
+                Kunjungi Detil Pengumuman
+              </a>
+            </div>
         <?php $i++;
-        endforeach; ?>
+          endforeach;
+        endif; ?>
       </div>
-      <div class="d-flex justify-content-center pt-1 pt-sm-3">
-        <a href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
-      </div>
+      <?php if (!empty($newestPengumuman)) : ?>
+        <div class="d-flex justify-content-center pt-1 pt-sm-3">
+          <a href="<?= ($isLoggedin) ?  '/users/pengumuman' :  '/home/pengumuman'; ?>" class="btn btn-main shadow" role="button">Lebih Banyak</a>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
 

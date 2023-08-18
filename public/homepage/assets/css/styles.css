@@ -893,6 +893,30 @@
   object-fit: cover;
   object-position: center;
 }
+.btn-delete-dropdown:hover {
+  background-color: rgba(242, 79, 79, 0.2) !important;
+  color: rgba(242, 79, 79, 1) !important;
+}
+.card-empty {
+  margin-top: 1.75rem;
+  border-radius: 0.75rem;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  height: 100%;
+}
+.img-empty-state {
+  width: 90px;
+  object-fit: cover;
+  object-position: center;
+}
 
 /* ADMINISTRASI */
 .file-pdf-info {

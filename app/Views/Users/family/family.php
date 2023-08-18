@@ -50,12 +50,20 @@
                         <i class="fa-solid fa-ellipsis"></i>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-table shadow">
+                        <!-- edit -->
                         <li>
                           <a class="dropdown-item dropdown-table-item" href="/users/formEditKeluarga/<?= $keluarga['nik'] ?>"><i class="fa-solid fa-pen-to-square me-2"></i>Edit</a>
                         </li>
+                        <!-- detail -->
                         <li>
                           <a class="dropdown-item dropdown-table-item" href="/users/detailkeluarga/<?= $keluarga['nik'] ?>"><i class="fa-regular fa-folder-open me-2"></i>Detail</a>
                         </li>
+                        <!-- hapus -->
+                        <?php if ($isKepalaKeluarga && $keluarga['status'] != 'Kepala Keluarga') : ?>
+                          <li>
+                            <button class="dropdown-item dropdown-table-item btn-delete-dropdown" onclick="deleteFam()"><i class="fa-regular fa-trash-alt me-2"></i>Hapus</button>
+                          </li>
+                        <?php endif; ?>
                       </ul>
                     </div>
                   </td>
@@ -150,6 +158,22 @@
       '<i class="fa-solid fa-table-list ps-2 text-basic"></i>'
     );
   });
+
+  function deleteFam() {
+    Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: "Anda akan menghapus data ini!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "#";
+      }
+    });
+  }
 </script>
 
 <script>
