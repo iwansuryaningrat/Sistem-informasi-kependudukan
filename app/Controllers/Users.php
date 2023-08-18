@@ -178,7 +178,7 @@ class Users extends BaseController
         $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
 
         $zipFileName = 'foto_galeri_' . $id . '.zip';
-        $zipFilePath = FCPATH . 'upload/photos/zip/' . $zipFileName; // Update with the appropriate path
+        $zipFilePath = FCPATH . 'upload/photos/galeri/' . $zipFileName; // Update with the appropriate path
         // dd($zipFilePath);
 
         $zip = new ZipArchive();
