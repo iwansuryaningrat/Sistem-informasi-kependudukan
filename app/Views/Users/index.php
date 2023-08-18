@@ -138,7 +138,6 @@ $this->extend('users/template/layout'); ?>
 
   <!-- galery -->
   <section class="container container-space">
-
     <!-- header -->
     <div class="d-flex align-items-center flex-column mb-4">
       <p class="head-badge">GALERI</p>
@@ -191,7 +190,6 @@ $this->extend('users/template/layout'); ?>
   <!-- pengumuman -->
   <section class="w-100 bg-main-500__05">
     <div class="container container-space">
-
       <!-- header -->
       <div class="d-flex align-items-center flex-column mb-4">
         <p class="head-badge">pengumuman</p>
