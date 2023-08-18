@@ -893,6 +893,10 @@
   object-fit: cover;
   object-position: center;
 }
+.btn-delete-dropdown:hover {
+  background-color: rgba(242, 79, 79, 0.2) !important;
+  color: rgba(242, 79, 79, 1) !important;
+}
 
 /* ADMINISTRASI */
 .file-pdf-info {
