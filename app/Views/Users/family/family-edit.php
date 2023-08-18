@@ -46,14 +46,22 @@
                     <div class="row mb-3">
                         <label for="alamat" class="col-md-2 form-label forms-label mt-md-2">Alamat <span class="text-important">*</span></label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $dataKeluarga['alamat'] ?>" />
+                            <input type="text" class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $dataKeluarga['alamat'] ?>" describedby="alamatHelp" />
+                            <div id="alamatHelp" class="form-text input-text" style="line-height: 1.85;">
+                                Mohon gunakan format berikut: <br />
+                                <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                            </div>
                         </div>
                     </div>
                     <!-- alamat asal -->
                     <div class="row mb-3">
                         <label for="alamat_asal" class="col-md-2 form-label forms-label mt-md-2">Alamat Asal</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control input-control" id="alamat_asal" name="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $dataKeluarga['alamat_asal'] ?>" />
+                            <input type="text" class="form-control input-control" id="alamat_asal" name="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $dataKeluarga['alamat_asal'] ?>" describedby="alamatAsalHelp" />
+                            <div id="alamatAsalHelp" class="form-text input-text" style="line-height: 1.85;">
+                                Mohon gunakan format berikut: <br />
+                                <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                            </div>
                         </div>
                     </div>
                     <!-- tanggal pindah -->

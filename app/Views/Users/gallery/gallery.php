@@ -17,28 +17,45 @@
 <main>
   <section class="container container-space">
     <div class="news-container">
-      <?php foreach ($dataGaleri as $galeri) : ?>
-        <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
-          <figure class="news-image__wrap h-13">
-            <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
-          </figure>
-          <div class="d-flex align-items-center mb-2">
-            <p class="mb-0">
-              <span class="badge badge-done"><?= $galeri['nama_kategori'] ?></span>
-            </p>
+      <?php if (empty($dataGaleri)) : ?>
+        <div class="col-span-full text-center">
+          <div class="d-flex justify-content-center">
+            <div class="card-empty mt-0 mb-5">
+              <img src="/homepage/assets/img/decoration/out-of-stock.png" alt="empty pengumuman" class="img-empty-state mx-auto mb-1">
+              <p class="text-center mb-1 text-basic">
+                Maaf, tidak ada galeri yang ditemukan.
+              </p>
+              <div class="btn btn-secondaries shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
+                Tambahkan Galeri
+              </div>
+            </div>
           </div>
-          <p class="news-title-card text-lg mb-2">
-            <?= $galeri['judul'] ?>
-          </p>
-          <div class="d-flex align-items-center">
-            <p class="d-flex align-items-center me-3 mb-0">
-              <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
-              <span class="text-sm d-block text-gray"><?= $galeri['nama'] ?></span>
+        </div>
+      <?php else : ?>
+        <?php foreach ($dataGaleri as $galeri) : ?>
+          <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
+            <figure class="news-image__wrap h-13">
+              <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
+            </figure>
+            <div class="d-flex align-items-center mb-2">
+              <p class="mb-0">
+                <span class="badge badge-done"><?= $galeri['nama_kategori'] ?></span>
+              </p>
+            </div>
+            <p class="news-title-card text-lg mb-2">
+              <?= $galeri['judul'] ?>
             </p>
-          </div>
-        </a>
-      <?php endforeach; ?>
+            <div class="d-flex align-items-center">
+              <p class="d-flex align-items-center me-3 mb-0">
+                <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+                <span class="text-sm d-block text-gray"><?= $galeri['nama'] ?></span>
+              </p>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
+
   </section>
 </main>
 <!-- end of main -->
