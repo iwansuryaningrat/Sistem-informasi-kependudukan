@@ -203,39 +203,45 @@
                   </div>
 
                   <?php
+                  $desa_kelurahan = null;
+                  $kecamatan = null;
                   $kota_kabupaten = null;
                   $kodepos = null;
                   $provinsi = null;
                   $alamat = $user['alamat'];
                   if ($alamat != null) {
-                    $alamat = explode(',', $user['alamat']);
-                    $kota = explode(' ', $alamat[1]);
-                    $kodepos = $kota[1];
-                    $kota_kabupaten = $kota[0];
-                    $provinsi = $alamat[2];
-                    $alamat = $alamat[0];
+                    $alamat_parts = explode(', ', $user['alamat']);
+                    $desa_kelurahan = trim($alamat_parts[2]);
+                    $kecamatan = trim($alamat_parts[3]);
+                    $kota_kabupaten = trim($alamat_parts[4]);
+                    $provinsi = trim($alamat_parts[5]);
+                    $kodepos = trim($alamat_parts[6]);
                   }
                   ?>
 
                   <div class="mb-3">
                     <label for="alamat" class="form-label forms-label">Alamat <span class="text-important">*</span></label>
 
-                    <input class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $alamat ?>" />
+                    <input class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $alamat ?>" describedby="alamatHelp" />
+                    <div id="alamatHelp" class="form-text input-text" style="line-height: 1.85;">
+                      Mohon gunakan format berikut: <br />
+                      <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                    </div>
                   </div>
 
                   <div class="row mb-3">
-                    <!-- provinsi -->
-                    <div class="col-md-4 mb-3 mb-md-0">
-                      <label for="provinsi" class="form-label forms-label">Provinsi <span class="text-important">*</span></label>
-
-                      <input class="form-control input-control" id="provinsi" name="provinsi" required placeholder="Masukkan Provinsi" value="<?= $provinsi ?>" />
-                    </div>
-
                     <!-- kota atau kabupaten -->
                     <div class="col-md-4 mb-3 mb-md-0">
                       <label for="kota_kabupaten" class="form-label forms-label">Kota/Kabupaten <span class="text-important">*</span></label>
 
                       <input class="form-control input-control" id="kota_kabupaten" name="kota_kabupaten" required placeholder="Masukkan Kota/Kabupaten" value="<?= $kota_kabupaten ?>" />
+                    </div>
+
+                    <!-- provinsi -->
+                    <div class="col-md-4 mb-3 mb-md-0">
+                      <label for="provinsi" class="form-label forms-label">Provinsi <span class="text-important">*</span></label>
+
+                      <input class="form-control input-control" id="provinsi" name="provinsi" required placeholder="Masukkan Provinsi" value="<?= $provinsi ?>" />
                     </div>
 
                     <!-- kodepos -->
