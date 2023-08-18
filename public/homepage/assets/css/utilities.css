@@ -125,6 +125,10 @@ svg.fill-gray,
   gap: 0.5rem 0;
 }
 
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
 /* animation */
 .spinners {
   animation: spin 1s infinite linear;
