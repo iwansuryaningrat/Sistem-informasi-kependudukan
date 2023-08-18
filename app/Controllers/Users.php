@@ -255,6 +255,7 @@ class Users extends BaseController
             'anggotaKeluarga' => $anggotaKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'kk' => $this->user_data['no_kk'],
+            'isKepalaKeluarga' => $this->user_data['status'] == 'Kepala Keluarga' ? true : false,
         ];
 
         return view('/users/family/family', $data);
@@ -269,6 +270,7 @@ class Users extends BaseController
             'navbar' => 'keluarga',
             'dataKeluarga' => $dataKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'isKepalaKeluarga' => $this->user_data['status'] == 'Kepala Keluarga' ? true : false,
         ];
 
         return view('/users/family/family-detail', $data);
