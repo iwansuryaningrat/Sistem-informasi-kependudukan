@@ -995,3 +995,13 @@ footer hr {
 .pills-content-card > h4 {
   color: #1e1e1e;
 }
+
+.help-describe {
+  padding: 3px 6px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  background-color: #f0f2f4;
+}

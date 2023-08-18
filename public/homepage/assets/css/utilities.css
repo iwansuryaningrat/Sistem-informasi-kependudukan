@@ -26,6 +26,9 @@
   line-height: 1.5;
   color: rgb(106, 106, 106);
 }
+.text-italic {
+  font-style: italic !important;
+}
 .text-xl {
   font-size: 1.25rem;
 }
