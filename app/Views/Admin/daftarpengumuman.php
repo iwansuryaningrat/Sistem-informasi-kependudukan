@@ -32,7 +32,7 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <h4 class="card-title">Riwayat Pengumuman</h4>
-                            <a class="d-block ml-auto" href="/admin/addfamily">
+                            <a class="d-block ml-auto" href="/admin/addpengumuman">
                                 <button class="btn btn-primary btn-round ml-auto">
                                     <i class="fa fa-plus">
                                         Tambah Data
