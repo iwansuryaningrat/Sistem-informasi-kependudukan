@@ -27,6 +27,7 @@ class UserController extends BaseController
     protected $usersModel;
 
     protected $user_data;
+    protected $filePaths = 'upload/photos/profile/';
 
     public function __construct()
     {
@@ -78,7 +79,7 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/profile/', $namaFoto);
+            $foto->move($this->filePaths, $namaFoto);
         }
 
         // calculate age
@@ -131,11 +132,11 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/profile/', $namaFoto);
+            $foto->move($this->filePaths, $namaFoto);
 
             // Delete old foto
             if ($this->user_data['foto'] != 'default.png') {
-                unlink('upload/photos/profile/' . $this->user_data['foto']);
+                unlink($this->filePaths . $this->user_data['foto']);
             }
         }
 
@@ -233,11 +234,11 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/profile/', $namaFoto);
+            $foto->move($this->filePaths, $namaFoto);
 
             // Delete old foto
             if ($this->user_data['foto'] != 'default.png') {
-                unlink('upload/photos/profile/' . $this->user_data['foto']);
+                unlink($this->filePaths . $this->user_data['foto']);
             }
         }
 
@@ -290,11 +291,11 @@ class UserController extends BaseController
             $namaFoto = $foto->getRandomName();
 
             // Move foto to img folder
-            $foto->move('upload/photos/profile/', $namaFoto);
+            $foto->move($this->filePaths, $namaFoto);
 
             // Delete old foto
             if ($this->user_data['foto'] != 'default.png') {
-                unlink('upload/photos/profile/' . $this->user_data['foto']);
+                unlink($this->filePaths . $this->user_data['foto']);
             }
         }
 

@@ -128,8 +128,7 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
-    // Keluarga
-    // done
+    // Keluarga (Done)
     public function families()
     {
         $dataKeluarga = $this->keluargaModel->getKeluarga();
@@ -147,7 +146,6 @@ class Admin extends BaseController
         return view('admin/daftarkeluarga', $data);
     }
 
-    // done
     public function addFamily()
     {
         $data = [
@@ -181,7 +179,6 @@ class Admin extends BaseController
         return view('admin/edit/editkeluarga', $data);
     }
 
-    // done
     public function detailKeluarga($id)
     {
         $keluarga = $this->keluargaModel->getKeluarga($id);
@@ -221,6 +218,7 @@ class Admin extends BaseController
 
     public function addPeople()
     {
+        $dataKeluarga = $this->keluargaModel->getKeluarga();
         $data = [
             'title' => 'Tambah Penduduk',
             'active' => 'penduduk',
@@ -228,6 +226,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'dataKeluarga' => $dataKeluarga,
         ];
 
         return view('admin/add/addpenduduk', $data);
@@ -235,12 +234,31 @@ class Admin extends BaseController
 
     public function editPenduduk($id)
     {
+        $dataKeluarga = $this->keluargaModel->getKeluarga();
+        $dataPenduduk = $this->usersModel->getUsers($id);
         $data = [
             'title' => 'Edit Penduduk',
             'active' => 'penduduk',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'dataKeluarga' => $dataKeluarga,
+            'dataPenduduk' => $dataPenduduk,
+        ];
+
+        return view('admin/edit/editpenduduk', $data);
+    }
+
+    public function detailPenduduk($id)
+    {
+        $dataPenduduk = $this->usersModel->getUsers($id);
+        $data = [
+            'title' => 'Edit Penduduk',
+            'active' => 'penduduk',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'dataPenduduk' => $dataPenduduk,
         ];
 
         return view('admin/edit/editpenduduk', $data);

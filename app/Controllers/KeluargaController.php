@@ -92,7 +92,7 @@ class KeluargaController extends BaseController
 
         $result = $this->keluargaModel->save([
             'no_kk' => $this->request->getVar('no_kk'),
-            'nama_kepala_keluarga' => $this->request->getVar('name'),
+            'nama_kepala_keluarga' => $this->request->getVar('nama_kepala_keluarga'),
             'alamat' => $this->request->getVar('alamat'),
             'alamat_asal' => $this->request->getVar('alamat_asal'),
             'tgl_pindah' =>  $tgl_pindah,
@@ -104,7 +104,7 @@ class KeluargaController extends BaseController
             $result = $this->usersModel->save([
                 'no_kk' => $this->request->getVar('no_kk'),
                 'nik' => $this->request->getVar('nik'),
-                'nama' => $this->request->getVar('name'),
+                'nama' => $this->request->getVar('nama_kepala_keluarga'),
                 'password' => password_hash('user1234', PASSWORD_DEFAULT),
                 'status' => 'Kepala Keluarga',
             ]);
@@ -181,7 +181,7 @@ class KeluargaController extends BaseController
 
     public function updateAdmin($id)
     {
-        var_dump($this->request->getVar());
+        // dd($this->request->getVar());
         $keluarga = $this->keluargaModel->getKeluarga($id);
 
         if (!$keluarga) {
@@ -215,14 +215,7 @@ class KeluargaController extends BaseController
             'foto_rumah' => $namaFoto,
         ]);
 
-        if ($result) {
-            $result = $this->usersModel->update([
-                "no_kk" => $id,
-                'nama' => $namaKepalaKeluarga,
-            ], [
-                'status' => 'Kepala Keluarga',
-            ]);
-        }
+        if ($result && $namaKepalaKeluarga !== $keluarga['nama_kepala_keluarga']) $result = $this->usersModel->updateNamaKepalaKeluarga($id, $namaKepalaKeluarga);
 
         if ($result) {
             session()->setFlashdata('success', 'Data berhasil diubah.');

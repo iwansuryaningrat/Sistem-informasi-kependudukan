@@ -178,4 +178,10 @@ class UsersModel extends Model
     {
         return ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'];
     }
+
+    // Update nama kepala keluarga by no_kk
+    public function updateNamaKepalaKeluarga($no_kk, $nama)
+    {
+        return $this->db->table($this->table)->update(['nama' => $nama], ['no_kk' => $no_kk, 'status' => 'Kepala Keluarga']);
+    }
 }

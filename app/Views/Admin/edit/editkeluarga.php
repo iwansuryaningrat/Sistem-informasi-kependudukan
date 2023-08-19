@@ -45,9 +45,9 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga</label>
+                                <label for="nama_kepala_keluarga" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" value="<?= $keluarga['nama_kepala_keluarga'] ?>">
+                                    <input type="text" class="form-control" id="nama_kepala_keluarga" name="nama_kepala_keluarga" placeholder="Masukkan Nama Kepala Keluarga" value="<?= $keluarga['nama_kepala_keluarga'] ?>">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
