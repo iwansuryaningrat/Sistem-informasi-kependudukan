@@ -142,7 +142,7 @@ CREATE TABLE `pengumuman` (
   `pengumuman_id` int(11) NOT NULL,
   `kategori` varchar(30) NOT NULL,
   `judul_pengumuman` varchar(255) NOT NULL,
-  `deskripsi` varchar(255) NOT NULL,
+  `deskripsi` longtext NOT NULL,
   `tanggal` date NOT NULL,
   `jam` time NOT NULL,
   `tempat` varchar(255) NOT NULL,
