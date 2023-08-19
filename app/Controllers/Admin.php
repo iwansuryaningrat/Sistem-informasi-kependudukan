@@ -27,6 +27,14 @@ class Admin extends BaseController
 
     protected $session;
 
+    // Paths
+    protected $zipFilePath = '/upload/zip/';
+    protected $photoPath = '/upload/photos/galeri/';
+    protected $fotoRumahPath = '/upload/photos/foto_rumah/';
+    protected $pengumumanPath = '/upload/photos/pengumuman/';
+    protected $profilePhotoPath = '/upload/photos/profile/';
+    protected $filePaths = '/upload/files/';
+
     public function __construct()
     {
         // Models
@@ -123,6 +131,7 @@ class Admin extends BaseController
             'dataUsia' => $dataUsia,
             'dataAgama' => $dataAgama,
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/index', $data);
@@ -141,6 +150,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'dataKeluarga' => $dataKeluarga,
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftarkeluarga', $data);
@@ -155,6 +165,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/add/addkeluarga', $data);
@@ -174,6 +185,8 @@ class Admin extends BaseController
             'session' => $this->session->get(),
             'keluarga' => $keluarga,
             'anggotaKeluarga' => $anggotaKeluarga,
+            'profilePhotoPath' => $this->profilePhotoPath,
+            'path' => $this->fotoRumahPath,
         ];
 
         return view('admin/edit/editkeluarga', $data);
@@ -193,13 +206,15 @@ class Admin extends BaseController
             'session' => $this->session->get(),
             'keluarga' => $keluarga,
             'anggotaKeluarga' => $anggotaKeluarga,
+            'profilePhotoPath' => $this->profilePhotoPath,
+            'path' => $this->fotoRumahPath,
         ];
 
         return view('admin/detail/detailkeluarga', $data);
     }
 
     // Penduduk
-    public function people()
+    public function people() // done
     {
         $dataPenduduk = $this->usersModel->getUsers();
 
@@ -211,6 +226,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'dataPenduduk' => $dataPenduduk,
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftarpenduduk', $data);
@@ -227,6 +243,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'dataKeluarga' => $dataKeluarga,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/add/addpenduduk', $data);
@@ -244,6 +261,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'dataKeluarga' => $dataKeluarga,
             'dataPenduduk' => $dataPenduduk,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editpenduduk', $data);
@@ -259,6 +277,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'dataPenduduk' => $dataPenduduk,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editpenduduk', $data);
@@ -277,6 +296,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'dataAdministrasi' => $dataAdministrasi,
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftaradministrasi', $data);
@@ -290,6 +310,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/add/addadministrasi', $data);
@@ -313,6 +334,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'dataAdministrasi' => $dataAdministrasi,
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editadministrasi', $data);
@@ -330,6 +352,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'dataAdministrasi' => $dataAdministrasi,
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/detail/editadministrasi', $data);
@@ -348,6 +371,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'laporan' => $laporan,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftarlaporan', $data);
@@ -372,6 +396,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'laporan' => $laporan,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editlaporan', $data);
@@ -389,6 +414,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'laporan' => $laporan,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/detail/detaillaporan', $data);
@@ -404,6 +430,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftargaleri', $data);
@@ -417,6 +444,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/add/addgaleri', $data);
@@ -430,6 +458,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editgaleri', $data);
@@ -445,6 +474,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftarfoto', $data);
@@ -459,6 +489,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/add/addfoto', $data);
@@ -473,6 +504,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editfoto', $data);
@@ -488,6 +520,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/daftarpengumuman', $data);
@@ -502,6 +535,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/add/addpengumuman', $data);
@@ -516,6 +550,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/edit/editpengumuman', $data);
@@ -534,6 +569,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'dataPesan' => $this->pesanModel->getPesan(),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/pesan', $data);
@@ -553,6 +589,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'dataPesan' => $this->pesanModel->getPesan($id),
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('admin/detail/detailpesan', $data);
