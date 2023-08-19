@@ -280,6 +280,7 @@ class Users extends BaseController
             'kk' => $this->user_data['no_kk'],
             'isKepalaKeluarga' => $this->user_data['status'] == 'Kepala Keluarga' ? true : false,
             'fotoPath' => $this->fotoRumahPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/family/family', $data);
@@ -296,6 +297,7 @@ class Users extends BaseController
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'isKepalaKeluarga' => $this->user_data['status'] == 'Kepala Keluarga' ? true : false,
             'fotoPath' => $this->fotoRumahPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/family/family-detail', $data);
@@ -318,6 +320,7 @@ class Users extends BaseController
             'statusPerkawinan' => $statusPerkawinan,
             'pendidikan' => $pendidikan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/family/family-form-add', $data);
