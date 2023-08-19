@@ -114,11 +114,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/admin/foto">
-                                    <span class="sub-item">Daftar Foto</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/admin/addgaleri">
                                     <span class="sub-item">Tambah Galeri</span>
                                 </a>
