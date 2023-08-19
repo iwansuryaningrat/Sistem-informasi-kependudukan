@@ -30,12 +30,12 @@ class Users extends BaseController
     protected $user_data;
 
     // Paths
-    protected $zipFilePath = 'upload/zip/';
-    protected $photoPath = 'upload/photos/galeri/';
-    protected $fotoRumahPath = 'upload/photos/foto_rumah/';
-    protected $pengumumanPath = 'upload/photos/pengumuman/';
-    protected $profilePhotoPath = 'upload/photos/profile/';
-    protected $filePaths = 'upload/files/';
+    protected $zipFilePath = '/upload/zip/';
+    protected $photoPath = '/upload/photos/galeri/';
+    protected $fotoRumahPath = '/upload/photos/foto_rumah/';
+    protected $pengumumanPath = '/upload/photos/pengumuman/';
+    protected $profilePhotoPath = '/upload/photos/profile/';
+    protected $filePaths = '/upload/files/';
 
     public function __construct()
     {
@@ -82,6 +82,9 @@ class Users extends BaseController
             'newestPengumuman' => $getNewestPengumuman,
             'newestGaleri' => $getNewestGaleri,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'photoPath' => $this->photoPath,
+            'pengumumanPath' => $this->pengumumanPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/index', $data);
@@ -97,6 +100,7 @@ class Users extends BaseController
             'navbar' => 'pelaporan',
             'dataLaporan' => $dataLaporan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/report/report', $data);
@@ -115,6 +119,7 @@ class Users extends BaseController
             'users' => $users,
             'pelaporanKategori' => $pelaporanKategori,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/report/report-form-edit', $data);
@@ -129,6 +134,7 @@ class Users extends BaseController
             'navbar' => 'pelaporan',
             'dataLaporan' => $dataLaporan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/report/report-detail', $data);
@@ -145,6 +151,7 @@ class Users extends BaseController
             'users' => $users,
             'pelaporanKategori' => $pelaporanKategori,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/report/report-form-add', $data);
@@ -160,6 +167,8 @@ class Users extends BaseController
             'kategoriGaleri' => $this->kategoriGaleriModel->findAll(),
             'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'path' => $this->photoPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/gallery/gallery', $data);
@@ -176,6 +185,8 @@ class Users extends BaseController
             'dataGaleri' => $dataGaleri,
             'dataFoto' => $dataFoto,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'path' => $this->photoPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/gallery/gallery-detail', $data);
@@ -230,6 +241,8 @@ class Users extends BaseController
             'navbar' => 'pengumuman',
             'pengumuman' => $pengumuman,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'path' => $this->pengumumanPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/news/announcement', $data);
@@ -246,6 +259,8 @@ class Users extends BaseController
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'pengumuman' => $pengumuman,
             'pengumumanTerbaru' => $pengumumanTerbaru,
+            'path' => $this->pengumumanPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/news/read-announcement', $data);
@@ -264,6 +279,7 @@ class Users extends BaseController
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'kk' => $this->user_data['no_kk'],
             'isKepalaKeluarga' => $this->user_data['status'] == 'Kepala Keluarga' ? true : false,
+            'fotoPath' => $this->fotoRumahPath,
         ];
 
         return view('/users/family/family', $data);
@@ -279,6 +295,7 @@ class Users extends BaseController
             'dataKeluarga' => $dataKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'isKepalaKeluarga' => $this->user_data['status'] == 'Kepala Keluarga' ? true : false,
+            'fotoPath' => $this->fotoRumahPath,
         ];
 
         return view('/users/family/family-detail', $data);
@@ -326,6 +343,8 @@ class Users extends BaseController
             'statusPerkawinan' => $statusPerkawinan,
             'pendidikan' => $pendidikan,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
+            'fotoPath' => $this->fotoRumahPath,
         ];
 
         return view('/users/family/family-form-edit', $data);
@@ -342,6 +361,8 @@ class Users extends BaseController
             'dataKeluarga' => $dataKeluarga,
             'listKeluarga' => $listKeluarga,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
+            'fotoPath' => $this->fotoRumahPath,
         ];
 
         return view('/users/family/family-edit', $data);
@@ -358,6 +379,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'administrasiData' => $administrasiData,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/administration/administration', $data);
@@ -372,6 +394,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
             'dataAdministrasi' => $dataAdministrasi,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
         // dd($dataAdministrasi);
 
@@ -384,6 +407,7 @@ class Users extends BaseController
             'title' => 'Form Pengajuan Administrasi | Warga Site',
             'navbar' => 'administrasi',
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/administration/administration-form-add', $data);
@@ -397,6 +421,7 @@ class Users extends BaseController
             'navbar' => 'administrasi',
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'dataAdministrasi' => $dataAdministrasi,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/administration/administration-form-edit', $data);
@@ -411,6 +436,7 @@ class Users extends BaseController
             'navbar' => 'contact',
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'user' => $this->user_data,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/contact/contact', $data);
@@ -438,6 +464,7 @@ class Users extends BaseController
             'statusKependudukan' => $statusKependudukan,
             'statusPerkawinan' => $statusPerkawinan,
             'pendidikan' => $pendidikan,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/dashboard/profile', $data);
