@@ -29,6 +29,14 @@ class Users extends BaseController
 
     protected $user_data;
 
+    // Paths
+    protected $zipFilePath = 'upload/zip/';
+    protected $photoPath = 'upload/photos/galeri/';
+    protected $fotoRumahPath = 'upload/photos/foto_rumah/';
+    protected $pengumumanPath = 'upload/photos/pengumuman/';
+    protected $profilePhotoPath = 'upload/photos/profile/';
+    protected $filePaths = 'upload/files/';
+
     public function __construct()
     {
         $this->administrasiModel = new AdministrasiModel();
@@ -178,13 +186,13 @@ class Users extends BaseController
         $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
 
         $zipFileName = 'foto_galeri_' . $id . '.zip';
-        $zipFilePath = FCPATH . 'upload/photos/galeri/' . $zipFileName; // Update with the appropriate path
+        $zipFilePath = FCPATH . $this->zipFilePath . $zipFileName; // Update with the appropriate path
         // dd($zipFilePath);
 
         $zip = new ZipArchive();
         if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
             foreach ($dataFoto as $foto) {
-                $photoPath = FCPATH . 'upload/photos/galeri/' . $foto['foto'];
+                $photoPath = FCPATH . $this->photoPath . $foto['foto'];
                 if (file_exists($photoPath)) {
                     $zip->addFile($photoPath, $foto['foto']);
                 }
