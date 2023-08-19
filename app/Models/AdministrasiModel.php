@@ -12,7 +12,7 @@ class AdministrasiModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'administrasi_status', 'berkas', 'tgl_penerimaan', 'catatan', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['pemohon', 'kategori', 'keperluan', 'deskripsi', 'no_surat', 'administrasi_status', 'berkas', 'tgl_penerimaan', 'catatan', 'processed_by', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;

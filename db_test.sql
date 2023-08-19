@@ -38,6 +38,7 @@ CREATE TABLE `administrasi` (
   `berkas` varchar(255) NOT NULL,
   `tgl_penerimaan` datetime DEFAULT NULL,
   `catatan` varchar(255) DEFAULT NULL,
+  `processed_by` bigint(20) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -53,6 +54,7 @@ CREATE TABLE `foto` (
   `foto_id` int(11) NOT NULL,
   `galeri_id` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
+  `uploaded_by` bigint(20) NOT NULL,
   `isThumbnail` tinyint(1) NOT NULL DEFAULT 0,
   `caption` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -212,6 +214,7 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `administrasi`
   ADD PRIMARY KEY (`administrasi_id`),
+  ADD KEY `admin_fk` (`processed_by`),
   ADD KEY `users_fk` (`pemohon`);
 
 --
@@ -219,6 +222,7 @@ ALTER TABLE `administrasi`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`foto_id`),
+  ADD KEY `uploader` (`uploaded_by`),
   ADD KEY `galeri` (`galeri_id`);
 
 --
@@ -226,7 +230,7 @@ ALTER TABLE `foto`
 --
 ALTER TABLE `galeri`
   ADD PRIMARY KEY (`galeri_id`),
-  ADD KEY `uploader` (`created_by`),
+  ADD KEY `galeri_creator` (`created_by`),
   ADD KEY `kategori_galeri` (`kategori`);
 
 --
@@ -324,45 +328,47 @@ ALTER TABLE `pesan`
 -- Constraints for table `administrasi`
 --
 ALTER TABLE `administrasi`
-  ADD CONSTRAINT `users_fk` FOREIGN KEY (`pemohon`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `users_fk` FOREIGN KEY (`pemohon`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `admin_fk` FOREIGN KEY (`processed_by`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `foto`
 --
 ALTER TABLE `foto`
-  ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `galeri` FOREIGN KEY (`galeri_id`) REFERENCES `galeri` (`galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `uploader` FOREIGN KEY (`uploaded_by`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `galeri`
 --
 ALTER TABLE `galeri`
-  ADD CONSTRAINT `kategori` FOREIGN KEY (`kategori`) REFERENCES `kategori_galeri` (`kategori_galeri_id`),
-  ADD CONSTRAINT `uploader` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `kategori` FOREIGN KEY (`kategori`) REFERENCES `kategori_galeri` (`kategori_galeri_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `galeri_creator` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pelaporan`
 --
 ALTER TABLE `pelaporan`
-  ADD CONSTRAINT `pelapor` FOREIGN KEY (`nik_pelapor`) REFERENCES `users` (`nik`),
-  ADD CONSTRAINT `terlapor` FOREIGN KEY (`nik_terlapor`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `pelapor` FOREIGN KEY (`nik_pelapor`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `terlapor` FOREIGN KEY (`nik_terlapor`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  ADD CONSTRAINT `creator` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `creator` FOREIGN KEY (`created_by`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pesan`
 --
 ALTER TABLE `pesan`
-  ADD CONSTRAINT `updater` FOREIGN KEY (`updated_by`) REFERENCES `users` (`nik`);
+  ADD CONSTRAINT `updater` FOREIGN KEY (`updated_by`) REFERENCES `users` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `kk` FOREIGN KEY (`no_kk`) REFERENCES `keluarga` (`no_kk`);
+  ADD CONSTRAINT `kk` FOREIGN KEY (`no_kk`) REFERENCES `keluarga` (`no_kk`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
