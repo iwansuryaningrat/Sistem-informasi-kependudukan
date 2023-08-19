@@ -165,7 +165,7 @@ $this->extend('users/template/layout'); ?>
         foreach ($newestGaleri as $galeri) : ?>
           <div class="gallery-warp">
             <figure class="gallery-item__warp">
-              <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['judul'] ?>" class="gallery-item__photo" />
+              <img src="<?= $photoPath . $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['judul'] ?>" class="gallery-item__photo" />
               <div class="gallery-item__desc">
                 <div class="scroll">
                   <p class="mb-3 text-sm"><?= $galeri['judul'] ?></p>
@@ -219,7 +219,7 @@ $this->extend('users/template/layout'); ?>
           foreach ($newestPengumuman as $pengumuman) : ?>
             <div class="news-card">
               <figure class="news-image__wrap">
-                <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="Pengumuman -<?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
+                <img src="<?= $pengumumanPath . $pengumuman['thumbnail'] ?>" alt="Pengumuman -<?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
               </figure>
               <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
               <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>

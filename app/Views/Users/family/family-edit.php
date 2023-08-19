@@ -88,7 +88,7 @@
                         <div class="col-md-10">
                             <div class="mb-3">
                                 <figure class="">
-                                    <img src="/upload/photos/profile/<?= $dataKeluarga['foto_rumah'] ?>" id="thumbnailImage" alt="Rumah <?= $dataKeluarga['nama_kepala_keluarga'] ?>" class="img-fluid img-thumbnail img-preview foto-rumah-form" />
+                                    <img src="<?= $fotoPath .  $dataKeluarga['foto_rumah'] ?>" id="thumbnailImage" alt="Rumah <?= $dataKeluarga['nama_kepala_keluarga'] ?>" class="img-fluid img-thumbnail img-preview foto-rumah-form" />
                                 </figure>
                             </div>
                             <div class="mb-2">

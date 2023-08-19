@@ -99,7 +99,7 @@ class AdministrasiController extends BaseController
             $newFileName = $file->getRandomName();
 
             // move file to folder
-            $file->move('upload/files', $newFileName);
+            $file->move($this->filePaths, $newFileName);
 
             // delete old file
             if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') {
@@ -142,7 +142,7 @@ class AdministrasiController extends BaseController
             $newFileName = $file->getRandomName();
 
             // move file to folder
-            $file->move('upload/files', $newFileName);
+            $file->move($this->filePaths, $newFileName);
         } else {
             session()->setFlashdata('error', 'Gagal mengajukan permohonan administrasi');
             return redirect()->to('/users/formTambahAdministrasi');

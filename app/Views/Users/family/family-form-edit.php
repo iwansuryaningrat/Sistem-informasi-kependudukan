@@ -140,7 +140,7 @@
               <input type="text" class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $dataKeluarga['alamat'] ?>" describedby="alamatHelp" />
               <div id="alamatHelp" class="form-text input-text" style="line-height: 1.85;">
                 Mohon gunakan format berikut: <br />
-                <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                <span class="help-describe">Jalan/Desa RT 00 RW 00 Desa/Kelurahan Kecamatan,Kota/Kabupaten Kode Pos, Provinsi</span>
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@
             <div class="col-md-10">
               <div class="mb-3">
                 <figure class="">
-                  <img src="/upload/photos/profile/<?= $dataKeluarga['foto'] ?>" id="thumbnailImage" alt="Pas Foto <?= $dataKeluarga['nama'] ?>" class="img-fluid img-thumbnail img-preview pas-foto-form" />
+                  <img src="<?= $profilePhotoPath .  $dataKeluarga['foto'] ?>" id="thumbnailImage" alt="Pas Foto <?= $dataKeluarga['nama'] ?>" class="img-fluid img-thumbnail img-preview pas-foto-form" />
                 </figure>
               </div>
               <div class="mb-2">

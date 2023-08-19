@@ -17,7 +17,7 @@ $user = [
         <!-- toggle mobile navbar -->
         <div class="toggle-nav-mobile">
             <a class="nav-mobile-profile" href="/users/profile">
-                <img src="/upload/photos/profile/<?= ($user['foto']) ? $user['foto'] : 'default.png' ?>" alt="Profile <?= $user['nama'] ?>" class="nav-mobile-profile-img" />
+                <img src="<?= $profilePhotoPath .  (($user['foto']) ? $user['foto'] : 'default.png') ?>" alt="Profile <?= $user['nama'] ?>" class="nav-mobile-profile-img" />
             </a>
             <button class="btn-nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" title="Menu">
                 <i class="fa-solid fa-bars" style="font-size: 1.25rem"></i>

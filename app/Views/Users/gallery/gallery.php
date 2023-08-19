@@ -35,7 +35,7 @@
         <?php foreach ($dataGaleri as $galeri) : ?>
           <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
             <figure class="news-image__wrap h-13">
-              <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
+              <img src="<?= $path . $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
             </figure>
             <div class="d-flex align-items-center mb-2">
               <p class="mb-0">

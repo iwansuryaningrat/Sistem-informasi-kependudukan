@@ -12,6 +12,10 @@ class Home extends BaseController
     protected $galeriModel;
     protected $pengumumanModel;
 
+    // Paths
+    protected $photoPath = 'upload/photos/galeri/';
+    protected $pengumumanPath = 'upload/photos/pengumuman/';
+
     public function __construct()
     {
         $this->fotoModel = new FotoModel();
@@ -28,7 +32,9 @@ class Home extends BaseController
             'navbar' => 'home',
             'isLoggedin' => false,
             'newestPengumuman' => $getNewestPengumuman,
-            'newestGaleri' => $getNewestGaleri
+            'newestGaleri' => $getNewestGaleri,
+            'photoPath' => $this->photoPath,
+            'pengumumanPath' => $this->pengumumanPath,
         ];
 
         return view('/users/index', $data);
@@ -41,6 +47,7 @@ class Home extends BaseController
             'navbar' => 'galeri',
             'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => false,
+            'path' => $this->photoPath,
         ];
 
         return view('/users/gallery/gallery', $data);
@@ -56,7 +63,8 @@ class Home extends BaseController
             'navbar' => 'galeri',
             'dataGaleri' => $dataGaleri,
             'dataFoto' => $dataFoto,
-            'isLoggedin' => false
+            'isLoggedin' => false,
+            'path' => $this->photoPath,
         ];
 
         return view('/users/gallery/gallery-detail', $data);
@@ -70,6 +78,7 @@ class Home extends BaseController
             'navbar' => 'pengumuman',
             'isLoggedin' => false,
             'pengumuman' => $pengumuman,
+            'path' => $this->pengumumanPath,
         ];
 
         return view('/users/news/announcement', $data);
@@ -86,6 +95,7 @@ class Home extends BaseController
             'isLoggedin' => false,
             'pengumuman' => $pengumuman,
             'pengumumanTerbaru' => $pengumumanTerbaru,
+            'path' => $this->pengumumanPath,
         ];
 
         return view('/users/news/read-announcement', $data);

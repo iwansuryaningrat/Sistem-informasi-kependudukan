@@ -22,7 +22,7 @@ use App\Helpers\DateHelper; ?>
       <div class="col-12 col-lg-8">
         <div class="pe-0 pe-lg-2">
           <figure class="news-image-container">
-            <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="Pengumuman <?= $pengumuman['judul_pengumuman'] ?>" class="news-image-cover" />
+            <img src="<?= $path . $pengumuman['thumbnail'] ?>" alt="Pengumuman <?= $pengumuman['judul_pengumuman'] ?>" class="news-image-cover" />
           </figure>
           <div class="">
             <h4 class="mb-3"><?= $pengumuman['judul_pengumuman'] ?></h4>
@@ -66,7 +66,7 @@ use App\Helpers\DateHelper; ?>
             <?php foreach ($pengumumanTerbaru as $pengumuman) : ?>
               <a href="/users/detailpengumuman/<?= $pengumuman['pengumuman_id'] ?>" class="related-news-card">
                 <figure class="news-image__wrap">
-                  <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="Pengumuman <?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
+                  <img src="<?= $path . $pengumuman['thumbnail'] ?>" alt="Pengumuman <?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
                 </figure>
                 <p class="news-title-card mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
                 <div class="d-flex align-items-center">
