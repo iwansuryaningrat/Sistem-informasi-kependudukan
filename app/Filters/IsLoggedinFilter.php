@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class LoginPageFilter implements FilterInterface
+class IsLoggedinFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -28,7 +28,7 @@ class LoginPageFilter implements FilterInterface
         if (session()->get('isLoggedIn')) {
             if (session()->get('role') == 'Admin') {
                 return redirect()->to('/admin');
-            } elseif (session()->get('role') == 'User') {
+            } else {
                 return redirect()->to('/users');
             }
         }

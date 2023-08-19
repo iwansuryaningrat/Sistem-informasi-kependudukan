@@ -10,7 +10,7 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 
 use App\Filters\LoginFilter;
-use App\Filters\LoginPageFilter;
+use App\Filters\IsLoggedinFilter;
 use App\Filters\AdminFilter;
 use App\Filters\UsersFilter;
 
@@ -30,7 +30,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'login'         => LoginFilter::class,
-        'loginpage'     => LoginPageFilter::class,
+        'isLoggedin'     => IsLoggedinFilter::class,
         'admin'         => AdminFilter::class,
         'users'         => UsersFilter::class,
     ];
@@ -81,10 +81,11 @@ class Filters extends BaseConfig
                 'users/*',
             ]
         ],
-        'loginpage' => [
+        'isLoggedin' => [
             'before' => [
                 'login',
                 'register',
+                '/'
             ]
         ],
         'admin' => [
