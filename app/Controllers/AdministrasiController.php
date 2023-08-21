@@ -177,7 +177,17 @@ class AdministrasiController extends BaseController
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
 
+        if ($dataAdministrasi) {
+            session()->setFlashdata('error', 'Data administrasi tidak ditemukan');
+            return redirect()->to($this->userPage);
+        }
+
         if ($dataAdministrasi['no_kk'] != $this->userData['no_kk']) {
+            session()->setFlashdata('error', 'Anda tidak dapat menghapus data administrasi ini');
+            return redirect()->to($this->userPage);
+        }
+
+        if ($dataAdministrasi['administrasi_status'] == 'Dalam Proses') {
             session()->setFlashdata('error', 'Anda tidak dapat menghapus data administrasi ini');
             return redirect()->to($this->userPage);
         }
@@ -197,6 +207,11 @@ class AdministrasiController extends BaseController
     public function hapusAdmin($id)
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+
+        if ($dataAdministrasi) {
+            session()->setFlashdata('error', 'Data administrasi tidak ditemukan');
+            return redirect()->to($this->adminPage);
+        }
 
         $result = $this->administrasiModel->deleteAdministrasiByAdministrasiId($id);
 

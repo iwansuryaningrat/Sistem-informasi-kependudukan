@@ -103,4 +103,37 @@ class GaleriController extends BaseController
             return redirect()->to('/users/galeri');
         }
     }
+
+    // Delete galeri and all of its photos
+    public function delete($id)
+    {
+        $galeri = $this->galeriModel->find($id);
+
+        if (!$galeri) {
+            session()->setFlashdata('error', 'Galeri tidak ditemukan');
+            return redirect()->to('/users/galeri');
+        }
+
+        if ($galeri['created_by'] != $this->user_data['nik']) {
+            session()->setFlashdata('error', 'Anda tidak memiliki akses untuk menghapus galeri ini');
+            return redirect()->to('/users/galeri');
+        }
+
+        $result = $this->galeriModel->delete($id);
+
+        if (!$result) {
+            session()->setFlashdata('error', 'Galeri gagal dihapus');
+            return redirect()->to('/users/galeri');
+        }
+
+        $result = $this->fotoModel->deleteFotoByGaleriId($id);
+
+        if (!$result) {
+            session()->setFlashdata('error', 'Galeri gagal dihapus');
+            return redirect()->to('/users/galeri');
+        } else {
+            session()->setFlashdata('success', 'Galeri berhasil dihapus');
+            return redirect()->to('/users/galeri');
+        }
+    }
 }

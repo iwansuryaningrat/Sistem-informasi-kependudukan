@@ -55,16 +55,21 @@ class GaleriModel extends Model
         return $this->db->table($this->table)->update($data, ['galeri_id' => $galeri_id]);
     }
 
-    // Delete Galeri data
-    public function deleteGaleri($galeri_id)
-    {
-        return $this->db->table($this->table)->delete(['galeri_id' => $galeri_id]);
-    }
-
     // Save Galeri data
     public function saveGaleri($data)
     {
         return $this->db->table($this->table)->insert($data);
+    }
+
+    // get galeri by created_by
+    public function getGaleriByCreatedBy($created_by)
+    {
+        return $this->select('galeri.*, users.nama, kategori_galeri.nama_kategori')
+            ->join('users', 'users.nik = galeri.created_by')
+            ->join('kategori_galeri', 'kategori_galeri.kategori_galeri_id = galeri.kategori')
+            ->where(['galeri.created_by' => $created_by])
+            ->orderBy('galeri.created_at', 'DESC')
+            ->findAll();
     }
 
     // delete galeri by created_by

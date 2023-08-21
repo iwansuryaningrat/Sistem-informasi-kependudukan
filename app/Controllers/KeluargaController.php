@@ -228,14 +228,30 @@ class KeluargaController extends BaseController
 
     public function delete($id)
     {
-        $this->keluargaModel->deleteKeluarga($id);
+        $result = $this->keluargaModel->deleteKeluarga($id);
+
+        if (!$result) {
+            session()->setFlashdata('error', 'Data gagal dihapus.');
+            return redirect()->to('/admin/families');
+        }
+
+        $users = $this->usersModel->getUsersByKK($id);
+
+        foreach ($users as $user) {
+            $galeri = $this->galeriModel->getGaleriByCreatedBy($user['nik']);
+            foreach ($galeri as $g) {
+                $this->fotoModel->deleteFotoByGaleriId($g['galeri_id']);
+                $this->galeriModel->deleteGaleriByGaleriId($g['galeri_id']);
+            }
+
+            $this->pelaporanModel->deletePelaporanByPelapor($user['nik']);
+            $this->pelaporanModel->deleteTerlaporByTerlapor($user['nik']);
+            $this->administrasiModel->deleteAdministrasiByPemohon($user['nik']);
+        }
+
+        $result = $this->usersModel->deleteUsersByKK($id);
 
         session()->setFlashdata('success', 'Data berhasil dihapus.');
-
-        if (session()->get('role') == 'Admin') {
-            return redirect()->to('/admin/families');
-        } else {
-            return redirect()->to('/users/keluarga');
-        }
+        return redirect()->to('/admin/families');
     }
 }

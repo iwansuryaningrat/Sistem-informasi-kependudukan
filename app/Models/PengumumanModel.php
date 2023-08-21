@@ -63,12 +63,6 @@ class PengumumanModel extends Model
         return $this->db->table($this->table)->update($data, ['pengumuman_id' => $pengumuman_id]);
     }
 
-    // Delete Pengumuman data
-    public function deletePengumuman($pengumuman_id)
-    {
-        return $this->db->table($this->table)->delete(['pengumuman_id' => $pengumuman_id]);
-    }
-
     // Save Pengumuman data
     public function savePengumuman($data)
     {

@@ -89,10 +89,34 @@ class FotoController extends BaseController
     {
         $foto = $this->fotoModel->getFoto($id);
 
+        if ($foto['uploaded_by'] != $this->user_data['nik']) {
+            session()->setFlashdata('error', 'Anda tidak memiliki akses untuk menghapus foto ini.');
+            return redirect()->to('/users/detailGaleri/' . $foto['galeri_id']);
+        }
+
         $galeri_id = $foto['galeri_id'];
         $this->fotoModel->deleteFotoByFotoId($id);
 
         session()->setFlashdata('success', 'Foto berhasil dihapus.');
         return redirect()->to('/users/detailGaleri/' . $galeri_id);
+    }
+
+    public function hapusSemua($galeri_id)
+    {
+        $this->fotoModel->deleteFotoByGaleriId($galeri_id);
+
+        session()->setFlashdata('success', 'Foto berhasil dihapus.');
+        return redirect()->to('/users/detailGaleri/' . $galeri_id);
+    }
+
+    public function hapusFromAdmin($id)
+    {
+        $foto = $this->fotoModel->getFoto($id);
+
+        $galeri_id = $foto['galeri_id'];
+        $this->fotoModel->deleteFotoByFotoId($id);
+
+        session()->setFlashdata('success', 'Foto berhasil dihapus.');
+        return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
     }
 }

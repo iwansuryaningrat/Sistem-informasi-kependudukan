@@ -130,4 +130,14 @@ class PelaporanModel extends Model
     {
         return ['Menunggu Konfirmasi', 'Dalam Proses', 'Selesai', 'Ditolak'];
     }
+
+    public function deletePelaporanByPelapor($nik)
+    {
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['nik_pelapor' => $nik]);
+    }
+
+    public function deleteTerlaporByTerlapor($nik)
+    {
+        return $this->db->table($this->table)->update(['nik_terlapor ' => null], ['nik_terlapor' => $nik]);
+    }
 }

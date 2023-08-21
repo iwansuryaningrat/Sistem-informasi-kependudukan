@@ -73,12 +73,6 @@ class AdministrasiModel extends Model
         return $this->db->table($this->table)->update($data, ['administrasi_id' => $administrasi_id]);
     }
 
-    // Delete Administrasi data
-    public function deleteAdministrasi($administrasi_id)
-    {
-        return $this->db->table($this->table)->delete(['administrasi_id' => $administrasi_id]);
-    }
-
     // Save Administrasi data
     public function saveAdministrasi($data)
     {

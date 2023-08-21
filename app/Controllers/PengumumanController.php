@@ -119,11 +119,10 @@ class PengumumanController extends BaseController
     }
 
     public function deleteAnnouncement($id)
-
     {
-        $this->pengumumanModel->delete($id);
+        $this->pengumumanModel->deletePengumumanByPengumumanId($id);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
 
-        return redirect()->to('/pengumuman');
+        return redirect()->to('/admin/pengumuman');
     }
 }

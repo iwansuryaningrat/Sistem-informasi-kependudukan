@@ -85,7 +85,7 @@ class PesanController extends BaseController
 
     public function deletePesan($id)
     {
-        $this->pesanModel->delete($id);
+        $this->pesanModel->deletePesan($id);
 
         session()->setFlashdata('success', 'Pesan berhasil dihapus!');
 

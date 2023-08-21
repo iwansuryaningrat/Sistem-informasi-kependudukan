@@ -312,4 +312,52 @@ class UserController extends BaseController
         session()->setFlashdata('success', 'Foto profil berhasil diperbarui');
         return redirect()->to('/users/profile');
     }
+
+    public function deleteusers($nik)
+    {
+        $users = $this->usersModel->getUsers($nik);
+
+        if ($this->user_data['status'] !== 'Kepala Keluarga' || $users['no_kk'] != $this->user_data['no_kk'] || $users['status'] == 'Kepala Keluarga') {
+            session()->setFlashdata('error', 'Anda tidak dapat menghapus data keluarga.');
+            return redirect()->to('/users/keluarga');
+        }
+
+        if ($users['foto'] != 'default.png') {
+            unlink($this->filePaths . $users['foto']);
+        }
+
+        $this->usersModel->deleteUsers($nik);
+
+        session()->setFlashdata('success', 'Data berhasil dihapus');
+        return redirect()->to('/users/keluarga');
+    }
+
+    public function deleteUsersforAdmin($nik)
+    {
+        $users = $this->usersModel->getUsers($nik);
+        if (!$users) {
+            session()->setFlashdata('error', 'Data tidak ditemukan');
+            return redirect()->to('/admin/people');
+        }
+
+        if ($users['foto'] != 'default.png') {
+            unlink($this->filePaths . $users['foto']);
+        }
+
+        $galeri = $this->galeriModel->getGaleriByCreatedBy($users['nik']);
+        foreach ($galeri as $g) {
+            $this->fotoModel->deleteFotoByGaleriId($g['galeri_id']);
+            $this->galeriModel->deleteGaleriByGaleriId($g['galeri_id']);
+        }
+
+        $this->pelaporanModel->deletePelaporanByPelapor($users['nik']);
+        $this->pelaporanModel->deleteTerlaporByTerlapor($users['nik']);
+        $this->administrasiModel->deleteAdministrasiByPemohon($users['nik']);
+        $this->usersModel->deleteUsers($nik);
+
+        if ($users['status'] == 'Kepala Keluarga') $this->keluargaModel->deleteKeluarga($users['no_kk']);
+
+        session()->setFlashdata('success', 'Data berhasil dihapus');
+        return redirect()->to('/admin/people');
+    }
 }
