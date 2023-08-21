@@ -259,6 +259,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
             'dataKeluarga' => $dataKeluarga,
             'dataPenduduk' => $dataPenduduk,
             'profilePhotoPath' => $this->profilePhotoPath,
@@ -276,11 +277,12 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
             'dataPenduduk' => $dataPenduduk,
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
-        return view('admin/edit/editpenduduk', $data);
+        return view('admin/detail/detailpenduduk', $data);
     }
 
     // Administrasi

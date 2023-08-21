@@ -116,6 +116,31 @@ class UserController extends BaseController
         return redirect()->to('/users/keluarga');
     }
 
+    public function add()
+    {
+        $no_kk = $this->request->getVar('no_kk');
+        $nama = $this->request->getVar('name');
+        $nik = $this->request->getVar('nik');
+        $no_hp = $this->request->getVar('no_hp');
+        $email = $this->request->getVar('email');
+
+        $data = [
+            'no_kk' => $no_kk,
+            'nama' => $nama,
+            'nik' => $nik,
+            'no_hp' => $no_hp,
+            'email' => $email,
+            'password' => password_hash('user1234', PASSWORD_DEFAULT),
+            'role' => 'User',
+            'foto' => 'default.png',
+        ];
+
+        $this->usersModel->save($data);
+
+        session()->setFlashdata('success', 'Penduduk berhasil ditambahkan');
+        return redirect()->to('/admin/people');
+    }
+
     public function saveDetailProfile()
     {
         $nik = $this->user_data['nik'];
@@ -276,6 +301,33 @@ class UserController extends BaseController
         } else {
             session()->setFlashdata('success', 'Data keluarga berhasil diperbarui');
             return redirect()->to('/users/keluarga');
+        }
+    }
+
+    public function editFromAdmin($nik)
+    {
+        $no_kk = $this->request->getVar('no_kk');
+        $nama = $this->request->getVar('name');
+        $nik = $this->request->getVar('nik');
+        $no_hp = $this->request->getVar('no_hp');
+        $email = $this->request->getVar('email');
+
+        $data = [
+            'no_kk' => $no_kk,
+            'nama' => $nama,
+            'nik' => $nik,
+            'no_hp' => $no_hp,
+            'email' => $email,
+        ];
+
+        $result = $this->usersModel->editUsers($data, $nik);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Penduduk berhasil diperbarui');
+            return redirect()->to('/admin/editPenduduk/' . $nik);
+        } else {
+            session()->setFlashdata('error', 'Penduduk gagal diperbarui');
+            return redirect()->to('/admin/editPenduduk/' . $nik);
         }
     }
 

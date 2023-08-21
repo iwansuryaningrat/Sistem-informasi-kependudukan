@@ -5,7 +5,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Tambah Data Keluarga</h4>
+            <h4 class="page-title">Edit Data Penduduk</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/admin">
@@ -16,13 +16,13 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/families">Data Keluarga</a>
+                    <a href="/admin/people">Data Penduduk</a>
                 </li>
                 <li class="separator">
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/addfamily">Tambah Data Keluarga</a>
+                    <a href="/admin/editPenduduk/<?= $dataPenduduk['nik'] ?>">Edit Data Penduduk</a>
                 </li>
             </ul>
         </div>
@@ -30,60 +30,47 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Tambahkan Data Keluarga</div>
-                        <div class="card-category">Tambahkan data keluarga berdasarkan kartu keluarga</a></div>
+                        <div class="card-title">Edit Data Penduduk</div>
+                        <div class="card-category">Edit data Penduduk berdasarkan kartu keluarga</a></div>
                     </div>
 
-                    <form id="exampleValidation" action="" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/usercontroller/editFromAdmin/<?= $dataPenduduk['nik'] ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
-                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga </label>
+                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="no_kk" aria-describedby="username-addon" id="no_kk" name="no_kk" value="<?= $keluarga['no_kk'] ?>" disabled>
+                                        <select class="form-control" placeholder="Pilih Nomor Kartu Keluarga" id="no_kk" name="no_kk" required>
+                                            <option value="" selected>--Pilih Keluarga--</option>
+                                            <?php foreach ($dataKeluarga as $keluarga) : ?>
+                                                <option value="<?= $keluarga['no_kk'] ?>" <?= ($keluarga['no_kk'] == $dataPenduduk['no_kk']) ? 'selected' : '' ?>><?= $keluarga['no_kk'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga</label>
+                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" value="<?= $keluarga['nama_kepala_keluarga'] ?>" disabled>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" value="<?= $dataPenduduk['nama'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat <span class="required-label">*</span></label>
+                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" value="<?= $keluarga['alamat'] ?>" required>
+                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" value="<?= $dataPenduduk['nik'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
+                                <label for="no_hp" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor HP</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $keluarga['alamat_asal'] ?>">
+                                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan Nomor HP" value="<?= $dataPenduduk['no_hp'] ?>">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="tgl_pindah" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Pindah </span></label>
+                                <label for="email" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Email</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="tgl_pindah" name="tgl_pindah">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-calendar-o"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="separator-solid"></div>
-                            <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <div class="input-file input-file-image">
-                                        <img class="img-upload-preview" width="150" src="http://placehold.it/150x150" alt="preview" />
-                                        <input type="file" class="form-control form-control-file" id="fotoRumah" name="fotoRumah" accept="image/*">
-                                        <label for="fotoRumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
-                                    </div>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $dataPenduduk['email'] ?>">
                                 </div>
                             </div>
                         </div>
@@ -124,6 +111,11 @@
         $(this).valid();
     })
 
+    // validation when inputfile change
+    $("#fotoRumah").on("change", function() {
+        $(this).parent('form').validate();
+    })
+
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
@@ -135,9 +127,6 @@
             },
             birth: {
                 date: true
-            },
-            fotoRumah: {
-                required: true,
             },
         },
         highlight: function(element) {
@@ -165,17 +154,6 @@
                     buttons: {
                         confirm: {
                             className: 'btn btn-danger'
-                        }
-                    },
-                });
-            <?php endif; ?>
-
-            <?php if (session()->getFlashdata('warning')) : ?>
-                swal("Ups!", "<?= session()->getFlashdata('warning') ?>", {
-                    icon: "warning",
-                    buttons: {
-                        confirm: {
-                            className: 'btn btn-warning'
                         }
                     },
                 });
