@@ -51,8 +51,7 @@
             <input type="password" id="password" name="password" value="" required placeholder="Masukkan Password" aria-describedby="passwordHelp" class="form-control input-control-password" />
             <span id="togglePassword"><i class="fa-solid fa-eye" title="show password"></i></span>
             <div id="passwordHelp" class="form-text input-text">
-              Gunakan minimal 8 karakter dengan kombinasi huruf dan
-              angka.
+              Gunakan minimal 8 karakter dengan kombinasi huruf dan angka.
             </div>
           </div>
           <!-- Confirm Password -->

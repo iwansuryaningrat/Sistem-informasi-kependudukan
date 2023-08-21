@@ -49,7 +49,7 @@
                             <input type="text" class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $dataKeluarga['alamat'] ?>" describedby="alamatHelp" />
                             <div id="alamatHelp" class="form-text input-text" style="line-height: 1.85;">
                                 Mohon gunakan format berikut: <br />
-                                <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                                <span class="help-describe">Jalan/Dusun, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                             <input type="text" class="form-control input-control" id="alamat_asal" name="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $dataKeluarga['alamat_asal'] ?>" describedby="alamatAsalHelp" />
                             <div id="alamatAsalHelp" class="form-text input-text" style="line-height: 1.85;">
                                 Mohon gunakan format berikut: <br />
-                                <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                                <span class="help-describe">Jalan/Dusun, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
                             </div>
                         </div>
                     </div>

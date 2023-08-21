@@ -211,11 +211,10 @@
                   $alamat = $user['alamat'];
                   if ($alamat != null) {
                     $alamat_parts = explode(', ', $user['alamat']);
-                    $desa_kelurahan = trim($alamat_parts[2]);
-                    $kecamatan = trim($alamat_parts[3]);
-                    $kota_kabupaten = trim($alamat_parts[4]);
-                    $provinsi = trim($alamat_parts[5]);
-                    $kodepos = trim($alamat_parts[6]);
+                    $alamat = trim($alamat_parts[0]) . ', ' . trim($alamat_parts[1]) . ', ' . trim($alamat_parts[2]) . ', ' . trim($alamat_parts[3]);
+                    $kota_kabupaten = $alamat_parts[4] ? trim($alamat_parts[4]) : null;
+                    $provinsi = $alamat_parts[5] ? trim($alamat_parts[5]) : null;
+                    $kodepos = $alamat_parts[6] ? trim($alamat_parts[6]) : null;
                   }
                   ?>
 
@@ -225,7 +224,7 @@
                     <input class="form-control input-control" id="alamat" name="alamat" required placeholder="Masukkan Alamat" value="<?= $alamat ?>" describedby="alamatHelp" />
                     <div id="alamatHelp" class="form-text input-text" style="line-height: 1.85;">
                       Mohon gunakan format berikut: <br />
-                      <span class="help-describe">Jalan/Desa, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
+                      <span class="help-describe">Jalan/Dusun, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span>
                     </div>
                   </div>
 
