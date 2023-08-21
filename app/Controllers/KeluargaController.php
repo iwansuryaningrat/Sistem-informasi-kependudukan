@@ -237,6 +237,14 @@ class KeluargaController extends BaseController
 
         $users = $this->usersModel->getUsersByKK($id);
 
+        // if one of the users is admin, cancel delete
+        foreach ($users as $user) {
+            if ($user['role'] == 'Admin') {
+                session()->setFlashdata('error', 'Data gagal dihapus. Keluarga memiliki admin.');
+                return redirect()->to('/admin/families');
+            }
+        }
+
         foreach ($users as $user) {
             $galeri = $this->galeriModel->getGaleriByCreatedBy($user['nik']);
             foreach ($galeri as $g) {
