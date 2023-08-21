@@ -317,6 +317,16 @@ class UserController extends BaseController
     {
         $users = $this->usersModel->getUsers($nik);
 
+        if (!$users) {
+            session()->setFlashdata('error', 'Data tidak ditemukan');
+            return redirect()->to('/users/keluarga');
+        }
+
+        if ($users['role'] == 'Admin') {
+            session()->setFlashdata('error', 'Anda tidak dapat menghapus data admin.');
+            return redirect()->to('/users/keluarga');
+        }
+
         if ($this->user_data['status'] !== 'Kepala Keluarga' || $users['no_kk'] != $this->user_data['no_kk'] || $users['status'] == 'Kepala Keluarga') {
             session()->setFlashdata('error', 'Anda tidak dapat menghapus data keluarga.');
             return redirect()->to('/users/keluarga');
@@ -337,6 +347,11 @@ class UserController extends BaseController
         $users = $this->usersModel->getUsers($nik);
         if (!$users) {
             session()->setFlashdata('error', 'Data tidak ditemukan');
+            return redirect()->to('/admin/people');
+        }
+
+        if ($users['role'] == 'Admin') {
+            session()->setFlashdata('error', 'Anda tidak dapat menghapus data admin.');
             return redirect()->to('/admin/people');
         }
 
