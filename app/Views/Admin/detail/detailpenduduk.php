@@ -70,6 +70,64 @@
                                     <input type="text" class="form-control" id="email" name="email" disabled placeholder="Masukkan Email" value="<?= $dataPenduduk['email'] ?>">
                                 </div>
                             </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status dalam Keluarga</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="status" name="status" disabled placeholder="Masukkan status" value="<?= $dataPenduduk['status'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="jenis_kelamin" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jenis Kelamin</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" disabled placeholder="-" value="<?= $dataPenduduk['jenis_kelamin'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="tempat_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat Lahir</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" disabled placeholder="-" value="<?= $dataPenduduk['tempat_lahir'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="tgl_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Lahir</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" disabled placeholder="-" value="<?php $timestamp = strtotime($dataPenduduk['tgl_lahir']);
+                                                                                                                                            $formattedDate = date("d F Y", $timestamp);
+                                                                                                                                            echo $formattedDate; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="usia" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Usia</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="usia" name="usia" disabled placeholder="-" value="<?= $dataPenduduk['usia'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="status_perkawinan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status Perkawinan</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="status_perkawinan" name="status_perkawinan" disabled placeholder="-" value="<?= $dataPenduduk['status_perkawinan'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="pendidikan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pendidikan</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="pendidikan" name="pendidikan" disabled placeholder="-" value="<?= $dataPenduduk['pendidikan'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="pekerjaan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pekerjaan</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" disabled placeholder="-" value="<?= $dataPenduduk['pekerjaan'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <div class="input-file input-file-image">
+                                        <img class="img-upload-preview" width="150" src="<?= ($dataPenduduk['foto']) ? $profilePhotoPath . $dataPenduduk['foto'] : $profilePhotoPath . 'default.png' ?>" alt="preview" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <div class="row">
