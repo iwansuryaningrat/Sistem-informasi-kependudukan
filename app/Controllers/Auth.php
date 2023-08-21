@@ -95,12 +95,23 @@ class Auth extends BaseController
                 'redirect' => '/admin'
             ]);
         } elseif ($user['role'] == 'User') {
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => 'Anda berhasil login',
-                'role' => $user['role'],
-                'redirect' => '/users'
-            ]);
+            if ($user['status'] == null || $user['jenis_kelamin'] == null || $user['agama'] == null || $user['tempat_lahir'] == null || $user['tgl_lahir'] == null || $user['status_perkawinan'] == null || $user['pendidikan'] == null || $user['pekerjaan'] == null) {
+                session()->setFlashdata('warning', 'Silahkan lengkapi data diri Anda terlebih dahulu');
+
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Anda berhasil login',
+                    'role' => $user['role'],
+                    'redirect' => '/users/profile'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Anda berhasil login',
+                    'role' => $user['role'],
+                    'redirect' => '/users'
+                ]);
+            }
         }
     }
 
