@@ -134,6 +134,17 @@
                 });
             <?php endif; ?>
 
+            <?php if (session()->getFlashdata('warning')) : ?>
+                swal("Ups!", "<?= session()->getFlashdata('warning') ?>", {
+                    icon: "warning",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-warning'
+                        }
+                    },
+                });
+            <?php endif; ?>
+
             <?php if (session()->getFlashdata('success')) : ?>
                 swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
                     icon: "success",
