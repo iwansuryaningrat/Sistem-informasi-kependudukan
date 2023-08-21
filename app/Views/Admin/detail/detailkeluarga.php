@@ -114,7 +114,7 @@
 <script>
     var SweetAlert = function() {
 
-        var initDemos = function() {
+        var initSweatAlert = function() {
 
             <?php if (session()->getFlashdata('error')) : ?>
                 swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
@@ -141,7 +141,7 @@
 
         return {
             init: function() {
-                initDemos();
+                initSweatAlert();
             },
         };
     }();

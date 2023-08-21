@@ -202,8 +202,7 @@
     //== Class definition
     var SweetAlert = function() {
 
-        //== Demos
-        var initDemos = function() {
+        var initSweatAlert = function() {
 
             <?php if (session()->getFlashdata('error')) : ?>
                 swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
@@ -229,9 +228,8 @@
         };
 
         return {
-            //== Init
             init: function() {
-                initDemos();
+                initSweatAlert();
             },
         };
     }();
