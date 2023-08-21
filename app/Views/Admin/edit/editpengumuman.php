@@ -149,13 +149,13 @@
     });
 
     jQuery(document).ready(function() {
-        SweetAlert2Demo.init();
+        SweetAlert.init();
     });
 </script>
 
 <script>
     //== Class definition
-    var SweetAlert2Demo = function() {
+    var SweetAlert = function() {
 
         //== Demos
         var initDemos = function() {
@@ -193,7 +193,7 @@
 
     //== Class Initialization
     jQuery(document).ready(function() {
-        SweetAlert2Demo.init();
+        SweetAlert.init();
     });
 </script>
 

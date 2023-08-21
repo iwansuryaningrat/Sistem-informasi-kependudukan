@@ -168,12 +168,12 @@
     });
 
     jQuery(document).ready(function() {
-        SweetAlert2Demo.init();
+        SweetAlert.init();
     });
 </script>
 
 <script>
-    var SweetAlert2Demo = function() {
+    var SweetAlert = function() {
 
         var initDemos = function() {
 
@@ -208,7 +208,7 @@
     }();
 
     jQuery(document).ready(function() {
-        SweetAlert2Demo.init();
+        SweetAlert.init();
     });
 </script>
 

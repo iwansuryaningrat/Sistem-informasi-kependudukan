@@ -32,7 +32,7 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <h4 class="card-title">Daftar Penduduk</h4>
-                            <a class="d-block ml-auto" href="/admin/addfamily">
+                            <a class="d-block ml-auto" href="/admin/addPeople">
                                 <button class="btn btn-primary btn-round ml-auto">
                                     <i class="fa fa-plus">
                                         Tambah Data
@@ -116,7 +116,7 @@
 
 <script>
     //== Class definition
-    var SweetAlert2Demo = function() {
+    var SweetAlert = function() {
 
         //== Demos
         var initDemos = function() {
@@ -154,7 +154,7 @@
 
     //== Class Initialization
     jQuery(document).ready(function() {
-        SweetAlert2Demo.init();
+        SweetAlert.init();
     });
 </script>
 
