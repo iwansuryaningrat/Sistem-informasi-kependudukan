@@ -15,6 +15,7 @@ class Home extends BaseController
     // Paths
     protected $photoPath = 'upload/photos/galeri/';
     protected $pengumumanPath = 'upload/photos/pengumuman/';
+    protected $profilePhotoPath = '/upload/photos/profile/';
 
     public function __construct()
     {
@@ -35,6 +36,7 @@ class Home extends BaseController
             'newestGaleri' => $getNewestGaleri,
             'photoPath' => $this->photoPath,
             'pengumumanPath' => $this->pengumumanPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/index', $data);
@@ -48,6 +50,7 @@ class Home extends BaseController
             'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => false,
             'path' => $this->photoPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/gallery/gallery', $data);
@@ -65,6 +68,7 @@ class Home extends BaseController
             'dataFoto' => $dataFoto,
             'isLoggedin' => false,
             'path' => $this->photoPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/gallery/gallery-detail', $data);
@@ -79,6 +83,7 @@ class Home extends BaseController
             'isLoggedin' => false,
             'pengumuman' => $pengumuman,
             'path' => $this->pengumumanPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/news/announcement', $data);
@@ -96,6 +101,7 @@ class Home extends BaseController
             'pengumuman' => $pengumuman,
             'pengumumanTerbaru' => $pengumumanTerbaru,
             'path' => $this->pengumumanPath,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/news/read-announcement', $data);
@@ -107,6 +113,7 @@ class Home extends BaseController
             'title' => 'Kontak Kami | Warga Site',
             'navbar' => 'contact',
             'isLoggedin' => false,
+            'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
         return view('/users/contact/contact', $data);
