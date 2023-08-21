@@ -182,12 +182,7 @@ class AdministrasiController extends BaseController
             return redirect()->to($this->userPage);
         }
 
-        // delete file
-        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') {
-            unlink($this->filePaths . $dataAdministrasi['berkas']);
-        }
-
-        $result = $this->administrasiModel->delete($id);
+        $result = $this->administrasiModel->deleteAdministrasiByAdministrasiId($id);
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil menghapus data administrasi');
@@ -203,12 +198,7 @@ class AdministrasiController extends BaseController
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
 
-        // delete file
-        if ($dataAdministrasi['berkas'] != 'default.pdf' && $dataAdministrasi['berkas'] != 'default.png') {
-            unlink($this->filePaths . $dataAdministrasi['berkas']);
-        }
-
-        $result = $this->administrasiModel->delete($id);
+        $result = $this->administrasiModel->deleteAdministrasiByAdministrasiId($id);
 
         if ($result) {
             session()->setFlashdata('success', 'Berhasil menghapus data administrasi');

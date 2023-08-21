@@ -86,7 +86,7 @@
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
+                                        <img class="img-upload-preview" width="150" src="http://placehold.it/150x150" alt="preview" />
                                         <input type="file" class="form-control form-control-file" id="foto_rumah" name="foto_rumah" accept="image/*">
                                         <label for="foto_rumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
@@ -103,12 +103,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group form-show-validation row">
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <textarea name="test" id="summernote"></textarea>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-action">
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger">Batal</button>
+                                    <a href="/admin/people" class="btn btn-danger">Batal</a>
                                     <input class="btn btn-success" type="submit" value="Submit">
                                 </div>
                             </div>
@@ -126,6 +132,18 @@
 <?= $this->section('script'); ?>
 
 <script>
+    $('#summernote').summernote({
+        placeholder: 'Atlantis',
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+        tabsize: 2,
+        height: 300
+    });
+
+    function test() {
+        var textareaValue = $('#summernote').summernote('code');
+        console.log(textareaValue);
+    }
+
     $('#tgl_pindah').datetimepicker({
         format: 'MM/DD/YYYY'
     });

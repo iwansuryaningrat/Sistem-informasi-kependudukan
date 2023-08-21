@@ -84,4 +84,15 @@ class FotoController extends BaseController
         session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
         return redirect()->to('/users/detailGaleri/' . $galeri_id);
     }
+
+    public function hapus($id)
+    {
+        $foto = $this->fotoModel->getFoto($id);
+
+        $galeri_id = $foto['galeri_id'];
+        $this->fotoModel->deleteFotoByFotoId($id);
+
+        session()->setFlashdata('success', 'Foto berhasil dihapus.');
+        return redirect()->to('/users/detailGaleri/' . $galeri_id);
+    }
 }
