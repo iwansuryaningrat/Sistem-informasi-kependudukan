@@ -39,6 +39,7 @@ class KeluargaModel extends Model
         if ($noKk == null) {
             return $this->select('keluarga.*, users.nik as nik_kepala_keluarga')
                 ->join('users', 'users.nama = keluarga.nama_kepala_keluarga')
+                ->where(['keluarga.deleted_at' => null, 'users.deleted_at' => null])
                 ->orderBy('keluarga.status', 'DESC')
                 ->orderBy('keluarga.created_at', 'DESC')
                 ->findAll();
