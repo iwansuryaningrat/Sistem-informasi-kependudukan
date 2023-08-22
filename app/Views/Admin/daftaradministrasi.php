@@ -64,7 +64,20 @@
                                             <td><?= $data['kategori'] ?></td>
                                             <td><?= $data['keperluan'] ?></td>
                                             <td><?= $data['no_surat'] ?></td>
-                                            <td><?= $data['administrasi_status'] ?></td>
+                                            <td>
+                                                <span class="badge <?php if ($data['administrasi_status'] == 'Selesai') {
+                                                                        echo 'badge-success';
+                                                                    } else if ($data['administrasi_status'] == 'Menunggu Konfirmasi') {
+                                                                        echo 'badge-info';
+                                                                    } else if ($data['administrasi_status'] == 'Dalam Proses') {
+                                                                        echo 'badge-warning';
+                                                                    } else {
+                                                                        echo 'badge-danger';
+                                                                    }
+                                                                    ?>">
+                                                    <?= $data['administrasi_status'] ?>
+                                                </span>
+                                            </td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailAdministrasi/<?= $data['administrasi_id'] ?>">

@@ -68,7 +68,16 @@
                                             <td><?= $data['no_kk'] ?></td>
                                             <td><?= $data['nama_kepala_keluarga'] ?></td>
                                             <td><?= $data['alamat'] ?></td>
-                                            <td><?= $data['status'] ?></td>
+                                            <td>
+                                                <span class="badge <?php if ($data['status'] == 'Tetap') {
+                                                                        echo 'badge-success';
+                                                                    } else {
+                                                                        echo 'badge-warning';
+                                                                    }
+                                                                    ?>">
+                                                    <?= 'Penduduk ' . $data['status'] ?>
+                                                </span>
+                                            </td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailkeluarga/<?= $data['no_kk'] ?>">
