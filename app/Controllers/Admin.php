@@ -417,6 +417,28 @@ class Admin extends BaseController
     // Galeri
     public function galeri()
     {
+        $dataGaleri = $this->galeriModel->getGaleri();
+        $result = [];
+        foreach ($dataGaleri as $galeri) {
+            $foto = $this->fotoModel->getFotoByGaleriId($galeri['galeri_id']);
+
+            $userInfo = [];
+            foreach ($foto as $f) {
+                $userInfo[] = [
+                    'nama' => $f['nama'],
+                    'foto_profil' => $f['foto_profil'],
+                    'nik' => $f['uploaded_by']
+                ];
+            }
+
+            // Remove duplicates based on 'nama' and 'foto_profil'
+            $uniqueUserInfo = array_unique($userInfo, SORT_REGULAR);
+
+            $galeri['foto'] = $foto;
+            $galeri['userInfo'] = $uniqueUserInfo;
+            $result[] = $galeri;
+        }
+
         $data = [
             'title' => 'Galeri',
             'active' => 'galeri',
@@ -425,7 +447,9 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
+            'dataGaleri' => $result,
         ];
+        // dd($data);
 
         return view('admin/daftargaleri', $data);
     }

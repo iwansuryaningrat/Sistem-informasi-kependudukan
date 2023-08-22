@@ -42,9 +42,9 @@ class FotoModel extends Model
     // Get Foto data by galeri_id
     public function getFotoByGaleriId($galeri_id)
     {
-        return $this->select('foto.*, galeri.judul, users.nama')
+        return $this->select('foto.*, galeri.judul, users.nama, users.foto as foto_profil')
             ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
-            ->join('users', 'users.nik = galeri.created_by')
+            ->join('users', 'users.nik = foto.uploaded_by')
             ->where(['galeri.galeri_id' => $galeri_id])
             ->orderBy('foto.created_at', 'DESC')
             ->findAll();
