@@ -129,6 +129,7 @@ CREATE TABLE `pelaporan` (
   `laporan` varchar(255) NOT NULL,
   `deskripsi_pelaporan` varchar(255) DEFAULT NULL,
   `status_pelaporan` varchar(20) NOT NULL DEFAULT 'Menunggu Konfirmasi',
+  `balasan_pelaporan` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
