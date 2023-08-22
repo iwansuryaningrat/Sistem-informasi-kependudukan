@@ -5,7 +5,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Edit Data Laporan</h4>
+            <h4 class="page-title">Edit Data Administrasi</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/admin">
@@ -16,13 +16,13 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/families">Data Laporan</a>
+                    <a href="/admin/administrasi">Data Administrasi</a>
                 </li>
                 <li class="separator">
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/addfamily">Edit Data Laporan</a>
+                    <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>">Edit Data Administrasi</a>
                 </li>
             </ul>
         </div>
@@ -30,10 +30,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Data Laporan</div>
+                        <div class="card-title">Edit Data Administrasi</div>
                     </div>
-                    <form id="exampleValidation" action="" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/administrasicontroller/editadmin/<?= $dataAdministrasi['administrasi_id'] ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
+                            <div class="form-group form-show-validation row">
+                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">No. Kartu Keluarga</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="no_kk" name="no_kk" placeholder="Masukkan No. Kartu Keluarga" value="<?= $dataAdministrasi['no_kk'] ?>" disabled>
+                                </div>
+                            </div>
                             <div class="form-group form-show-validation row">
                                 <label for="nama_pemohon" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Pemohon </label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -43,9 +49,9 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">No. Kartu Keluarga</label>
+                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK Pemohon</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="no_kk" name="no_kk" placeholder="Masukkan No. Kartu Keluarga" value="<?= $dataAdministrasi['no_kk'] ?>" disabled>
+                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" value="<?= $dataAdministrasi['pemohon'] ?>" disabled>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -63,7 +69,7 @@
                             <div class="form-group form-show-validation row">
                                 <label for="no_surat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Surat</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="no_surat" placeholder="Masukkan Nomor Surat" value="<?= $dataAdministrasi['no_surat'] ?>">
+                                    <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="Masukkan Nomor Surat" value="<?= $dataAdministrasi['no_surat'] ?>">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -72,9 +78,19 @@
                                     <textarea class="form-control" id="catatan" name="catatan" rows="5" placeholder="Tambahkan Catatan"><?= $dataAdministrasi['catatan'] ?></textarea>
                                 </div>
                             </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="catatan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <select class="form-control" id="status" name="status">
+                                        <?php foreach ($status as $status) : ?>
+                                            <option value="<?= $status ?>" <?= $status == $dataAdministrasi['administrasi_status'] ? 'selected' : '' ?>><?= $status ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="separator-solid"></div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Berkas</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
@@ -91,7 +107,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger">Batal</button>
+                                    <a href="/admin/administrasi" class="btn btn-danger">Batal</a>
                                     <input class="btn btn-success" type="submit" value="Submit">
                                 </div>
                             </div>

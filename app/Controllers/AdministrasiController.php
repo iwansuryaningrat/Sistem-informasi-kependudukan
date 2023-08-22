@@ -208,7 +208,7 @@ class AdministrasiController extends BaseController
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
 
-        if ($dataAdministrasi) {
+        if (!$dataAdministrasi) {
             session()->setFlashdata('error', 'Data administrasi tidak ditemukan');
             return redirect()->to($this->adminPage);
         }
@@ -221,6 +221,48 @@ class AdministrasiController extends BaseController
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data administrasi');
             return redirect()->to($this->adminPage);
+        }
+    }
+
+    public function editAdmin($id)
+    {
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+
+        $file = $this->request->getFile('berkas');
+        if (!$file->getError() == 4) {
+            // generate new file name
+            $newFileName = $file->getRandomName();
+
+            // move file to folder
+            $file->move($this->filePaths, $newFileName);
+
+            // delete old file
+            if ($dataAdministrasi['berkas'] != 'default.pdf' || $dataAdministrasi['berkas'] != 'default.png') {
+                unlink($this->filePaths . $dataAdministrasi['berkas']);
+            }
+        } else {
+            $newFileName = $dataAdministrasi['berkas'];
+        }
+
+        $status = $this->request->getVar('status');
+        $catatan = $this->request->getVar('catatan');
+        $no_surat = $this->request->getVar('no_surat');
+
+        $data = [
+            'berkas' => $newFileName,
+            'catatan' => $catatan,
+            'no_surat' => $no_surat,
+            'administrasi_status' => $status,
+        ];
+
+        $result = $this->administrasiModel->update($id, $data);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Berhasil mengubah data administrasi');
+            return redirect()->to($this->adminPage);
+        } else {
+            session()->setFlashdata('error', 'Gagal mengubah data administrasi');
+            return redirect()->to('/admin/editAdministrasi/' . $id);
         }
     }
 }

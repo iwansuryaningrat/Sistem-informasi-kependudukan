@@ -213,8 +213,8 @@ class Admin extends BaseController
         return view('admin/detail/detailkeluarga', $data);
     }
 
-    // Penduduk
-    public function people() // done
+    // Penduduk (Done)
+    public function people()
     {
         $dataPenduduk = $this->usersModel->getUsers();
 
@@ -285,7 +285,7 @@ class Admin extends BaseController
         return view('admin/detail/detailpenduduk', $data);
     }
 
-    // Administrasi
+    // Administrasi (Done)
     public function administrasi()
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi();
@@ -328,6 +328,9 @@ class Admin extends BaseController
             ]);
         }
 
+        $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
+        $status = $this->administrasiModel->getStatus();
+
         $data = [
             'title' => 'Edit Administrasi',
             'active' => 'administrasi',
@@ -335,6 +338,7 @@ class Admin extends BaseController
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
             'dataAdministrasi' => $dataAdministrasi,
+            'status' => $status,
             'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
@@ -357,7 +361,7 @@ class Admin extends BaseController
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
-        return view('admin/detail/editadministrasi', $data);
+        return view('admin/detail/detailadministrasi', $data);
     }
 
     // Laporan
