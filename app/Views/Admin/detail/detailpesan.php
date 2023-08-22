@@ -22,7 +22,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/pesan">Baca Pesan</a>
+                    <a href="/admin/detailpesan/<?= $dataPesan['id'] ?>">Baca Pesan</a>
                 </li>
             </ul>
         </div>
@@ -72,7 +72,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger" onclick="location.href('/admin/pesan')">Batal</button>
+                                    <a class="btn btn-danger" href='/admin/pesan'>Batal</a>
                                     <input class="btn btn-success" type="submit" value="Baca Pesan">
                                 </div>
                             </div>
