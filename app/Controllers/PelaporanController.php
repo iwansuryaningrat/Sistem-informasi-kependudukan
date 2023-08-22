@@ -143,4 +143,23 @@ class PelaporanController extends BaseController
             return redirect()->to('/admin/pelaporan');
         }
     }
+
+    public function editAdmin($id)
+    {
+        $status = $this->request->getVar('status_pelaporan');
+        $balasan = $this->request->getVar('balasan_pelaporan');
+
+        $result = $this->pelaporanModel->editPelaporan([
+            'status_pelaporan' => $status,
+            'balasan_pelaporan' => $balasan,
+        ], $id);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Laporan berhasil diubah');
+            return redirect()->to('/admin/pelaporan');
+        } else {
+            session()->setFlashdata('error', 'Laporan gagal diubah');
+            return redirect()->to('/admin/pelaporan');
+        }
+    }
 }

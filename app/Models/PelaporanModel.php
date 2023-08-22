@@ -12,7 +12,7 @@ class PelaporanModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['nik_pelapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['nik_pelapor', 'nik_terlapor', 'kategori', 'laporan', 'deskripsi_pelaporan', 'status_pelaporan', 'balasan_pelaporan', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;

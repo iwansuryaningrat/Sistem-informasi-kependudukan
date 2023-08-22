@@ -91,6 +91,14 @@
               <textarea id="deskripsi_laporan" name="deskripsi_laporan" class="form-control input-control" placeholder="Masukkan Deskripsi Laporan" rows="3" disabled><?= $dataLaporan['deskripsi_pelaporan'] ?></textarea>
             </div>
           </div>
+          <!-- balasan laporan -->
+          <div class="row mb-3">
+            <label for="balasan_pelaporan" class="col-md-2 form-label forms-label mt-md-2">Balasan Laporan
+            </label>
+            <div class="col-md-10">
+              <textarea id="balasan_pelaporan" name="balasan_pelaporan" class="form-control input-control" placeholder="-" rows="3" disabled><?= $dataLaporan['balasan_pelaporan'] ?></textarea>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Hapus -->

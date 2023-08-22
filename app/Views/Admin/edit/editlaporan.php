@@ -32,13 +32,13 @@
                     <div class="card-header">
                         <div class="card-title">Data Laporan</div>
                     </div>
-                    <form id="exampleValidation" action="" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/pelaporancontroller/editAdmin/<?= $laporan['pelaporan_id'] ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
                                 <label for="nama_pelapor" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Pelapor </label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="nama_pelapor" aria-describedby="username-addon" id="nama_pelapor" name="nama_pelapor" value='<?= $laporan['nama_pelapor'] ?>' disabled>
+                                        <input type="text" class="form-control" placeholder="-" aria-label="nama_pelapor" aria-describedby="username-addon" id="nama_pelapor" name="nama_pelapor" value='<?= $laporan['nama_pelapor'] ?>' disabled>
                                     </div>
                                 </div>
                             </div>
@@ -46,32 +46,43 @@
                                 <label for="nama_terlapor" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Pelapor </label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="nama_terlapor" aria-describedby="username-addon" id="nama_terlapor" name="nama_terlapor" value='<?= $laporan['nama_terlapor'] ?>' disabled>
+                                        <input type="text" class="form-control" placeholder="-" aria-label="nama_terlapor" aria-describedby="username-addon" id="nama_terlapor" name="nama_terlapor" value='<?= $laporan['nama_terlapor'] ?>' disabled>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="laporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Laporan</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="laporan" name="laporan" placeholder="Masukkan laporan" value='<?= $laporan['laporan'] ?>' disabled>
+                                    <input type="text" class="form-control" id="laporan" name="laporan" placeholder="-" value='<?= $laporan['laporan'] ?>' disabled>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Masukkan Kategori" value='<?= $laporan['kategori'] ?>' disabled>
+                                    <input type="text" class="form-control" id="kategori" name="kategori" placeholder="-" value='<?= $laporan['kategori'] ?>' disabled>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="deskripsi_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="deskripsi_pelaporan" name="deskripsi_pelaporan" rows="5"><?= $laporan['deskripsi_pelaporan'] ?></textarea>
+                                    <textarea class="form-control" id="deskripsi_pelaporan" name="deskripsi_pelaporan" rows="5" placeholder="-" disabled><?= $laporan['deskripsi_pelaporan'] ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="status" name="status" value='<?= $laporan['status_pelaporan'] ?>' disabled placeholder="Masukkan Status">
+                                    <select class="form-control" id="status_pelaporan" name="status_pelaporan">
+                                        <option value="" selected>--Pilih Keluarga--</option>
+                                        <?php foreach ($status as $status) : ?>
+                                            <option value="<?= $status ?>" <?= ($status == $laporan['status_pelaporan']) ? 'selected' : '' ?>><?= $status ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="balasan_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Balasan <span class="required-label">*</span></label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <textarea class="form-control" id="balasan_pelaporan" name="balasan_pelaporan" placeholder="Masukkan Balasan Anda" rows="5"><?= $laporan['balasan_pelaporan'] ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +90,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger">Kembali</button>
+                                    <a href="/admin/pelaporan" class="btn btn-danger">Kembali</a>
                                     <input class="btn btn-success" type="submit" value="Submit">
                                 </div>
                             </div>

@@ -38,7 +38,7 @@
                                 <label for="nama_pelapor" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Pelapor </label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="nama_pelapor" aria-describedby="username-addon" id="nama_pelapor" name="nama_pelapor" value='<?= $laporan['nama_pelapor'] ?>' disabled>
+                                        <input type="text" class="form-control" placeholder="-" aria-label="nama_pelapor" aria-describedby="username-addon" id="nama_pelapor" name="nama_pelapor" value='<?= $laporan['nama_pelapor'] ?>' disabled>
                                     </div>
                                 </div>
                             </div>
@@ -46,43 +46,48 @@
                                 <label for="nama_terlapor" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Pelapor </label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="nama_terlapor" aria-describedby="username-addon" id="nama_terlapor" name="nama_terlapor" value='<?= $laporan['nama_terlapor'] ?>' disabled>
+                                        <input type="text" class="form-control" placeholder="-" aria-label="nama_terlapor" aria-describedby="username-addon" id="nama_terlapor" name="nama_terlapor" value='<?= $laporan['nama_terlapor'] ?>' disabled>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="laporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Laporan</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="laporan" name="laporan" placeholder="Masukkan laporan" value='<?= $laporan['laporan'] ?>' disabled>
+                                    <input type="text" class="form-control" id="laporan" name="laporan" placeholder="-" value='<?= $laporan['laporan'] ?>' disabled>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Masukkan Kategori" value='<?= $laporan['kategori'] ?>' disabled>
+                                    <input type="text" class="form-control" id="kategori" name="kategori" placeholder="-" value='<?= $laporan['kategori'] ?>' disabled>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="deskripsi_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="deskripsi_pelaporan" name="deskripsi_pelaporan" rows="5" disabled><?= $laporan['deskripsi_pelaporan'] ?></textarea>
+                                    <textarea class="form-control" id="deskripsi_pelaporan" name="deskripsi_pelaporan" rows="5" placeholder="-" disabled><?= $laporan['deskripsi_pelaporan'] ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="status" name="status" value='<?= $laporan['status_pelaporan'] ?>' disabled placeholder="Masukkan Status">
+                                    <input type="text" class="form-control" id="status" name="status" value='<?= $laporan['status_pelaporan'] ?>' disabled placeholder="-">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="balasan_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Balasan</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <textarea class="form-control" id="balasan_pelaporan" name="balasan_pelaporan" rows="5" disabled placeholder="-"><?= $laporan['balasan_pelaporan'] ?></textarea>
                                 </div>
                             </div>
                         </div>
                     </form>
                     <div class="card-action">
                         <div class="row">
-                            <div class="col-md-10"></div>
-                            <div class="col-md-2">
-                                <a href="/admin/pelaporan">
-                                    <button class="btn btn-danger">Kembali</button>
-                                </a>
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <a href="/admin/pelaporan" class="btn btn-danger">Kembali</a>
+                                <a href="/admin/editPelaporan/<?= $laporan['pelaporan_id'] ?>" class="btn btn-info">Edit </a>
                             </div>
                         </div>
                     </div>

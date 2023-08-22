@@ -304,20 +304,6 @@ class Admin extends BaseController
         return view('admin/daftaradministrasi', $data);
     }
 
-    public function addAdministrasi()
-    {
-        $data = [
-            'title' => 'Tambah Administrasi',
-            'active' => 'administrasi',
-            'reqAdministrasi' => $this->getReqAdministrasi(),
-            'reqLaporan' => $this->getReqLaporan(),
-            'reqPesan' => $this->getReqPesan(),
-            'profilePhotoPath' => $this->profilePhotoPath,
-        ];
-
-        return view('admin/add/addadministrasi', $data);
-    }
-
     public function editAdministrasi($id)
     {
         $dataAdministrasi = $this->administrasiModel->getAdministrasi($id);
@@ -364,7 +350,7 @@ class Admin extends BaseController
         return view('admin/detail/detailadministrasi', $data);
     }
 
-    // Laporan
+    // Laporan (Done)
     public function pelaporan()
     {
         $laporan = $this->pelaporanModel->getPelaporan();
@@ -386,6 +372,7 @@ class Admin extends BaseController
     public function editPelaporan($id)
     {
         $laporan = $this->pelaporanModel->getPelaporan($id);
+        $status = $this->pelaporanModel->getStatus();
 
         if ($laporan['status_pelaporan'] == 'Menunggu Konfirmasi') {
             $this->pelaporanModel->update($id, [
@@ -403,6 +390,7 @@ class Admin extends BaseController
             'session' => $this->session->get(),
             'laporan' => $laporan,
             'profilePhotoPath' => $this->profilePhotoPath,
+            'status' => $status,
         ];
 
         return view('admin/edit/editlaporan', $data);
