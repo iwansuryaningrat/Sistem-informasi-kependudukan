@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger">Batal</button>
+                                    <button class="btn btn-danger">Kembali</button>
                                     <input class="btn btn-success" type="submit" value="Submit">
                                 </div>
                             </div>

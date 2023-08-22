@@ -81,7 +81,7 @@
                             <div class="col-md-10"></div>
                             <div class="col-md-2">
                                 <a href="/admin/pelaporan">
-                                    <button class="btn btn-danger">Batal</button>
+                                    <button class="btn btn-danger">Kembali</button>
                                 </a>
                             </div>
                         </div>

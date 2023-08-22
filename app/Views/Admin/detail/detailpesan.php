@@ -72,7 +72,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <a class="btn btn-danger" href='/admin/pesan'>Batal</a>
+                                    <a class="btn btn-danger" href='/admin/pesan'>Kembali</a>
                                     <input class="btn btn-success" type="submit" value="Baca Pesan">
                                 </div>
                             </div>

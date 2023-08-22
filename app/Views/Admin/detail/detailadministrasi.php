@@ -103,7 +103,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <a href="/admin/administrasi" class="btn btn-danger">Batal</a>
+                                    <a href="/admin/administrasi" class="btn btn-danger">Kembali</a>
                                     <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-info">Edit</a>
                                 </div>
                             </div>
