@@ -67,33 +67,37 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>
-                                            <div class="form-button-action">
-                                                <a href="http://">
-                                                    <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
-                                                        <i class="fa fa-eye"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="http://">
-                                                    <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="">
-                                                    <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($dataPengumuman as $pengumuman) : ?>
+                                        <tr>
+                                            <td><?= $pengumuman['judul_pengumuman'] ?></td>
+                                            <td><?= $pengumuman['kategori'] ?></td>
+                                            <td><?php $timestamp = strtotime($pengumuman['tanggal']);
+                                                $formattedDate = date("d F Y", $timestamp);
+                                                echo $formattedDate; ?></td>
+                                            <td><?= $pengumuman['jam'] ?></td>
+                                            <td><?= $pengumuman['tempat'] ?></td>
+                                            <td><?= $pengumuman['status'] ?></td>
+                                            <td>
+                                                <div class="form-button-action">
+                                                    <a href="/admin/detailpengumuman/<?= $pengumuman['pengumuman_id'] ?>">
+                                                        <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
+                                                            <i class="fa fa-eye"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="/admin/editpengumuman/<?= $pengumuman['pengumuman_id'] ?>">
+                                                        <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="/pengumumancontroller/deleteAnnouncement/<?= $pengumuman['pengumuman_id'] ?>">
+                                                        <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

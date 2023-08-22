@@ -521,6 +521,8 @@ class Admin extends BaseController
     // Pengumuman
     public function pengumuman()
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman();
+
         $data = [
             'title' => 'Pengumuman',
             'active' => 'pengumuman',
@@ -529,6 +531,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
+            'dataPengumuman' => $pengumuman,
         ];
 
         return view('admin/daftarpengumuman', $data);
@@ -549,10 +552,25 @@ class Admin extends BaseController
         return view('admin/add/addpengumuman', $data);
     }
 
+    public function detailPengumuman($id)
+    {
+        $data = [
+            'title' => 'Detail Pengumuman',
+            'active' => 'pengumuman',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
+        ];
+
+        return view('admin/edit/editpengumuman', $data);
+    }
+
     public function editPengumuman($id)
     {
         $data = [
-            'title' => 'Buat Pengumuman',
+            'title' => 'Edit Pengumuman',
             'active' => 'pengumuman',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),

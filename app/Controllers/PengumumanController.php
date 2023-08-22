@@ -62,66 +62,20 @@ class PengumumanController extends BaseController
         ];
     }
 
-    public function allAnnouncements()
-    {
-        $data = [
-            'title' => 'Pengumuman',
-            'announcements' => $this->pengumumanModel->findAll()
-        ];
-
-        return view('pengumuman/index', $data);
-    }
-
-    public function detailAnnouncement($id)
-    {
-        $data = [
-            'title' => 'Detail Pengumuman',
-            'announcement' => $this->pengumumanModel->getAnnouncement($id)
-        ];
-
-        if (empty($data['announcement'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Pengumuman tidak ditemukan');
-        }
-
-        return view('pengumuman/detail', $data);
-    }
-
-    public function createAnnouncement()
-    {
-    }
-
-    public function saveAnnouncement()
-    {
-        $this->pengumumanModel->save([
-            'judul' => $this->request->getVar('judul'),
-            'isi' => $this->request->getVar('isi'),
-            'tanggal' => $this->request->getVar('tanggal'),
-            'gambar' => $this->request->getVar('gambar'),
-        ]);
-
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
-
-        return redirect()->to('/pengumuman');
-    }
-
-    public function editAnnouncement($id)
-    {
-        $data = [
-            'title' => 'Edit Pengumuman',
-            'announcement' => $this->pengumumanModel->getAnnouncement($id)
-        ];
-
-        return view('pengumuman/edit', $data);
-    }
-
-    public function updateAnnouncement($id)
-    {
-    }
-
     public function deleteAnnouncement($id)
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman($id);
+        if (!$pengumuman) {
+            session()->setFlashdata('error', 'Data Pengumuman tidak ditemukan.');
+            return redirect()->to('/admin/pengumuman');
+        }
+
+        if ($pengumuman['thumbnail'] != 'default.png') {
+            unlink($this->filePaths . $pengumuman['thumbnail']);
+        }
+
         $this->pengumumanModel->deletePengumumanByPengumumanId($id);
-        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        session()->setFlashdata('success', 'Data Pengumuman berhasil dihapus.');
 
         return redirect()->to('/admin/pengumuman');
     }
