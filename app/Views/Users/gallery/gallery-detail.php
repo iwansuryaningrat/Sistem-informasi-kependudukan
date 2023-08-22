@@ -35,7 +35,7 @@
                     <figcaption class="d-none">
                         <p class="mb-2 text-sm text-center"><?= $foto['caption'] ?></p>
                         <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
-                            <?= $foto['nama'] ?> - <?= date('j M Y H:m', strtotime($foto['created_at'])) ?>
+                            <?= $foto['nama'] ?> - <?= date('d F Y H:m', strtotime($foto['created_at'])) ?>
                         </p>
                     </figcaption>
                 </figure>

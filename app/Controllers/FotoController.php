@@ -75,6 +75,8 @@ class FotoController extends BaseController
                     'galeri_id' => $galeri_id,
                     'foto' => $name,
                     'caption' => $this->request->getVar('caption'),
+                    'uploaded_by' => $this->user_data['nik'],
+                    'isThumbnail' => false,
                 ];
 
                 $this->fotoModel->save($data);

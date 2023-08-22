@@ -91,6 +91,7 @@ class GaleriController extends BaseController
             'galeri_id' => $this->galeriModel->getInsertID(),
             'foto' => $fileName,
             'isThumbnail' => true,
+            'uploaded_by' => $this->user_data['nik'],
         ];
 
         $result = $this->fotoModel->save($foto);
