@@ -5,7 +5,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Tambah Data Keluarga</h4>
+            <h4 class="page-title">Tambah Data Pengumuman</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/admin">
@@ -16,13 +16,13 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/families">Data Keluarga</a>
+                    <a href="/admin/pengumuman">Data Pengumuman</a>
                 </li>
                 <li class="separator">
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/addfamily">Tambah Data Keluarga</a>
+                    <a href="/admin/addpengumuman">Tambah Data Pengumuman</a>
                 </li>
             </ul>
         </div>
@@ -30,49 +30,34 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Tambahkan Data Keluarga</div>
-                        <div class="card-category">Tambahkan data keluarga berdasarkan kartu keluarga</a></div>
+                        <div class="card-title">Tambahkan Data Pengumuman</div>
                     </div>
 
-                    <form id="exampleValidation" action="/keluargacontroller/save" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="#" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
-                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga <span class="required-label">*</span></label>
+                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori <span class="required-label">*</span></label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan Kategori" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">judul <span class="required-label">*</span></label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul pengumuman" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="jam" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jam</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="jam" name="jam" placeholder="Masukkan Jam">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label for="tanggal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="no_kk" aria-describedby="username-addon" id="no_kk" name="no_kk" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" required>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK Kepala Keluarga <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK Kepala Keluarga" required>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" required>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat_asal" placeholder="Masukkan Alamat Asal">
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="tgl_pindah" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Pindah </span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="tgl_pindah" name="tgl_pindah">
+                                        <input type="text" class="form-control" id="tanggal" name="tanggal">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fa fa-calendar-o"></i>
@@ -81,32 +66,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="separator-solid"></div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
+                                <label for="tempat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">tempat</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat">
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi</label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <textarea name="deskripsi" id="summernote"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview" width="150" src="http://placehold.it/150x150" alt="preview" />
-                                        <input type="file" class="form-control form-control-file" id="foto_rumah" name="foto_rumah" accept="image/*">
-                                        <label for="foto_rumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
+                                        <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*">
+                                        <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-check">
-                                <div class="row">
-                                    <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Konfirmasi <span class="required-label">*</span></label>
-                                    <div class="col-lg-4 col-md-9 col-sm-8 d-flex align-items-center">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="agree" name="agree" required>
-                                            <label class="custom-control-label" for="agree">Pastikan data yang Anda masukkan telah benar, Anda tidak dapat mengganti <br> nomor kartu keluarga setelah menyimpannya</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <textarea name="test" id="summernote"></textarea>
                                 </div>
                             </div>
                         </div>
