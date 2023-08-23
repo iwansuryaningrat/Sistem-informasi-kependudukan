@@ -34,9 +34,10 @@
                             <h4 class="card-title">Data Keluarga</h4>
                             <a class="d-block ml-auto" href="/admin/addfamily">
                                 <button class="btn btn-primary btn-round ml-auto">
-                                    <i class="fa fa-plus">
-                                        Tambah Data
-                                    </i>
+                                    <span class="btn-label">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    Tambah Data
                                 </button>
                             </a>
                         </div>
