@@ -484,16 +484,24 @@ class Admin extends BaseController
 
     public function listFotoGaleri($id)
     {
+        $foto = $this->fotoModel->getFotoByGaleriId($id);
+
+        $galeri = $this->galeriModel->getGaleri($id);
+        // dd($foto);
         $data = [
             'title' => 'List Foto Galeri',
             'active' => 'galeri',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
+            'dataFoto' => $foto,
+            'galeri' => $galeri,
+            'path' => $this->photoPath,
         ];
 
-        return view('admin/edit/editgaleri', $data);
+        return view('admin/daftarfoto', $data);
     }
 
     // Foto

@@ -43,7 +43,7 @@
                             <img class="card-img-top rounded" src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Product 1">
                         </div>
                         <div class="card-body pt-2">
-                            <a href="#">
+                            <a href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>">
                                 <h4 class="mb-1 fw-bold"><?= $galeri['judul'] ?> <span class="badge badge-success"><?= $galeri['nama_kategori'] ?></span></h4>
                             </a>
                             <p class=" text-muted small mb-2">Created By: <?= $galeri['nama'] ?></p>
