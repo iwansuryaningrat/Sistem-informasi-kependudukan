@@ -25,9 +25,15 @@
               <p class="text-center mb-1 text-basic">
                 Maaf, tidak ada galeri yang ditemukan.
               </p>
-              <div class="btn btn-secondaries shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
-                Tambahkan Galeri
-              </div>
+              <?php if ($isLoggedin) : ?>
+                <div class="btn btn-secondaries shadow" data-bs-toggle="modal" data-bs-target="#modalAddGallery">
+                  Tambahkan Galeri
+                </div>
+              <?php else : ?>
+                <a class="btn btn-secondaries shadow" href="<?= $isLoggedin ? '/users' : '/home'; ?>">
+                  Kembali ke Beranda
+                </a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
