@@ -30,7 +30,7 @@
                   Tambahkan Galeri
                 </div>
               <?php else : ?>
-                <a class="btn btn-secondaries shadow" href="<?= $isLoggedin ? '/users' : '/home'; ?>">
+                <a class="btn btn-secondaries shadow" href="/home">
                   Kembali ke Beranda
                 </a>
               <?php endif; ?>
