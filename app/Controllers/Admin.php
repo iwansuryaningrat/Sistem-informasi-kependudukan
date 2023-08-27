@@ -7,6 +7,7 @@ use App\Controllers\BaseController;
 use App\Models\AdministrasiModel;
 use App\Models\FotoModel;
 use App\Models\GaleriModel;
+use App\Models\KategoriGaleriModel;
 use App\Models\KeluargaModel;
 use App\Models\PelaporanModel;
 use App\Models\PengumumanModel;
@@ -19,6 +20,7 @@ class Admin extends BaseController
     protected $administrasiModel;
     protected $fotoModel;
     protected $galeriModel;
+    protected $kategoriGaleriModel;
     protected $keluargaModel;
     protected $pelaporanModel;
     protected $pengumumanModel;
@@ -41,6 +43,7 @@ class Admin extends BaseController
         $this->administrasiModel = new AdministrasiModel();
         $this->fotoModel = new FotoModel();
         $this->galeriModel = new GaleriModel();
+        $this->kategoriGaleriModel = new KategoriGaleriModel();
         $this->keluargaModel = new KeluargaModel();
         $this->pelaporanModel = new PelaporanModel();
         $this->pengumumanModel = new PengumumanModel();
@@ -431,7 +434,6 @@ class Admin extends BaseController
                 ];
             }
 
-            // Remove duplicates based on 'nama' and 'foto_profil'
             $uniqueUserInfo = array_unique($userInfo, SORT_REGULAR);
 
             $galeri['foto'] = $foto;
@@ -449,19 +451,22 @@ class Admin extends BaseController
             'profilePhotoPath' => $this->profilePhotoPath,
             'dataGaleri' => $result,
         ];
-        // dd($data);
 
         return view('admin/daftargaleri', $data);
     }
 
     public function addGaleri()
     {
+        $kategoriGaleri = $this->kategoriGaleriModel->getKategoriGaleri();
+        // dd($kategoriGaleri);
         $data = [
             'title' => 'Tambah Galeri',
             'active' => 'galeri',
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'kategoriGaleri' => $kategoriGaleri,
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
@@ -476,6 +481,7 @@ class Admin extends BaseController
             'reqAdministrasi' => $this->getReqAdministrasi(),
             'reqLaporan' => $this->getReqLaporan(),
             'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
 
@@ -485,9 +491,8 @@ class Admin extends BaseController
     public function listFotoGaleri($id)
     {
         $foto = $this->fotoModel->getFotoByGaleriId($id);
-
         $galeri = $this->galeriModel->getGaleri($id);
-        // dd($foto);
+
         $data = [
             'title' => 'List Foto Galeri',
             'active' => 'galeri',

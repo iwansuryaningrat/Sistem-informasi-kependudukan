@@ -71,7 +71,7 @@ class FotoModel extends Model
     // delete foto by galeri_id
     public function deleteFotoByGaleriId($galeri_id)
     {
-        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s')], ['galeri_id' => $galeri_id]);
+        return $this->db->table($this->table)->update(['deleted_at' => date('Y-m-d H:i:s'), 'isThumbnail' => false], ['galeri_id' => $galeri_id]);
     }
 
     // delete foto by foto_id

@@ -78,6 +78,7 @@ class GaleriController extends BaseController
             'created_by' => $this->user_data['nik'],
             'thumbnail' => $fileName,
             'kategori' => $this->request->getVar('kategori'),
+            'total_foto' => 1,
         ];
 
         $result = $this->galeriModel->save($data);
@@ -98,10 +99,18 @@ class GaleriController extends BaseController
 
         if (!$result) {
             session()->setFlashdata('error', 'Galeri gagal ditambahkan');
-            return redirect()->to('/users/galeri');
+            if ($this->user_data['role'] == 'Admin') {
+                return redirect()->to('/admin/galeri');
+            } else {
+                return redirect()->to('/users/galeri');
+            }
         } else {
             session()->setFlashdata('success', 'Galeri berhasil ditambahkan');
-            return redirect()->to('/users/galeri');
+            if ($this->user_data['role'] == 'Admin') {
+                return redirect()->to('/admin/galeri');
+            } else {
+                return redirect()->to('/users/galeri');
+            }
         }
     }
 

@@ -20,4 +20,13 @@ class KategoriGaleriModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
+
+    public function getKategoriGaleri($id = false)
+    {
+        if ($id == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['kategori_galeri_id' => $id])->first();
+    }
 }

@@ -79,6 +79,12 @@ class FotoController extends BaseController
                     'isThumbnail' => false,
                 ];
                 $this->fotoModel->save($data);
+                $galeri = $this->galeriModel->getGaleri($galeri_id);
+
+                $data = [
+                    'total_foto' => $galeri['total_foto'] + 1,
+                ];
+                $this->galeriModel->update($galeri_id, $data);
             }
         } else {
             session()->setFlashdata('error', 'Foto gagal ditambahkan.');
@@ -101,6 +107,12 @@ class FotoController extends BaseController
         $galeri_id = $foto['galeri_id'];
         $this->fotoModel->deleteFotoByFotoId($id);
 
+        $galeri = $this->galeriModel->getGaleri($galeri_id);
+        $data = [
+            'total_foto' => $galeri['total_foto'] - 1,
+        ];
+        $this->galeriModel->update($galeri_id, $data);
+
         session()->setFlashdata('success', 'Foto berhasil dihapus.');
         return redirect()->to('/users/detailGaleri/' . $galeri_id);
     }
@@ -108,6 +120,11 @@ class FotoController extends BaseController
     public function hapusSemua($galeri_id)
     {
         $this->fotoModel->deleteFotoByGaleriId($galeri_id);
+
+        $data = [
+            'total_foto' => 1,
+        ];
+        $this->galeriModel->update($galeri_id, $data);
 
         session()->setFlashdata('success', 'Foto berhasil dihapus.');
         return redirect()->to('/users/detailGaleri/' . $galeri_id);
@@ -119,6 +136,12 @@ class FotoController extends BaseController
 
         $galeri_id = $foto['galeri_id'];
         $this->fotoModel->deleteFotoByFotoId($id);
+
+        $galeri = $this->galeriModel->getGaleri($galeri_id);
+        $data = [
+            'total_foto' => $galeri['total_foto'] - 1,
+        ];
+        $this->galeriModel->update($galeri_id, $data);
 
         session()->setFlashdata('success', 'Foto berhasil dihapus.');
         return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
@@ -144,6 +167,13 @@ class FotoController extends BaseController
             'isThumbnail' => false,
         ];
         $this->fotoModel->save($data);
+
+        $galeri = $this->galeriModel->getGaleri($galeri_id);
+
+        $data = [
+            'total_foto' => $galeri['total_foto'] + 1,
+        ];
+        $this->galeriModel->update($galeri_id, $data);
 
         session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
         return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);

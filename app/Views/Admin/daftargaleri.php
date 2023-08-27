@@ -29,7 +29,7 @@
                     </ul>
                 </div>
                 <div class="ml-auto">
-                    <a href="#" class="btn btn-success">Tambah Galeri</a>
+                    <a href="/admin/addGaleri" class="btn btn-success">Tambah Galeri</a>
                 </div>
             </div>
         </div>
