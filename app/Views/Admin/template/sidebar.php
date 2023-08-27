@@ -118,11 +118,6 @@
                                     <span class="sub-item">Tambah Galeri</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/admin/addfoto">
-                                    <span class="sub-item">Tambah Foto</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </li>
