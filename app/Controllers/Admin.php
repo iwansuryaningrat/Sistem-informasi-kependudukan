@@ -520,8 +520,9 @@ class Admin extends BaseController
         return view('admin/daftarfoto', $data);
     }
 
-    public function addFoto()
+    public function addFoto($galeri_id)
     {
+        $galeri = $this->galeriModel->getGaleri($galeri_id);
         $data = [
             'title' => 'Tambah Foto',
             'active' => 'galeri',
@@ -530,6 +531,7 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
+            'galeri' => $galeri,
         ];
 
         return view('admin/add/addfoto', $data);

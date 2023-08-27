@@ -37,7 +37,7 @@
                                     Semua foto dari galeri <?= $galeri['judul'] ?>.
                                 </p>
                             </div>
-                            <a class="d-block ml-auto" href="/admin/">
+                            <a class="d-block ml-auto" href="/admin/addfoto/<?= $galeri['galeri_id'] ?>">
                                 <button class="btn btn-primary btn-round ml-auto">
                                     <span class="btn-label">
                                         <i class="fa fa-plus"></i>
@@ -54,39 +54,6 @@
                                     <img src="<?= $path . $foto['foto'] ?>" class="img-fluid" />
                                 </a>
                             <?php endforeach; ?>
-                            <!-- <a href="/assets/img/examples/example2.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example2-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example3.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example3-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example4.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example4-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example5.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example5-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example6.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example6-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example7.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example7-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example8.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example8-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example9.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example9-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example10.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example10-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example11.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example11-300x300.jpg" class="img-fluid" />
-                            </a>
-                            <a href="/assets/img/examples/example12.jpeg" class="col-6 col-md-3 mb-4">
-                                <img src="/assets/img/examples/example12-300x300.jpg" class="img-fluid" />
-                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -100,7 +67,6 @@
 <?= $this->section('script') ?>
 
 <script>
-    // This will create a single gallery from all elements that have class "gallery-item"
     $(".image-gallery").magnificPopup({
         delegate: "a",
         type: "image",
@@ -119,6 +85,59 @@
                     openerElement.find("img");
             },
         },
+    });
+</script>
+
+<script>
+    //== Class definition
+    var SweetAlert = function() {
+
+        var initSweatAlert = function() {
+
+            <?php if (session()->getFlashdata('error')) : ?>
+                swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-danger'
+                        }
+                    },
+                });
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('warning')) : ?>
+                swal("Ups!", "<?= session()->getFlashdata('warning') ?>", {
+                    icon: "warning",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-warning'
+                        }
+                    },
+                });
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('success')) : ?>
+                swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-success'
+                        }
+                    },
+                });
+            <?php endif; ?>
+        };
+
+        return {
+            init: function() {
+                initSweatAlert();
+            },
+        };
+    }();
+
+    //== Class Initialization
+    jQuery(document).ready(function() {
+        SweetAlert.init();
     });
 </script>
 

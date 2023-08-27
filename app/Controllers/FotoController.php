@@ -78,9 +78,11 @@ class FotoController extends BaseController
                     'uploaded_by' => $this->user_data['nik'],
                     'isThumbnail' => false,
                 ];
-
                 $this->fotoModel->save($data);
             }
+        } else {
+            session()->setFlashdata('error', 'Foto gagal ditambahkan.');
+            return redirect()->to('/users/detailGaleri/' . $galeri_id);
         }
 
         session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
@@ -119,6 +121,31 @@ class FotoController extends BaseController
         $this->fotoModel->deleteFotoByFotoId($id);
 
         session()->setFlashdata('success', 'Foto berhasil dihapus.');
+        return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
+    }
+
+    public function uploadAdmin($galeri_id)
+    {
+        $foto = $this->request->getFile('foto');
+
+        if (!$foto->isValid()) {
+            session()->setFlashdata('error', 'Foto gagal ditambahkan.');
+            return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
+        }
+
+        $name = $foto->getRandomName();
+        $foto->move($this->filePaths, $name);
+
+        $data = [
+            'galeri_id' => $galeri_id,
+            'foto' => $name,
+            'caption' => $this->request->getVar('caption'),
+            'uploaded_by' => $this->user_data['nik'],
+            'isThumbnail' => false,
+        ];
+        $this->fotoModel->save($data);
+
+        session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
         return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
     }
 }
