@@ -578,6 +578,7 @@ class Admin extends BaseController
 
     public function addPengumuman()
     {
+        $kategori = $this->pengumumanModel->getPengumumanKategori();
         $data = [
             'title' => 'Buat Pengumuman',
             'active' => 'pengumuman',
