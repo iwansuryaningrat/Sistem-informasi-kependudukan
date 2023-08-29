@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Atlantis Bootstrap 4 Admin Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon"/>
-	
+	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
+
 	<!-- Fonts and icons -->
 	<script src="../assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
-			google: {"families":["Lato:300,400,700,900"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['../assets/css/fonts.min.css']},
-			active: function() {
+			google: { "families": ["Lato:300,400,700,900"] },
+			custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['../assets/css/fonts.min.css'] },
+			active: function () {
 				sessionStorage.fonts = true;
 			}
 		});
@@ -24,16 +25,18 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="../assets/css/demo.css">
 </head>
+
 <body>
-	<div class="wrapper">	
+	<div class="wrapper">
 		<div class="main-header">
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
-				
+
 				<a href="index.html" class="logo">
 					<img src="../assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
 				</a>
-				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+					data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
 						<i class="icon-menu"></i>
 					</span>
@@ -49,7 +52,7 @@
 
 			<!-- Navbar Header -->
 			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-				
+
 				<div class="container-fluid">
 					<div class="collapse" id="search-nav">
 						<form class="navbar-left navbar-form nav-search mr-md-3">
@@ -65,18 +68,21 @@
 					</div>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item toggle-nav-search hidden-caret">
-							<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+							<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button"
+								aria-expanded="false" aria-controls="search-nav">
 								<i class="fa fa-search"></i>
 							</a>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-envelope"></i>
 							</a>
-							<ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
+							<ul class="dropdown-menu messages-notif-box animated fadeIn"
+								aria-labelledby="messageDropdown">
 								<li>
 									<div class="dropdown-title d-flex justify-content-between align-items-center">
-										Messages 									
+										Messages
 										<a href="#" class="small">Mark all as read</a>
 									</div>
 								</li>
@@ -84,7 +90,7 @@
 									<div class="message-notif-scroll scrollbar-outer">
 										<div class="notif-center">
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="../assets/img/jm_denis.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -92,11 +98,11 @@
 													<span class="block">
 														How are you ?
 													</span>
-													<span class="time">5 minutes ago</span> 
+													<span class="time">5 minutes ago</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="../assets/img/chadengle.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -104,11 +110,11 @@
 													<span class="block">
 														Ok, Thanks !
 													</span>
-													<span class="time">12 minutes ago</span> 
+													<span class="time">12 minutes ago</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="../assets/img/mlane.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -116,11 +122,11 @@
 													<span class="block">
 														Ready for the meeting today...
 													</span>
-													<span class="time">12 minutes ago</span> 
+													<span class="time">12 minutes ago</span>
 												</div>
 											</a>
 											<a href="#">
-												<div class="notif-img"> 
+												<div class="notif-img">
 													<img src="../assets/img/talha.jpg" alt="Img Profile">
 												</div>
 												<div class="notif-content">
@@ -128,19 +134,21 @@
 													<span class="block">
 														Hi, Apa Kabar ?
 													</span>
-													<span class="time">17 minutes ago</span> 
+													<span class="time">17 minutes ago</span>
 												</div>
 											</a>
 										</div>
 									</div>
 								</li>
 								<li>
-									<a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i> </a>
+									<a class="see-all" href="javascript:void(0);">See all messages<i
+											class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-bell"></i>
 								<span class="notification">4</span>
 							</a>
@@ -151,12 +159,13 @@
 								<li>
 									<div class="notif-center">
 										<a href="#">
-											<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
+											<div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i>
+											</div>
 											<div class="notif-content">
 												<span class="block">
 													New user registered
 												</span>
-												<span class="time">5 minutes ago</span> 
+												<span class="time">5 minutes ago</span>
 											</div>
 										</a>
 										<a href="#">
@@ -165,18 +174,18 @@
 												<span class="block">
 													Rahmad commented on Admin
 												</span>
-												<span class="time">12 minutes ago</span> 
+												<span class="time">12 minutes ago</span>
 											</div>
 										</a>
 										<a href="#">
-											<div class="notif-img"> 
+											<div class="notif-img">
 												<img src="../assets/img/profile2.jpg" alt="Img Profile">
 											</div>
 											<div class="notif-content">
 												<span class="block">
 													Reza send messages to you
 												</span>
-												<span class="time">12 minutes ago</span> 
+												<span class="time">12 minutes ago</span>
 											</div>
 										</a>
 										<a href="#">
@@ -185,13 +194,14 @@
 												<span class="block">
 													Farrah liked Admin
 												</span>
-												<span class="time">17 minutes ago</span> 
+												<span class="time">17 minutes ago</span>
 											</div>
 										</a>
 									</div>
 								</li>
 								<li>
-									<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+									<a class="see-all" href="javascript:void(0);">See all notifications<i
+											class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
@@ -266,7 +276,8 @@
 							</a>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
+								aria-expanded="false">
 								<div class="avatar-sm">
 									<img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
 								</div>
@@ -275,10 +286,12 @@
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="../assets/img/profile.jpg"
+													alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
 												<h4>Hizrian</h4>
-												<p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+												<p class="text-muted">hello@example.com</p><a href="profile.html"
+													class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
 									</li>
@@ -302,7 +315,7 @@
 		</div>
 
 		<!-- Sidebar -->
-		<div class="sidebar sidebar-style-2">			
+		<div class="sidebar sidebar-style-2">
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
 					<div class="user">
@@ -828,9 +841,12 @@
 								<div class="card-header">
 									<div class="row row-nav-line">
 										<ul class="nav nav-tabs nav-line nav-color-secondary w-100 pl-4" role="tablist">
-											<li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home" role="tab" aria-selected="true">Timeline</a> </li>
-											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Profile</a> </li>
-											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="false">Settings</a> </li>
+											<li class="nav-item"> <a class="nav-link active show" data-toggle="tab"
+													href="#home" role="tab" aria-selected="true">Timeline</a> </li>
+											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile"
+													role="tab" aria-selected="false">Profile</a> </li>
+											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings"
+													role="tab" aria-selected="false">Settings</a> </li>
 										</ul>
 									</div>
 								</div>
@@ -839,13 +855,15 @@
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Name</label>
-												<input type="text" class="form-control" name="name" placeholder="Name" value="Hizrian">
+												<input type="text" class="form-control" name="name" placeholder="Name"
+													value="Hizrian">
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Email</label>
-												<input type="email" class="form-control" name="email" placeholder="Name" value="hello@example.com">
+												<input type="email" class="form-control" name="email" placeholder="Name"
+													value="hello@example.com">
 											</div>
 										</div>
 									</div>
@@ -853,7 +871,8 @@
 										<div class="col-md-4">
 											<div class="form-group form-group-default">
 												<label>Birth Date</label>
-												<input type="text" class="form-control" id="datepicker" name="datepicker" value="03/21/1998" placeholder="Birth Date">
+												<input type="text" class="form-control" id="datepicker"
+													name="datepicker" value="03/21/1998" placeholder="Birth Date">
 											</div>
 										</div>
 										<div class="col-md-4">
@@ -868,7 +887,8 @@
 										<div class="col-md-4">
 											<div class="form-group form-group-default">
 												<label>Phone</label>
-												<input type="text" class="form-control" value="+62008765678" name="phone" placeholder="Phone">
+												<input type="text" class="form-control" value="+62008765678"
+													name="phone" placeholder="Phone">
 											</div>
 										</div>
 									</div>
@@ -876,7 +896,9 @@
 										<div class="col-md-12">
 											<div class="form-group form-group-default">
 												<label>Address</label>
-												<input type="text" class="form-control" value="st Merdeka Putih, Jakarta Indonesia" name="address" placeholder="Address">
+												<input type="text" class="form-control"
+													value="st Merdeka Putih, Jakarta Indonesia" name="address"
+													placeholder="Address">
 											</div>
 										</div>
 									</div>
@@ -884,7 +906,8 @@
 										<div class="col-md-12">
 											<div class="form-group form-group-default">
 												<label>About Me</label>
-												<textarea class="form-control" name="about" placeholder="About Me" rows="3">A man who hates loneliness</textarea>
+												<textarea class="form-control" name="about" placeholder="About Me"
+													rows="3">A man who hates loneliness</textarea>
 											</div>
 										</div>
 									</div>
@@ -900,7 +923,8 @@
 								<div class="card-header" style="background-image: url('../assets/img/blogpost.jpg')">
 									<div class="profile-picture">
 										<div class="avatar avatar-xl">
-											<img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+											<img src="../assets/img/profile.jpg" alt="..."
+												class="avatar-img rounded-circle">
 										</div>
 									</div>
 								</div>
@@ -910,17 +934,21 @@
 										<div class="job">Frontend Developer</div>
 										<div class="desc">A man who hates loneliness</div>
 										<div class="social-media">
-											<a class="btn btn-info btn-twitter btn-sm btn-link" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-twitter"></i> </span>
+											<a class="btn btn-info btn-twitter btn-sm btn-link" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-twitter"></i>
+												</span>
 											</a>
-											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-google-plus"></i> </span> 
+											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-google-plus"></i>
+												</span>
 											</a>
-											<a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-facebook"></i> </span> 
+											<a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-facebook"></i>
+												</span>
 											</a>
-											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-dribbble"></i> </span> 
+											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-dribbble"></i>
+												</span>
 											</a>
 										</div>
 										<div class="view-profile">
@@ -971,8 +999,9 @@
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
-						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="http://www.themekita.com">ThemeKita</a>
-					</div>				
+						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a
+							href="http://www.themekita.com">ThemeKita</a>
+					</div>
 				</div>
 			</footer>
 		</div>
@@ -982,9 +1011,12 @@
 			</a>
 			<div class="quick-sidebar-wrapper">
 				<ul class="nav nav-tabs nav-line nav-color-secondary" role="tablist">
-					<li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#messages" role="tab" aria-selected="true">Messages</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tasks" role="tab" aria-selected="false">Tasks</a> </li>
-					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="false">Settings</a> </li>
+					<li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#messages" role="tab"
+							aria-selected="true">Messages</a> </li>
+					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tasks" role="tab"
+							aria-selected="false">Tasks</a> </li>
+					<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab"
+							aria-selected="false">Settings</a> </li>
 				</ul>
 				<div class="tab-content mt-3">
 					<div class="tab-chat tab-pane fade show active" id="messages" role="tabpanel">
@@ -995,16 +1027,20 @@
 										<span class="category-title mt-0">Contacts</span>
 										<div class="avatar-group">
 											<div class="avatar">
-												<img src="../assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+												<img src="../assets/img/jm_denis.jpg" alt="..."
+													class="avatar-img rounded-circle border border-white">
 											</div>
 											<div class="avatar">
-												<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+												<img src="../assets/img/chadengle.jpg" alt="..."
+													class="avatar-img rounded-circle border border-white">
 											</div>
 											<div class="avatar">
-												<img src="../assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+												<img src="../assets/img/mlane.jpg" alt="..."
+													class="avatar-img rounded-circle border border-white">
 											</div>
 											<div class="avatar">
-												<img src="../assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+												<img src="../assets/img/talha.jpg" alt="..."
+													class="avatar-img rounded-circle border border-white">
 											</div>
 											<div class="avatar">
 												<span class="avatar-title rounded-circle border border-white">+</span>
@@ -1015,7 +1051,8 @@
 											<div class="user">
 												<a href="#">
 													<div class="avatar avatar-online">
-														<img src="../assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+														<img src="../assets/img/jm_denis.jpg" alt="..."
+															class="avatar-img rounded-circle border border-white">
 													</div>
 													<div class="user-data">
 														<span class="name">Jimmy Denis</span>
@@ -1026,7 +1063,8 @@
 											<div class="user">
 												<a href="#">
 													<div class="avatar avatar-offline">
-														<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+														<img src="../assets/img/chadengle.jpg" alt="..."
+															class="avatar-img rounded-circle border border-white">
 													</div>
 													<div class="user-data">
 														<span class="name">Chad</span>
@@ -1037,7 +1075,8 @@
 											<div class="user">
 												<a href="#">
 													<div class="avatar avatar-offline">
-														<img src="../assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+														<img src="../assets/img/mlane.jpg" alt="..."
+															class="avatar-img rounded-circle border border-white">
 													</div>
 													<div class="user-data">
 														<span class="name">John Doe</span>
@@ -1051,7 +1090,8 @@
 											<div class="user">
 												<a href="#">
 													<div class="avatar avatar-online">
-														<img src="../assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+														<img src="../assets/img/jm_denis.jpg" alt="..."
+															class="avatar-img rounded-circle border border-white">
 													</div>
 													<div class="user-data2">
 														<span class="name">Jimmy Denis</span>
@@ -1062,7 +1102,8 @@
 											<div class="user">
 												<a href="#">
 													<div class="avatar avatar-offline">
-														<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+														<img src="../assets/img/chadengle.jpg" alt="..."
+															class="avatar-img rounded-circle border border-white">
 													</div>
 													<div class="user-data2">
 														<span class="name">Chad</span>
@@ -1073,7 +1114,8 @@
 											<div class="user">
 												<a href="#">
 													<div class="avatar avatar-away">
-														<img src="../assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+														<img src="../assets/img/talha.jpg" alt="..."
+															class="avatar-img rounded-circle border border-white">
 													</div>
 													<div class="user-data2">
 														<span class="name">Talha</span>
@@ -1090,7 +1132,8 @@
 							<div class="messages-title">
 								<div class="user">
 									<div class="avatar avatar-offline float-right ml-2">
-										<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+										<img src="../assets/img/chadengle.jpg" alt="..."
+											class="avatar-img rounded-circle border border-white">
 									</div>
 									<span class="name">Chad</span>
 									<span class="last-active">Active 2h ago</span>
@@ -1103,7 +1146,8 @@
 								<div class="message-content-wrapper">
 									<div class="message message-in">
 										<div class="avatar avatar-sm">
-											<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+											<img src="../assets/img/chadengle.jpg" alt="..."
+												class="avatar-img rounded-circle border border-white">
 										</div>
 										<div class="message-body">
 											<div class="message-content">
@@ -1134,7 +1178,8 @@
 								<div class="message-content-wrapper">
 									<div class="message message-in">
 										<div class="avatar avatar-sm">
-											<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+											<img src="../assets/img/chadengle.jpg" alt="..."
+												class="avatar-img rounded-circle border border-white">
 										</div>
 										<div class="message-body">
 											<div class="message-content">
@@ -1167,7 +1212,8 @@
 								<div class="message-content-wrapper">
 									<div class="message message-in">
 										<div class="avatar avatar-sm">
-											<img src="../assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle border border-white">
+											<img src="../assets/img/chadengle.jpg" alt="..."
+												class="avatar-img rounded-circle border border-white">
 										</div>
 										<div class="message-body">
 											<div class="message-content">
@@ -1183,7 +1229,8 @@
 							</div>
 							<div class="messages-form">
 								<div class="messages-form-control">
-									<input type="text" placeholder="Type here" class="form-control input-pill input-solid message-input">
+									<input type="text" placeholder="Type here"
+										class="form-control input-pill input-solid message-input">
 								</div>
 								<div class="messages-form-tool">
 									<a href="#" class="attachment">
@@ -1201,7 +1248,8 @@
 									<ul class="tasks-list">
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" checked="" class="custom-control-input"><span class="custom-control-label">Planning new project structure</span>
+												<input type="checkbox" checked="" class="custom-control-input"><span
+													class="custom-control-label">Planning new project structure</span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1211,7 +1259,8 @@
 										</li>
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Create the main structure							</span>
+												<input type="checkbox" class="custom-control-input"><span
+													class="custom-control-label">Create the main structure </span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1221,7 +1270,8 @@
 										</li>
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Add new Post</span>
+												<input type="checkbox" class="custom-control-input"><span
+													class="custom-control-label">Add new Post</span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1231,7 +1281,8 @@
 										</li>
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Finalise the design proposal</span>
+												<input type="checkbox" class="custom-control-input"><span
+													class="custom-control-label">Finalise the design proposal</span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1245,7 +1296,8 @@
 									<ul class="tasks-list">
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Initialize the project							</span>
+												<input type="checkbox" class="custom-control-input"><span
+													class="custom-control-label">Initialize the project </span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1255,7 +1307,8 @@
 										</li>
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Create the main structure							</span>
+												<input type="checkbox" class="custom-control-input"><span
+													class="custom-control-label">Create the main structure </span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1265,7 +1318,8 @@
 										</li>
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span class="custom-control-label">Updates changes to GitHub							</span>
+												<input type="checkbox" class="custom-control-input"><span
+													class="custom-control-label">Updates changes to GitHub </span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1275,7 +1329,10 @@
 										</li>
 										<li>
 											<label class="custom-checkbox custom-control checkbox-secondary">
-												<input type="checkbox" class="custom-control-input"><span title="This task is too long to be displayed in a normal space!" class="custom-control-label">This task is too long to be displayed in a normal space!				</span>
+												<input type="checkbox" class="custom-control-input"><span
+													title="This task is too long to be displayed in a normal space!"
+													class="custom-control-label">This task is too long to be displayed
+													in a normal space! </span>
 												<span class="task-action">
 													<a href="#" class="link text-danger">
 														<i class="flaticon-interface-5"></i>
@@ -1307,25 +1364,29 @@
 										<li>
 											<span class="item-label">Enable Notifications</span>
 											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" checked data-toggle="toggle"
+													data-onstyle="primary" data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">Signin with social media</span>
 											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" data-toggle="toggle" data-onstyle="primary"
+													data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">Backup storage</span>
 											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" data-toggle="toggle" data-onstyle="primary"
+													data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">SMS Alert</span>
 											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" checked data-toggle="toggle"
+													data-onstyle="primary" data-style="btn-round">
 											</div>
 										</li>
 									</ul>
@@ -1335,31 +1396,36 @@
 										<li>
 											<span class="item-label">Email Notifications</span>
 											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" checked data-toggle="toggle"
+													data-onstyle="primary" data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">New Comments</span>
 											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" checked data-toggle="toggle"
+													data-onstyle="primary" data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">Chat Messages</span>
 											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" checked data-toggle="toggle"
+													data-onstyle="primary" data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">Project Updates</span>
 											<div class="item-control">
-												<input type="checkbox" data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" data-toggle="toggle" data-onstyle="primary"
+													data-style="btn-round">
 											</div>
 										</li>
 										<li>
 											<span class="item-label">New Tasks</span>
 											<div class="item-control">
-												<input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-style="btn-round">
+												<input type="checkbox" checked data-toggle="toggle"
+													data-onstyle="primary" data-style="btn-round">
 											</div>
 										</li>
 									</ul>
@@ -1386,7 +1452,7 @@
 							<button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="red"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="white"></button>
-							<br/>
+							<br />
 							<button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
 							<button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
@@ -1407,7 +1473,7 @@
 							<button type="button" class="changeTopBarColor" data-color="orange"></button>
 							<button type="button" class="changeTopBarColor" data-color="red"></button>
 							<button type="button" class="changeTopBarColor" data-color="white"></button>
-							<br/>
+							<br />
 							<button type="button" class="changeTopBarColor" data-color="dark2"></button>
 							<button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
 							<button type="button" class="changeTopBarColor" data-color="purple2"></button>
@@ -1466,4 +1532,5 @@
 		});
 	</script>
 </body>
+
 </html>

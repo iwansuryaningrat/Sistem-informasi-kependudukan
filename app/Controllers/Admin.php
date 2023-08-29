@@ -660,4 +660,30 @@ class Admin extends BaseController
 
         return view('admin/detail/detailpesan', $data);
     }
+
+    // profile
+    public function profile()
+    {
+        $profile = $this->usersModel->getUsers($this->session->get('nik'));
+        $statusUsers = $this->usersModel->getStatusUsers();
+        $statusPerkawinan = $this->usersModel->getStatusPerkawinanUsers();
+        $listAgama = $this->usersModel->getAgamaUsers();
+        $listPendidikan = $this->usersModel->getPendidikanUsers();
+        $data = [
+            'title' => 'Profile',
+            'active' => 'profile',
+            'reqAdministrasi' => $this->getReqAdministrasi(),
+            'reqLaporan' => $this->getReqLaporan(),
+            'reqPesan' => $this->getReqPesan(),
+            'session' => $this->session->get(),
+            'profilePhotoPath' => $this->profilePhotoPath,
+            'profile' => $profile,
+            'listPendidikan' => $listPendidikan,
+            'listAgama' => $listAgama,
+            'statusUsers' => $statusUsers,
+            'statusPerkawinan' => $statusPerkawinan
+        ];
+
+        return view('admin/profile', $data);
+    }
 }

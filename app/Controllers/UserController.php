@@ -427,4 +427,59 @@ class UserController extends BaseController
         session()->setFlashdata('success', 'Data berhasil dihapus');
         return redirect()->to('/admin/people');
     }
+
+    public function editProfileAdmin()
+    {
+        if ($this->user_data['role'] !== 'Admin') {
+            session()->setFlashdata('error', 'Mohon maaf, Anda bukan Admin');
+            return redirect()->to('/users/profile');
+        }
+
+        $nik = $this->user_data['nik'];
+
+        // Check if foto is uploaded
+        $foto = $this->request->getFile('foto_profil');
+        if ($foto == null || $foto->getError() == 4) {
+            $namaFoto = $this->user_data['foto'];
+        } else {
+            // Generate random name
+            $namaFoto = $foto->getRandomName();
+
+            // Move foto to img folder
+            $foto->move($this->filePaths, $namaFoto);
+
+            // Delete old foto
+            if ($this->user_data['foto'] != 'default.png') {
+                unlink($this->filePaths . $this->user_data['foto']);
+            }
+        }
+        $date = $this->request->getVar('tgl_lahir');
+        $tgl_lahir = date("Y-m-d", strtotime($date));
+
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'no_hp' => $this->request->getVar('no_hp'),
+            'email' => $this->request->getVar('email'),
+            'status' => $this->request->getVar('status'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $tgl_lahir,
+            'usia' => $this->request->getVar('usia'),
+            'status_perkawinan' => $this->request->getVar('status_perkawinan'),
+            'pendidikan' => $this->request->getVar('pendidikan'),
+            'agama' => $this->request->getVar('agama'),
+            'pekerjaan' => $this->request->getVar('pekerjaan'),
+            'foto' => $namaFoto
+        ];
+
+        $result = $this->usersModel->update($nik, $data);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Data Anda berhasil diubah.');
+            return redirect()->to('/admin/profile');
+        } else {
+            session()->setFlashdata('error', 'Data Anda gagal diubah.');
+            return redirect()->to('/admin/profile');
+        }
+    }
 }

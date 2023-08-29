@@ -60,7 +60,7 @@
                                         <input type="text" class="form-control" id="tanggal" name="tanggal">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
-                                                <i class="fa fa-calendar-o"></i>
+                                                <i class="fas fa-calendar"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
         console.log(textareaValue);
     }
 
-    $('#tgl_pindah').datetimepicker({
+    $('#tanggal').datetimepicker({
         format: 'MM/DD/YYYY'
     });
 
