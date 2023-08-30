@@ -33,31 +33,38 @@
                         <div class="card-title">Tambahkan Data Pengumuman</div>
                     </div>
 
-                    <form id="exampleValidation" action="#" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/pengumumancontroller/create" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
-                                <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori <span class="required-label">*</span></label>
+                                <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan Kategori" required>
+                                    <div class="input-group">
+                                        <select class="form-control" placeholder="Pilih Kategori Pengumuman" id="kategori" name="kategori" required>
+                                            <option value="" selected>--Pilih Kategori Pengumuman--</option>
+                                            <?php foreach ($kategori as $kategori) : ?>
+                                                <option value="<?= $kategori ?>"><?= $kategori ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">judul <span class="required-label">*</span></label>
+                                <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Judul <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul pengumuman" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="jam" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jam</label>
+                                <label for="jam" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jam <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="jam" name="jam" placeholder="Masukkan Jam">
+                                    <input type="time" class="form-control" id="jam" name="jam" placeholder="Masukkan Jam" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="tanggal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal</span></label>
+                                <label for="tanggal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal <span class="required-label">*</span></span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="tanggal" name="tanggal">
+                                        <input type="text" class="form-control" id="tanggal" name="tanggal" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fas fa-calendar"></i>
@@ -67,27 +74,29 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="tempat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">tempat</label>
+                                <label for="tempat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat">
+                                    <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi</label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <textarea name="deskripsi" id="summernote"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail</label>
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview" width="150" src="http://placehold.it/150x150" alt="preview" />
-                                        <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*">
+                                        <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*" required>
                                         <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group form-show-validation row">
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right" required>Deskripsi <span class="required-label">*</span></label>
+                                <div class="col-lg-8 col-md-9 col-sm-8">
+                                    <textarea name="deskripsi" id="summernote" required></textarea>
+                                </div>
+                            </div>
+
+                            <input type="text" class="form-control" id="deskripsi_int" name="deskripsi_int" hidden>
                         </div>
                         <div class="card-action">
                             <div class="row">
@@ -110,49 +119,70 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#summernote').summernote({
-        placeholder: 'Atlantis',
-        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-        tabsize: 2,
-        height: 300
+    $(document).ready(function() {
+        // Initialize Summernote
+        $('#summernote').summernote();
+
+        // Function to get Summernote content and inject into the "deskripsi_int" input
+        function updateDeskripsiInt() {
+            const summernoteContent = $('#summernote').summernote('code');
+            $('#deskripsi_int').val(summernoteContent);
+        }
+
+        // Listen for changes in the Summernote editor
+        $('#summernote').on('summernote.change', function() {
+            updateDeskripsiInt();
+        });
+
+        // Initial update (in case there's already content in the Summernote editor)
+        updateDeskripsiInt();
     });
 
-    function test() {
-        var textareaValue = $('#summernote').summernote('code');
-        console.log(textareaValue);
-    }
 
     $('#tanggal').datetimepicker({
         format: 'MM/DD/YYYY'
     });
 
-    $('#state').select2({
+    $('#kategori').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#kategori").change(function() {
         $(this).valid();
     })
 
     // validation when inputfile change
-    $("#fotoRumah").on("change", function() {
+    $("#thumbnail").on("change", function() {
         $(this).parent('form').validate();
     })
 
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
+            kategori: {
+                required: true,
+            },
+            judul: {
+                required: true,
+            },
+            jam: {
+                required: true,
+            },
+            thumbnail: {
+                required: true,
+            },
+            tempat: {
+                required: true,
+            },
+            deskripsi: {
+                required: true,
+            },
+            tanggal: {
+                date: true,
                 required: true
-            },
-            confirmpassword: {
-                equalTo: "#password"
-            },
-            birth: {
-                date: true
             },
         },
         highlight: function(element) {

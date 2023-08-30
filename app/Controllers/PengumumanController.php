@@ -79,4 +79,46 @@ class PengumumanController extends BaseController
 
         return redirect()->to('/admin/pengumuman');
     }
+
+    public function create()
+    {
+        // Check if foto is uploaded
+        $foto = $this->request->getFile('thumbnail');
+        if ($foto == null || $foto->getError() == 4) {
+            $namaFoto = $this->user_data['foto'];
+        } else {
+            // Generate random name
+            $namaFoto = $foto->getRandomName();
+
+            // Move foto to img folder
+            $foto->move($this->filePaths, $namaFoto);
+        }
+
+        $deskripsi = $this->request->getVar('deskripsi_int');
+
+        $date = $this->request->getVar('tanggal');
+        $tanggal = date("Y-m-d", strtotime($date));
+        $jam = $this->request->getVar('jam');
+
+        $data = [
+            'kategori' => $this->request->getVar('kategori'),
+            'judul_pengumuman' => $this->request->getVar('judul'),
+            'tempat' => $this->request->getVar('tempat'),
+            'jam' => $jam,
+            'tanggal' => $tanggal,
+            'deskripsi' => $deskripsi,
+            'status' => 'Akan Berlangsung',
+            'created_by' => $this->user_data['nik']
+        ];
+
+        $result = $this->pengumumanModel->save($data);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Pengumuman Berhasil dibuat.');
+            return redirect()->to('/admin/pengumuman');
+        } else {
+            session()->setFlashdata('error', 'Data Pengumuman gagal ditambahkan.');
+            return redirect()->to('/admin/addpengumuman');
+        }
+    }
 }
