@@ -35,9 +35,9 @@ use App\Helpers\DateHelper; ?>
         <div class="gallery-view-container-lg">
             <?php foreach ($dataFoto as $foto) : ?>
                 <figure data-fancybox="gallery-large" data-src="<?= $path . $foto['foto'] ?>" class="gallery-view-item__warp">
-                    <img src="<?= $path . $foto['foto'] ?>" alt="Galeri <?= StringHelper::shortenText($foto['caption'], 30) ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
+                    <img src="<?= $path . $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ? StringHelper::shortenText($foto['caption'], 30) : '' ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
                     <figcaption class="d-none">
-                        <p class="mb-2 text-sm text-center"><?= StringHelper::shortenText($foto['caption'], 30) ?></p>
+                        <p class="mb-2 text-sm text-center"><?= $foto['caption'] ? StringHelper::shortenText($foto['caption'], 30) : '' ?></p>
                         <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
                             <?= $foto['nama'] . ' - ' . DateHelper::formatCreatedAt($foto['created_at']) ?>
                         </p>
