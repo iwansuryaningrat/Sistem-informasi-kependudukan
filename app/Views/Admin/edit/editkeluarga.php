@@ -130,17 +130,6 @@
         format: 'MM/DD/YYYY'
     });
 
-    $('#state').select2({
-        theme: "bootstrap"
-    });
-
-    /* validate */
-
-    // validation when select change
-    $("#state").change(function() {
-        $(this).valid();
-    })
-
     // validation when inputfile change
     $("#fotoRumah").on("change", function() {
         $(this).parent('form').validate();
@@ -149,14 +138,14 @@
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
+            no_kk: {
                 required: true
             },
-            confirmpassword: {
-                equalTo: "#password"
+            nama_kepala_keluarga: {
+                required: true
             },
-            birth: {
-                date: true
+            alamat: {
+                required: true
             },
         },
         highlight: function(element) {

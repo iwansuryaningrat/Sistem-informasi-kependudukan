@@ -96,37 +96,28 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
-    });
-
-    $('#state').select2({
+    $('#no_kk').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#no_kk").change(function() {
         $(this).valid();
-    })
-
-    // validation when inputfile change
-    $("#fotoRumah").on("change", function() {
-        $(this).parent('form').validate();
     })
 
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
+            no_kk: {
                 required: true
             },
-            confirmpassword: {
-                equalTo: "#password"
+            name: {
+                required: true
             },
-            birth: {
-                date: true
+            nik: {
+                required: true
             },
         },
         highlight: function(element) {

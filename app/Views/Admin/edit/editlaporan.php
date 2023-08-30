@@ -69,10 +69,10 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
+                                <label for="status_pelaporan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <select class="form-control" id="status_pelaporan" name="status_pelaporan">
-                                        <option value="" selected>--Pilih Keluarga--</option>
+                                        <option value="" selected>--Pilih Status Pelaporan--</option>
                                         <?php foreach ($status as $status) : ?>
                                             <option value="<?= $status ?>" <?= ($status == $laporan['status_pelaporan']) ? 'selected' : '' ?>><?= $status ?></option>
                                         <?php endforeach; ?>
@@ -107,35 +107,22 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
-    });
-
-    $('#state').select2({
+    $('#status_pelaporan').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#status_pelaporan").change(function() {
         $(this).valid();
     })
 
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
+            balasan_pelaporan: {
                 required: true
-            },
-            confirmpassword: {
-                equalTo: "#password"
-            },
-            birth: {
-                date: true
-            },
-            fotoRumah: {
-                required: true,
             },
         },
         highlight: function(element) {

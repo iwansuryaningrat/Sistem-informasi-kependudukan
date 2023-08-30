@@ -55,21 +55,21 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="keperluan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Keperluan <span class="required-label">*</span></label>
+                                <label for="keperluan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Keperluan</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="keperluan" placeholder="Masukkan Keperluan" value="<?= $dataAdministrasi['keperluan'] ?>" disabled>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="deskripsi" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi <span class="required-label">*</span></label>
+                                <label for="deskripsi" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <textarea class="form-control" id="deskripsi" name="deskripsi" rows="5" disabled><?= $dataAdministrasi['deskripsi'] ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="no_surat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Surat</label>
+                                <label for="no_surat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Surat <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="Masukkan Nomor Surat" value="<?= $dataAdministrasi['no_surat'] ?>">
+                                    <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="Masukkan Nomor Surat" required value="<?= $dataAdministrasi['no_surat'] ?>">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="catatan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
+                                <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <select class="form-control" id="status" name="status">
                                         <?php foreach ($status as $status) : ?>
@@ -125,35 +125,25 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
-    });
-
-    $('#state').select2({
+    $('#status').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#status").change(function() {
         $(this).valid();
     })
 
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
+            no_surat: {
                 required: true
             },
-            confirmpassword: {
-                equalTo: "#password"
-            },
-            birth: {
-                date: true
-            },
-            fotoRumah: {
-                required: true,
+            catatan: {
+                required: true
             },
         },
         highlight: function(element) {

@@ -1,6 +1,9 @@
 <?= $this->extend('admin/template/layout'); ?>
 
 <?= $this->section('admin'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <div class="container">
     <div class="page-inner">
@@ -87,9 +90,7 @@
                             <div class="form-group form-show-validation row">
                                 <label for="tgl_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Lahir</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" disabled placeholder="-" value="<?php $timestamp = strtotime($dataPenduduk['tgl_lahir']);
-                                                                                                                                            $formattedDate = date("d F Y", $timestamp);
-                                                                                                                                            echo $formattedDate; ?>">
+                                    <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" disabled placeholder="-" value="<?= DateHelper::formatIndonesianDate($dataPenduduk['tgl_lahir']) ?>">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">

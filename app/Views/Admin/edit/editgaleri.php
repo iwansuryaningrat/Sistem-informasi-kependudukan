@@ -5,7 +5,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Tambah Data Keluarga</h4>
+            <h4 class="page-title">Tambah Galeri</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/admin">
@@ -16,13 +16,13 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/families">Data Keluarga</a>
+                    <a href="/admin/galeri">Galeri</a>
                 </li>
                 <li class="separator">
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/addfamily">Tambah Data Keluarga</a>
+                    <a href="/admin/addGaleri">Tambah Galeri</a>
                 </li>
             </ul>
         </div>
@@ -30,59 +30,46 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Tambahkan Data Keluarga</div>
-                        <div class="card-category">Tambahkan data keluarga berdasarkan kartu keluarga</a></div>
+                        <div class="card-title">Tambahkan Galeri</div>
+                        <div class="card-category">Tambahkan Galeri dari aktivitas bersama</a></div>
                     </div>
 
-                    <form id="exampleValidation" action="" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/galericontroller/save" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group form-show-validation row">
-                                <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga </label>
+                                <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Judul Galeri <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Masukkan Nomor Kartu Keluarga" aria-label="no_kk" aria-describedby="username-addon" id="no_kk" name="no_kk" value="<?= $keluarga['no_kk'] ?>" disabled>
+                                        <input type="text" class="form-control" aria-label="judul" aria-describedby="username-addon" id="judul" name="judul" placeholder="Masukkan Judul Galeri" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga</label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Kepala Keluarga" value="<?= $keluarga['nama_kepala_keluarga'] ?>" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" value="<?= $keluarga['alamat'] ?>" required>
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $keluarga['alamat_asal'] ?>">
-                                </div>
-                            </div>
-                            <div class="form-group form-show-validation row">
-                                <label for="tgl_pindah" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Pindah </span></label>
+                                <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pilih Kategori Galeri <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="tgl_pindah" name="tgl_pindah">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </div>
+                                        <select class="form-control" placeholder="Pilih Kategori Galeri" id="kategori" name="kategori" required>
+                                            <option value="" selected>--Pilih Kategori Galeri--</option>
+                                            <?php foreach ($kategoriGaleri as $kategori) : ?>
+                                                <option value="<?= $kategori['kategori_galeri_id'] ?>"><?= $kategori['nama_kategori'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="separator-solid"></div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
+                                <label for="deskripsi" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi <span class="required-label">*</span></label>
+                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                    <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi Galeri" rows="5" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group form-show-validation row">
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
-                                        <input type="file" class="form-control form-control-file" id="fotoRumah" name="fotoRumah" accept="image/*">
-                                        <label for="fotoRumah" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
+                                        <img class="img-upload-preview " width="100" height="100" src="http://placehold.it/100x100" alt="preview">
+                                        <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*" required>
+                                        <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Thumbnail</label>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +78,7 @@
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <button class="btn btn-danger">Kembali</button>
+                                    <a href="/admin/galeri" class="btn btn-danger">Kembali</a>
                                     <input class="btn btn-success" type="submit" value="Submit">
                                 </div>
                             </div>
@@ -109,34 +96,30 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
-    });
-
-    $('#state').select2({
+    $('#kategori').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#kategori").change(function() {
         $(this).valid();
     })
 
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
-                required: true
+            thumbnail: {
+                required: true,
             },
-            confirmpassword: {
-                equalTo: "#password"
+            deskripsi: {
+                required: true,
             },
-            birth: {
-                date: true
+            kategori: {
+                required: true,
             },
-            fotoRumah: {
+            judul: {
                 required: true,
             },
         },

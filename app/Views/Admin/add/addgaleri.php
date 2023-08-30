@@ -58,9 +58,9 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="deskripsi" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi</label>
+                                <label for="deskripsi" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi Galeri" rows="5"></textarea>
+                                    <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi Galeri" rows="5" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
@@ -69,7 +69,7 @@
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview " width="100" height="100" src="http://placehold.it/100x100" alt="preview">
                                         <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*" required>
-                                        <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i>Upload Thumbnail</label>
+                                        <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Thumbnail</label>
                                     </div>
                                 </div>
                             </div>
@@ -96,25 +96,30 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
-    });
-
-    $('#state').select2({
+    $('#kategori').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#kategori").change(function() {
         $(this).valid();
     })
 
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            foto: {
+            thumbnail: {
+                required: true,
+            },
+            deskripsi: {
+                required: true,
+            },
+            kategori: {
+                required: true,
+            },
+            judul: {
                 required: true,
             },
         },
