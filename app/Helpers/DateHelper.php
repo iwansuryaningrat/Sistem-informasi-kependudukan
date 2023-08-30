@@ -49,4 +49,15 @@ class DateHelper
             return $interval->format('%i menit yang lalu');
         }
     }
+
+    public static function formatIndonesianTime($time)
+    {
+        $timeObj = DateTime::createFromFormat("H:i:s", $time);
+        if ($timeObj) {
+            // Format the time in Indonesian time format
+            $indonesianTime = $timeObj->format("H:i");
+
+            return $indonesianTime;
+        }
+    }
 }

@@ -1,6 +1,9 @@
 <?= $this->extend('admin/template/layout'); ?>
 
 <?= $this->section('admin'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <div class="container">
     <div class="page-inner">
@@ -67,7 +70,7 @@
                                             <td><?= $data['nama_pengirim'] ?></td>
                                             <td><?= $data['email'] ?></td>
                                             <td><?= $data['kategori'] ?></td>
-                                            <td><?= date('j M Y H:m', strtotime($data['created_at'])); ?></td>
+                                            <td><?= DateHelper::formatCreatedAt($data['created_at']) ?></td>
                                             <td>
                                                 <span class="badge <?php if ($data['status'] == 'Belum Dibaca') {
                                                                         echo 'badge-info';

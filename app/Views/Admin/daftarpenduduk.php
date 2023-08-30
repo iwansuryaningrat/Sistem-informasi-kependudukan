@@ -1,6 +1,9 @@
 <?= $this->extend('admin/template/layout'); ?>
 
 <?= $this->section('admin'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <div class="container">
     <div class="page-inner">
@@ -74,7 +77,7 @@
                                             <td><?= $data['no_kk'] ?></td>
                                             <td><?= $data['nama'] ?></td>
                                             <td><?= $data['jenis_kelamin'] ?></td>
-                                            <td><?= $data['tempat_lahir'], ", ", $data['tgl_lahir'] ?></td>
+                                            <td><?= $data['tempat_lahir'], ", ", DateHelper::formatIndonesianDate($data['tgl_lahir']) ?> </td>
                                             <td><?= $data['email'] ?></td>
                                             <td>
                                                 <div class="form-button-action">

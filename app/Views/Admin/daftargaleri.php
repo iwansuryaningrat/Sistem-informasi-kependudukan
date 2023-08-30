@@ -1,6 +1,9 @@
 <?= $this->extend('admin/template/layout'); ?>
 
 <?= $this->section('admin'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <div class="container container-full">
     <div class="page-navs bg-white">
@@ -47,6 +50,7 @@
                                 <h4 class="mb-1 fw-bold"><?= $galeri['judul'] ?> <span class="badge badge-success"><?= $galeri['nama_kategori'] ?></span></h4>
                             </a>
                             <p class=" text-muted small mb-2">Created By: <?= $galeri['nama'] ?></p>
+                            <p class=" text-muted small mb-2"> <span class="fas fa-clock"></span> <?= DateHelper::formatCreatedAt($galeri['created_at']) ?></p>
                             <div class="avatar-group">
                                 <?php foreach ($galeri['userInfo'] as $user) : ?>
                                     <div class="avatar avatar-sm">

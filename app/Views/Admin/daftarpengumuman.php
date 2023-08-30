@@ -1,6 +1,9 @@
 <?= $this->extend('admin/template/layout'); ?>
 
 <?= $this->section('admin'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <div class="container">
     <div class="page-inner">
@@ -72,10 +75,8 @@
                                         <tr>
                                             <td><?= $pengumuman['judul_pengumuman'] ?></td>
                                             <td><?= $pengumuman['kategori'] ?></td>
-                                            <td><?php $timestamp = strtotime($pengumuman['tanggal']);
-                                                $formattedDate = date("d F Y", $timestamp);
-                                                echo $formattedDate; ?></td>
-                                            <td><?= $pengumuman['jam'] ?></td>
+                                            <td><?= DateHelper::formatIndonesianDate($pengumuman['tanggal']) ?></td>
+                                            <td><?= DateHelper::formatIndonesianTime($pengumuman['jam']) ?></td>
                                             <td><?= $pengumuman['tempat'] ?></td>
                                             <td><?= $pengumuman['status'] ?></td>
                                             <td>
