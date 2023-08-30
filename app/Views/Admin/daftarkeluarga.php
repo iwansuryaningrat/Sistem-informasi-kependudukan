@@ -2,6 +2,11 @@
 
 <?= $this->section('admin'); ?>
 
+<?php
+
+use App\Helpers\StringHelper;
+use App\Helpers\DateHelper; ?>
+
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
@@ -51,6 +56,7 @@
                                         <th>Nama Kepala Keluarga</th>
                                         <th>Alamat</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
@@ -60,6 +66,7 @@
                                         <th>Nama Kepala Keluarga</th>
                                         <th>Alamat</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -68,7 +75,7 @@
                                         <tr>
                                             <td><?= $data['no_kk'] ?></td>
                                             <td><?= $data['nama_kepala_keluarga'] ?></td>
-                                            <td><?= $data['alamat'] ?></td>
+                                            <td><?= StringHelper::shortenText($data['alamat']) ?></td>
                                             <td>
                                                 <span class="badge <?php if ($data['status'] == 'Tetap') {
                                                                         echo 'badge-success';
@@ -79,6 +86,7 @@
                                                     <?= 'Penduduk ' . $data['status'] ?>
                                                 </span>
                                             </td>
+                                            <td><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailkeluarga/<?= $data['no_kk'] ?>">

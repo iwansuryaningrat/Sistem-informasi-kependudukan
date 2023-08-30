@@ -32,6 +32,32 @@ class DateHelper
         return $formatted_date;
     }
 
+    public static function formatIndonesianShortDate($date)
+    {
+        $months = [
+            1 => 'Jan', 2 => 'Feb', 3 => 'Mar',
+            4 => 'Apr', 5 => 'Mei', 6 => 'Jun',
+            7 => 'Jul', 8 => 'Ags', 9 => 'Sep',
+            10 => 'Okt', 11 => 'Nov', 12 => 'Des'
+        ];
+
+        $parts = explode('-', $date);
+        if (count($parts) !== 3) {
+            return $date; // Invalid date format, return as is.
+        }
+
+        $day = intval($parts[2]);
+        $month = intval($parts[1]);
+        $year = intval($parts[0]);
+
+        if (!array_key_exists($month, $months)) {
+            return $date; // Invalid month, return as is.
+        }
+
+        $formatted_date = $day . ' ' . $months[$month] . ' ' . $year;
+        return $formatted_date;
+    }
+
     public static function formatIndonesianShortDateTime($dateTime)
     {
         $months = [

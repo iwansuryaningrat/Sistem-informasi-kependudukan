@@ -56,6 +56,7 @@ use App\Helpers\DateHelper; ?>
                                         <th>Jam</th>
                                         <th>Tampat</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
@@ -67,6 +68,7 @@ use App\Helpers\DateHelper; ?>
                                         <th>Jam</th>
                                         <th>Tampat</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -79,6 +81,7 @@ use App\Helpers\DateHelper; ?>
                                             <td><?= DateHelper::formatIndonesianTime($pengumuman['jam']) ?></td>
                                             <td><?= $pengumuman['tempat'] ?></td>
                                             <td><?= $pengumuman['status'] ?></td>
+                                            <td><?= DateHelper::formatIndonesianShortDateTime($pengumuman['created_at']) ?></td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailpengumuman/<?= $pengumuman['pengumuman_id'] ?>">

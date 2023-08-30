@@ -1,6 +1,9 @@
 <?= $this->extend('admin/template/layout'); ?>
 
 <?= $this->section('admin'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <div class="container">
     <div class="page-inner">
@@ -44,6 +47,7 @@
                                         <th>Keperluan</th>
                                         <th>No Surat</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
@@ -54,6 +58,7 @@
                                         <th>Keperluan</th>
                                         <th>No Surat</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -78,6 +83,7 @@
                                                     <?= $data['administrasi_status'] ?>
                                                 </span>
                                             </td>
+                                            <td><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailAdministrasi/<?= $data['administrasi_id'] ?>">

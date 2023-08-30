@@ -2,6 +2,7 @@
 <?php $this->section('homepage'); ?>
 <?php
 
+use App\Helpers\StringHelper;
 use App\Helpers\DateHelper; ?>
 
 <!-- header -->
@@ -33,10 +34,10 @@ use App\Helpers\DateHelper; ?>
     <section class="container container-space">
         <div class="gallery-view-container-lg">
             <?php foreach ($dataFoto as $foto) : ?>
-                <figure data-fancybox="gallery-large" data-src="<?= '/' . $path . $foto['foto'] ?>" class="gallery-view-item__warp">
-                    <img src="<?= '/' . $path . $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
+                <figure data-fancybox="gallery-large" data-src="<?= $path . $foto['foto'] ?>" class="gallery-view-item__warp">
+                    <img src="<?= $path . $foto['foto'] ?>" alt="Galeri <?= StringHelper::shortenText($foto['caption'], 30) ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
                     <figcaption class="d-none">
-                        <p class="mb-2 text-sm text-center"><?= $foto['caption'] ?></p>
+                        <p class="mb-2 text-sm text-center"><?= StringHelper::shortenText($foto['caption'], 30) ?></p>
                         <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
                             <?= $foto['nama'] . ' - ' . DateHelper::formatCreatedAt($foto['created_at']) ?>
                         </p>
