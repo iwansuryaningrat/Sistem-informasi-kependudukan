@@ -108,7 +108,8 @@ class PengumumanController extends BaseController
             'tanggal' => $tanggal,
             'deskripsi' => $deskripsi,
             'status' => 'Akan Berlangsung',
-            'created_by' => $this->user_data['nik']
+            'created_by' => $this->user_data['nik'],
+            'thumbnail' => $namaFoto
         ];
 
         $result = $this->pengumumanModel->save($data);

@@ -36,9 +36,9 @@ use App\Helpers\DateHelper;
         </div>
       <?php else : ?>
         <?php foreach ($pengumuman as $data) : ?>
-          <a href="/users/detailpengumuman/<?= $data['pengumuman_id'] ?>" class="news-card">
+          <a href="<?= $isLoggedin ? '/users/detailpengumuman/' . $data['pengumuman_id'] : '/home/detailpengumuman/' . $data['pengumuman_id'] ?>" class="news-card">
             <figure class="news-image__wrap" style="margin-bottom: 14px;">
-              <img src="<?= $path . $data['thumbnail'] ?>" alt="Pengumuman <?= $data['judul_pengumuman'] ?>" class="news-image__photo" />
+              <img src="<?= '/' . $path . $data['thumbnail'] ?>" alt="Pengumuman <?= $data['judul_pengumuman'] ?>" class="news-image__photo" />
             </figure>
             <p class="news-title-card mb-2"><?= $data['judul_pengumuman'] ?></p>
             <p class="text-basic news-desc mb-2"><?= $data['deskripsi'] ?></p>
