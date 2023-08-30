@@ -57,14 +57,21 @@
                             <div class="form-group form-show-validation row">
                                 <label for="jam" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jam <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="time" class="form-control" id="jam" name="jam" placeholder="Masukkan Jam" required>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="jam" name="jam" placeholder="Masukkan Jam" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-clock"></i>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
                                 <label for="tanggal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal <span class="required-label">*</span></span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="tanggal" name="tanggal" required>
+                                        <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fas fa-calendar"></i>
@@ -138,6 +145,9 @@
         updateDeskripsiInt();
     });
 
+    $('#jam').datetimepicker({
+        format: 'HH:mm'
+    });
 
     $('#tanggal').datetimepicker({
         format: 'MM/DD/YYYY'
