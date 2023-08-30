@@ -42,25 +42,25 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="nama" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama</label>
+                                <label for="nama" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" value="<?= $profile['nama'] ?>">
+                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" value="<?= $profile['nama'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="no_hp" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor HP</label>
+                                <label for="no_hp" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor HP <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan Nomor HP" value="<?= $profile['no_hp'] ?>">
+                                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan Nomor HP" value="<?= $profile['no_hp'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="email" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Email</label>
+                                <label for="email" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Email <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $profile['email'] ?>">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $profile['email'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status dalam Keluarga</label>
+                                <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status dalam Keluarga <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" placeholder="Pilih Status dalam Keluarga" id="status" name="status" required>
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="jenis_kelamin" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jenis Kelamin</label>
+                                <label for="jenis_kelamin" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jenis Kelamin <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" placeholder="Pilih Jenis Kelamin" id="jenis_kelamin" name="jenis_kelamin" required>
@@ -85,16 +85,16 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="tempat_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat Lahir</label>
+                                <label for="tempat_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat Lahir <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $profile['tempat_lahir'] ?>">
+                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="<?= $profile['tempat_lahir'] ?>">
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="tgl_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Lahir</label>
+                                <label for="tgl_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Lahir <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= date("m/d/Y", strtotime($profile['tgl_lahir'])) ?>">
+                                        <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" required value="<?= date("m/d/Y", strtotime($profile['tgl_lahir'])) ?>">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i onclick="calculateAndAddAge()" class="fas fa-calendar"></i>
@@ -104,13 +104,13 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="usia" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Usia</label>
+                                <label for="usia" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Usia <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="usia" name="usia" placeholder="-" value="<?= $profile['usia'] ?>" readonly>
+                                    <input type="text" class="form-control" id="usia" name="usia" placeholder="-" value="<?= $profile['usia'] ?>" required readonly>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="status_perkawinan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status Perkawinan</label>
+                                <label for="status_perkawinan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status Perkawinan <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" placeholder="Pilih Status Perkawinan" id="status_perkawinan" name="status_perkawinan" required>
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="pendidikan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pendidikan</label>
+                                <label for="pendidikan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pendidikan <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" placeholder="Pilih Pendidikan" id="pendidikan" name="pendidikan" required>
@@ -136,7 +136,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="agama" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Agama</label>
+                                <label for="agama" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Agama <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" placeholder="Pilih Agama" id="agama" name="agama" required>
@@ -149,17 +149,17 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label for="pekerjaan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pekerjaan</label>
+                                <label for="pekerjaan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pekerjaan <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Masukkan Pekerjaan" value="<?= $profile['pekerjaan'] ?>">
+                                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Masukkan Pekerjaan" value="<?= $profile['pekerjaan'] ?>" required>
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto</label>
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview" width="150" src="<?= ($profile['foto']) ? $profilePhotoPath . $profile['foto'] : $profilePhotoPath . 'default.png' ?>" alt="preview" />
-                                        <input type="file" class="form-control form-control-file" id="foto_profil" name="foto_profil" accept="image/*">
+                                        <input type="file" class="form-control form-control-file" id="foto_profil" name="foto_profil" accept="image/*" required>
                                         <label for="foto_profil" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
                                 </div>
@@ -191,14 +191,58 @@
         format: 'MM/DD/YYYY'
     });
 
-    $('#state').select2({
+    $('#status').select2({
         theme: "bootstrap"
     });
 
     /* validate */
 
     // validation when select change
-    $("#state").change(function() {
+    $("#status").change(function() {
+        $(this).valid();
+    })
+
+    $('#jenis_kelamin').select2({
+        theme: "bootstrap"
+    });
+
+    /* validate */
+
+    // validation when select change
+    $("#jenis_kelamin").change(function() {
+        $(this).valid();
+    })
+
+    $('#status_perkawinan').select2({
+        theme: "bootstrap"
+    });
+
+    /* validate */
+
+    // validation when select change
+    $("#status_perkawinan").change(function() {
+        $(this).valid();
+    })
+
+    $('#pendidikan').select2({
+        theme: "bootstrap"
+    });
+
+    /* validate */
+
+    // validation when select change
+    $("#pendidikan").change(function() {
+        $(this).valid();
+    })
+
+    $('#agama').select2({
+        theme: "bootstrap"
+    });
+
+    /* validate */
+
+    // validation when select change
+    $("#agama").change(function() {
         $(this).valid();
     })
 
@@ -210,14 +254,42 @@
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            gender: {
+            nama: {
                 required: true
             },
-            confirmpassword: {
-                equalTo: "#password"
+            no_hp: {
+                required: true
             },
-            birth: {
-                date: true
+            email: {
+                required: true
+            },
+            status: {
+                required: true
+            },
+            jenis_kelamin: {
+                required: true
+            },
+            jenis_kelamin: {
+                required: true
+            },
+            usia: {
+                required: true
+            },
+            pendidikan: {
+                required: true
+            },
+            agama: {
+                required: true
+            },
+            pekerjaan: {
+                required: true
+            },
+            foto_profil: {
+                required: true
+            },
+            tgl_lahir: {
+                date: true,
+                required: true
             },
         },
         highlight: function(element) {
