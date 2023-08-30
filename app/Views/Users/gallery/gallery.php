@@ -1,5 +1,8 @@
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <!-- header -->
 <header class="container">
@@ -41,7 +44,7 @@
         <?php foreach ($dataGaleri as $galeri) : ?>
           <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
             <figure class="news-image__wrap h-13">
-              <img src="<?= $path . $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
+              <img src="<?= '/' . $path . $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
             </figure>
             <div class="d-flex align-items-center mb-2">
               <p class="mb-0">
@@ -55,6 +58,10 @@
               <p class="d-flex align-items-center me-3 mb-0">
                 <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
                 <span class="text-sm d-block text-gray"><?= $galeri['nama'] ?></span>
+              </p>
+              <p class="d-flex align-items-center me-3 mb-0">
+                <i class="fa-solid fa-clock me-1 d-block fill-gray"></i>
+                <span class="text-sm d-block text-gray"><?= DateHelper::formatCreatedAt($galeri['created_at']) ?></span>
               </p>
             </div>
           </a>

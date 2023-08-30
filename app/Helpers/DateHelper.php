@@ -31,7 +31,56 @@ class DateHelper
         $formatted_date = $day . ' ' . $months[$month] . ' ' . $year;
         return $formatted_date;
     }
-    // DateHelper.php
+
+    public static function formatIndonesianShortDateTime($dateTime)
+    {
+        $months = [
+            1 => 'Jan', 2 => 'Feb', 3 => 'Mar',
+            4 => 'Apr', 5 => 'Mei', 6 => 'Jun',
+            7 => 'Jul', 8 => 'Ags', 9 => 'Sep',
+            10 => 'Okt', 11 => 'Nov', 12 => 'Des'
+        ];
+
+        $dateTimeObj = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
+
+        if (!$dateTimeObj) {
+            return $dateTime; // Invalid date-time format, return as is.
+        }
+
+        $day = $dateTimeObj->format("d");
+        $month = intval($dateTimeObj->format("m"));
+        $year = $dateTimeObj->format("Y");
+        $time = $dateTimeObj->format("H:i");
+
+        $formattedDateTime = $day . ' ' . $months[$month] . ' ' . $year . ' ' . $time;
+
+        return $formattedDateTime;
+    }
+
+    public static function formatIndonesianDateTime($dateTime)
+    {
+        $months = [
+            1 => 'Januari', 2 => 'Februari', 3 => 'Maret',
+            4 => 'April', 5 => 'Mei', 6 => 'Juni',
+            7 => 'Juli', 8 => 'Agustus', 9 => 'September',
+            10 => 'Oktober', 11 => 'November', 12 => 'Desember'
+        ];
+
+        $dateTimeObj = DateTime::createFromFormat("Y-m-d H:i:s", $dateTime);
+
+        if (!$dateTimeObj) {
+            return $dateTime; // Invalid date-time format, return as is.
+        }
+
+        $day = $dateTimeObj->format("d");
+        $month = intval($dateTimeObj->format("m"));
+        $year = $dateTimeObj->format("Y");
+        $time = $dateTimeObj->format("H:i");
+
+        $formattedDateTime = $day . ' ' . $months[$month] . ' ' . $year . ' ' . $time;
+
+        return $formattedDateTime;
+    }
 
     public static function formatCreatedAt($createdAt)
     {

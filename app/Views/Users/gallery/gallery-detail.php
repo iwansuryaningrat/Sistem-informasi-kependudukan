@@ -1,5 +1,8 @@
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <!-- header -->
 <header class="container">
@@ -30,12 +33,12 @@
     <section class="container container-space">
         <div class="gallery-view-container-lg">
             <?php foreach ($dataFoto as $foto) : ?>
-                <figure data-fancybox="gallery-large" data-src="<?= $path . $foto['foto'] ?>" class="gallery-view-item__warp">
-                    <img src="<?= $path . $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
+                <figure data-fancybox="gallery-large" data-src="<?= '/' . $path . $foto['foto'] ?>" class="gallery-view-item__warp">
+                    <img src="<?= '/' . $path . $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
                     <figcaption class="d-none">
                         <p class="mb-2 text-sm text-center"><?= $foto['caption'] ?></p>
                         <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
-                            <?= $foto['nama'] ?> - <?= date('d F Y H:m', strtotime($foto['created_at'])) ?>
+                            <?= $foto['nama'] . ' - ' . DateHelper::formatCreatedAt($foto['created_at']) ?>
                         </p>
                     </figcaption>
                 </figure>

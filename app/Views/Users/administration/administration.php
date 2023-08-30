@@ -1,5 +1,8 @@
 <?php $this->extend('users/template/layout'); ?>
 <?php $this->section('homepage'); ?>
+<?php
+
+use App\Helpers\DateHelper; ?>
 
 <!-- header -->
 <header class="container px-0">
@@ -52,8 +55,8 @@
                       </div>
                     </div>
                   </td>
-                  <td><?= date('j M Y H:m', strtotime($data['created_at'])) ?></td>
-                  <td><?= ($data['tgl_penerimaan']) ? $data['tgl_penerimaan'] : '-' ?></td>
+                  <td><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
+                  <td><?= ($data['tgl_penerimaan']) ? DateHelper::formatIndonesianShortDateTime($data['tgl_penerimaan']) : '-' ?></td>
                   <td>
                     <div class="dropdown dropdown-table pe-3">
                       <button class="btn dropdown-table-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Other Option">
