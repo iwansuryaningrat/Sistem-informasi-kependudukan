@@ -75,7 +75,7 @@ use App\Helpers\DateHelper; ?>
                                         <tr>
                                             <td><?= $data['no_kk'] ?></td>
                                             <td><?= $data['nama_kepala_keluarga'] ?></td>
-                                            <td><?= StringHelper::shortenText($data['alamat']) ?></td>
+                                            <td><?= $data['alamat'] ? StringHelper::shortenText($data['alamat']) : '-' ?></td>
                                             <td>
                                                 <span class="badge <?php if ($data['status'] == 'Tetap') {
                                                                         echo 'badge-success';
