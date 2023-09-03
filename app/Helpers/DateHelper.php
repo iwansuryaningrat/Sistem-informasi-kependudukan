@@ -8,6 +8,10 @@ class DateHelper
 {
     public static function formatIndonesianDate($date)
     {
+        if (empty($date)) {
+            return $date;
+        }
+
         $months = [
             1 => 'Januari', 2 => 'Februari', 3 => 'Maret',
             4 => 'April', 5 => 'Mei', 6 => 'Juni',
