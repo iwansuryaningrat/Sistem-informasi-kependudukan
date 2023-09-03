@@ -56,8 +56,8 @@ use App\Helpers\DateHelper; ?>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat, Tanggal Lahir</th>
                                         <th>email</th>
-                                        <th>Created At</th>
-                                        <th style="width: 10%">Action</th>
+                                        <th class="text-nowrap">Created At</th>
+                                        <th class="text-nowrap">Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -81,8 +81,8 @@ use App\Helpers\DateHelper; ?>
                                             <td><?= $data['jenis_kelamin'] ?></td>
                                             <td><?= $data['tempat_lahir'], ", ", DateHelper::formatIndonesianShortDate($data['tgl_lahir']) ?> </td>
                                             <td><?= $data['email'] ?></td>
-                                            <td><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
-                                            <td>
+                                            <td class="text-nowrap"><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
+                                            <td class="text-nowrap">
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailPenduduk/<?= $data['nik'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
