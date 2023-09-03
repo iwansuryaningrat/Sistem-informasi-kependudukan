@@ -96,7 +96,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/families" class="btn btn-danger">Kembali</a>
-                                    <a href="/admin/editkeluarga/<?= $keluarga['no_kk'] ?>" class="btn btn-info">Edit</a>
+                                    <a href="/admin/editkeluarga/<?= $keluarga['no_kk'] ?>" class="btn btn-info ml-2">Edit</a>
                                 </div>
                             </div>
                         </div>

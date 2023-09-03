@@ -79,7 +79,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/people" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-3" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
