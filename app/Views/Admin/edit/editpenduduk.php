@@ -79,7 +79,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/people" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-3" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -111,14 +111,21 @@
         validClass: "success",
         rules: {
             no_kk: {
-                required: true
+                required: true,
             },
             name: {
                 required: true
             },
             nik: {
-                required: true
+                required: true,
+                minlength: 16
             },
+            no_hp: {
+                number: true
+            },
+            email: {
+                email: true
+            }
         },
         highlight: function(element) {
             $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
@@ -126,6 +133,24 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            no_kk: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK tidak boleh kosong',
+            },
+            name: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong'
+            },
+            nik: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK tidak boleh kosong',
+                minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK minimal 16 karakter'
+            },
+            no_hp: {
+                number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP harus berupa angka'
+            },
+            email: {
+                email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid'
+            }
+        }
     });
 
     jQuery(document).ready(function() {
