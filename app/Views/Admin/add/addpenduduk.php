@@ -111,13 +111,15 @@
         validClass: "success",
         rules: {
             no_kk: {
-                required: true
+                required: true,
+                minlength: 16
             },
             name: {
                 required: true
             },
             nik: {
-                required: true
+                required: true,
+                minlength: 16
             },
         },
         highlight: function(element) {
@@ -126,6 +128,19 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            no_kk: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK tidak boleh kosong',
+                minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor KK minimal 16 karakter'
+            },
+            name: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong'
+            },
+            nik: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK tidak boleh kosong',
+                minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK minimal 16 karakter'
+            },
+        }
     });
 
     jQuery(document).ready(function() {
