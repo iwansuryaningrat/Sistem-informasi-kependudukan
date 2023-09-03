@@ -29,36 +29,42 @@
 
                     <form id="exampleValidation" action="/usercontroller/editprofileadmin" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
+                            <!-- no kk -->
                             <div class="form-group form-show-validation row">
                                 <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" placeholder="Pilih Nomor Kartu Keluarga" id="no_kk" name="no_kk" value="<?= $profile['no_kk'] ?>" disabled>
                                 </div>
                             </div>
+                            <!-- nik -->
                             <div class="form-group form-show-validation row">
                                 <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" value="<?= $profile['nik'] ?>" disabled>
                                 </div>
                             </div>
+                            <!-- nama -->
                             <div class="form-group form-show-validation row">
                                 <label for="nama" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" value="<?= $profile['nama'] ?>" required>
                                 </div>
                             </div>
+                            <!-- nomor hp -->
                             <div class="form-group form-show-validation row">
                                 <label for="no_hp" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor HP <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan Nomor HP" value="<?= $profile['no_hp'] ?>" required>
                                 </div>
                             </div>
+                            <!-- email -->
                             <div class="form-group form-show-validation row">
                                 <label for="email" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Email <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $profile['email'] ?>" required>
                                 </div>
                             </div>
+                            <!-- status keluarga -->
                             <div class="form-group form-show-validation row">
                                 <label for="status" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status dalam Keluarga <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -72,6 +78,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- jenis kelamin -->
                             <div class="form-group form-show-validation row">
                                 <label for="jenis_kelamin" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jenis Kelamin <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -84,12 +91,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- tempat lahir -->
                             <div class="form-group form-show-validation row">
                                 <label for="tempat_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat Lahir <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Masukkan Tempat Lahir" value="<?= $profile['tempat_lahir'] ?>">
                                 </div>
                             </div>
+                            <!-- tanggal lahir -->
                             <div class="form-group form-show-validation row">
                                 <label for="tgl_lahir" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Lahir <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -97,18 +106,20 @@
                                         <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" required value="<?= date("m/d/Y", strtotime($profile['tgl_lahir'])) ?>">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
-                                                <i onclick="calculateAndAddAge()" class="fas fa-calendar"></i>
+                                                <i class="fas fa-calendar"></i>
                                             </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- usia -->
                             <div class="form-group form-show-validation row">
                                 <label for="usia" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Usia <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="usia" name="usia" placeholder="-" value="<?= $profile['usia'] ?>" required readonly>
                                 </div>
                             </div>
+                            <!-- status perkawinan -->
                             <div class="form-group form-show-validation row">
                                 <label for="status_perkawinan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Status Perkawinan <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -122,6 +133,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- pendidikan -->
                             <div class="form-group form-show-validation row">
                                 <label for="pendidikan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pendidikan <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -135,6 +147,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- agama -->
                             <div class="form-group form-show-validation row">
                                 <label for="agama" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Agama <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -148,12 +161,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- pekerjaan -->
                             <div class="form-group form-show-validation row">
                                 <label for="pekerjaan" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pekerjaan <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Masukkan Pekerjaan" value="<?= $profile['pekerjaan'] ?>" required>
                                 </div>
                             </div>
+                            <!-- foto -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -170,7 +185,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin" class="btn btn-danger">Kembali</a>
-                                    <button class="btn btn-info">Edit</button>
+                                    <button class="btn btn-info ml-3">Edit</button>
                                 </div>
                             </div>
                         </div>
@@ -258,10 +273,14 @@
                 required: true
             },
             no_hp: {
-                required: true
+                required: true,
+                number: true,
+                minlength: 10,
+                maxlength: 13
             },
             email: {
-                required: true
+                required: true,
+                email: true
             },
             status: {
                 required: true
@@ -269,10 +288,14 @@
             jenis_kelamin: {
                 required: true
             },
-            jenis_kelamin: {
+            tempat_lahir: {
                 required: true
             },
             usia: {
+                required: true,
+                number: true
+            },
+            status_perkawinan: {
                 required: true
             },
             pendidikan: {
@@ -298,6 +321,53 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            nama: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama tidak boleh kosong',
+            },
+            no_hp: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP tidak boleh kosong',
+                number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP harus berupa angka',
+                minlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP minimal 10 karakter',
+                maxlength: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor HP maksimal 13 karakter'
+            },
+            email: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak boleh kosong',
+                email: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Email tidak valid'
+            },
+            status: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status dalam keluarga tidak boleh kosong'
+            },
+            jenis_kelamin: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jenis kelamin tidak boleh kosong'
+            },
+            tempat_lahir: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat lahir tidak boleh kosong'
+            },
+            usia: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Usia tidak boleh kosong',
+                number: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Usia harus berupa angka'
+            },
+            status_perkawinan: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Status perkawinan tidak boleh kosong'
+            },
+            pendidikan: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pendidikan tidak boleh kosong'
+            },
+            agama: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Agama tidak boleh kosong'
+            },
+            pekerjaan: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Pekerjaan tidak boleh kosong'
+            },
+            foto_profil: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Foto tidak boleh kosong'
+            },
+            tgl_lahir: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal lahir tidak boleh kosong',
+                date: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal lahir tidak valid'
+            },
+        }
     });
 
     jQuery(document).ready(function() {
@@ -332,6 +402,12 @@
             usiaElement.value = "";
         }
     }
+
+    $(function() {
+        $('#tgl_lahir').on('dp.change', function() {
+            calculateAndAddAge();
+        });
+    });
 </script>
 
 <script>
