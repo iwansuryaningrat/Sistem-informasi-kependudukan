@@ -46,7 +46,7 @@ use App\Helpers\DateHelper; ?>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive pb-3">
                             <table id="add-row" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -56,8 +56,8 @@ use App\Helpers\DateHelper; ?>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat, Tanggal Lahir</th>
                                         <th>email</th>
-                                        <th>Created At</th>
-                                        <th style="width: 10%">Action</th>
+                                        <th class="text-nowrap">Created At</th>
+                                        <th class="text-nowrap">Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -81,8 +81,8 @@ use App\Helpers\DateHelper; ?>
                                             <td><?= $data['jenis_kelamin'] ?></td>
                                             <td><?= $data['tempat_lahir'], ", ", DateHelper::formatIndonesianShortDate($data['tgl_lahir']) ?> </td>
                                             <td><?= $data['email'] ?></td>
-                                            <td><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
-                                            <td>
+                                            <td class="text-nowrap"><?= DateHelper::formatIndonesianShortDateTime($data['created_at']) ?></td>
+                                            <td class="text-nowrap">
                                                 <div class="form-button-action">
                                                     <a href="/admin/detailPenduduk/<?= $data['nik'] ?>">
                                                         <button type="button" data-toggle="tooltip" title="View" class="btn btn-link btn-primary btn-lg" data-original-title="View">
@@ -94,7 +94,7 @@ use App\Helpers\DateHelper; ?>
                                                             <i class="fa fa-edit"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="/usercontroller/deleteUsersforAdmin/<?= $data['nik'] ?>">
+                                                    <a href="javascript:void(0);" onclick="deletePenduduk(<?= $data['nik'] ?>)">
                                                         <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
                                                             <i class="fa fa-times"></i>
                                                         </button>
@@ -123,6 +123,33 @@ use App\Helpers\DateHelper; ?>
             "pageLength": 10,
         });
     });
+
+    function deletePenduduk(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus data penduduk ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                setTimeout(function() {
+                    window.location.href = `/usercontroller/deleteUsersforAdmin/${id}`;
+                }, 3000);
+
+                swal("Berhasil! Data penduduk telah dihapus!", {
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            className: "btn btn-success",
+                        },
+                    },
+                }).then(function() {
+                    window.location.href = `/usercontroller/deleteUsersforAdmin/${id}`;
+                });
+            }
+        });
+    }
 </script>
 
 <script>

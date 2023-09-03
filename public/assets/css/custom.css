@@ -1,3 +1,21 @@
+/* TEXT */
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+/* MARGIN */
 .mr-6 {
   margin-right: 6px !important;
+}
+
+/* FORM */
+#formAddKeluarga #agree-error {
+  margin-top: 0;
+  margin-left: 27px;
+}
+
+@media screen and (max-width: 1199px) {
+  .form-group label#customAgreeLabel {
+    white-space: normal !important;
+  }
 }
