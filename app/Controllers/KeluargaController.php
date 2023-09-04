@@ -86,7 +86,7 @@ class KeluargaController extends BaseController
             return redirect()->to('/admin/addfamily');
         }
 
-        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : $this->request->getVar('tgl_pindah');
+        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : date('Y-m-d', strtotime($this->request->getVar('tgl_pindah')));
 
         ($tgl_pindah != null) ? $status = 'Pindah' : $status = 'Tetap';
 
@@ -200,7 +200,7 @@ class KeluargaController extends BaseController
             }
         }
 
-        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : $this->request->getVar('tgl_pindah');
+        $tgl_pindah = ($this->request->getVar('tgl_pindah') == null || $this->request->getVar('tgl_pindah') == "") ? null : date('Y-m-d', strtotime($this->request->getVar('tgl_pindah')));
 
         ($tgl_pindah != null) ? $status = 'Pindah' : $status = 'Tetap';
 
@@ -210,7 +210,7 @@ class KeluargaController extends BaseController
             "nama_kepala_keluarga" => $namaKepalaKeluarga,
             'alamat' => $this->request->getVar('alamat'),
             'alamat_asal' => $this->request->getVar('alamat_asal'),
-            'tgl_pindah' => $this->request->getVar('tgl_pindah'),
+            'tgl_pindah' => $tgl_pindah,
             'status' => $status,
             'foto_rumah' => $namaFoto,
         ]);
@@ -219,7 +219,7 @@ class KeluargaController extends BaseController
 
         if ($result) {
             session()->setFlashdata('success', 'Data berhasil diubah.');
-            return redirect()->to('/admin/editkeluarga/' . $id);
+            return redirect()->to('/admin/families');
         } else {
             session()->setFlashdata('error', 'Data gagal diubah.');
             return redirect()->to('/admin/editkeluarga/' . $id);

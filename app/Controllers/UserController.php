@@ -324,7 +324,7 @@ class UserController extends BaseController
 
         if ($result) {
             session()->setFlashdata('success', 'Penduduk berhasil diperbarui');
-            return redirect()->to('/admin/editPenduduk/' . $nik);
+            return redirect()->to('/admin/people/');
         } else {
             session()->setFlashdata('error', 'Penduduk gagal diperbarui');
             return redirect()->to('/admin/editPenduduk/' . $nik);

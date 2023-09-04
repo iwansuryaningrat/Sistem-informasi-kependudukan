@@ -36,6 +36,7 @@
 
                     <form id="exampleValidation" action="/keluargacontroller/updateAdmin/<?= $keluarga['no_kk'] ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
+                            <!-- no kk -->
                             <div class="form-group form-show-validation row">
                                 <label for="no_kk" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nomor Kartu Keluarga</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -44,35 +45,40 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- nama kepala keluarga -->
                             <div class="form-group form-show-validation row">
                                 <label for="nama_kepala_keluarga" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Nama Kepala Keluarga</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="nama_kepala_keluarga" name="nama_kepala_keluarga" placeholder="Masukkan Nama Kepala Keluarga" value="<?= $keluarga['nama_kepala_keluarga'] ?>">
                                 </div>
                             </div>
+                            <!-- nik kepala keluarga -->
                             <div class="form-group form-show-validation row">
                                 <label for="nik" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">NIK Kepala Keluarga</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK Kepala Keluarga" value="<?= $keluarga['nik_kepala_keluarga'] ?>" disabled>
                                 </div>
                             </div>
+                            <!-- alamat -->
                             <div class="form-group form-show-validation row">
                                 <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat" value="<?= $keluarga['alamat'] ? $keluarga['alamat'] : '-' ?>">
                                 </div>
                             </div>
+                            <!-- alamat asal -->
                             <div class="form-group form-show-validation row">
                                 <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="alamat_asal" name="alamat_asal" placeholder="Masukkan Alamat Asal" value="<?= $keluarga['alamat_asal'] ? $keluarga['alamat_asal'] : '-' ?>">
                                 </div>
                             </div>
+                            <!-- tanggal pindah -->
                             <div class="form-group form-show-validation row">
                                 <label for="tgl_pindah" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal Pindah </span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="tgl_pindah" name="tgl_pindah" value="<?= $keluarga['tgl_pindah'] ?>">
+                                        <input type="text" class="form-control" id="tgl_pindah" name="tgl_pindah">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fa fa-calendar"></i>
@@ -82,6 +88,7 @@
                                 </div>
                             </div>
                             <div class="separator-solid"></div>
+                            <!-- foto rumah -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto Rumah</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -92,24 +99,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- agree -->
                             <div class="form-check">
                                 <div class="row">
-                                    <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Konfirmasi <span class="required-label">*</span></label>
+                                    <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-sm-right">Konfirmasi <span class="required-label">*</span></label>
                                     <div class="col-lg-4 col-md-9 col-sm-8 d-flex align-items-center">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="agree" name="agree" required>
-                                            <label class="custom-control-label" for="agree">Pastikan data yang Anda masukkan telah benar, Anda tidak dapat mengganti <br> nomor kartu keluarga setelah menyimpannya</label>
+                                        <div class="">
+                                            <div class="custom-control custom-checkbox" style="padding-top: 7px;" id="customControlLabel">
+                                                <input type="checkbox" class="custom-control-input" id="agree" name="agree" required>
+                                                <label id="customAgreeLabel" class="custom-control-label" for="agree">Pastikan data yang Anda masukkan telah benar, Anda tidak dapat mengganti <br> nomor kartu keluarga setelah menyimpannya</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin/families" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -127,7 +136,8 @@
 
 <script>
     $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
+        format: 'MM/DD/YYYY',
+        defaultDate: <?= ($keluarga['tgl_pindah']) ? "'" . $keluarga['tgl_pindah'] . "'" : 'new Date()' ?>,
     });
 
     // validation when inputfile change
@@ -144,9 +154,21 @@
             nama_kepala_keluarga: {
                 required: true
             },
+            nik: {
+                required: true
+            },
             alamat: {
                 required: true
             },
+            alamat_asal: {
+                required: true
+            },
+            tgl_pindah: {
+                required: true
+            },
+            agree: {
+                required: true
+            }
         },
         highlight: function(element) {
             $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
@@ -154,6 +176,36 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            no_kk: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor Kartu Keluarga tidak boleh kosong',
+            },
+            nama_kepala_keluarga: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nama Kepala Keluarga tidak boleh kosong',
+            },
+            nik: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>NIK Kepala Keluarga tidak boleh kosong',
+            },
+            alamat: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat tidak boleh kosong',
+            },
+            alamat_asal: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat Asal tidak boleh kosong',
+            },
+            tgl_pindah: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal Pindah tidak boleh kosong',
+            },
+            agree: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Anda harus menyetujui konfirmasi',
+            }
+        },
+        errorPlacement: function(error, element) {
+            if (element.attr("name") == "agree") {
+                error.insertAfter("#customControlLabel");
+            } else {
+                error.insertAfter(element);
+            }
+        }
     });
 
     jQuery(document).ready(function() {

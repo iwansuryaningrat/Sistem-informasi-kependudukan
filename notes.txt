@@ -20,3 +20,10 @@
 ### Role = [Admin, User]
 ### Status Kependudukan = ['Tetap', 'Sementara', 'Pendatang', 'Pindahan']
 ### Agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']
+
+## DO
+### Administrasi
+### Laporan
+### Pesan
+### Galeri
+### Pengumuman

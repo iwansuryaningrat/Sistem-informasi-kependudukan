@@ -8,6 +8,10 @@ class DateHelper
 {
     public static function formatIndonesianDate($date)
     {
+        if (empty($date)) {
+            return $date;
+        }
+
         $months = [
             1 => 'Januari', 2 => 'Februari', 3 => 'Maret',
             4 => 'April', 5 => 'Mei', 6 => 'Juni',
@@ -34,6 +38,10 @@ class DateHelper
 
     public static function formatIndonesianShortDate($date)
     {
+        if (empty($date)) {
+            return $date;
+        }
+
         $months = [
             1 => 'Jan', 2 => 'Feb', 3 => 'Mar',
             4 => 'Apr', 5 => 'Mei', 6 => 'Jun',
@@ -43,7 +51,7 @@ class DateHelper
 
         $parts = explode('-', $date);
         if (count($parts) !== 3) {
-            return $date; // Invalid date format, return as is.
+            return $date;
         }
 
         $day = intval($parts[2]);
@@ -51,12 +59,13 @@ class DateHelper
         $year = intval($parts[0]);
 
         if (!array_key_exists($month, $months)) {
-            return $date; // Invalid month, return as is.
+            return $date;
         }
 
         $formatted_date = $day . ' ' . $months[$month] . ' ' . $year;
         return $formatted_date;
     }
+
 
     public static function formatIndonesianShortDateTime($dateTime)
     {
