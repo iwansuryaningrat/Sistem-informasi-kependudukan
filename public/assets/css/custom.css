@@ -2,6 +2,12 @@
 .text-nowrap {
   white-space: nowrap !important;
 }
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 /* MARGIN */
 .mr-6 {
@@ -18,4 +24,20 @@
   .form-group label#customAgreeLabel {
     white-space: normal !important;
   }
+}
+
+/* ADMINISTRATION */
+.file-pdf-info {
+  margin-bottom: 12px;
+}
+.file-pdf-info img {
+  height: 64px;
+}
+.line-clamp-max-w-320 {
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
