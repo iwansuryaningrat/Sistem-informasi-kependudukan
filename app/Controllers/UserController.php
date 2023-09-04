@@ -474,7 +474,8 @@ class UserController extends BaseController
 
         // Update session
         session()->set([
-            'foto' => $namaFoto
+            'foto' => $namaFoto,
+            'nama' => $data['nama']
         ]);
 
         $result = $this->usersModel->update($nik, $data);
