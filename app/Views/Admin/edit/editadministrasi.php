@@ -92,15 +92,27 @@
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Berkas</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <div class="input-file input-file-image">
-                                        <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
-                                        <input type="file" class="form-control form-control-file" id="berkas" name="berkas" accept="application/pdf">
-                                        <label for="berkas" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Berkas</label>
+                                    <div class="d-flex">
+                                        <div class="mr-5">
+                                            <figure class="file-pdf-info">
+                                                <img id="previewImageThumbnail" src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
+                                            </figure>
+                                            <p class="line-clamp-1"><?= $dataAdministrasi['berkas'] ?></p>
+                                            <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>" target="_blank">
+                                                <button class="btn btn-info">Download</button>
+                                            </a>
+                                        </div>
+                                        <div class="input-file input-file-image">
+                                            <div class="mb-2">
+                                                <div class="d-flex flex-column flex-sm-row">
+                                                    <div id="filePreview"></div>
+                                                </div>
+                                            </div>
+                                            <input type="file" class="form-control form-control-file" id="berkas" name="berkas" accept="application/pdf" onchange="previewFile(event)">
+                                            <label for="berkas" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Berkas</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>" target="_blank">
-                                    <button class="btn btn-info">Download</button>
-                                </a>
                             </div>
                         </div>
                         <div class="card-action">
@@ -108,7 +120,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/administrasi" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-3" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -125,6 +137,74 @@
 <?= $this->section('script'); ?>
 
 <script>
+    $(document).ready(function() {
+        var fileExtension = getFileExtension('<?= $dataAdministrasi['berkas'] ?>');
+        switch (fileExtension) {
+            case 'pdf':
+                fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+                break;
+            case 'doc':
+            case 'docx':
+                fileTypeImage = '/homepage/assets/img/decoration/word.png';
+                break;
+            case 'xls':
+            case 'xlsx':
+                fileTypeImage = '/homepage/assets/img/decoration/excel.png';
+                break;
+            case 'jpg':
+            case 'jpeg':
+                fileTypeImage = '/homepage/assets/img/decoration/jpg.png';
+                break;
+            case 'png':
+                fileTypeImage = '/homepage/assets/img/decoration/png.png';
+                break;
+        }
+
+        $('#filePreviewThumbnail').attr('src', fileTypeImage);
+    });
+
+    function getFileExtension(filename) {
+        return filename.split('.').pop();
+    }
+
+    function previewFile(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        const filePreview = document.getElementById("filePreview");
+
+        if (file) {
+            let fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+
+            switch (file.type) {
+                case 'application/pdf':
+                    fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+                    break;
+                case 'application/msword':
+                case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+                    fileTypeImage = '/homepage/assets/img/decoration/word.png';
+                    break;
+                case 'application/vnd.ms-excel':
+                case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+                    fileTypeImage = '/homepage/assets/img/decoration/excel.png';
+                    break;
+                case 'image/jpeg':
+                    fileTypeImage = '/homepage/assets/img/decoration/jpg.png';
+                    break;
+                case 'image/png':
+                    fileTypeImage = '/homepage/assets/img/decoration/png.png';
+                    break;
+            }
+
+            filePreview.innerHTML = `
+      <div class="text-sm-center" style="margin: 12px 0 10px;">
+        <figure class="file-pdf-info">
+          <img src="${fileTypeImage}" alt="File ${file.name}">
+        </figure>
+        <p class="mb-0 line-clamp-max-w-320 text-sm">${file.name}</p>
+      </div>`;
+        }
+    }
+
     $('#status').select2({
         theme: "bootstrap"
     });
@@ -152,6 +232,14 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            no_surat: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Nomor surat tidak boleh kosong',
+            },
+            catatan: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Catatan tidak boleh kosong',
+            },
+        }
     });
 
     jQuery(document).ready(function() {

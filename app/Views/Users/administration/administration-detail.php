@@ -84,7 +84,7 @@
                   <div id="filePreview">
                     <div class="text-sm-center" style="margin: 12px 0 10px;">
                       <figure class="file-pdf-info">
-                        <img src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
+                        <img id="filePreviewThumbnail" src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
                       </figure>
                       <p class="mb-0 line-clamp-max-w-320 text-sm"><?= $dataAdministrasi['berkas'] ?></p>
                     </div>
@@ -162,12 +162,12 @@
       <!-- Hapus -->
       <?php if ($dataAdministrasi['administrasi_status'] == 'Ditolak' || $dataAdministrasi['administrasi_status'] == 'Menunggu Konfirmasi') : ?>
         <div class="card-footer card-form-footer">
-        <div class="w-100 d-flex justify-content-end">
-          <button role="presentation" class="btn btn-logout-sm btn-submit px-4" onclick="deleteAdministration()">
-            Hapus Permohonan
-          </button>
+          <div class="w-100 d-flex justify-content-end">
+            <button role="presentation" class="btn btn-logout-sm btn-submit px-4" onclick="deleteAdministration()">
+              Hapus Permohonan
+            </button>
+          </div>
         </div>
-      </div>
       <?php endif; ?>
     </div>
   </section>
@@ -180,6 +180,36 @@
 
 <!-- script internal -->
 <script>
+  $(document).ready(function() {
+    var fileExtension = getFileExtension('<?= $dataAdministrasi['berkas'] ?>');
+    switch (fileExtension) {
+      case 'pdf':
+        fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+        break;
+      case 'doc':
+      case 'docx':
+        fileTypeImage = '/homepage/assets/img/decoration/word.png';
+        break;
+      case 'xls':
+      case 'xlsx':
+        fileTypeImage = '/homepage/assets/img/decoration/excel.png';
+        break;
+      case 'jpg':
+      case 'jpeg':
+        fileTypeImage = '/homepage/assets/img/decoration/jpg.png';
+        break;
+      case 'png':
+        fileTypeImage = '/homepage/assets/img/decoration/png.png';
+        break;
+    }
+
+    $('#filePreviewThumbnail').attr('src', fileTypeImage);
+  });
+
+  function getFileExtension(filename) {
+    return filename.split('.').pop();
+  }
+
   const deleteAdministration = () => {
     Swal.fire({
       title: 'Apakah anda yakin?',

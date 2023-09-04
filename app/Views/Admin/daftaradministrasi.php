@@ -21,12 +21,6 @@ use App\Helpers\DateHelper; ?>
                 <li class="nav-item">
                     <a href="/admin/administrasi">Data Administrasi</a>
                 </li>
-                <li class="separator">
-                    <i class="flaticon-right-arrow"></i>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/administrasi">Daftar Administrasi</a>
-                </li>
             </ul>
         </div>
         <div class="row">
@@ -96,7 +90,7 @@ use App\Helpers\DateHelper; ?>
                                                             <i class="fa fa-edit"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="/administrasicontroller/hapusadmin/<?= $data['administrasi_id'] ?>">
+                                                    <a href="javascript:void(0);" onclick="deleteAdministration(<?= $data['administrasi_id'] ?>)">
                                                         <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
                                                             <i class="fa fa-times"></i>
                                                         </button>
@@ -126,6 +120,33 @@ use App\Helpers\DateHelper; ?>
             "pageLength": 10,
         });
     });
+
+    function deleteAdministration(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus data administrasi ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                setTimeout(function() {
+                    window.location.href = `/administrasicontroller/hapusadmin/${id}`;
+                }, 3000);
+
+                swal("Berhasil! Data administrasi berhasil dihapus.", {
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            className: "btn btn-success",
+                        },
+                    },
+                }).then(function() {
+                    window.location.href = `/administrasicontroller/hapusadmin/${id}`;
+                });
+            }
+        });
+    }
 </script>
 
 <script>
