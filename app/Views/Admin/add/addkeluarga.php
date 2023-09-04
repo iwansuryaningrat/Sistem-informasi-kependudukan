@@ -157,12 +157,6 @@
             alamat: {
                 required: true
             },
-            alamat_asal: {
-                required: true
-            },
-            tgl_pindah: {
-                required: true
-            },
             agree: {
                 required: true
             }
@@ -185,12 +179,6 @@
             },
             alamat: {
                 required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat tidak boleh kosong',
-            },
-            alamat_asal: {
-                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Alamat Asal tidak boleh kosong',
-            },
-            tgl_pindah: {
-                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal Pindah tidak boleh kosong',
             },
             agree: {
                 required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Anda harus menyetujui konfirmasi',
