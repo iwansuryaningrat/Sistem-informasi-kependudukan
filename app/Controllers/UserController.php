@@ -472,6 +472,11 @@ class UserController extends BaseController
             'foto' => $namaFoto
         ];
 
+        // Update session
+        session()->set([
+            'foto' => $namaFoto
+        ]);
+
         $result = $this->usersModel->update($nik, $data);
 
         if ($result) {
