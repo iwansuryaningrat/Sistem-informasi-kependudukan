@@ -597,6 +597,8 @@ class Admin extends BaseController
 
     public function detailPengumuman($id)
     {
+        $kategori = $this->pengumumanModel->getPengumumanKategori();
+        $status = $this->pengumumanModel->getStatus();
         $data = [
             'title' => 'Detail Pengumuman',
             'active' => 'pengumuman',
@@ -605,6 +607,8 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
+            'kategori' => $kategori,
+            'status' => $status,
         ];
 
         return view('admin/edit/editpengumuman', $data);
@@ -612,6 +616,8 @@ class Admin extends BaseController
 
     public function editPengumuman($id)
     {
+        $kategori = $this->pengumumanModel->getPengumumanKategori();
+        $status = $this->pengumumanModel->getStatus();
         $data = [
             'title' => 'Edit Pengumuman',
             'active' => 'pengumuman',
@@ -620,6 +626,8 @@ class Admin extends BaseController
             'reqPesan' => $this->getReqPesan(),
             'session' => $this->session->get(),
             'profilePhotoPath' => $this->profilePhotoPath,
+            'kategori' => $kategori,
+            'status' => $status,
         ];
 
         return view('admin/edit/editpengumuman', $data);
