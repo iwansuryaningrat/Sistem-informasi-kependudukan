@@ -91,7 +91,10 @@
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Berkas</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview img-circle" width="100" height="100" src="http://placehold.it/100x100" alt="preview">
+                                        <figure class="file-pdf-info">
+                                            <img id="filePreview" src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
+                                        </figure>
+                                        <p class=""><?= $dataAdministrasi['berkas'] ?></p>
                                         <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>" target="_blank">
                                             <button class="btn btn-info">Download</button>
                                         </a>
@@ -104,7 +107,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/administrasi" class="btn btn-danger">Kembali</a>
-                                    <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-info">Edit</a>
+                                    <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-info ml-3">Edit</a>
                                 </div>
                             </div>
                         </div>
@@ -121,6 +124,36 @@
 <?= $this->section('script'); ?>
 
 <script>
+    $(document).ready(function() {
+        var fileExtension = getFileExtension('<?= $dataAdministrasi['berkas'] ?>');
+        switch (fileExtension) {
+            case 'pdf':
+                fileTypeImage = '/homepage/assets/img/decoration/pdf.png';
+                break;
+            case 'doc':
+            case 'docx':
+                fileTypeImage = '/homepage/assets/img/decoration/word.png';
+                break;
+            case 'xls':
+            case 'xlsx':
+                fileTypeImage = '/homepage/assets/img/decoration/excel.png';
+                break;
+            case 'jpg':
+            case 'jpeg':
+                fileTypeImage = '/homepage/assets/img/decoration/jpg.png';
+                break;
+            case 'png':
+                fileTypeImage = '/homepage/assets/img/decoration/png.png';
+                break;
+        }
+
+        $('#filePreview').attr('src', fileTypeImage);
+    });
+
+    function getFileExtension(filename) {
+        return filename.split('.').pop();
+    }
+
     $('#tgl_pindah').datetimepicker({
         format: 'MM/DD/YYYY'
     });

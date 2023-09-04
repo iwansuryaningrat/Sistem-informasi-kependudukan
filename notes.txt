@@ -23,6 +23,7 @@
 
 ## DO
 ### Administrasi
+- download di detail administrasi admin !
 ### Laporan
 ### Pesan
 ### Galeri
