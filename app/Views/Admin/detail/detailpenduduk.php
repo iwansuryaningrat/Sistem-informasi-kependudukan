@@ -137,7 +137,7 @@ use App\Helpers\DateHelper; ?>
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/people" class="btn btn-danger">Kembali</a>
-                                    <a href="/admin/editPenduduk/<?= $dataPenduduk['nik'] ?>" class="btn btn-info ml-3">Edit</a>
+                                    <a href="/admin/editPenduduk/<?= $dataPenduduk['nik'] ?>" class="btn btn-info ml-2">Edit</a>
                                 </div>
                             </div>
                         </div>

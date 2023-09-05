@@ -107,7 +107,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/administrasi" class="btn btn-danger">Kembali</a>
-                                    <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-info ml-3">Edit</a>
+                                    <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-info ml-2">Edit</a>
                                 </div>
                             </div>
                         </div>

@@ -87,7 +87,7 @@
                             <div class="col-md-9"></div>
                             <div class="col-md-3">
                                 <a href="/admin/pelaporan" class="btn btn-danger">Kembali</a>
-                                <a href="/admin/editPelaporan/<?= $laporan['pelaporan_id'] ?>" class="btn btn-info">Edit </a>
+                                <a href="/admin/editPelaporan/<?= $laporan['pelaporan_id'] ?>" class="btn btn-info ml-2">Edit </a>
                             </div>
                         </div>
                     </div>
