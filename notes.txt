@@ -21,10 +21,6 @@
 ### Status Kependudukan = ['Tetap', 'Sementara', 'Pendatang', 'Pindahan']
 ### Agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']
 
-## DO
-### Administrasi
 - download di detail administrasi admin !
-### Laporan
-### Pesan
+## DO
 ### Galeri
-### Pengumuman
