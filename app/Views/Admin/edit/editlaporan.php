@@ -91,7 +91,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/pelaporan" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -131,6 +131,11 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            balasan_pelaporan: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Balasan tidak boleh kosong',
+            },
+        }
     });
 
     jQuery(document).ready(function() {

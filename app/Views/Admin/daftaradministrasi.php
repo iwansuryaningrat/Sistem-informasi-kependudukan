@@ -130,20 +130,7 @@ use App\Helpers\DateHelper; ?>
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                setTimeout(function() {
-                    window.location.href = `/administrasicontroller/hapusadmin/${id}`;
-                }, 3000);
-
-                swal("Berhasil! Data administrasi berhasil dihapus.", {
-                    icon: "success",
-                    buttons: {
-                        confirm: {
-                            className: "btn btn-success",
-                        },
-                    },
-                }).then(function() {
-                    window.location.href = `/administrasicontroller/hapusadmin/${id}`;
-                });
+                window.location.href = `/administrasicontroller/hapusadmin/${id}`;
             }
         });
     }

@@ -22,9 +22,10 @@
 ### Agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']
 
 ## DO
-### Administrasi
-- download di detail administrasi admin !
-### Laporan
-### Pesan
 ### Galeri
-### Pengumuman
+### Administration
+- download di detail administrasi admin !
+- kasih template alamat pada add, edit keluarga. samakan dengan warga
+- cek form (validasi dan style ada yg salah)
+- style galeri dan foto Ketika foto beda ukuran
+- style add pengumuman, edit pengumuman, dan detail pengumuman

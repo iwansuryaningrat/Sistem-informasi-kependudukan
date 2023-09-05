@@ -5,7 +5,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Tambah Data Pengumuman</h4>
+            <h4 class="page-title">Edit Pengumuman</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/admin">
@@ -22,7 +22,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/addpengumuman">Tambah Data Pengumuman</a>
+                    <a href="/admin/editpengumuman/<?= $pengumuman['pengumuman_id'] ?>">Edit Pengumuman</a>
                 </li>
             </ul>
         </div>
@@ -30,33 +30,36 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Tambahkan Data Pengumuman</div>
+                        <div class="card-title">Edit Data Pengumuman</div>
                     </div>
 
-                    <form id="exampleValidation" action="/pengumumancontroller/create" method="POST" enctype="multipart/form-data">
+                    <form id="exampleValidation" action="/pengumumancontroller/editadmin/<?= $pengumuman['pengumuman_id'] ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
+                            <!-- kategori -->
                             <div class="form-group form-show-validation row">
                                 <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                <div class="col-lg-6 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" placeholder="Pilih Kategori Pengumuman" id="kategori" name="kategori" required>
                                             <option value="" selected>--Pilih Kategori Pengumuman--</option>
                                             <?php foreach ($kategori as $kategori) : ?>
-                                                <option value="<?= $kategori ?>"><?= $kategori ?></option>
+                                                <option value="<?= $kategori ?>" <?= ($kategori == $pengumuman['kategori']) ? 'selected' : '' ?>><?= $kategori ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
+                            <!-- judul -->
                             <div class="form-group form-show-validation row">
                                 <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Judul <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul pengumuman" required>
+                                <div class="col-lg-6 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="judul" name="judul" value="<?= $pengumuman['judul_pengumuman'] ?>" placeholder="Masukkan judul pengumuman" required>
                                 </div>
                             </div>
+                            <!-- jam -->
                             <div class="form-group form-show-validation row">
                                 <label for="jam" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jam <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                <div class="col-lg-6 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="jam" name="jam" placeholder="Masukkan Jam" required>
                                         <div class="input-group-append">
@@ -67,9 +70,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- tanggal -->
                             <div class="form-group form-show-validation row">
                                 <label for="tanggal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal <span class="required-label">*</span></span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                <div class="col-lg-6 col-md-9 col-sm-8">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="tanggal" name="tanggal" required>
                                         <div class="input-group-append">
@@ -80,37 +84,39 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- tempat -->
                             <div class="form-group form-show-validation row">
                                 <label for="tempat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat" required>
+                                <div class="col-lg-6 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" id="tempat" name="tempat" value="<?= $pengumuman['tempat'] ?>" placeholder="Masukkan tempat" required>
                                 </div>
                             </div>
+                            <!-- thumbnail -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail <span class="required-label">*</span></label>
-                                <div class="col-lg-4 col-md-9 col-sm-8">
+                                <div class="col-lg-6 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview" width="150" src="http://placehold.it/150x150" alt="preview" />
-                                        <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*" required>
+                                        <img class="img-upload-preview" width="150" src="<?= ($pengumuman['thumbnail']) ? $path . $pengumuman['thumbnail'] : 'http://placehold.it/150x150' ?>" alt="preview" />
+                                        <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*">
                                         <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
                                 </div>
                             </div>
+                            <!-- deskripsi -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right" required>Deskripsi <span class="required-label">*</span></label>
                                 <div class="col-lg-8 col-md-9 col-sm-8">
                                     <textarea name="deskripsi" id="summernote" required></textarea>
                                 </div>
                             </div>
-
                             <input type="text" class="form-control" id="deskripsi_int" name="deskripsi_int" hidden>
                         </div>
                         <div class="card-action">
                             <div class="row">
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
-                                    <a href="/admin/people" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <a href="/admin/pengumuman" class="btn btn-danger">Kembali</a>
+                                    <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -129,6 +135,7 @@
     $(document).ready(function() {
         // Initialize Summernote
         $('#summernote').summernote();
+        $('#summernote').summernote('code', '<?= $pengumuman['deskripsi'] ?>');
 
         // Function to get Summernote content and inject into the "deskripsi_int" input
         function updateDeskripsiInt() {
@@ -146,11 +153,13 @@
     });
 
     $('#jam').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        defaultDate: moment('<?= $pengumuman['jam'] ?>', 'HH:mm:ss'),
     });
 
     $('#tanggal').datetimepicker({
-        format: 'MM/DD/YYYY'
+        format: 'MM/DD/YYYY',
+        defaultDate: moment('<?= $pengumuman['tanggal'] ?>', 'YYYY-MM-DD'),
     });
 
     $('#kategori').select2({
@@ -181,9 +190,6 @@
             jam: {
                 required: true,
             },
-            thumbnail: {
-                required: true,
-            },
             tempat: {
                 required: true,
             },
@@ -201,6 +207,27 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            kategori: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kategori tidak boleh kosong',
+            },
+            judul: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Judul tidak boleh kosong',
+            },
+            jam: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jam tidak boleh kosong',
+            },
+            tempat: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat tidak boleh kosong',
+            },
+            deskripsi: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Deskripsi tidak boleh kosong',
+            },
+            tanggal: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal tidak boleh kosong',
+                date: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal tidak valid',
+            },
+        }
     });
 
     jQuery(document).ready(function() {

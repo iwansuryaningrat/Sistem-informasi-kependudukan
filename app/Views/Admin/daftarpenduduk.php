@@ -133,20 +133,7 @@ use App\Helpers\DateHelper; ?>
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                setTimeout(function() {
-                    window.location.href = `/usercontroller/deleteUsersforAdmin/${id}`;
-                }, 3000);
-
-                swal("Berhasil! Data penduduk telah dihapus!", {
-                    icon: "success",
-                    buttons: {
-                        confirm: {
-                            className: "btn btn-success",
-                        },
-                    },
-                }).then(function() {
-                    window.location.href = `/usercontroller/deleteUsersforAdmin/${id}`;
-                });
+                window.location.href = `/usercontroller/deleteUsersforAdmin/${id}`;
             }
         });
     }
