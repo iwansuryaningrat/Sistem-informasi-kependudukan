@@ -21,6 +21,11 @@
 ### Status Kependudukan = ['Tetap', 'Sementara', 'Pendatang', 'Pindahan']
 ### Agama = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']
 
-- download di detail administrasi admin !
 ## DO
 ### Galeri
+### Administration
+- download di detail administrasi admin !
+- kasih template alamat pada add, edit keluarga. samakan dengan warga
+- cek form (validasi dan style ada yg salah)
+- style galeri dan foto Ketika foto beda ukuran
+- style add pengumuman, edit pengumuman, dan detail pengumuman
