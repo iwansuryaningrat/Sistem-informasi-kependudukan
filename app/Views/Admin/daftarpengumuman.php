@@ -94,7 +94,7 @@ use App\Helpers\DateHelper; ?>
                                                             <i class="fa fa-edit"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="/pengumumancontroller/deleteAnnouncement/<?= $pengumuman['pengumuman_id'] ?>">
+                                                    <a href="javascript:void(0);" onclick="deletePengumuman(<?= $pengumuman['pengumuman_id'] ?>)">
                                                         <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
                                                             <i class="fa fa-times"></i>
                                                         </button>
@@ -123,6 +123,20 @@ use App\Helpers\DateHelper; ?>
             "pageLength": 10,
         });
     });
+
+    function deletePengumuman(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus data pengumuman ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location.href = `/pengumumancontroller/deleteAnnouncement/${id}`;
+            }
+        });
+    }
 </script>
 
 <script>

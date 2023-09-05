@@ -35,6 +35,7 @@
 
                     <form id="exampleValidation" action="/pengumumancontroller/create" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
+                            <!-- kategori -->
                             <div class="form-group form-show-validation row">
                                 <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Kategori <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -48,12 +49,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- judul -->
                             <div class="form-group form-show-validation row">
                                 <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Judul <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul pengumuman" required>
                                 </div>
                             </div>
+                            <!-- jam -->
                             <div class="form-group form-show-validation row">
                                 <label for="jam" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Jam <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -67,6 +70,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- tanggal -->
                             <div class="form-group form-show-validation row">
                                 <label for="tanggal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tanggal <span class="required-label">*</span></span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -80,12 +84,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- tempat -->
                             <div class="form-group form-show-validation row">
                                 <label for="tempat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Tempat <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat" required>
                                 </div>
                             </div>
+                            <!-- thumbnail -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -96,13 +102,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- deskripsi -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right" required>Deskripsi <span class="required-label">*</span></label>
                                 <div class="col-lg-8 col-md-9 col-sm-8">
                                     <textarea name="deskripsi" id="summernote" required></textarea>
                                 </div>
                             </div>
-
                             <input type="text" class="form-control" id="deskripsi_int" name="deskripsi_int" hidden>
                         </div>
                         <div class="card-action">
@@ -110,7 +116,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/people" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -126,6 +132,7 @@
 <?= $this->section('script'); ?>
 
 <script>
+    const today = moment().format('MM/DD/YYYY');
     $(document).ready(function() {
         // Initialize Summernote
         $('#summernote').summernote();
@@ -146,12 +153,15 @@
     });
 
     $('#jam').datetimepicker({
-        format: 'HH:mm'
+        format: 'HH:mm',
+        defaultDate: moment()
     });
 
     $('#tanggal').datetimepicker({
-        format: 'MM/DD/YYYY'
+        format: 'MM/DD/YYYY',
+        defaultDate: moment()
     });
+
 
     $('#kategori').select2({
         theme: "bootstrap"
@@ -201,6 +211,30 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            kategori: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kategori tidak boleh kosong',
+            },
+            judul: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Judul tidak boleh kosong',
+            },
+            jam: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Jam tidak boleh kosong',
+            },
+            thumbnail: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Thumbnail tidak boleh kosong',
+            },
+            tempat: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tempat tidak boleh kosong',
+            },
+            deskripsi: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Deskripsi tidak boleh kosong',
+            },
+            tanggal: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal tidak boleh kosong',
+                date: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Tanggal tidak valid',
+            },
+        }
     });
 
     jQuery(document).ready(function() {
