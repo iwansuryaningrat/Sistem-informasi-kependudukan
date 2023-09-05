@@ -597,6 +597,7 @@ class Admin extends BaseController
 
     public function detailPengumuman($id)
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman($id);
         $kategori = $this->pengumumanModel->getPengumumanKategori();
         $status = $this->pengumumanModel->getStatus();
         $data = [
@@ -609,13 +610,16 @@ class Admin extends BaseController
             'profilePhotoPath' => $this->profilePhotoPath,
             'kategori' => $kategori,
             'status' => $status,
+            'pengumuman' => $pengumuman,
+            'path' => $this->pengumumanPath,
         ];
 
-        return view('admin/edit/editpengumuman', $data);
+        return view('admin/detail/detailpengumuman', $data);
     }
 
     public function editPengumuman($id)
     {
+        $pengumuman = $this->pengumumanModel->getPengumuman($id);
         $kategori = $this->pengumumanModel->getPengumumanKategori();
         $status = $this->pengumumanModel->getStatus();
         $data = [
@@ -628,6 +632,8 @@ class Admin extends BaseController
             'profilePhotoPath' => $this->profilePhotoPath,
             'kategori' => $kategori,
             'status' => $status,
+            'pengumuman' => $pengumuman,
+            'path' => $this->pengumumanPath,
         ];
 
         return view('admin/edit/editpengumuman', $data);

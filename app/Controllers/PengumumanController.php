@@ -122,4 +122,44 @@ class PengumumanController extends BaseController
             return redirect()->to('/admin/addpengumuman');
         }
     }
+
+    public function editAdmin($id)
+    {
+        $pengumuman = $this->pengumumanModel->find($id);
+
+        if (!$pengumuman) {
+            session()->setFlashdata('error', 'Pengumuman not found.');
+            return redirect()->to('/admin/pengumuman');
+        }
+
+        $pengumumanData = [
+            'kategori' => $this->request->getVar('kategori'),
+            'judul_pengumuman' => $this->request->getVar('judul'),
+            'tempat' => $this->request->getVar('tempat'),
+            'jam' => $this->request->getVar('jam'),
+            'tanggal' => date("Y-m-d", strtotime($this->request->getVar('tanggal'))),
+            'deskripsi' => $this->request->getVar('deskripsi_int'),
+        ];
+
+        $newThumbnail = $this->request->getFile('thumbnail');
+        if ($newThumbnail && $newThumbnail->getError() == 4) {
+            $pengumumanData['thumbnail'] = $pengumuman['thumbnail'];
+        } else {
+            $newThumbnailName = $newThumbnail->getRandomName();
+            $newThumbnail->move($this->filePaths, $newThumbnailName);
+            if ($pengumuman['thumbnail'] != 'default.png') {
+                unlink($this->filePaths . $pengumuman['thumbnail']);
+            }
+            $pengumumanData['thumbnail'] = $newThumbnailName;
+        }
+        $result = $this->pengumumanModel->update($id, $pengumumanData);
+
+        if ($result) {
+            session()->setFlashdata('success', 'Pengumuman berhasil diubah.');
+            return redirect()->to('/admin/pengumuman');
+        } else {
+            session()->setFlashdata('error', 'Gagal mengupdate pengumuman.');
+            return redirect()->to('/admin/editpengumuman/' . $id);
+        }
+    }
 }
