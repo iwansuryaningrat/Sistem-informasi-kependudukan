@@ -103,6 +103,6 @@ class PesanController extends BaseController
 
         session()->setFlashdata('success', 'Pesan berhasil dibaca!');
 
-        return redirect()->to('/admin/detailpesan/' . $id);
+        return redirect()->to('/admin/pesan');
     }
 }

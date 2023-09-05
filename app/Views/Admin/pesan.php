@@ -88,7 +88,7 @@ use App\Helpers\DateHelper; ?>
                                                             <i class="fa fa-eye"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="/pesancontroller/deletePesan/<?= $data['id'] ?>">
+                                                    <a href="javascript:void(0);" onclick="deletePesan(<?= $data['id'] ?>)">
                                                         <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-danger" data-original-title="Remove">
                                                             <i class="fa fa-times"></i>
                                                         </button>
@@ -118,6 +118,20 @@ use App\Helpers\DateHelper; ?>
             "pageLength": 10,
         });
     });
+
+    function deletePesan(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus data pesan ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location.href = `/pesancontroller/deletePesan/${id}`;
+            }
+        });
+    }
 </script>
 
 <script>
