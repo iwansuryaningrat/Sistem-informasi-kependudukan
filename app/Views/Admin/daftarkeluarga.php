@@ -138,20 +138,7 @@ use App\Helpers\DateHelper; ?>
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                setTimeout(function() {
-                    window.location.href = `/keluargacontroller/delete/${id}`;
-                }, 3000);
-
-                swal("Berhasil! Data keluarga berhasil dihapus.", {
-                    icon: "success",
-                    buttons: {
-                        confirm: {
-                            className: "btn btn-success",
-                        },
-                    },
-                }).then(function() {
-                    window.location.href = `/keluargacontroller/delete/${id}`;
-                });
+                window.location.href = `/keluargacontroller/delete/${id}`;
             }
         });
     }
