@@ -64,6 +64,7 @@
                                 <label for="alamat" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat" required>
+                                    <small id="alamatHelp" class="form-text text-muted">Mohon gunakan format berikut:<br /><span class="badge badge-gray">Jalan/Dusun, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span></small>
                                 </div>
                             </div>
                             <!-- alamat asal -->
@@ -71,6 +72,7 @@
                                 <label for="alamat_asal" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Alamat Asal</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <input type="text" class="form-control" id="alamat_asal" name="alamat_asal" placeholder="Masukkan Alamat Asal" required>
+                                    <small id="alamat_asalHelp" class="form-text text-muted">Mohon gunakan format berikut:<br /><span class="badge badge-gray">Jalan/Dusun, RT 00 RW 00, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi, Kode Pos</span></small>
                                 </div>
                             </div>
                             <!-- tanggal pindah -->

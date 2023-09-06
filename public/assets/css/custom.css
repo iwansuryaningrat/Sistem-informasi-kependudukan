@@ -54,3 +54,13 @@
   object-fit: cover;
   object-position: center;
 }
+
+small span.badge.badge-gray {
+  padding: 3px 6px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #f0f2f4;
+}
