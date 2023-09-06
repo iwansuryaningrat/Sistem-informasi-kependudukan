@@ -107,16 +107,17 @@ $user = [
             <li class="list-nav-link-item">
                 <a href="/users/pengumuman" class="<?php if ($navbar == 'pengumuman') echo ' active'; ?>">Pengumuman</a>
             </li>
-            <!-- logout -->
-            <li class="list-nav-link-item">
-                <button onclick="logout()" role="link" class="btn-anchor logout-btn">Logout</button>
-            </li>
+            <?php if ($isLoggedin == true && $isLoggedin) { ?>
+                <!-- logout -->
+                <li class="list-nav-link-item">
+                    <button onclick="logout()" role="link" class="btn-anchor logout-btn">Logout</button>
+                </li>
         </ul>
-        <?php if ($isLoggedin == true && $isLoggedin) { ?>
-            <a href="/users/profile" class="btn btn-main w-100 shadow"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
-        <?php } else { ?>
-            <a href="/home/signin" class="btn btn-main w-100 shadow">Masuk</a>
-        <?php } ?>
+        <a href="/users/profile" class="btn btn-main w-100 shadow"><i class="fa-solid fa-id-badge me-2"></i>Profile</a>
+    <?php } else { ?>
+        </ul>
+        <a href="/signin" class="btn btn-main w-100 shadow">Masuk</a>
+    <?php } ?>
     </div>
 </div>
 
