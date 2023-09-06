@@ -36,6 +36,7 @@
 
                     <form id="exampleValidation" action="/galericontroller/save" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
+                            <!-- judul -->
                             <div class="form-group form-show-validation row">
                                 <label for="judul" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Judul Galeri <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -44,6 +45,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- kategori -->
                             <div class="form-group form-show-validation row">
                                 <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Pilih Kategori Galeri <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
@@ -57,17 +59,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- deskripsi -->
                             <div class="form-group form-show-validation row">
                                 <label for="deskripsi" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Deskripsi <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi Galeri" rows="5" required></textarea>
                                 </div>
                             </div>
+                            <!-- thumbnail -->
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Thumbnail <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview " width="100" height="100" src="http://placehold.it/100x100" alt="preview">
+                                        <img class="img-upload-preview " width="150" src="http://placehold.it/150x100" alt="preview">
                                         <input type="file" class="form-control form-control-file" id="thumbnail" name="thumbnail" accept="image/*" required>
                                         <label for="thumbnail" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Thumbnail</label>
                                     </div>
@@ -79,12 +83,11 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/galeri" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -129,6 +132,20 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            thumbnail: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Thumbnail tidak boleh kosong',
+            },
+            deskripsi: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Deskripsi tidak boleh kosong',
+            },
+            kategori: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Kategori tidak boleh kosong',
+            },
+            judul: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Judul tidak boleh kosong',
+            },
+        }
     });
 
     jQuery(document).ready(function() {
