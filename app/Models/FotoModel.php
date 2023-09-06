@@ -25,14 +25,14 @@ class FotoModel extends Model
     public function getFoto($foto_id = null)
     {
         if ($foto_id == null) {
-            return $this->select('foto.*, galeri.nama_galeri, galeri.created_by, users.nama')
+            return $this->select('foto.*, galeri.judul, galeri.created_by, users.nama')
                 ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
                 ->join('users', 'users.nik = galeri.created_by')
                 ->orderBy('foto.created_at', 'DESC')
                 ->findAll();
         }
 
-        return $this->select('foto.*, galeri.nama_galeri, galeri.created_by, users.nama')
+        return $this->select('foto.*, galeri.judul, galeri.created_by, users.nama')
             ->join('galeri', 'galeri.galeri_id = foto.galeri_id')
             ->join('users', 'users.nik = galeri.created_by')
             ->where(['foto_id' => $foto_id])

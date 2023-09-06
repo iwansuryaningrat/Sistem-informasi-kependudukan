@@ -167,6 +167,7 @@ class Users extends BaseController
             'kategoriGaleri' => $this->kategoriGaleriModel->findAll(),
             'dataGaleri' => $this->galeriModel->getGaleri(),
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'nik' => $this->user_data['nik'],
             'path' => $this->photoPath,
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
@@ -185,6 +186,7 @@ class Users extends BaseController
             'dataGaleri' => $dataGaleri,
             'dataFoto' => $dataFoto,
             'isLoggedin' => $this->user_data['isLoggedIn'],
+            'nik' => $this->user_data['nik'],
             'path' => $this->photoPath,
             'profilePhotoPath' => $this->profilePhotoPath,
         ];

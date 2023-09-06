@@ -66,7 +66,7 @@ use App\Helpers\DateHelper; ?>
                 </p>
               </div>
             </a>
-            <?php if ($isLoggedin) : ?>
+            <?php if ($isLoggedin && ($galeri['created_by'] === $nik)) : ?>
               <!-- delete -->
               <div class="delete-option shadow">
                 <button class="btn btn-danger" onclick="deleteGallery(<?= $galeri['galeri_id'] ?>)">
@@ -175,6 +175,7 @@ use App\Helpers\DateHelper; ?>
       reader.readAsDataURL(file);
     }
   });
+
   // validate
   $(document).ready(function() {
     $("#formAddGallery").validate({
@@ -218,7 +219,7 @@ use App\Helpers\DateHelper; ?>
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        // window.location.href = `/routeDelete/${id}`;
+        window.location.href = `/galericontroller/delete/${id}`;
         console.log(`Hapus gallery dengan id ${id}`);
       }
     });

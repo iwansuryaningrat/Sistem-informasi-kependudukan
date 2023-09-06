@@ -104,6 +104,11 @@ class FotoController extends BaseController
             return redirect()->to('/users/detailGaleri/' . $foto['galeri_id']);
         }
 
+        if ($foto['isThumbnail'] == true) {
+            session()->setFlashdata('error', 'Thumbnail galeri tidak dapat dihapus.');
+            return redirect()->to('/users/detailGaleri/' . $foto['galeri_id']);
+        }
+
         $galeri_id = $foto['galeri_id'];
         $this->fotoModel->deleteFotoByFotoId($id);
 

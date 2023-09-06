@@ -19,7 +19,7 @@ use App\Helpers\DateHelper; ?>
                     <i class="fa-solid fa-download me-2"></i>Unduh
                 </button>
                 <!-- hapus -->
-                <?php if ($isLoggedin) : ?>
+                <?php if ($isLoggedin && ($dataGaleri['created_by'] == $nik)) : ?>
                     <button class="btn btn-danger-outline-xs ms-2" onclick="deleteGallery(<?= $dataGaleri['galeri_id'] ?>)">
                         <i class="fa-solid fa-trash me-2"></i>Hapus
                     </button>
@@ -52,7 +52,7 @@ use App\Helpers\DateHelper; ?>
                             </p>
                         </figcaption>
                     </figure>
-                    <?php if ($isLoggedin) : ?>
+                    <?php if ($isLoggedin && ($foto['uploaded_by'] === $nik)) : ?>
                         <!-- delete -->
                         <div class="delete-option shadow">
                             <button class="btn btn-danger" onclick="deletePhoto(<?= $foto['foto_id'] ?>)">
@@ -236,7 +236,7 @@ use App\Helpers\DateHelper; ?>
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                // window.location.href = `/routeDelete/${id}`;
+                window.location.href = `/fotocontroller/hapus/${id}`;
                 console.log(`Hapus foto dengan id ${id}`);
             }
         });
@@ -251,7 +251,7 @@ use App\Helpers\DateHelper; ?>
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                // window.location.href = `/routeDelete/${id}`;
+                window.location.href = `/galericontroller/delete/${id}`;
                 console.log(`Hapus gallery dengan id ${id}`);
             }
         });
