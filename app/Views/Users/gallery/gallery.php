@@ -42,29 +42,39 @@ use App\Helpers\DateHelper; ?>
         </div>
       <?php else : ?>
         <?php foreach ($dataGaleri as $galeri) : ?>
-          <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="news-card">
-            <figure class="news-image__wrap h-13">
-              <img src="<?= $path . $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
-            </figure>
-            <div class="d-flex align-items-center mb-2">
-              <p class="mb-0">
-                <span class="badge badge-done"><?= $galeri['nama_kategori'] ?></span>
+          <div class="news-card position-relative">
+            <a href="/<?= ($isLoggedin) ? 'users' : 'home' ?>/detailGaleri/<?= $galeri['galeri_id'] ?>" class="">
+              <figure class="news-image__wrap h-13">
+                <img src="<?= $path . $galeri['thumbnail'] ?>" alt="Galeri <?= $galeri['nama'] ?>" class="news-image__photo" />
+              </figure>
+              <div class="d-flex align-items-center mb-2">
+                <p class="mb-0">
+                  <span class="badge badge-done"><?= $galeri['nama_kategori'] ?></span>
+                </p>
+              </div>
+              <p class="news-title-card text-lg mb-2">
+                <?= $galeri['judul'] ?>
               </p>
-            </div>
-            <p class="news-title-card text-lg mb-2">
-              <?= $galeri['judul'] ?>
-            </p>
-            <div class="d-flex align-items-center">
-              <p class="d-flex align-items-center me-3 mb-0">
-                <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
-                <span class="text-sm d-block text-gray"><?= $galeri['nama'] ?></span>
-              </p>
-              <p class="d-flex align-items-center me-3 mb-0">
-                <i class="fa-solid fa-clock me-1 d-block fill-gray"></i>
-                <span class="text-sm d-block text-gray"><?= DateHelper::formatCreatedAt($galeri['created_at']) ?></span>
-              </p>
-            </div>
-          </a>
+              <div class="d-flex align-items-center">
+                <p class="d-flex align-items-center me-3 mb-0">
+                  <i class="fa-solid fa-circle-user me-1 d-block fill-gray"></i>
+                  <span class="text-sm d-block text-gray"><?= $galeri['nama'] ?></span>
+                </p>
+                <p class="d-flex align-items-center me-3 mb-0">
+                  <i class="fa-solid fa-clock me-1 d-block fill-gray"></i>
+                  <span class="text-sm d-block text-gray"><?= DateHelper::formatCreatedAt($galeri['created_at']) ?></span>
+                </p>
+              </div>
+            </a>
+            <?php if ($isLoggedin) : ?>
+              <!-- delete -->
+              <div class="delete-option shadow">
+                <button class="btn btn-danger" onclick="deleteGallery(<?= $galeri['galeri_id'] ?>)">
+                  <i class="fa fa-trash-alt"></i>
+                </button>
+              </div>
+            <?php endif; ?>
+          </div>
         <?php endforeach; ?>
       <?php endif; ?>
     </div>
@@ -198,6 +208,21 @@ use App\Helpers\DateHelper; ?>
       },
     });
   });
+
+  function deleteGallery(id) {
+    swal({
+      title: "Apakah anda yakin?",
+      text: "Anda akan menghapus galeri ini!",
+      icon: "warning",
+      buttons: ["Batal", "Ya, Hapus!"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        // window.location.href = `/routeDelete/${id}`;
+        console.log(`Hapus gallery dengan id ${id}`);
+      }
+    });
+  }
 </script>
 
 <script>
