@@ -51,7 +51,7 @@
                         <div class="row image-gallery">
                             <?php foreach ($dataFoto as $foto) : ?>
                                 <a href="<?= $path . $foto['foto'] ?>" class="col-6 col-md-3 mb-4">
-                                    <img src="<?= $path . $foto['foto'] ?>" class="img-fluid" />
+                                    <img src="<?= $path . $foto['foto'] ?>" class="img-fluid img-thumbnail img-foto" />
                                 </a>
                             <?php endforeach; ?>
                         </div>

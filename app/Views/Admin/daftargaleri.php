@@ -31,7 +31,7 @@ use App\Helpers\DateHelper; ?>
                         </li>
                     </ul>
                 </div>
-                <div class="ml-auto">
+                <div class="ml-auto" style="margin-bottom: 20px;">
                     <a href="/admin/addGaleri" class="btn btn-success">Tambah Galeri</a>
                 </div>
             </div>
@@ -39,31 +39,47 @@ use App\Helpers\DateHelper; ?>
     </div>
     <div class="page-inner">
         <div class="row row-projects">
-            <?php foreach ($dataGaleri as $galeri) : ?>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <div class="p-2">
-                            <img class="card-img-top rounded" src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Product 1">
-                        </div>
-                        <div class="card-body pt-2">
-                            <a href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>">
-                                <h4 class="mb-1 fw-bold"><?= $galeri['judul'] ?> <span class="badge badge-success"><?= $galeri['nama_kategori'] ?></span></h4>
+            <?php if (empty($dataGaleri)) : ?>
+                <div class="col-12 text-center">
+                    <div class="d-flex justify-content-center mb-5" style="margin-top: 180px;">
+                        <div class="card-empty mt-0 mb-5">
+                            <img src="/homepage/assets/img/decoration/out-of-stock.png" alt="empty pengumuman" class="img-empty-state mx-auto mb-2">
+                            <p class="text-center mb-3 text-basic">
+                                Maaf, tidak ada galeri yang ditemukan.
+                            </p>
+                            <a class="btn btn-primary shadow" href="/admin/addGaleri">
+                                Tambahkan Galeri
                             </a>
-                            <p class=" text-muted small mb-2">Created By: <?= $galeri['nama'] ?></p>
-                            <p class=" text-muted small mb-2"> <span class="fas fa-clock"></span> <?= DateHelper::formatCreatedAt($galeri['created_at']) ?></p>
-                            <div class="avatar-group">
-                                <?php foreach ($galeri['userInfo'] as $user) : ?>
-                                    <div class="avatar avatar-sm">
-                                        <a href="/admin/detailPenduduk/<?= $user['nik'] ?>">
-                                            <img src="/upload/photos/profile/<?= $user['foto_profil'] ?>" alt="<?= $user['nama'] ?>" class="avatar-img rounded-circle border border-white">
-                                        </a>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php else : ?>
+                <?php foreach ($dataGaleri as $galeri) : ?>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card">
+                            <div class="p-2">
+                                <img class="card-img-top rounded" src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Product 1">
+                            </div>
+                            <div class="card-body pt-2">
+                                <a href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>">
+                                    <h4 class="mb-1 fw-bold"><?= $galeri['judul'] ?> <span class="ml-1 badge badge-success"><?= $galeri['nama_kategori'] ?></span></h4>
+                                </a>
+                                <p class=" text-muted small mb-2">Created By: <?= $galeri['nama'] ?></p>
+                                <p class=" text-muted small mb-2"> <span class="fas fa-clock mr-1"></span> <?= DateHelper::formatCreatedAt($galeri['created_at']) ?></p>
+                                <div class="avatar-group">
+                                    <?php foreach ($galeri['userInfo'] as $user) : ?>
+                                        <div class="avatar avatar-sm">
+                                            <a href="/admin/detailPenduduk/<?= $user['nik'] ?>">
+                                                <img src="/upload/photos/profile/<?= $user['foto_profil'] ?>" alt="<?= $user['nama'] ?>" class="avatar-img rounded-circle border border-white">
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>
