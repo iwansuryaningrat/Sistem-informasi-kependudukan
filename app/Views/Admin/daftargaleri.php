@@ -78,7 +78,6 @@ use App\Helpers\DateHelper; ?>
                             </div>
                             <!-- delete hover -->
                             <div class="dropdown-option shadow">
-                                <!-- Example split danger button -->
                                 <div class="btn-group">
                                     <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v"></i>
