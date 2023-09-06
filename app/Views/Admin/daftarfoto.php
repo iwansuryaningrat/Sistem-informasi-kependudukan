@@ -50,10 +50,25 @@
                     <div class="card-body">
                         <div class="row image-gallery">
                             <?php foreach ($dataFoto as $foto) : ?>
-                                <a href="<?= $path . $foto['foto'] ?>" class="col-6 col-md-3 mb-4">
-                                    <img src="<?= $path . $foto['foto'] ?>" class="img-fluid img-thumbnail img-foto" />
-                                </a>
+                                <div class="position-relative col-6 col-md-3 mb-4">
+                                    <a href="<?= $path . $foto['foto'] ?>" class="">
+                                        <img src="<?= $path . $foto['foto'] ?>" class="img-fluid img-thumbnail img-foto" />
+                                    </a>
+                                    <!-- delete -->
+                                    <div class="delete-option shadow">
+                                        <button class="btn btn-danger" onclick="deletePhoto(<?= $foto['foto_id'] ?>)">
+                                            <i class="fa fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-danger" onclick="deleteGallery(<?= $galeri['galeri_id'] ?>)">Hapus Galeri</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,6 +101,36 @@
             },
         },
     });
+
+    function deletePhoto(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus foto ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                // window.location.href = `/routeDelete/${id}`;
+                console.log(`Hapus foto dengan id ${id}`);
+            }
+        });
+    }
+
+    function deleteGallery(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus Galeri <?= $galeri['judul'] ?>!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                // window.location.href = `/routeDelete/${id}`;
+                console.log(`Hapus gallery dengan id ${id}`);
+            }
+        });
+    }
 </script>
 
 <script>

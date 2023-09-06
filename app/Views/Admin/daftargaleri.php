@@ -56,7 +56,7 @@ use App\Helpers\DateHelper; ?>
             <?php else : ?>
                 <?php foreach ($dataGaleri as $galeri) : ?>
                     <div class="col-sm-6 col-lg-3">
-                        <div class="card">
+                        <div class="card position-relative">
                             <div class="p-2">
                                 <img class="card-img-top rounded" src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Product 1">
                             </div>
@@ -76,6 +76,18 @@ use App\Helpers\DateHelper; ?>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
+                            <!-- delete hover -->
+                            <div class="dropdown-option shadow">
+                                <div class="btn-group">
+                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>">Detail</a>
+                                        <button class="dropdown-item delete-btn" onclick="deleteGallery(<?= $galeri['galeri_id'] ?>)">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -87,5 +99,20 @@ use App\Helpers\DateHelper; ?>
 <?= $this->endSection(); ?>
 
 <?= $this->section('script') ?>
-
+<script>
+    function deleteGallery(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus galeri ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                // window.location.href = `/routeDelete/${id}`;
+                console.log(`Hapus gallery dengan id ${id}`);
+            }
+        });
+    }
+</script>
 <?= $this->endSection(); ?>

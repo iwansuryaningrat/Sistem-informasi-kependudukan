@@ -64,3 +64,32 @@ small span.badge.badge-gray {
   border-radius: 4px;
   background-color: #f0f2f4;
 }
+
+.dropdown-option {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 999;
+}
+.delete-option {
+  position: absolute;
+  top: 14px;
+  right: 28px;
+  z-index: 999;
+}
+.dropdown-option .btn-group .btn {
+  padding: 2px 8px !important;
+}
+.dropdown-option .btn-group .btn::after {
+  display: none;
+}
+.dropdown-item.delete-btn {
+  cursor: pointer;
+}
+.dropdown-item.delete-btn:hover {
+  background-color: #f8d7da;
+  color: #c51e2e;
+}
+.delete-option .btn {
+  padding: 2px 8px !important;
+}
