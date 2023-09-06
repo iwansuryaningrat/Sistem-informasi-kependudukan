@@ -200,7 +200,6 @@ class Users extends BaseController
 
         $zipFileName = 'foto_galeri_' . $id . '.zip';
         $zipFilePath = FCPATH . $this->zipFilePath . $zipFileName; // Update with the appropriate path
-        // dd($zipFilePath);
 
         $zip = new ZipArchive();
         if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
@@ -401,7 +400,6 @@ class Users extends BaseController
             'isLoggedin' => $this->user_data['isLoggedIn'],
             'profilePhotoPath' => $this->profilePhotoPath,
         ];
-        // dd($dataAdministrasi);
 
         return view('/users/administration/administration-detail', $data);
     }

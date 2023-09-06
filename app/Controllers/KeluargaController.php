@@ -181,7 +181,6 @@ class KeluargaController extends BaseController
 
     public function updateAdmin($id)
     {
-        // dd($this->request->getVar());
         $keluarga = $this->keluargaModel->getKeluarga($id);
 
         if (!$keluarga) {

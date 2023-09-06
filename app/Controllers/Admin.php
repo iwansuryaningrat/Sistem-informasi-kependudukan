@@ -458,7 +458,7 @@ class Admin extends BaseController
     public function addGaleri()
     {
         $kategoriGaleri = $this->kategoriGaleriModel->getKategoriGaleri();
-        // dd($kategoriGaleri);
+
         $data = [
             'title' => 'Tambah Galeri',
             'active' => 'galeri',

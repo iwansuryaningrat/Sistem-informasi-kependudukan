@@ -66,6 +66,7 @@ class FotoController extends BaseController
 
     public function upload($galeri_id)
     {
+        $i = 0;
         if ($files = $this->request->getFiles()) {
             foreach ($files['foto'] as $file) {
                 $name = $file->getRandomName();
@@ -85,13 +86,14 @@ class FotoController extends BaseController
                     'total_foto' => $galeri['total_foto'] + 1,
                 ];
                 $this->galeriModel->update($galeri_id, $data);
+                $i++;
             }
         } else {
             session()->setFlashdata('error', 'Foto gagal ditambahkan.');
             return redirect()->to('/users/detailGaleri/' . $galeri_id);
         }
 
-        session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
+        session()->setFlashdata('success', $i . ' foto berhasil ditambahkan.');
         return redirect()->to('/users/detailGaleri/' . $galeri_id);
     }
 
@@ -154,33 +156,34 @@ class FotoController extends BaseController
 
     public function uploadAdmin($galeri_id)
     {
-        $foto = $this->request->getFile('foto');
+        $i = 0;
+        if ($files = $this->request->getFiles()) {
+            foreach ($files['foto'] as $file) {
+                $name = $file->getRandomName();
+                $file->move($this->filePaths, $name);
 
-        if (!$foto->isValid()) {
+                $data = [
+                    'galeri_id' => $galeri_id,
+                    'foto' => $name,
+                    'caption' => $this->request->getVar('caption'),
+                    'uploaded_by' => $this->user_data['nik'],
+                    'isThumbnail' => false,
+                ];
+                $this->fotoModel->save($data);
+                $galeri = $this->galeriModel->getGaleri($galeri_id);
+
+                $data = [
+                    'total_foto' => $galeri['total_foto'] + 1,
+                ];
+                $this->galeriModel->update($galeri_id, $data);
+                $i++;
+            }
+        } else {
             session()->setFlashdata('error', 'Foto gagal ditambahkan.');
-            return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
+            return redirect()->to('/users/detailGaleri/' . $galeri_id);
         }
 
-        $name = $foto->getRandomName();
-        $foto->move($this->filePaths, $name);
-
-        $data = [
-            'galeri_id' => $galeri_id,
-            'foto' => $name,
-            'caption' => $this->request->getVar('caption'),
-            'uploaded_by' => $this->user_data['nik'],
-            'isThumbnail' => false,
-        ];
-        $this->fotoModel->save($data);
-
-        $galeri = $this->galeriModel->getGaleri($galeri_id);
-
-        $data = [
-            'total_foto' => $galeri['total_foto'] + 1,
-        ];
-        $this->galeriModel->update($galeri_id, $data);
-
-        session()->setFlashdata('success', 'Foto berhasil ditambahkan.');
+        session()->setFlashdata('success', $i . ' foto berhasil ditambahkan.');
         return redirect()->to('/admin/listFotoGaleri/' . $galeri_id);
     }
 }

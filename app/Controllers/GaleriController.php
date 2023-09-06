@@ -129,7 +129,7 @@ class GaleriController extends BaseController
             return redirect()->to('/users/galeri');
         }
 
-        $result = $this->galeriModel->delete($id);
+        $result = $this->galeriModel->deleteGaleriByGaleriId($id);
 
         if (!$result) {
             session()->setFlashdata('error', 'Galeri gagal dihapus');
@@ -144,6 +144,34 @@ class GaleriController extends BaseController
         } else {
             session()->setFlashdata('success', 'Galeri berhasil dihapus');
             return redirect()->to('/users/galeri');
+        }
+    }
+
+    // Delete Galeri and All of its photos from admin
+    public function deleteFromAdmin($id)
+    {
+        $galeri = $this->galeriModel->find($id);
+
+        if (!$galeri) {
+            session()->setFlashdata('error', 'Galeri tidak ditemukan');
+            return redirect()->to('/admin/galeri');
+        }
+
+        $result = $this->galeriModel->deleteGaleriByGaleriId($id);
+
+        if (!$result) {
+            session()->setFlashdata('error', 'Galeri gagal dihapus');
+            return redirect()->to('/admin/galeri');
+        }
+
+        $result = $this->fotoModel->deleteFotoByGaleriId($id);
+
+        if (!$result) {
+            session()->setFlashdata('error', 'Galeri gagal dihapus');
+            return redirect()->to('/admin/galeri');
+        } else {
+            session()->setFlashdata('success', 'Galeri berhasil dihapus');
+            return redirect()->to('/admin/galeri');
         }
     }
 }

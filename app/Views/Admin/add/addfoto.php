@@ -51,11 +51,11 @@
                                 </div>
                             </div>
                             <div class="form-group form-show-validation row">
-                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto</label>
+                                <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto <span class="required-label">*</span></label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
                                         <img class="img-upload-preview " width="150" src="http://placehold.it/150x100" alt="preview">
-                                        <input type="file" class="form-control form-control-file" id="foto" name="foto" accept="image/*" multiple>
+                                        <input type="file" class="form-control form-control-file" id="foto" name="foto[]" accept="image/*" multiple required>
                                         <label for="foto" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
                                 </div>
@@ -83,21 +83,6 @@
 <?= $this->section('script'); ?>
 
 <script>
-    $('#tgl_pindah').datetimepicker({
-        format: 'MM/DD/YYYY'
-    });
-
-    $('#state').select2({
-        theme: "bootstrap"
-    });
-
-    /* validate */
-
-    // validation when select change
-    $("#state").change(function() {
-        $(this).valid();
-    })
-
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {

@@ -111,7 +111,7 @@
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                // window.location.href = `/routeDelete/${id}`;
+                window.location.href = `/fotocontroller/hapusFromAdmin/${id}`;
                 console.log(`Hapus foto dengan id ${id}`);
             }
         });
@@ -126,7 +126,7 @@
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                // window.location.href = `/routeDelete/${id}`;
+                window.location.href = `/galericontroller/deletefromadmin/${id}`;
                 console.log(`Hapus gallery dengan id ${id}`);
             }
         });

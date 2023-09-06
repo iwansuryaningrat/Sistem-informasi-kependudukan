@@ -109,10 +109,63 @@ use App\Helpers\DateHelper; ?>
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                // window.location.href = `/routeDelete/${id}`;
+                window.location.href = `/galericontroller/deletefromadmin/${id}`;
                 console.log(`Hapus gallery dengan id ${id}`);
             }
         });
     }
+</script>
+
+<script>
+    //== Class definition
+    var SweetAlert = function() {
+
+        var initSweatAlert = function() {
+
+            <?php if (session()->getFlashdata('error')) : ?>
+                swal("Ups!", "<?= session()->getFlashdata('error') ?>", {
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-danger'
+                        }
+                    },
+                });
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('warning')) : ?>
+                swal("Ups!", "<?= session()->getFlashdata('warning') ?>", {
+                    icon: "warning",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-warning'
+                        }
+                    },
+                });
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('success')) : ?>
+                swal("Selamat!", "<?= session()->getFlashdata('success') ?>", {
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            className: 'btn btn-success'
+                        }
+                    },
+                });
+            <?php endif; ?>
+        };
+
+        return {
+            init: function() {
+                initSweatAlert();
+            },
+        };
+    }();
+
+    //== Class Initialization
+    jQuery(document).ready(function() {
+        SweetAlert.init();
+    });
 </script>
 <?= $this->endSection(); ?>
