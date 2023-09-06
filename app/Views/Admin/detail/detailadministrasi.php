@@ -95,9 +95,9 @@
                                             <img id="filePreview" src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
                                         </figure>
                                         <p class=""><?= $dataAdministrasi['berkas'] ?></p>
-                                        <a href="/administrasicontroller/download/<?= $dataAdministrasi['administrasi_id'] ?>" target="_blank">
-                                            <button class="btn btn-info">Download</button>
-                                        </a>
+                                        <div>
+                                            <p class="btn btn-info" onclick="downloadFile(<?= $dataAdministrasi['administrasi_id'] ?>)">Download</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -196,6 +196,10 @@
     jQuery(document).ready(function() {
         SweetAlert.init();
     });
+
+    const downloadFile = (id) => {
+        window.location.href = '/administrasicontroller/download/' + id;
+    }
 </script>
 
 <script>

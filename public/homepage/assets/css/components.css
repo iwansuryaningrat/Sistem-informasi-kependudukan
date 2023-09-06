@@ -39,89 +39,89 @@
   background-color: var(--danger-500);
   color: #fff;
   border: none;
-  border-radius: 0.375rem;
   padding: 0.625rem 1rem;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.375rem;
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
+  border-radius: 0.375rem;
 }
 .btn-main-xs {
   background-color: var(--primary-500);
   color: #fff;
   border: none;
-  border-radius: 0.375rem;
   padding: 0.625rem 1rem;
   font-weight: 600;
   font-size: 0.75rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.375rem;
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
+  border-radius: 0.375rem;
 }
 .btn-white {
   background-color: #fff;
   color: var(--primary-700);
   border: none;
-  border-radius: 9px;
   padding: 10px 20px;
   font-weight: 600;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   -ms-border-radius: 9px;
   -o-border-radius: 9px;
+  border-radius: 9px;
 }
 .btn-secondaries {
   background-color: var(--secondary-500);
   color: #fff;
   border: none;
-  border-radius: 9px;
   padding: 10px 20px;
   font-weight: 600;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   -ms-border-radius: 9px;
   -o-border-radius: 9px;
+  border-radius: 9px;
 }
 .btn-secondaries-sm {
   background-color: var(--secondary-500);
   color: #fff;
   border: none;
-  border-radius: 0.375rem;
   padding: 0.625rem 1rem;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.375rem;
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
+  border-radius: 0.375rem;
 }
 .btn-nav-toggle {
   color: #227535 !important;
@@ -130,16 +130,16 @@
   appearance: none !important;
   background: transparent;
   border: none;
-  border-radius: 0.375rem;
   -webkit-border-radius: 0.375rem;
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
-  transition: all 0.2s ease-in-out;
+  border-radius: 0.375rem;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .btn-anchor.logout-btn {
   background: none;
@@ -151,23 +151,23 @@
   width: 100%;
   color: #3d3d3d;
   font-weight: 500;
-  transition: transform 0.2s ease-in-out !important;
   -webkit-transition: transform 0.2s ease-in-out !important;
   -moz-transition: transform 0.2s ease-in-out !important;
   -ms-transition: transform 0.2s ease-in-out !important;
   -o-transition: transform 0.2s ease-in-out !important;
+  transition: transform 0.2s ease-in-out !important;
 }
 .btn-anchor.logout-btn:hover {
-  transform: translateX(0.5rem);
   -webkit-transform: translateX(0.5rem);
   -moz-transform: translateX(0.5rem);
   -ms-transform: translateX(0.5rem);
   -o-transform: translateX(0.5rem);
-  transition: transform 0.2s ease-in-out;
+  transform: translateX(0.5rem);
   -webkit-transition: transform 0.2s ease-in-out;
   -moz-transition: transform 0.2s ease-in-out;
   -ms-transition: transform 0.2s ease-in-out;
   -o-transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   font-weight: 500;
 }
 .btn-main[disabled],
@@ -190,11 +190,11 @@
 }
 .btn-nav-toggle:hover {
   background-color: #3cb35830;
-  transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .btn-white:hover {
   opacity: 0.8;
@@ -248,90 +248,90 @@
   background-color: transparent;
   color: var(--primary-500);
   border: 1px solid var(--primary-500);
-  border-radius: 9px;
   padding: 10px 20px;
   font-weight: 600;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   -ms-border-radius: 9px;
   -o-border-radius: 9px;
+  border-radius: 9px;
 }
 .btn-main-outline-sm {
   background-color: transparent;
   color: var(--primary-500);
   border: 1px solid var(--primary-500);
-  border-radius: 0.375rem;
   padding: 0.625rem 1rem;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.375rem;
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
+  border-radius: 0.375rem;
 }
 .btn-secondaries-outline-sm {
   background-color: transparent;
   color: var(--secondary-500);
   border: 1px solid var(--secondary-500);
-  border-radius: 0.375rem;
   padding: 0.625rem 1rem;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.375rem;
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
+  border-radius: 0.375rem;
 }
 .btn-main-outline-xs {
   background-color: transparent;
   color: var(--primary-500);
   border: 1px solid var(--primary-500);
-  border-radius: 0.5rem;
   padding: 0.375rem 0.625rem;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 .btn-secondary-outline-xs {
   background-color: transparent;
   color: var(--secondary-500);
   border: 1px solid var(--secondary-500);
-  border-radius: 0.5rem;
   padding: 0.375rem 0.625rem;
   font-weight: 600;
   font-size: 0.875rem;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 .btn-main-outline:hover,
 .btn-main-outline-sm:hover,
@@ -449,13 +449,13 @@ label.error {
 /* card */
 .sign-card {
   background-color: var(--primary-100);
-  border-radius: 0.75rem;
   padding: 2rem;
   -webkit-border-radius: 0.75rem;
   -moz-border-radius: 0.75rem;
   -ms-border-radius: 0.75rem;
   -o-border-radius: 0.75rem;
   border: 1px solid rgba(0, 0, 0, 0.01);
+  border-radius: 0.75rem;
 }
 
 /* icons */
@@ -513,21 +513,21 @@ label.error {
 .card-table-container {
   width: 100%;
   padding: 0.625rem 0.5rem 1.25rem;
-  border-radius: 0.75rem;
   -webkit-border-radius: 0.75rem;
   -moz-border-radius: 0.75rem;
   -ms-border-radius: 0.75rem;
   -o-border-radius: 0.75rem;
+  border-radius: 0.75rem;
 }
 .card-form-container {
   width: 100%;
   padding: 0;
   border: 1px solid #e0e0e0 !important;
-  border-radius: 0.5rem !important;
   -webkit-border-radius: 0.5rem !important;
   -moz-border-radius: 0.5rem !important;
   -ms-border-radius: 0.5rem !important;
   -o-border-radius: 0.5rem !important;
+  border-radius: 0.5rem !important;
 }
 .card-form-header {
   padding: 0.875rem 1.5rem !important;
@@ -554,11 +554,11 @@ nav.navbar-shadow {
   background: transparent;
 }
 .navbar-container .navbar-brand {
-  transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
   -moz-transform: translateY(-2px);
   -ms-transform: translateY(-2px);
   -o-transform: translateY(-2px);
+  transform: translateY(-2px);
   margin-right: 3.5rem;
 }
 .navbar-container .navbar-brand img {
@@ -571,11 +571,11 @@ nav.navbar-shadow {
   font-size: 0.875rem;
   font-weight: 600;
   color: rgb(140, 140, 140);
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
 }
 .nav-item .nav-link.navbar-link:hover {
   color: var(--primary-500);
@@ -591,11 +591,11 @@ nav.navbar-shadow {
   font-size: 0.875rem;
   display: flex;
   align-items: center;
-  border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+  border-radius: 6px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 3px;
@@ -617,7 +617,6 @@ nav.navbar-shadow {
   font-size: 1rem;
   width: 1.75rem;
   height: 1.75rem;
-  border-radius: 0.375rem;
   background: var(--primary-500);
   display: flex;
   align-items: center;
@@ -626,6 +625,7 @@ nav.navbar-shadow {
   -moz-border-radius: 0.375rem;
   -ms-border-radius: 0.375rem;
   -o-border-radius: 0.375rem;
+  border-radius: 0.375rem;
   margin-right: 0.75rem;
 }
 .dropdown-item.nav-dropdown-item span svg {
@@ -642,11 +642,11 @@ nav.navbar-shadow {
 }
 .nav-mobile-profile {
   overflow: hidden;
-  border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  border-radius: 50%;
   width: 1.75rem;
   height: 1.75rem;
   margin: 0 0.5rem 0 0;
@@ -756,18 +756,18 @@ footer hr {
 }
 .footer-logo-link {
   display: block;
-  transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   -moz-transition: transform 0.3s ease-in-out;
   -ms-transition: transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 .footer-logo-link:hover {
-  transform: translateX(0.625rem);
   -webkit-transform: translateX(0.625rem);
   -moz-transform: translateX(0.625rem);
   -ms-transform: translateX(0.625rem);
   -o-transform: translateX(0.625rem);
+  transform: translateX(0.625rem);
 }
 .footer-logo-wrapper {
   height: 2.5rem;
@@ -790,11 +790,11 @@ footer hr {
 }
 .footer-menu-wrapper ul li a {
   color: rgb(106, 106, 106);
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
 }
 .footer-menu-wrapper ul li a:hover {
   color: rgb(21, 21, 21);
@@ -810,19 +810,19 @@ footer hr {
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: 50%;
   background: rgb(83, 195, 81);
   color: #fff;
   cursor: pointer;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  border-radius: 50%;
   opacity: 0;
   visibility: hidden;
 }
@@ -833,19 +833,19 @@ footer hr {
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: 50%;
   background: var(--secondary-500);
   color: #fff;
   cursor: pointer;
-  transition: var(--transition-all-300);
   -webkit-transition: var(--transition-all-300);
   -moz-transition: var(--transition-all-300);
   -ms-transition: var(--transition-all-300);
   -o-transition: var(--transition-all-300);
+  transition: var(--transition-all-300);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  border-radius: 50%;
   opacity: 0;
   visibility: hidden;
 }
@@ -875,24 +875,24 @@ footer hr {
   right: 3rem;
 }
 #scroll-to-top .btn.btn-main:hover {
-  transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 #add-gallery-fixed .btn.btn-main:hover {
-  transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+  transform: scale(1.1);
   width: 160px;
-  border-radius: 999px;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   -ms-border-radius: 999px;
   -o-border-radius: 999px;
+  border-radius: 999px;
 }
 #add-gallery-fixed .btn.btn-main:hover svg {
   margin-right: 0.5rem;
@@ -906,11 +906,11 @@ footer hr {
 }
 #scroll-to-top .btn.btn-main:active,
 #add-gallery-fixed .btn.btn-main:active {
-  transform: scale(0.9) !important;
   -webkit-transform: scale(0.9) !important;
   -moz-transform: scale(0.9) !important;
   -ms-transform: scale(0.9) !important;
   -o-transform: scale(0.9) !important;
+  transform: scale(0.9) !important;
 }
 
 .navbar-toggler.navbar-toggling {
@@ -921,11 +921,11 @@ footer hr {
 /* accordion */
 .accordion-btn {
   padding: 0.75rem 0 0.5rem;
-  border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   -ms-border-radius: 0px !important;
   -o-border-radius: 0px !important;
+  border-radius: 0px !important;
   align-items: baseline;
   background: transparent !important;
 }
@@ -938,11 +938,11 @@ footer hr {
 }
 .accordion-box {
   border: none;
-  border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   -ms-border-radius: 0px !important;
   -o-border-radius: 0px !important;
+  border-radius: 0px !important;
 }
 .accordion-text {
   padding: 0.5rem 0;
@@ -950,21 +950,21 @@ footer hr {
   align-items: baseline;
 }
 .pills-tab {
-  border-radius: 0.5rem;
   border: 1px solid #e0e0e0 !important;
   padding: 1rem 0;
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 .piils-btn {
   color: #171717;
-  border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   -ms-border-radius: 0px !important;
   -o-border-radius: 0px !important;
+  border-radius: 0px !important;
   text-align: left;
   border-left: 3px solid transparent !important;
 }
@@ -986,11 +986,11 @@ footer hr {
 .pills-content-card {
   border: 1px solid #e0e0e0 !important;
   padding: 1.5rem;
-  border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 .pills-content-card > h4 {
   color: #1e1e1e;
@@ -998,10 +998,10 @@ footer hr {
 
 .help-describe {
   padding: 3px 6px;
-  border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
+  border-radius: 4px;
   background-color: #f0f2f4;
 }
