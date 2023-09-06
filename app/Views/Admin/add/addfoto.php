@@ -54,7 +54,7 @@
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Foto</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview " width="100" height="100" src="http://placehold.it/100x100" alt="preview">
+                                        <img class="img-upload-preview " width="150" src="http://placehold.it/150x100" alt="preview">
                                         <input type="file" class="form-control form-control-file" id="foto" name="foto" accept="image/*" multiple>
                                         <label for="foto" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload Foto</label>
                                     </div>
@@ -66,7 +66,7 @@
                                 <div class="col-md-9"></div>
                                 <div class="col-md-3">
                                     <a href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>" class="btn btn-danger">Kembali</a>
-                                    <input class="btn btn-success" type="submit" value="Submit">
+                                    <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -111,6 +111,11 @@
         success: function(element) {
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
+        messages: {
+            foto: {
+                required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Harap pilih foto',
+            },
+        }
     });
 
     jQuery(document).ready(function() {
