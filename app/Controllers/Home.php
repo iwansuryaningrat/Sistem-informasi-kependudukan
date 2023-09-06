@@ -13,8 +13,8 @@ class Home extends BaseController
     protected $pengumumanModel;
 
     // Paths
-    protected $photoPath = 'upload/photos/galeri/';
-    protected $pengumumanPath = 'upload/photos/pengumuman/';
+    protected $photoPath = '/upload/photos/galeri/';
+    protected $pengumumanPath = '/upload/photos/pengumuman/';
     protected $profilePhotoPath = '/upload/photos/profile/';
 
     public function __construct()
