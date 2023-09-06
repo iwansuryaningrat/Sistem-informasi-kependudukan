@@ -13,10 +13,18 @@ use App\Helpers\DateHelper; ?>
             <a class="btn btn-main-outline-xs" href="<?= ($isLoggedin) ?  '/users/galeri' :  '/home/galeri'; ?>">
                 <i class="fa-solid fa-arrow-left me-2"></i>Kembali
             </a>
-            <!-- download -->
-            <button class="btn btn-secondary-outline-xs" id="downloadButton">
-                <i class="fa-solid fa-download me-2"></i>Unduh
-            </button>
+            <div class="">
+                <!-- download -->
+                <button class="btn btn-secondary-outline-xs" id="downloadButton">
+                    <i class="fa-solid fa-download me-2"></i>Unduh
+                </button>
+                <!-- hapus -->
+                <?php if ($isLoggedin) : ?>
+                    <button class="btn btn-danger-outline-xs ms-2" onclick="deleteGallery(<?= $dataGaleri['galeri_id'] ?>)">
+                        <i class="fa-solid fa-trash me-2"></i>Hapus
+                    </button>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
     <div class="header-container-mini mt-5 pt-0">
@@ -34,15 +42,25 @@ use App\Helpers\DateHelper; ?>
     <section class="container container-space">
         <div class="gallery-view-container-lg">
             <?php foreach ($dataFoto as $foto) : ?>
-                <figure data-fancybox="gallery-large" data-src="<?= $path . $foto['foto'] ?>" class="gallery-view-item__warp">
-                    <img src="<?= $path . $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ? StringHelper::shortenText($foto['caption'], 30) : '' ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
-                    <figcaption class="d-none">
-                        <p class="mb-2 text-sm text-center"><?= $foto['caption'] ? StringHelper::shortenText($foto['caption'], 30) : '' ?></p>
-                        <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
-                            <?= $foto['nama'] . ' - ' . DateHelper::formatCreatedAt($foto['created_at']) ?>
-                        </p>
-                    </figcaption>
-                </figure>
+                <div class="gallery-view-item__warp position-relative">
+                    <figure data-fancybox="gallery-large" data-src="<?= $path . $foto['foto'] ?>" class="h-100">
+                        <img src="<?= $path . $foto['foto'] ?>" alt="Galeri <?= $foto['caption'] ? StringHelper::shortenText($foto['caption'], 30) : '' ?> - <?= $dataGaleri['judul'] ?>" class="gallery-view-item" />
+                        <figcaption class="d-none">
+                            <p class="mb-2 text-sm text-center"><?= $foto['caption'] ? StringHelper::shortenText($foto['caption'], 30) : '' ?></p>
+                            <p class="text-xs mb-2 fst-italic text-gray-200 text-center">
+                                <?= $foto['nama'] . ' - ' . DateHelper::formatCreatedAt($foto['created_at']) ?>
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <?php if ($isLoggedin) : ?>
+                        <!-- delete -->
+                        <div class="delete-option shadow">
+                            <button class="btn btn-danger" onclick="deletePhoto(<?= $foto['foto_id'] ?>)">
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                </div>
             <?php endforeach ?>
         </div>
     </section>
@@ -147,7 +165,6 @@ use App\Helpers\DateHelper; ?>
         }
     });
 
-
     // validate
     $(document).ready(function() {
         $('#downloadButton').click(function() {
@@ -209,6 +226,36 @@ use App\Helpers\DateHelper; ?>
     };
 
     Fancybox.bind('[data-fancybox="gallery-large"]', options);
+
+    function deletePhoto(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus foto ini!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                // window.location.href = `/routeDelete/${id}`;
+                console.log(`Hapus foto dengan id ${id}`);
+            }
+        });
+    }
+
+    function deleteGallery(id) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Anda akan menghapus Galeri <?= $dataGaleri['judul'] ?>!",
+            icon: "warning",
+            buttons: ["Batal", "Ya, Hapus!"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                // window.location.href = `/routeDelete/${id}`;
+                console.log(`Hapus gallery dengan id ${id}`);
+            }
+        });
+    }
 </script>
 
 <script>
