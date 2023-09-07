@@ -76,9 +76,9 @@
                             <div class="h-100 d-flex flex-column justify-content-center">
                                 <div id="carouselExampleCaptions" class="carousel slide content-left-carousel" data-bs-ride="carousel">
                                     <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        <?php for ($i = 0; $i < (count($galeries) + count($dataPengumuman) + 2); $i++) { ?>
+                                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $i ?>" aria-label="Slide <?= $i + 1 ?>"></button>
+                                        <?php } ?>
                                     </div>
                                     <div class="carousel-inner carousel-inners">
                                         <div class="carousel-item active carousel-items">
@@ -94,14 +94,34 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="carousel-item carousel-items">
-                                            <div class="carousel-caption carousel-captions d-none d-md-block">
-                                                <h5>Info Komunitas</h5>
-                                                <p>
-                                                    Jelajahi kegiatan komunitas di sekitar Anda, bergabunglah, dan berpartisipasi dalam kegiatan yang Anda minati.
-                                                </p>
+                                        <?php foreach ($galeries as $galeri) : ?>
+                                            <div class="carousel-item carousel-items">
+                                                <h3 class="carousel-items-title">
+                                                    Galeri Kegiatan Warga
+                                                </h3>
+                                                <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="<?= $galeri['thumbnail'] ?>">
+                                                <div class="carousel-caption carousel-captions d-none d-md-block">
+                                                    <h5><?= $galeri['judul'] ?></h5>
+                                                    <p>
+                                                        <?= $galeri['deskripsi'] ?>
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <?php endforeach; ?>
+                                        <?php foreach ($dataPengumuman as $pengumuman) : ?>
+                                            <div class="carousel-item carousel-items">
+                                                <h3 class="carousel-items-title">
+                                                    Informasi Terbaru Warga
+                                                </h3>
+                                                <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="<?= $pengumuman['thumbnail'] ?>">
+                                                <div class="carousel-caption carousel-captions d-none d-md-block">
+                                                    <h5><?= $pengumuman['judul_pengumuman'] ?></h5>
+                                                    <p>
+                                                        <?= $pengumuman['deskripsi'] ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
                                         <div class="carousel-item carousel-items">
                                             <h3 class="carousel-items-title">Lokasi Desa Warga</h3>
                                             <div class="carousel-items-map-content">

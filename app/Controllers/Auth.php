@@ -4,12 +4,16 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+use App\Models\GaleriModel;
 use App\Models\KeluargaModel;
+use App\Models\PengumumanModel;
 use App\Models\UsersModel;
 
 class Auth extends BaseController
 {
+    protected $galeriModel;
     protected $keluargaModel;
+    protected $pengumumanModel;
     protected $usersModel;
     protected $validation;
     protected $session;
@@ -17,7 +21,9 @@ class Auth extends BaseController
 
     public function __construct()
     {
+        $this->galeriModel = new GaleriModel();
         $this->keluargaModel = new KeluargaModel();
+        $this->pengumumanModel = new PengumumanModel();
         $this->usersModel = new UsersModel();
 
         $this->validation = \Config\Services::validation();
@@ -26,8 +32,12 @@ class Auth extends BaseController
 
     public function login()
     {
+        $galeries = $this->galeriModel->getGaleriTerbaru();
+        $dataPengumuman = $this->pengumumanModel->getPengumumanTerbaru();
         $data = [
-            'title' => 'Masuk | Warga Site'
+            'title' => 'Masuk | Warga Site',
+            'galeries' => $galeries,
+            'dataPengumuman' => $dataPengumuman,
         ];
 
         return view('auth/login', $data);
