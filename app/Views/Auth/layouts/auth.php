@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+
+use App\Helpers\StringHelper; ?>
 
 <head>
     <!-- Required meta tags -->
@@ -77,7 +80,7 @@
                                 <div id="carouselExampleCaptions" class="carousel slide content-left-carousel" data-bs-ride="carousel">
                                     <div class="carousel-indicators">
                                         <?php for ($i = 0; $i < (count($galeries) + count($dataPengumuman) + 2); $i++) { ?>
-                                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $i ?>" aria-label="Slide <?= $i + 1 ?>"></button>
+                                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $i ?>" <?= ($i == 0) ? 'class="active" aria-current="true"' : null ?> aria-label="Slide <?= $i + 1 ?>"></button>
                                         <?php } ?>
                                     </div>
                                     <div class="carousel-inner carousel-inners">
@@ -116,9 +119,9 @@
                                                 <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="<?= $pengumuman['thumbnail'] ?>">
                                                 <div class="carousel-caption carousel-captions d-none d-md-block">
                                                     <h5><?= $pengumuman['judul_pengumuman'] ?></h5>
-                                                    <p>
-                                                        <?= $pengumuman['deskripsi'] ?>
-                                                    </p>
+                                                    <!-- <p> -->
+                                                    <!-- <?= $pengumuman['deskripsi'] ?> -->
+                                                    <!-- </p> -->
                                                 </div>
                                             </div>
                                         <?php endforeach; ?>
