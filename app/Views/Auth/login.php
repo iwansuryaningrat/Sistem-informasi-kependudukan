@@ -1,7 +1,7 @@
 <?php $this->extend('auth/layouts/auth'); ?>
 <?php $this->section('authContent'); ?>
 
-<div class="col-md-9 sign-container-content-big pb-100vh-420">
+<div class="col-md-8 col-lg-6 sign-container-content-big pb-100vh-420">
   <div class="sign-container-content__card">
     <div class="sign_card__content">
       <h1 class="text-center mb-3">Masuk</h1>
