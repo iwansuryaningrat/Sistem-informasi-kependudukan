@@ -15,6 +15,9 @@
   }
 }
 @media only screen and (max-width: 991px) {
+  .content-left-carousel {
+    display: none;
+  }
   /* utilities */
   .w-full-xl {
     width: 100%;
@@ -95,11 +98,11 @@
   /* navigation */
   .navbar.navbar-blur {
     background: rgba(244, 249, 248, 0.1);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     -ms-backdrop-filter: blur(10px);
     -o-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
   /* footer */
   .footer-floor {
@@ -120,11 +123,11 @@
     grid-template-columns: repeat(3, 1fr);
   }
   .gallery-view-item__warp {
-    border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
+    border-radius: 0.5rem;
     height: 150px;
   }
 
@@ -203,11 +206,11 @@
     display: grid;
   }
   .gallery-view-item__warp {
-    border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
+    border-radius: 0.5rem;
   }
 
   /* etc */
@@ -217,11 +220,11 @@
   .cta-image-wrapper {
     width: 18rem;
     position: static;
-    transform: translateX(0);
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
+    transform: translateX(0);
     inset: unset;
     margin: 0 auto 2rem;
   }
@@ -301,12 +304,12 @@
   /* button */
   .btn-main,
   .btn-main-outline {
-    border-radius: 6px;
     padding: 8px 16px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+    border-radius: 6px;
   }
   /* container */
   .container {
@@ -349,11 +352,11 @@
     padding: 0;
   }
   .gallery-view-item__warp {
-    border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
+    border-radius: 0.5rem;
     height: 120px;
   }
 
@@ -432,11 +435,11 @@
     height: 12rem;
   }
   .gallery-view-item__warp {
-    border-radius: 0.375rem;
     -webkit-border-radius: 0.375rem;
     -moz-border-radius: 0.375rem;
     -ms-border-radius: 0.375rem;
     -o-border-radius: 0.375rem;
+    border-radius: 0.375rem;
     height: 100px;
   }
 }

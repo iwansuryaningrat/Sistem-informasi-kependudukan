@@ -71,7 +71,56 @@
             <section class="container-fluid">
                 <div class="row">
                     <?= $this->renderSection('authContent'); ?>
-                    <div class="col-md-3 bg-main-700 bg-sign-image position-relative"></div>
+                    <div class="col-md-4 col-lg-6 bg-main-700 bg-sign-image position-relative">
+                        <div class="h-100" style="max-height: 726px;">
+                            <div class="h-100 d-flex flex-column justify-content-center">
+                                <div id="carouselExampleCaptions" class="carousel slide content-left-carousel" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner carousel-inners">
+                                        <div class="carousel-item active carousel-items">
+                                            <h3 class="carousel-items-title">
+                                                Selamat Datang di Website Warga
+                                            </h3>
+                                            <div class="carousel-caption carousel-captions d-none d-md-block">
+                                                <h5>
+                                                    Informasi Terkini untuk Warga
+                                                </h5>
+                                                <p>
+                                                    Temukan berita terbaru, kegiatan komunitas, dan informasi penting lainnya untuk warga di sini.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item carousel-items">
+                                            <div class="carousel-caption carousel-captions d-none d-md-block">
+                                                <h5>Info Komunitas</h5>
+                                                <p>
+                                                    Jelajahi kegiatan komunitas di sekitar Anda, bergabunglah, dan berpartisipasi dalam kegiatan yang Anda minati.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item carousel-items">
+                                            <h3 class="carousel-items-title">Lokasi Desa Warga</h3>
+                                            <div class="carousel-items-map-content">
+                                                <div class="carousel-items-map">
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.6120051633497!2d110.43685551478825!3d-7.054793794904621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708c1d399ff9f9%3A0x2d2033fed8e955dd!2sGedung%20ICT%20Undip!5e0!3m2!1sen!2sid!4v1648699051976!5m2!1sen!2sid" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-caption carousel-captions d-none d-md-block">
+                                                <p>
+                                                    Desa Warga, Kecamatan Warga, Kabupaten Warga, Provinsi Warga, Indonesia
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </main>
