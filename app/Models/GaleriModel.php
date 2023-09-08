@@ -39,7 +39,7 @@ class GaleriModel extends Model
             ->first();
     }
 
-    public function getGaleriTerbaru($limit = 3)
+    public function getGaleriTerbaru($limit = 6)
     {
         return $this->select('galeri.*, users.nama, kategori_galeri.nama_kategori')
             ->join('users', 'users.nik = galeri.created_by')
