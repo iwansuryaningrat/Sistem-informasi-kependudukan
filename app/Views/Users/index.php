@@ -176,8 +176,20 @@ $this->extend('users/template/layout'); ?>
               </div>
             </figure>
           </div>
-      <?php $i++;
+        <?php $i++;
         endforeach;
+        $emptyContainersNeeded = 6 - count($newestGaleri);
+        for ($j = 0; $j < $emptyContainersNeeded; $j++) :
+        ?>
+          <div class="gallery-warp">
+            <figure class="gallery-item__warp empty">
+              <div class="gallery-item__photo empty d-flex justify-content-center align-items-center">
+                <?= ($isLoggedin) ?  '<a href="/users/galeri"><i class="fa-solid fa-plus-circle text-5xl" style="color: #bdbdbd"></i></a>' :  ''; ?>
+              </div>
+            </figure>
+          </div>
+      <?php
+        endfor;
       endif; ?>
     </div>
     <?php if (!empty($newestGaleri)) : ?>
@@ -222,7 +234,6 @@ $this->extend('users/template/layout'); ?>
                 <img src="<?= $pengumumanPath . $pengumuman['thumbnail'] ?>" alt="Pengumuman -<?= $pengumuman['judul_pengumuman'] ?>" class="news-image__photo" />
               </figure>
               <p class="news-title mb-2"><?= $pengumuman['judul_pengumuman'] ?></p>
-              <p class="text-basic news-desc mb-2"><?= $pengumuman['deskripsi'] ?></p>
               <div class="d-flex align-items-center mb-3">
                 <p class="mb-0">
                   <span class="me-2 text-gray"><i class="fa-solid fa-circle-user me-1 fill-gray"></i><?= $pengumuman['nama'] ?></span>

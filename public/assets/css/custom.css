@@ -69,13 +69,13 @@ small span.badge.badge-gray {
   position: absolute;
   top: 14px;
   right: 14px;
-  z-index: 999;
+  z-index: 989;
 }
 .delete-option {
   position: absolute;
   top: 14px;
   right: 28px;
-  z-index: 999;
+  z-index: 989;
 }
 .dropdown-option .btn-group .btn {
   padding: 2px 8px !important;
