@@ -108,7 +108,7 @@ use App\Helpers\StringHelper; ?>
                                                 <div class="carousel-caption carousel-captions d-none d-md-block">
                                                     <h5><?= $galeri['judul'] ?></h5>
                                                     <p class="line-clamp-2">
-                                                        <?= $galeri['deskripsi'] ?>
+                                                        <?= $galeri['deskripsi'] ? StringHelper::shortenText($galeri['deskripsi'], 30) : '' ?>
                                                     </p>
                                                 </div>
                                             </div>
