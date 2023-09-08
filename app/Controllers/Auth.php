@@ -134,8 +134,12 @@ class Auth extends BaseController
 
     public function register()
     {
+        $galeries = $this->galeriModel->getGaleriTerbaru();
+        $dataPengumuman = $this->pengumumanModel->getPengumumanTerbaru();
         $data = [
-            'title' => 'Daftar | Warga Site'
+            'title' => 'Daftar | Warga Site',
+            'galeries' => $galeries,
+            'dataPengumuman' => $dataPengumuman,
         ];
 
         return view('auth/register', $data);

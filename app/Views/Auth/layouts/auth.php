@@ -79,7 +79,9 @@ use App\Helpers\StringHelper; ?>
                             <div class="h-100 d-flex flex-column justify-content-center">
                                 <div id="carouselExampleCaptions" class="carousel slide content-left-carousel carousel-fade" data-bs-ride="carousel">
                                     <div class="carousel-indicators">
-                                        <?php for ($i = 0; $i < (count($galeries) + count($dataPengumuman) + 2); $i++) { ?>
+                                        <?php $totalGaleri = $galeries ? count($galeries) : 0;
+                                        $totalPengumuman = $dataPengumuman ? count($dataPengumuman) : 0;
+                                        for ($i = 0; $i < ($totalGaleri + $totalPengumuman + 2); $i++) { ?>
                                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $i ?>" <?= ($i == 0) ? 'class="active" aria-current="true"' : null ?> aria-label="Slide <?= $i + 1 ?>"></button>
                                         <?php } ?>
                                     </div>
