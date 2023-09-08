@@ -1038,3 +1038,14 @@ footer hr {
   border-radius: 4px;
   background-color: #f0f2f4;
 }
+.image-carousels {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
