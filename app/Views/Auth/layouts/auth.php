@@ -77,7 +77,7 @@ use App\Helpers\StringHelper; ?>
                     <div class="col-md-4 col-lg-6 bg-main-700 bg-sign-image position-relative">
                         <div class="h-100" style="max-height: 726px;">
                             <div class="h-100 d-flex flex-column justify-content-center">
-                                <div id="carouselExampleCaptions" class="carousel slide content-left-carousel" data-bs-ride="carousel">
+                                <div id="carouselExampleCaptions" class="carousel slide content-left-carousel carousel-fade" data-bs-ride="carousel">
                                     <div class="carousel-indicators">
                                         <?php for ($i = 0; $i < (count($galeries) + count($dataPengumuman) + 2); $i++) { ?>
                                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $i ?>" <?= ($i == 0) ? 'class="active" aria-current="true"' : null ?> aria-label="Slide <?= $i + 1 ?>"></button>
@@ -102,10 +102,10 @@ use App\Helpers\StringHelper; ?>
                                                 <h3 class="carousel-items-title">
                                                     Galeri Kegiatan Warga
                                                 </h3>
-                                                <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="<?= $galeri['thumbnail'] ?>">
+                                                <img src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="<?= $galeri['thumbnail'] ?>" class="d-block w-100 image-carousels">
                                                 <div class="carousel-caption carousel-captions d-none d-md-block">
                                                     <h5><?= $galeri['judul'] ?></h5>
-                                                    <p>
+                                                    <p class="line-clamp-2">
                                                         <?= $galeri['deskripsi'] ?>
                                                     </p>
                                                 </div>
@@ -116,12 +116,9 @@ use App\Helpers\StringHelper; ?>
                                                 <h3 class="carousel-items-title">
                                                     Informasi Terbaru Warga
                                                 </h3>
-                                                <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="<?= $pengumuman['thumbnail'] ?>">
+                                                <img src="/upload/photos/pengumuman/<?= $pengumuman['thumbnail'] ?>" alt="<?= $pengumuman['thumbnail'] ?>" class="d-block w-100 image-carousels">
                                                 <div class="carousel-caption carousel-captions d-none d-md-block">
                                                     <h5><?= $pengumuman['judul_pengumuman'] ?></h5>
-                                                    <!-- <p> -->
-                                                    <!-- <?= $pengumuman['deskripsi'] ?> -->
-                                                    <!-- </p> -->
                                                 </div>
                                             </div>
                                         <?php endforeach; ?>
