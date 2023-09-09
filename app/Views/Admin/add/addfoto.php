@@ -62,16 +62,14 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>" class="btn btn-danger">Kembali</a>
                                     <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -86,7 +84,7 @@
     $("#exampleValidation").validate({
         validClass: "success",
         rules: {
-            foto: {
+            'foto[]': {
                 required: true,
             },
         },
@@ -97,7 +95,7 @@
             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
         },
         messages: {
-            foto: {
+            'foto[]': {
                 required: '<i class="fas fa-exclamation-circle mr-6 text-sm icon-error"></i>Harap pilih foto',
             },
         }
