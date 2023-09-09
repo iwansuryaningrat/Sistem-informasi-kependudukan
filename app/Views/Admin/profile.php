@@ -181,16 +181,14 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin" class="btn btn-danger">Kembali</a>
                                     <button class="btn btn-info ml-3">Edit</button>
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
