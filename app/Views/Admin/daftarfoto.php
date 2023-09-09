@@ -30,21 +30,23 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="d-flex align-items-center">
+                        <div class="card-head-row">
                             <div>
                                 <h4 class="card-title">Foto dari Galeri <?= $galeri['judul'] ?></h4>
                                 <p class="card-category">
                                     Semua foto dari galeri <?= $galeri['judul'] ?>.
                                 </p>
                             </div>
-                            <a class="d-block ml-auto" href="/admin/addfoto/<?= $galeri['galeri_id'] ?>">
-                                <button class="btn btn-primary btn-round ml-auto">
-                                    <span class="btn-label">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                                    Tambah Foto
-                                </button>
-                            </a>
+                            <div class="card-tools">
+                                <a class="d-block ml-auto" href="/admin/addfoto/<?= $galeri['galeri_id'] ?>">
+                                    <button class="btn btn-primary btn-round ml-auto">
+                                        <span class="btn-label">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                        Tambah Foto
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">

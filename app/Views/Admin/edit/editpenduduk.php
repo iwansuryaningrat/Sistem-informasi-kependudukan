@@ -75,16 +75,14 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin/people" class="btn btn-danger">Kembali</a>
                                     <input class="btn btn-success ml-3" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

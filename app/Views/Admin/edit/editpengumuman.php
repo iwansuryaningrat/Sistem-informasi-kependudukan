@@ -112,9 +112,8 @@
                             <input type="text" class="form-control" id="deskripsi_int" name="deskripsi_int" hidden>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin/pengumuman" class="btn btn-danger">Kembali</a>
                                     <input class="btn btn-success ml-2" type="submit" value="Submit">
                                 </div>

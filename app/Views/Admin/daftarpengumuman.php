@@ -33,16 +33,18 @@ use App\Helpers\DateHelper; ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="d-flex align-items-center">
+                        <div class="card-head-row">
                             <h4 class="card-title">Riwayat Pengumuman</h4>
-                            <a class="d-block ml-auto" href="/admin/addpengumuman">
-                                <button class="btn btn-primary btn-round ml-auto">
-                                    <span class="btn-label">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                                    Tambah Data
-                                </button>
-                            </a>
+                            <div class="card-tools">
+                                <a class="d-block ml-auto" href="/admin/addpengumuman">
+                                    <button class="btn btn-primary btn-round ml-auto">
+                                        <span class="btn-label">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                        Tambah Data
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">

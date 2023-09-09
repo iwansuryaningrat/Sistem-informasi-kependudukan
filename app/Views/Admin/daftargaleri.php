@@ -58,7 +58,7 @@ use App\Helpers\DateHelper; ?>
                     <div class="col-sm-6 col-lg-3">
                         <div class="card position-relative">
                             <div class="p-2">
-                                <img class="card-img-top rounded" src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Product 1">
+                                <img class="card-img-top rounded img-foto" src="/upload/photos/galeri/<?= $galeri['thumbnail'] ?>" alt="Product 1">
                             </div>
                             <div class="card-body pt-2">
                                 <a href="/admin/listFotoGaleri/<?= $galeri['galeri_id'] ?>">

@@ -92,8 +92,8 @@
                             <div class="form-group form-show-validation row">
                                 <label class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Berkas</label>
                                 <div class="col-lg-4 col-md-9 col-sm-8">
-                                    <div class="d-flex">
-                                        <div class="mr-5">
+                                    <div class="d-flex flex-column flex-sm-row">
+                                        <div class="mr-sm-5 mb-3 mb-sm-0">
                                             <figure class="file-pdf-info">
                                                 <img id="previewImageThumbnail" src="/homepage/assets/img/decoration/pdf.png" alt="PDF File">
                                             </figure>
@@ -116,16 +116,14 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin/administrasi" class="btn btn-danger">Kembali</a>
                                     <input class="btn btn-success ml-3" type="submit" value="Submit">
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

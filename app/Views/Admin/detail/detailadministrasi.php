@@ -103,16 +103,14 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="">
                                     <a href="/admin/administrasi" class="btn btn-danger">Kembali</a>
                                     <a href="/admin/editAdministrasi/<?= $dataAdministrasi['administrasi_id'] ?>" class="btn btn-info ml-2">Edit</a>
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
