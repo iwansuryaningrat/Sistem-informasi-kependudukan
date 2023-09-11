@@ -12,19 +12,7 @@ class KeluargaModel extends Model
     protected $returnType       = 'array';
     protected $protectFields    = true;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = [
-        'no_kk',
-        'nama_kepala_keluarga',
-        'alamat',
-        'alamat_asal',
-        'foto_rumah',
-        'tgl_pindah',
-        'status',
-        'isExist',
-        'created_at',
-        'updated_at',
-        'deleted_at'
-    ];
+    protected $allowedFields    = ['no_kk', 'nama_kepala_keluarga', 'alamat', 'alamat_asal', 'foto_rumah', 'tgl_pindah', 'status', 'isExist', 'created_at', 'updated_at', 'deleted_at'];
 
     // Dates
     protected $useTimestamps = true;
