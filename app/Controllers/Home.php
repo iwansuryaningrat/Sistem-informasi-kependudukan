@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\FotoModel;
 use App\Models\GaleriModel;
 use App\Models\PengumumanModel;
+use ZipArchive;
 
 class Home extends BaseController
 {
@@ -16,6 +17,7 @@ class Home extends BaseController
     protected $photoPath = '/upload/photos/galeri/';
     protected $pengumumanPath = '/upload/photos/pengumuman/';
     protected $profilePhotoPath = '/upload/photos/profile/';
+    protected $zipFilePath = '/upload/zip/';
 
     public function __construct()
     {
@@ -72,6 +74,42 @@ class Home extends BaseController
         ];
 
         return view('/users/gallery/gallery-detail', $data);
+    }
+
+    public function downloadGalleryPhotos($id)
+    {
+        $dataFoto = $this->fotoModel->getFotoByGaleriId($id);
+
+        $zipFileName = 'foto_galeri_' . $id . '.zip';
+        $zipFilePath = FCPATH . $this->zipFilePath . $zipFileName; // Update with the appropriate path
+
+        $zip = new ZipArchive();
+        if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
+            foreach ($dataFoto as $foto) {
+                $photoPath = FCPATH . $this->photoPath . $foto['foto'];
+                if (file_exists($photoPath)) {
+                    $zip->addFile($photoPath, $foto['foto']);
+                }
+            }
+            $zip->close();
+
+            // Set appropriate headers for download
+            header('Content-Type: application/zip');
+            header('Content-Disposition: attachment; filename="' . $zipFileName . '"');
+            header('Content-Length: ' . filesize($zipFilePath));
+            header('Pragma: no-cache');
+
+            // Read and output the zip file
+            readfile($zipFilePath);
+
+            // Delete the zip file after sending
+            unlink($zipFilePath);
+
+            exit; // Stop further execution
+        } else {
+            // Handle zip creation error
+            return 'Error creating zip file';
+        }
     }
 
     public function pengumuman()

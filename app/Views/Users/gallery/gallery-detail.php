@@ -178,7 +178,7 @@ use App\Helpers\DateHelper; ?>
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Construct the download URL
-                    var downloadUrl = '<?= site_url("/users/downloadGalleryPhotos/{$dataGaleri['galeri_id']}") ?>';
+                    var downloadUrl = '<?= site_url("/home/downloadGalleryPhotos/{$dataGaleri['galeri_id']}") ?>';
                     window.location.href = downloadUrl;
                 }
             });
