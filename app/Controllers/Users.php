@@ -249,7 +249,7 @@ class Users extends BaseController
         return view('/users/news/announcement', $data);
     }
 
-    public function detailpengumuman($id)
+    public function detailPengumuman($id)
     {
         $pengumuman = $this->pengumumanModel->getPengumuman($id);
         $pengumumanTerbaru = $this->pengumumanModel->getPengumumanTerbaru();

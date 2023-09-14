@@ -43,7 +43,7 @@ class Auth extends BaseController
         return view('auth/login', $data);
     }
 
-    public function loginprocess()
+    public function loginProcess()
     {
         $nik = $this->request->getVar('nik');
         $password = $this->request->getVar('password');
