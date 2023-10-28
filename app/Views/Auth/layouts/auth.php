@@ -125,15 +125,15 @@ use App\Helpers\StringHelper; ?>
                                             </div>
                                         <?php endforeach; ?>
                                         <div class="carousel-item carousel-items">
-                                            <h3 class="carousel-items-title">Lokasi Desa Warga</h3>
+                                            <h3 class="carousel-items-title">Lokasi Kelurahan Bulusan</h3>
                                             <div class="carousel-items-map-content">
                                                 <div class="carousel-items-map">
-                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.6120051633497!2d110.43685551478825!3d-7.054793794904621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708c1d399ff9f9%3A0x2d2033fed8e955dd!2sGedung%20ICT%20Undip!5e0!3m2!1sen!2sid!4v1648699051976!5m2!1sen!2sid" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11199.320348000225!2d110.44728996285835!3d-7.061142737619998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708e9f6146147f%3A0x5027a76e356dc90!2sBulusan%2C%20Kec.%20Tembalang%2C%20Kota%20Semarang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1698484108499!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                                 </div>
                                             </div>
                                             <div class="carousel-caption carousel-captions d-none d-md-block">
                                                 <p>
-                                                    Desa Warga, Kecamatan Warga, Kabupaten Warga, Provinsi Warga, Indonesia
+                                                    RT 04 RT 05 Kelurahan Bulusan, Kecamatan Tembalang, Kota Semarang, Provinsi Jawa Tengah, Indonesia
                                                 </p>
                                             </div>
                                         </div>

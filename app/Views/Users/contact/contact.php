@@ -60,7 +60,7 @@
                     <div class="mb-3">
                         <label class="form-label forms-label mb-3">Temukan Kami</label>
                         <div class="w-100">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.263538415346!2d106.77379174313617!3d-6.228945177716834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f12dc7c404f9%3A0x15fbd758d9852c99!2sJl.%20Raya%20Kby.%20Lama%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1688744261517!5m2!1sid!2sid" width="100" height="270" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 pb-0 mb-0"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11199.320348000225!2d110.44728996285835!3d-7.061142737619998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708e9f6146147f%3A0x5027a76e356dc90!2sBulusan%2C%20Kec.%20Tembalang%2C%20Kota%20Semarang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1698484108499!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <div class="">
@@ -69,8 +69,7 @@
                         <p class="">
                             <i class="fas fa-map-marker-alt text-basic me-2"></i>
                             <span class="text-basic">
-                                Jl. Prof. Soedarto, S.H. Tembalang, Semarang, Jawa Tengah
-                                50275
+                                RT 04 RT 05 Kelurahan Bulusan, Kecamatan Tembalang, Kota Semarang, Provinsi Jawa Tengah, Indonesia
                             </span>
                         </p>
                         <!-- email -->
