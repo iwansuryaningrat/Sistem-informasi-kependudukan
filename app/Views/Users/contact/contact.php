@@ -85,7 +85,7 @@
                         <p class="">
                             <i class="fas fa-phone-alt text-basic me-2"></i>
                             <span>
-                                <a href="tel:+6281234567890" class="text-decoration-none text-basic">+62 812-3456-7890</a>
+                                <a href="tel:+6281316888715" class="text-decoration-none text-basic">+62 813-1688-8715</a>
                             </span>
                         </p>
                     </div>
