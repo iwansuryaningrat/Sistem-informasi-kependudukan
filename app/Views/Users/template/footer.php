@@ -11,8 +11,7 @@
                         </figure>
                     </a>
                     <p class="text-basic">
-                        Selamat datang di Website Warga! Kami adalah platform pengelolaan data keluarga untuk desa.<br />
-                        Jl. Raya Kebayoran Lama Bl A-5/194, DKI Jakarta, Kota Jakarta 12240
+                        RT 04 RT 05 Kelurahan Bulusan, Kecamatan Tembalang, Kota Semarang, Provinsi Jawa Tengah, Indonesia
                     </p>
                     <a class="btn btn-main" role="button" href="<?= ($isLoggedin) ?  '/users/contact' :  '/home/contact'; ?>">
                         Kontak Kami

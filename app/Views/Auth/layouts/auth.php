@@ -151,8 +151,8 @@ use App\Helpers\StringHelper; ?>
         <footer class="small-footer">
             <section class="container">
                 <p class="text-center m-0 text-basic">
-                    @<span id="yearNow"></span> Warga | Warga neque consequatur nemo
-                    fugit voluptatem mollitia minima tempore❤️.
+                    @<span id="yearNow"></span> Warga | Platform Pengelolaan Data Keluarga untuk Desa
+                    Memudahkan pencatatan dan pengelolaan informasi keluarga desa secara efisien❤️.
                 </p>
             </section>
         </footer>
