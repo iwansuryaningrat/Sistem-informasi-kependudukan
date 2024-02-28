@@ -8,7 +8,7 @@
 			<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 				<div>
 					<h2 class="text-white pb-2 fw-bold">Dashboard Admin</h2>
-					<h5 class="text-white op-7 mb-2">Sistem informasi kependudukan RT XX RW XX Kelurahan XXX</h5>
+					<h5 class="text-white op-7 mb-2">Sistem informasi kependudukan RT 04 RT 05 Kelurahan Bulusan, Kecamatan Tembalang, Kota Semarang, Provinsi Jawa Tengah, Indonesia</h5>
 				</div>
 			</div>
 		</div>
